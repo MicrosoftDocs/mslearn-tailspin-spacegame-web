@@ -76,6 +76,16 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
+- template: templates/test.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- task: PublishTestResults@2
+  condition: succeeded()
+  inputs:
+    testRunner: 'NUnit'
+    testResultsFiles: '**/*.trx'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
