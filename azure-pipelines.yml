@@ -1,0 +1,40 @@
+pool:
+  vmImage: 'Ubuntu-16.04'
+  demands:
+    - npm
+
+variables:
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'node-sass $(wwwrootDir)'
+
+- task: gulp@1
+  displayName: 'gulp'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  workingDirectory: $(wwwrootDir)
+  displayName: 'output build info'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+
+- task: PublishBuildArtifacts@1
+  condition: succeeded()
+  displayName: 'Publish Artifact: drop'
