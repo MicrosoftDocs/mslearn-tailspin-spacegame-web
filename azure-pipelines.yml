@@ -83,7 +83,7 @@ steps:
 - task: PublishTestResults@2
   condition: succeeded()
   inputs:
-    testRunner: 'NUnit'
+    testRunner: 'VSTest'
     searchFolder: $(Agent.TempDirectory)
     testResultsFiles: '**/*.trx'
 
