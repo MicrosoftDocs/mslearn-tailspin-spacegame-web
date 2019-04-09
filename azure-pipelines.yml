@@ -1,2 +1,32 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+  demands:
+    - npm
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'node-sass Tailspin.SpaceGame.Web/wwwroot'
+
+- task: gulp@1
+  displayName: 'gulp'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+  displayName: 'output build info'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
