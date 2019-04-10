@@ -5,8 +5,14 @@ pool:
 
 variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '2.1.505'
 
 steps:
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
+
 - task: Npm@1
   displayName: 'npm install'
   inputs:
