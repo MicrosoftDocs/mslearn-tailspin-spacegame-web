@@ -1,6 +1,8 @@
 
 # Contributing
 
+[![Build Status](https://dev.azure.com/Tailspin333/Tailspin%20Build%20First%20Steps/_apis/build/status/jamcneil.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/<ProjectName>/Tailspin%20Build%20First%20Steps/_build/latest?definitionId=1&branchName=master)
+
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.microsoft.com.
