@@ -50,13 +50,6 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
-- task: PublishTestResults@2
-  condition: succeeded()
-  inputs:
-    testRunner: 'NUnit'
-    searchFolder: '$(Agent.TempDirectory)'
-    testResultsFiles: '**/*.trx'
-
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
