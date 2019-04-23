@@ -54,6 +54,7 @@ steps:
   condition: succeeded()
   inputs:
     testRunner: 'NUnit'
+    searchFolder: '$(Agent.TempDirectory)'
     testResultsFiles: '**/*.trx'
 
 - task: DotNetCoreCLI@2
