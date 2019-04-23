@@ -43,19 +43,19 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Install reportgenerator'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install -g dotnet-reportgenerator-globaltool'
+
+- task: DotNetCoreCLI@2
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Install reportgenerator'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install -g dotnet-reportgenerator-globaltool'
 
 - script: |
     reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
