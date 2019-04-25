@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/tpetchel0251/Space%20Game%20-%20web%20-%200417/_apis/build/status/Space%20Game%20-%20web%20-%200417-CI?branchName=master)](https://dev.azure.com/tpetchel0251/Space%20Game%20-%20web%20-%200417/_build/latest?definitionId=10&branchName=code-coverage)
 
 # Contributing
 
