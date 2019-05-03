@@ -25,7 +25,14 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    projects: '**/Tailspin.SpaceGame.Web.csproj' # Change to just the web csproj
+
+# Restore Models package from Azure Artifacts - do we need the workaround?
+# - task: NuGetCommand@2
+#   displayName: 'Authenticate nuget feed'
+#   inputs:
+#     command: custom
+#     arguments: sources update -Name "<feed-name>" -Username "vsts" -Password "$(System.AccessToken)" -StorePasswordInClearText -ConfigFile ./NuGet.Config
 
 - template: templates/build-config.yml
   parameters:

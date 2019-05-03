@@ -1,0 +1,79 @@
+pool:
+  vmImage: 'Ubuntu-16.04'
+  demands:
+    - npm
+
+variables:
+  Major: '0'
+  Minor: '1'
+  Patch: '0'
+
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/Tailspin.SpaceGame.Web.Models.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project' 
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/Tailspin.SpaceGame.Web.Models.csproj'
+
+# 0.1.0 - what is in the csproj
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '**/Tailspin.SpaceGame.Web.Models.csproj'
+    condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], 'PullRequest'),
+        eq(variables['System.PullRequest.TargetBranch'], 'master')
+      )
+
+# 0.1.0-20190503
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '**/Tailspin.SpaceGame.Web.Models.csproj'
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
+    condition: |
+      and
+      (
+        succeeded(),
+        ne(variables['Build.Reason'], 'PullRequest'),
+        ne(variables['System.PullRequest.TargetBranch'], 'master')
+      )
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push to Azure Artifacts'
+  inputs:
+    command: push
+    publishVstsFeed: 'SpaceGameFeed'
+    allowPackageConflicts: true
+
+# I have the build making a .nupkg - should we have a task here instead?
+# variables:
+#   Major: '1'
+#   Minor: '0'
+#   Patch: '0'
+
+# - task: NuGetCommand@2
+#   inputs:
+#     command: pack
+#     versioningScheme: byPrereleaseNumber
+#     majorVersion: '$(Major)'
+#     minorVersion: '$(Minor)'
+#     patchVersion: '$(Patch)'
+
+
+# - task: NuGetCommand@2
+#   inputs:
+#     command: pack
+#     packagesToPack: '**/Tailspin.SpaceGame.Web.Models.csproj'
