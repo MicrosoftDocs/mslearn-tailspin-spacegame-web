@@ -37,7 +37,7 @@ steps:
     arguments: '--no-restore --configuration Release'
     
     projects: 
-    '**/*.csproj'
+             '**/*.csproj'
 
 
 
@@ -46,7 +46,7 @@ steps:
   inputs:
     command: 'publish'
     projects: 
-    '**/*.csproj'
+             '**/*.csproj'
     publishWebProjects: false
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
