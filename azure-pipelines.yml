@@ -29,7 +29,7 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-
+# NEW COMMENT
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
