@@ -82,11 +82,11 @@ stages:
         buildType: 'current'
         downloadType: 'single'
         artifactName: 'drop'
-        downloadPath: '$(build.artifactstagingdirectory)'
+        downloadPath: '$(Build.ArtifactStagingDirectory)/Release'
     - task: AzureRmWebAppDeployment@4   
       displayName: 'Azure App Service Deploy: website'
       inputs:     
         azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
-        appType: 'Web App on Linux'    
+        appType: 'webAppLinux'    
         WebAppName: 'TailspinAsTest'     
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll' 
