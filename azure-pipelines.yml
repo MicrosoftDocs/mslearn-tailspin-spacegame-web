@@ -52,7 +52,7 @@ stages:
         command: 'publish'
         projects: '**/*.csproj'
         publishWebProjects: false
-        arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+        arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)'
         zipAfterPublish: true
 
     - task: PublishBuildArtifacts@1
@@ -90,5 +90,5 @@ stages:
         appType: 'webAppLinux'    
         WebAppName: 'TailspinAsTest'     
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        # Package: $(System.ArtifactsDirectory)/**/*.zip 
-        Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+        Package: $(System.ArtifactsDirectory)/**/*.zip 
+        # Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
