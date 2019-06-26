@@ -69,7 +69,7 @@ stages:
   displayName: 'Deploy Testing Stage'
   dependsOn: Build
   jobs:
-    -job: DeployTest
+  - job: DeployTest
     displayName: 'Deploy test job'
     conditionOnError: "true"
     pool:
