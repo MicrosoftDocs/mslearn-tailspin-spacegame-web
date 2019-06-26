@@ -1,3 +1,6 @@
+trigger:
+- master
+
 stages:
 - stage: 'Build'
   displayName: 'Build Stage'
@@ -71,7 +74,6 @@ stages:
   jobs:
   - job: DeployTest
     displayName: 'Deploy test job'
-    conditionOnError: "true"
     pool:
       vmImage: 'Ubuntu-16.04'
     steps: 
