@@ -1,7 +1,7 @@
 stages:
 - stage: 'Build'
   displayName: 'Build Stage'
-jobs: 
+  jobs: 
   - job: Build
     displayName: 'Build job'
     pool:
