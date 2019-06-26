@@ -90,4 +90,5 @@ stages:
         appType: 'webAppLinux'    
         WebAppName: 'TailspinAsTest'     
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        Package: $(System.ArtifactsDirectory)/**/**/*.zip 
+        # Package: $(System.ArtifactsDirectory)/**/*.zip 
+        Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
