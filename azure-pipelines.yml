@@ -1,3 +1,6 @@
+stages:
+- stage: 'Build the web site and publish artifact'
+
 pool:
   vmImage: 'Ubuntu-16.04'
   demands:
@@ -49,3 +52,23 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+# - stage: 'Deploy to an Azure AppService'
+#   steps: 
+# - task: AzureRmWebAppDeployment@4   
+#   displayName: 'Deploy Azure App Service'
+#   inputs:     
+#     azureSubscription: '$(Parameters.ConnectedServiceName)'     
+#     appType: '$(Parameters.WebAppKind)'    
+#     WebAppName: '$(Parameters.WebAppName)'     
+#     StartupCommand: '$(Parameters.StartupCommand)' 
+
+- stage: 'Deploy to an Azure AppService'
+  steps: 
+- task: AzureRmWebAppDeployment@4   
+  displayName: 'Deploy Azure App Service'
+  inputs:     
+    azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
+    appType: 'Web App on Linux'    
+    WebAppName: 'TailspinAsTest'     
+    StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll' 
