@@ -65,26 +65,26 @@ stages:
 #     WebAppName: '$(Parameters.WebAppName)'     
 #     StartupCommand: '$(Parameters.StartupCommand)' 
 
-  - stage: 'Deploy'
-    displayName: 'Deploy Testing Stage'
-    dependsOn: Build
-    jobs:
-      -job: DeployTest
-      displayName: 'Deploy test job'
-      conditionOnError: "true"
-      pool:
-        vmImage: 'Ubuntu-16.04'
-      steps: 
-      - task: DownloadBuildArtifact@0
-        inputs:
-          buildType: 'current'
-          downloadType: 'single'
-          artifactName: 'drop'
-          downloadPath: '$(build.artifactstagingdirectory)'
-      - task: AzureRmWebAppDeployment@4   
-        displayName: 'Azure App Service Deploy: website'
-        inputs:     
-          azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
-          appType: 'Web App on Linux'    
-          WebAppName: 'TailspinAsTest'     
-          StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll' 
+- stage: 'Deploy'
+  displayName: 'Deploy Testing Stage'
+  dependsOn: Build
+  jobs:
+    -job: DeployTest
+    displayName: 'Deploy test job'
+    conditionOnError: "true"
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    steps: 
+    - task: DownloadBuildArtifact@0
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'drop'
+        downloadPath: '$(build.artifactstagingdirectory)'
+    - task: AzureRmWebAppDeployment@4   
+      displayName: 'Azure App Service Deploy: website'
+      inputs:     
+        azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
+        appType: 'Web App on Linux'    
+        WebAppName: 'TailspinAsTest'     
+        StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll' 
