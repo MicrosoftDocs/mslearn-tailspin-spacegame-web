@@ -58,6 +58,9 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       condition: succeeded()
+      inputs:
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
 # - stage: 'Deploy to an Azure AppService'
 #   steps: 
 # - task: AzureRmWebAppDeployment@4   
@@ -85,10 +88,10 @@ stages:
     #     downloadPath: '$(Build.ArtifactStagingDirectory)/Release'
     - task: AzureRmWebAppDeployment@4   
       displayName: 'Azure App Service Deploy: website'
-      inputs:     
+      inputs:
         azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
-        appType: 'webAppLinux'    
-        WebAppName: 'TailspinAsTest'     
+        appType: 'webAppLinux'
+        WebAppName: 'TailspinAsTest'
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        Package: $(System.ArtifactsDirectory)/**/*.zip 
+        Package: $(System.ArtifactsDirectory)/**/*.zip
         # Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
