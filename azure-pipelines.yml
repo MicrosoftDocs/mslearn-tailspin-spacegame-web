@@ -77,12 +77,12 @@ stages:
     pool:
       vmImage: 'Ubuntu-16.04'
     steps: 
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(Build.ArtifactStagingDirectory)/Release'
+    # - task: DownloadBuildArtifacts@0
+    #   inputs:
+    #     buildType: 'current'
+    #     downloadType: 'single'
+    #     artifactName: 'drop'
+    #     downloadPath: '$(Build.ArtifactStagingDirectory)/Release'
     - task: AzureRmWebAppDeployment@4   
       displayName: 'Azure App Service Deploy: website'
       inputs:     
