@@ -60,6 +60,7 @@ stages:
       condition: succeeded()
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
 
 # - stage: 'Deploy to an Azure AppService'
 #   steps: 
@@ -85,7 +86,7 @@ stages:
     #     buildType: 'current'
     #     downloadType: 'single'
     #     artifactName: 'drop'
-    #     downloadPath: '$(Build.ArtifactStagingDirectory)/Release'
+    #     downloadPath: '$(Build.ArtifactStagingDirectory)'
     - task: AzureRmWebAppDeployment@4   
       displayName: 'Azure App Service Deploy: website'
       inputs:
