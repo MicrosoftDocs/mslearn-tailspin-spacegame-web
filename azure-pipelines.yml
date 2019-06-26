@@ -77,7 +77,7 @@ stages:
     pool:
       vmImage: 'Ubuntu-16.04'
     steps: 
-    - task: DownloadBuildArtifact@0
+    - task: DownloadBuildArtifacts@0
       inputs:
         buildType: 'current'
         downloadType: 'single'
