@@ -90,7 +90,7 @@ stages:
     - task: AzureRmWebAppDeployment@4   
       displayName: 'Azure App Service Deploy: website'
       inputs:
-        azureSubscription: 'Visual Studio Enterprise (de53e040-65b5-4cee-bab9-5505db93125a)'     
+        azureSubscription: 'ConnectToAppService'     
         appType: 'webAppLinux'
         WebAppName: 'TailspinAsTest'
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
