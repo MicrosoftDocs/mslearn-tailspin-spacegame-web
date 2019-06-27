@@ -1,3 +1,4 @@
+[![Build Status](https://soratus.visualstudio.com/Space%20Game%20web%20pipeline/_apis/build/status/Marcel-Soratus.mslearn-tailspin-spacegame-web?branchName=master)](https://soratus.visualstudio.com/Space%20Game%20web%20pipeline/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
