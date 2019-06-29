@@ -1,4 +1,6 @@
 
+[![Build Status](https://kbranch80.visualstudio.com/Space%20Game%20-%20web/_apis/build/status/kabatlantafan7.mslearn-tailspin-spacegame-web?branchName=master)](https://kbranch80.visualstudio.com/Space%20Game%20-%20web/_build/latest?definitionId=9&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
