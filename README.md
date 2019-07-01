@@ -1,4 +1,8 @@
 
+<!-- Merge all the YAML from the learning module -->
+
+[![Build Status](https://bryandady.visualstudio.com/Azure%20Pipeline%20Learning/_apis/build/status/bcdady.mslearn-tailspin-spacegame-web?branchName=master)](https://bryandady.visualstudio.com/Azure%20Pipeline%20Learning/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
