@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Tailspin20190628/Space%20Game%20-%20web/_apis/build/status/fuxiaotao2012.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin20190628/Space%20Game%20-%20web/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
