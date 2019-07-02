@@ -62,16 +62,6 @@ stages:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
 
-# - stage: 'Deploy to an Azure AppService'
-#   steps: 
-# - task: AzureRmWebAppDeployment@4   
-#   displayName: 'Deploy Azure App Service'
-#   inputs:     
-#     azureSubscription: '$(Parameters.ConnectedServiceName)'     
-#     appType: '$(Parameters.WebAppKind)'    
-#     WebAppName: '$(Parameters.WebAppName)'     
-#     StartupCommand: '$(Parameters.StartupCommand)' 
-
 - stage: 'Deploy'
   displayName: 'Deploy Testing Stage'
   dependsOn: Build
