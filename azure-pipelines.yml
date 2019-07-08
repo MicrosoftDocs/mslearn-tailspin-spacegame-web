@@ -82,7 +82,7 @@ stages:
       inputs:
         azureSubscription: 'ConnectToAppService'     
         appType: 'webAppLinux'
-        WebAppName: 'Tailspin3333'
+        WebAppName: 'TailspinSpaceGame1234'
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
         Package: $(System.ArtifactsDirectory)/**/*.zip
         # Package: '$(System.DefaultWorkingDirectory)/**/*.zip'
