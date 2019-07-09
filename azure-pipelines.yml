@@ -36,4 +36,4 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'git add azure-pipelines.yml
+    projects: '**/*.csproj'
