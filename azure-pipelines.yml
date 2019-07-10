@@ -2,7 +2,6 @@ pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
-    - cocoapods
 
 steps:
 - task: DotNetCoreInstaller@0
