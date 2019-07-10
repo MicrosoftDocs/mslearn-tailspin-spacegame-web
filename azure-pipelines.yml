@@ -1,9 +1,4 @@
 pool:
-  vmimage: 'Ubuntu-16.04'
-  demands:
-    - npm
-
-pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
