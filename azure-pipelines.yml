@@ -9,6 +9,7 @@ variables:
   dotnetSdkVersion: '2.1.505'
 
 steps:
+<<<<<<< HEAD
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
@@ -46,3 +47,9 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+=======
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+
+
+>>>>>>> master
