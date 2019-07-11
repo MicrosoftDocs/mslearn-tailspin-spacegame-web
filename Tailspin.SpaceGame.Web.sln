@@ -4,14 +4,15 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tailspin.SpaceGame.Web", "Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj", "{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{6A5E9ECE-D537-4CE3-8A68-3C809A2F817C}"
-	ProjectSection(SolutionItems) = preProject
-		build.yml = build.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D15544CD-18C2-45F8-94C5-EC9D27A188D4}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
+		templates\build.yml = templates\build.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{04C4AE40-BD7E-4D93-8D83-E4D6CCE6573C}"
+	ProjectSection(SolutionItems) = preProject
+		templates\build.yml = templates\build.yml
 	EndProjectSection
 EndProject
 Global
@@ -27,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04C4AE40-BD7E-4D93-8D83-E4D6CCE6573C} = {D15544CD-18C2-45F8-94C5-EC9D27A188D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4DCED9B2-E487-4292-AC55-735AE2483C27}
