@@ -1,10 +1,17 @@
 Run npm install to install the Node.js packages defined in package.json.
+
 Run node-sass to convert Sass (.scss) files to CSS (.css) files.
+
 Run gulp to minify JavaScript and CSS files.
+
 Print build info to the wwwroot directory to help the QA team identify the build number and date.
+
 Run dotnet restore to install the project's dependencies.
+
 Run dotnet build to build the app under both Debug and Release configurations.
-Run dotnet publish to package the application as a .zip file and copy the results to a network share for the QA team to pick up.
+
+Run dotnet publish to package the application as a .zip file and copy the results to a network 
+share for the QA team to pick up.
 
 #!/bin/bash
 
