@@ -1,9 +1,7 @@
 pool:
   vmImage: 'Ubuntu-16.04'
-  pool:
   demands:
     - npm
-
 steps:
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK 2.1.505'
@@ -38,7 +36,7 @@ steps:
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
 
-  task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
