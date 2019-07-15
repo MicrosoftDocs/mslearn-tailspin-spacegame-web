@@ -1,3 +1,4 @@
+[![Build Status](https://boobun.visualstudio.com/Space%20Game%20-%20Web/_apis/build/status/AshishBoobun.mslearn-tailspin-spacegame-web?branchName=master)](https://boobun.visualstudio.com/Space%20Game%20-%20Web/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
