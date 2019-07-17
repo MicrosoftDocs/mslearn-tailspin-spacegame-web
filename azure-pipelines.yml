@@ -174,12 +174,13 @@ stages:
     pool:
       vmImage: 'Ubuntu-16.04'
     steps: 
- #Swap slots - wrong slots for now. just testing. Then might use swapWithProduction: true
-  - task: AzureAppServiceManage@0
-    displayName: Swap Slot Prod
-    inputs:
-      azureSubscription: 'SandboxFake'
-      WebAppName: 'TailspinGame13053'
-      ResourceGroupName: 'TailspinResourceGroup'
-      SourceSlot: 'Dev'
-      slot: 'Staging'
+
+#  Swap slots - wrong slots for now. just testing. Then might use swapWithProduction: true
+    - task: AzureAppServiceManage@0
+      displayName: Swap Slot Prod
+      inputs:
+        azureSubscription: 'SandboxFake'
+        WebAppName: 'TailspinGame13053'
+        ResourceGroupName: 'TailspinResourceGroup'
+        SourceSlot: 'Dev'
+        slot: 'Staging'
