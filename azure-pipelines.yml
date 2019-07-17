@@ -166,7 +166,7 @@ stages:
 - stage: 'SwapStaging'
   displayName: 'Swap staging to production'
   dependsOn: 'DeployDev'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
+  condition: succeeded()
   jobs:
 
   - job: SwapStaging
