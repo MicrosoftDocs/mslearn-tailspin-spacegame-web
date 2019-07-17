@@ -26,7 +26,7 @@ section {
     width: 20rem;
     margin-top: 2rem; }
   .intro p {
-    color: yellow;
+    color: white;
     font-weight: 600;
     font-size: 1.6rem;
     text-shadow: 0 0 2px black;
@@ -43,7 +43,8 @@ section {
 .download .btn {
   margin-top: 5rem;
   border: 3px solid black;
-  font-weight: bold; }
+  font-weight: bold; 
+  color: green;}
 
 .screens {
   background: #666; }
