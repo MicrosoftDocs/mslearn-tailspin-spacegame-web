@@ -8,7 +8,7 @@ namespace TailSpin.SpaceGame.Web.Models
         [JsonProperty(PropertyName = "profileId")]
         public string ProfileId { get; set; }
 
-        // The score value.
+        // The score value....
         [JsonProperty(PropertyName = "score")]
         public int HighScore { get; set; }
 
