@@ -92,7 +92,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       displayName: 'Azure App Service Deploy: website'
       inputs:
-        azureSubscription: 'Sandbox'
+        azureSubscription: 'SandboxFake'
         DeployToSlotOrASEFlag: true
         ResourceGroupName: TailspinResourceGroup
         SlotName: Dev
@@ -123,7 +123,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       displayName: 'Azure App Service Deploy: website'
       inputs:
-        azureSubscription: 'Sandbox'
+        azureSubscription: 'SandboxFake'
         DeployToSlotOrASEFlag: true
         ResourceGroupName: TailspinResourceGroup
         SlotName: Test
@@ -154,7 +154,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       displayName: 'Azure App Service Deploy: website'
       inputs:
-        azureSubscription: 'Sandbox'
+        azureSubscription: 'SandboxFake'
         DeployToSlotOrASEFlag: true
         ResourceGroupName: TailspinResourceGroup
         SlotName: Staging
