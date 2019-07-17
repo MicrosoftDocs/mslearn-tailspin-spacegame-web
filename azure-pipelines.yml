@@ -162,3 +162,24 @@ stages:
         WebAppName: 'TailspinGame13053'
         StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
         Package: $(System.ArtifactsDirectory)/**/*.zip
+
+- stage: 'SwapStaging'
+  displayName: 'Swap staging to production'
+  dependsOn: 'DeployDev'
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
+  jobs:
+
+  - job: SwapStaging
+    displayName: 'Swap staging job'
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    steps: 
+ #Swap slots - wrong slots for now. just testing. Then might use swapWithProduction: true
+  - task: AzureAppServiceManage@0
+    displayName: Swap Slot Prod
+    inputs:
+      azureSubscription: 'SandboxFake'
+      WebAppName: 'TailspinGame13053'
+      ResourceGroupName: 'TailspinResourceGroup'
+      SourceSlot: 'Dev'
+      slot: 'Staging'
