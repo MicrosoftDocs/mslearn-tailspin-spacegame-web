@@ -42,7 +42,7 @@ section {
 
 .download .btn {
   margin-top: 5rem;
-  border: 3px solid blueviolet;
+  border: 3px solid black;
   font-weight: bold; }
 
 .screens {
@@ -118,7 +118,7 @@ section {
   width: 2rem;
   height: 2rem;
   overflow: hidden;
-  background: gray;
+  background: magenta;
   border-radius: 99px;
   display: inline-block;
   margin-right: .5rem; }
