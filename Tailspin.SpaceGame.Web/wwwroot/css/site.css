@@ -42,9 +42,8 @@ section {
 
 .download .btn {
   margin-top: 5rem;
-  border: 3px solid black;
-  font-weight: bold; 
-  color: green;}
+  border: 3px solid blueviolet;
+  font-weight: bold; }
 
 .screens {
   background: #666; }

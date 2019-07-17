@@ -183,4 +183,5 @@ stages:
         WebAppName: 'TailspinGame13053'
         ResourceGroupName: 'TailspinResourceGroup'
         SourceSlot: 'Dev'
+        specifySlotOrASE: true
         slot: 'Staging'
