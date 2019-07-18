@@ -2,6 +2,14 @@ pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
+trigger:
+  branches: 
+    include:
+    - '*''     #build all branches
+  paths:
+    exclude: 
+    - docs/*  #exclude docs
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
