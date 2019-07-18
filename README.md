@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Tailspin1010/SpaceGame/_apis/build/status/chrisrharris.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin1010/SpaceGame/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
