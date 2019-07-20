@@ -1,3 +1,4 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=space-game-web-1306&metric=alert_status)](https://sonarcloud.io/dashboard?id=space-game-web-1306)
 [![Build Status](https://dev.azure.com/krivchenko1306work/testAzureDevOps/_apis/build/status/Igor1306.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/krivchenko1306work/testAzureDevOps/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
