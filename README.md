@@ -1,4 +1,6 @@
 
+[![Build Status](https://stevefargher.visualstudio.com/SpaceGame%20-%20Web%20-%20Pipeline/_apis/build/status/frostmotorsport.mslearn-tailspin-spacegame-web?branchName=master)](https://stevefargher.visualstudio.com/SpaceGame%20-%20Web%20-%20Pipeline/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
