@@ -1,0 +1,13 @@
+﻿pool:
+  vmImage: 'Ubuntu-16.04'
+
+using System;
+namespace myApp
+{
+	public class azure_pipelines
+	{
+		public azure_pipelines()
+		{
+		}
+	}
+}
