@@ -50,6 +50,8 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
+- task: SonarCloudAnalyze@1
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
