@@ -50,6 +50,14 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SpaceGame - SonarCloud SVC_C'
+    organization: 'frostmotorsport'
+    scannerMode: 'MSBuild'
+    projectKey: 'frostmotorsport_mslearn-tailspin-spacegame-web'
+    projectName: 'mslearn-tailspin-spacegame-web'
+    
 - task: SonarCloudAnalyze@1
 
 - task: DotNetCoreCLI@2
