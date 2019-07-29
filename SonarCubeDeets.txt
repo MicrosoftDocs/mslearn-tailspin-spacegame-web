@@ -1,0 +1,28 @@
+
+
+
+Sonar Key = frostmotorsport_mslearn-tailspin-spacegame-web
+Token = f80b4639feab79f0ae396e06dc31899910975c2a
+
+
+MSYS2_ARG_CONV_EXCL="*"dotnet/tools/dotnet-sonarscanner begin \
+  /k:"$SONAR_KEY" \
+  /d:sonar.host.url="https://sonarcloud.io" \
+  /d:sonar.login="$SONAR_TOKEN" \
+  /d:sonar.cs.opencover.reportsPaths="./Tailspin.SpaceGame.Web.Tests/TestResults/Coverage/coverage.opencover.xml" \
+  /d:sonar.exclusions="**/wwwroot/lib/**/*" \
+  /o:"$SONAR_ORGANIZATION"
+
+
+$SONAR_ORGANIZATION
+$SONAR_KEY
+$SONAR_TOKEN
+
+
+
+MSYS2_ARG_CONV_EXCL="*" /c/Users/stevef/.dotnet/tools/dotnet-sonarscanner begin   /k:"$SONAR_KEY"   /d:sonar.host.url="https://sonarcloud.io"   /d:sonar.login="$SONAR_TOKEN"   /d:sonar.cs.opencover.reportsPaths="./Tailspin.SpaceGame.Web.Tests/TestResults/Coverage/coverage.opencover.xml"   /d:sonar.exclusions="**/wwwroot/lib/**/*"   /o:"$SONAR_ORGANIZATION"
+
+ dotnet build --no-incremental --configuration Release
+MSYS2_ARG_CONV_EXCL="*" dotnet test --no-build   --configuration Release   /p:CollectCoverage=true   /p:CoverletOutputFormat="cobertura%2copencover"   /p:CoverletOutput=./TestResults/Coverage/
+
+MSYS2_ARG_CONV_EXCL="*" dotnet-sonarscanner end /d:sonar.login="$SONAR_TOKEN"
