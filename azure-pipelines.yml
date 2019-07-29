@@ -1,2 +1,6 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
