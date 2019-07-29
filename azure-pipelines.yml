@@ -3,7 +3,7 @@ pool:
   demands:
     - npm
     
-    variables:
+variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.505'
