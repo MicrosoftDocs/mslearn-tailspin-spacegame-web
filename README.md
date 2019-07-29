@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/sisweb19/Space%20Game%20-%20web/_apis/build/status/JesCan.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/sisweb19/Space%20Game%20-%20web/_build/latest?definitionId=4&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
