@@ -31,6 +31,7 @@ steps:
     projects: '**/*.csproj'
 
 
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
