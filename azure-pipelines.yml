@@ -7,6 +7,9 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.505'
+  organization: 'frostmotorsport'
+  projectKey: 'frostmotorsport_mslearn-tailspin-spacegame-web'
+  ProjectName: 'SpaceGame - Web - Pipeline'
 
 steps:
 - task: DotNetCoreInstaller@0
