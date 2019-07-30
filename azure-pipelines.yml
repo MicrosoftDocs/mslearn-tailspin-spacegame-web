@@ -41,7 +41,7 @@ steps:
     SonarCloud: 'SpaceGame - SonarCloud SVC_C'
     organization: '$(organization)'
     projectKey: '$(projectKey)'
-    projectName: '$(projectName)'
+    projectName: 'SpaceGame - Web - Pipeline'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
