@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/boyswabe/Space%20Game%20part%202/_apis/build/status/Space%20Game%20part%202/Space%20Game%20part%202%20CI?branchName=master)](https://dev.azure.com/boyswabe/Space%20Game%20part%202/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
