@@ -9,7 +9,7 @@ variables:
   dotnetSdkVersion: '2.1.505'
   organization: 'frostmotorsport'
   projectKey: 'frostmotorsport_mslearn-tailspin-spacegame-web'
-  ProjectName: 'SpaceGame - Web - Pipeline'
+  ProjectName: 'mslearn-tailspin-spacegame-web'
 
 steps:
 - task: DotNetCoreInstaller@0
@@ -44,7 +44,7 @@ steps:
     SonarCloud: 'SpaceGame - SonarCloud SVC_C'
     organization: '$(organization)'
     projectKey: '$(projectKey)'
-    projectName: 'SpaceGame - Web - Pipeline'
+    projectName: '$(ProjectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
