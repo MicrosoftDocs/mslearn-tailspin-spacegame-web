@@ -1,8 +1,8 @@
 parameters:
-    buildConfiguration: 'Release'
+  buildConfiguration: 'Release'
 
 steps:
--task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'build'
