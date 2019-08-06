@@ -39,7 +39,7 @@ steps:
   displayName: 'Prepare SonarCloud analysis'
   inputs:
     SonarCloud: 'Sonar Cloud Connection 1'
-    organization: '$(organization)'
+    organization: 'cesec321'
     projectKey: '$(projectKey)'
     projectName: '$(projectName)'
     projectVesion: '$(Build.BuildNumber)'
@@ -99,7 +99,7 @@ steps:
         eq(variables['Build.Reason'], 'PullRequest'),
         eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
-    
+
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
