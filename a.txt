@@ -1,0 +1,1 @@
+azcopy cp "C:\Users\User\2019-08-02_HYP_RET_ACT_PER.xlsx" "https://etlsapbackup.blob.core.chinacloudapi.cn/weekly/201.xlsx?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2119-08-01T18:28:28Z&st=2019-08-02T10:28:28Z&spr=https&sig=TGLJFTfe6Wp85fFN2Th6JDA9%2FVGOOw7YYDOBQ7rPjI8%3D"
