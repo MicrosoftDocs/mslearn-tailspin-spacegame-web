@@ -1,4 +1,4 @@
-
+[![Build Status](https://trondelag.visualstudio.com/Cloud%20integrations/_apis/build/status/SvarUtConnector%20-%20CI?branchName=master)](https://trondelag.visualstudio.com/Cloud%20integrations/_build/latest?definitionId=2&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
