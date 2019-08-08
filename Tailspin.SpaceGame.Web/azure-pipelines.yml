@@ -1,5 +1,4 @@
-azure-pipelines.yml
-  pool:
+pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
@@ -37,3 +36,4 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+
