@@ -1,0 +1,42 @@
+
+_TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.LocalDocumentDBRepository(System.IO.Stream)k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (("0*‹	
+0¦£
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< (T
+%0System.IO.StreamReader"System.IO.StreamReaderñ
+î
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs@ (L
+
+%1void"5System.IO.StreamReader.StreamReader(System.IO.Stream)*
+
+%0System.IO.StreamReader*
+
+streamSystem.IO.StreamÏÌ
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< (`
+%2string""System.IO.StreamReader.ReadToEnd()*
+
+%0System.IO.StreamReader2ReadToEnd()…
+‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (a(
+%3"System.Collections.Generic.List<T>"8Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string)*"
+Newtonsoft.Json.JsonConvert*
+
+%2string‰
+†
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (ae5
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>",
+_items"System.Collections.Generic.List<T>"__id**
+(
+%3"System.Collections.Generic.List<T>*
+1*ˆ
+1"‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (	
+implicit return:
+streamSystem.IO.StreamB75
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>

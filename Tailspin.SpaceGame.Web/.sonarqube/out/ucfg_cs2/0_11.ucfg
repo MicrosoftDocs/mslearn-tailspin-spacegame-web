@@ -1,0 +1,56 @@
+
+}TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.CountItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csN N(("0*¥
+0‰
+†
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csP P((
+%0"System.Collections.Generic.List<T>"__id*g*e5
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>",
+_items"System.Collections.Generic.List<T>·
+´
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csP P(,
+%1System.Linq.IQueryable<T>"]System.Linq.Queryable.AsQueryable<TElement>(System.Collections.Generic.IEnumerable<TElement>)*"
+System.Linq.Queryable**
+(
+%0"System.Collections.Generic.List<T>š
+—
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csP Q(&
+%2System.Linq.IQueryable<T>"…System.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>*A
+?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>€
+ý
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csP R(	
+%3int"ESystem.Linq.Queryable.Count<TSource>(System.Linq.IQueryable<TSource>)*"
+System.Linq.Queryable*!
+
+%2System.Linq.IQueryable<T>‘
+Ž
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csP R(
+countint"__id*
+	
+%3int‡
+„
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csT T(.*
+%4$System.Threading.Tasks.Task<TResult>"8System.Threading.Tasks.Task.FromResult<TResult>(TResult)*"
+System.Threading.Tasks.Task*
+
+countint"›
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csT T(/,
+*
+%4$System.Threading.Tasks.Task<TResult>*ˆ
+1"‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csU U(	
+implicit return:?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>B75
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>

@@ -1,0 +1,7 @@
+organization=trondelagfylke
+projectKey=eyerus-space-game-web
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.184
+dashboardUrl=https://sonarcloud.io/dashboard?id=eyerus-space-game-web
+ceTaskId=AWx1l1IFhvfIjRvd_s7j
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWx1l1IFhvfIjRvd_s7j

@@ -1,0 +1,7 @@
+œ
+1TailSpin.SpaceGame.Web.Controllers.HomeController#Microsoft.AspNetCore.Mvc.Controller'Microsoft.AspNetCore.Mvc.ControllerBaseobject¤
+¶HomeController(TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Score>, TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Profile>)èTailSpin.SpaceGame.Web.Controllers.HomeController.HomeController(TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Score>, TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Profile>)t
+Index(int, int, string, string)QTailSpin.SpaceGame.Web.Controllers.HomeController.Index(int, int, string, string)d
+Profile(string, string)ITailSpin.SpaceGame.Web.Controllers.HomeController.Profile(string, string)H
+	Privacy();TailSpin.SpaceGame.Web.Controllers.HomeController.Privacy()D
+Error()9TailSpin.SpaceGame.Web.Controllers.HomeController.Error()

@@ -1,0 +1,32 @@
+
+UTailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.LocalDocumentDBRepository(string)k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (("0*ë
+0Ì
+É
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< (V
+%0string""System.IO.File.ReadAllText(string)*"
+System.IO.File*
+
+fileNamestring…
+‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (W(
+%1"System.Collections.Generic.List<T>"8Newtonsoft.Json.JsonConvert.DeserializeObject<T>(string)*"
+Newtonsoft.Json.JsonConvert*
+
+%0string‰
+†
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (We5
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>",
+_items"System.Collections.Generic.List<T>"__id**
+(
+%1"System.Collections.Generic.List<T>*
+1*ˆ
+1"‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs (	
+implicit return:
+fileNamestringB75
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>

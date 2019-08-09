@@ -1,0 +1,35 @@
+
+HTailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.GetItemAsync(string)k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs% %(#"0*ó
+0‰
+†
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs'& '(,(
+%0"System.Collections.Generic.List<T>"__id*g*e5
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>",
+_items"System.Collections.Generic.List<T>¾
+»
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs'& '(J
+%1T"sSystem.Linq.Enumerable.Single<TSource>(System.Collections.Generic.IEnumerable<TSource>, System.Func<TSource, bool>)*"
+System.Linq.Enumerable**
+(
+%0"System.Collections.Generic.List<T>*
+""‚
+ÿ
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs' '(K*
+%2$System.Threading.Tasks.Task<TResult>"8System.Threading.Tasks.Task.FromResult<TResult>(TResult)*"
+System.Threading.Tasks.Task*	
+
+%1T"›
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs' '(L,
+*
+%2$System.Threading.Tasks.Task<TResult>*ˆ
+1"‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs( ((	
+implicit return:
+idstringB75
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>

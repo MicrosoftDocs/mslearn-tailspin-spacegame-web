@@ -1,0 +1,14 @@
+¡
+AspNetCore.Views_Home_Profile0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject>
+ExecuteAsync(),AspNetCore.Views_Home_Profile.ExecuteAsync()J
+Views_Home_Profile()2AspNetCore.Views_Home_Profile.Views_Home_Profile()X
+ModelExpressionProvider.get9AspNetCore.Views_Home_Profile.ModelExpressionProvider.getX
+ModelExpressionProvider.set9AspNetCore.Views_Home_Profile.ModelExpressionProvider.set0
+Url.get%AspNetCore.Views_Home_Profile.Url.get0
+Url.set%AspNetCore.Views_Home_Profile.Url.set<
+Component.get+AspNetCore.Views_Home_Profile.Component.get<
+Component.set+AspNetCore.Views_Home_Profile.Component.set2
+Json.get&AspNetCore.Views_Home_Profile.Json.get2
+Json.set&AspNetCore.Views_Home_Profile.Json.set2
+Html.get&AspNetCore.Views_Home_Profile.Html.get2
+Html.set&AspNetCore.Views_Home_Profile.Html.set

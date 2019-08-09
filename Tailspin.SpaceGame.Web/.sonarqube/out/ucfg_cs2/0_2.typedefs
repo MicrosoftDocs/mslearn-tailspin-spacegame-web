@@ -1,0 +1,14 @@
+¡
+AspNetCore.Views_Home_Privacy0Microsoft.AspNetCore.Mvc.Razor.RazorPage<TModel>(Microsoft.AspNetCore.Mvc.Razor.RazorPage,Microsoft.AspNetCore.Mvc.Razor.RazorPageBaseobject>
+ExecuteAsync(),AspNetCore.Views_Home_Privacy.ExecuteAsync()J
+Views_Home_Privacy()2AspNetCore.Views_Home_Privacy.Views_Home_Privacy()X
+ModelExpressionProvider.get9AspNetCore.Views_Home_Privacy.ModelExpressionProvider.getX
+ModelExpressionProvider.set9AspNetCore.Views_Home_Privacy.ModelExpressionProvider.set0
+Url.get%AspNetCore.Views_Home_Privacy.Url.get0
+Url.set%AspNetCore.Views_Home_Privacy.Url.set<
+Component.get+AspNetCore.Views_Home_Privacy.Component.get<
+Component.set+AspNetCore.Views_Home_Privacy.Component.set2
+Json.get&AspNetCore.Views_Home_Privacy.Json.get2
+Json.set&AspNetCore.Views_Home_Privacy.Json.set2
+Html.get&AspNetCore.Views_Home_Privacy.Html.get2
+Html.set&AspNetCore.Views_Home_Privacy.Html.set

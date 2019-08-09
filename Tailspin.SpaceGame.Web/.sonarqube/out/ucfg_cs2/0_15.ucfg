@@ -1,0 +1,78 @@
+
+åTailSpin.SpaceGame.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder, Microsoft.AspNetCore.Hosting.IHostingEnvironment)Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs& &("0*Ì
+0ﬂ
+‹
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs( ((#
+
+%0bool"yMicrosoft.AspNetCore.Hosting.HostingEnvironmentExtensions.IsDevelopment(Microsoft.AspNetCore.Hosting.IHostingEnvironment)*=";
+9Microsoft.AspNetCore.Hosting.HostingEnvironmentExtensions*9
+7
+env0Microsoft.AspNetCore.Hosting.IHostingEnvironment*
+1
+2*´
+1†
+ù
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs* *(/6
+%10Microsoft.AspNetCore.Builder.IApplicationBuilder"âMicrosoft.AspNetCore.Builder.DeveloperExceptionPageExtensions.UseDeveloperExceptionPage(Microsoft.AspNetCore.Builder.IApplicationBuilder)*A"?
+=Microsoft.AspNetCore.Builder.DeveloperExceptionPageExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
+3*£
+2û
+õ
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs. .(66
+%20Microsoft.AspNetCore.Builder.IApplicationBuilder"ÖMicrosoft.AspNetCore.Builder.ExceptionHandlerExtensions.UseExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder, string)*;"9
+7Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
+""˜
+Ù
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs/ /(6
+%30Microsoft.AspNetCore.Builder.IApplicationBuilder"lMicrosoft.AspNetCore.Builder.HstsBuilderExtensions.UseHsts(Microsoft.AspNetCore.Builder.IApplicationBuilder)*6"4
+2Microsoft.AspNetCore.Builder.HstsBuilderExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
+3*Ñ
+3ë
+é
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs2 2(%6
+%40Microsoft.AspNetCore.Builder.IApplicationBuilder"Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions.UseHttpsRedirection(Microsoft.AspNetCore.Builder.IApplicationBuilder)*=";
+9Microsoft.AspNetCore.Builder.HttpsPolicyBuilderExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder¸
+˘
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs3 3( 6
+%50Microsoft.AspNetCore.Builder.IApplicationBuilder"rMicrosoft.AspNetCore.Builder.StaticFileExtensions.UseStaticFiles(Microsoft.AspNetCore.Builder.IApplicationBuilder)*5"3
+1Microsoft.AspNetCore.Builder.StaticFileExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilderï
+í
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs4 4(!6
+%60Microsoft.AspNetCore.Builder.IApplicationBuilder"Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions.UseCookiePolicy(Microsoft.AspNetCore.Builder.IApplicationBuilder)*A"?
+=Microsoft.AspNetCore.Builder.CookiePolicyAppBuilderExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilderŒ
+À
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs6 ;(6
+%70Microsoft.AspNetCore.Builder.IApplicationBuilder"∞Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc(Microsoft.AspNetCore.Builder.IApplicationBuilder, System.Action<Microsoft.AspNetCore.Routing.IRouteBuilder>)*@">
+<Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions*9
+7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder*
+""*
+4*u
+4"p
+Y
+OC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Startup.cs< <(	
+implicit return:7
+app0Microsoft.AspNetCore.Builder.IApplicationBuilder:7
+env0Microsoft.AspNetCore.Hosting.IHostingEnvironmentB" 
+TailSpin.SpaceGame.Web.Startup

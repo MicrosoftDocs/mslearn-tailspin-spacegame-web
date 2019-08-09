@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AnalysisConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
+  <SonarConfigDir>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf</SonarConfigDir>
+  <SonarOutputDir>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\out</SonarOutputDir>
+  <SonarBinDir>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\bin</SonarBinDir>
+  <SonarScannerWorkingDirectory>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web</SonarScannerWorkingDirectory>
+  <HasBeginStepCommandLineCredentials>true</HasBeginStepCommandLineCredentials>
+  <SonarQubeHostUrl>https://sonarcloud.io</SonarQubeHostUrl>
+  <SonarQubeVersion>8.0.0.184</SonarQubeVersion>
+  <SonarProjectKey>eyerus-space-game-web</SonarProjectKey>
+  <AdditionalConfig>
+    <ConfigSetting Id="BuildUri" />
+    <ConfigSetting Id="TfsUri" />
+    <ConfigSetting Id="settings.file.path" Value="C:\Users\eyeki\.dotnet\tools\.store\dotnet-sonarscanner\4.6.2\dotnet-sonarscanner\4.6.2\tools\netcoreapp2.1\any\SonarQube.Analysis.xml" />
+  </AdditionalConfig>
+  <ServerSettings>
+    <Property Name="sonaranalyzer-cs.nuget.packageVersion">7.15.0.8572</Property>
+    <Property Name="sonaranalyzer.security.cs.pluginVersion">7.9.0.5105</Property>
+    <Property Name="sonar.cs.ignoreHeaderComments">true</Property>
+    <Property Name="sonar.cfamily.useSema">true</Property>
+    <Property Name="sonar.c.file.suffixes">.c,.h</Property>
+    <Property Name="sonar.typescript.file.suffixes">.ts,.tsx</Property>
+    <Property Name="sonar.cobol.dialect">ibm-enterprise-cobol</Property>
+    <Property Name="email.fromName">SonarCloud</Property>
+    <Property Name="sonar.python.xunit.skipDetails">false</Property>
+    <Property Name="sonar.plsql.jdbc.driver.class">oracle.jdbc.OracleDriver</Property>
+    <Property Name="sonar.go.exclusions">**/vendor/**</Property>
+    <Property Name="sonar.forceAuthentication">false</Property>
+    <Property Name="sonar.notifications.delay">60</Property>
+    <Property Name="sonar.cpp.file.suffixes">.cc,.cpp,.cxx,.c++,.hh,.hpp,.hxx,.h++,.ipp</Property>
+    <Property Name="sonaranalyzer.security.cs.nuget.packageVersion">7.9.0.5105</Property>
+    <Property Name="sonaranalyzer-cs.ruleNamespace">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.cs.analyzeGeneratedCode">false</Property>
+    <Property Name="sonar.builtInQualityProfiles.disableNotificationOnUpdate">false</Property>
+    <Property Name="sonar.css.file.suffixes">.css,.less,.scss</Property>
+    <Property Name="sonar.java.failOnException">false</Property>
+    <Property Name="sonar.organizations.createPersonalOrg">true</Property>
+    <Property Name="sonar.cpd.abap.minimumTokens">100</Property>
+    <Property Name="sonar.jacoco.reportPaths">target/jacoco.exec, target/jacoco-it.exec</Property>
+    <Property Name="sonar.html.file.suffixes">.html,.xhtml,.cshtml,.vbhtml,.aspx,.ascx,.rhtml,.erb,.shtm,.shtml</Property>
+    <Property Name="sonar.cpd.cross_project">false</Property>
+    <Property Name="sonar.vbnet.ignoreHeaderComments">true</Property>
+    <Property Name="sonaranalyzer.security.cs.nuget.packageId">SonarAnalyzer.Security</Property>
+    <Property Name="sonar.leak.period">30</Property>
+    <Property Name="sonar.scala.file.suffixes">.scala</Property>
+    <Property Name="sonar.cobol.byteBasedColumnCount">false</Property>
+    <Property Name="sonar.dbcleaner.daysBeforeDeletingInactiveShortLivingBranches">30</Property>
+    <Property Name="sonar.auth.microsoft.enabled">true</Property>
+    <Property Name="sonar.apex.file.suffixes">.cls,.trigger</Property>
+    <Property Name="sonaranalyzer-vbnet.ruleNamespace">SonarAnalyzer.VisualBasic</Property>
+    <Property Name="sonar.auth.microsoft.allowsUsersToSignUp">true</Property>
+    <Property Name="sonar.javascript.ignoreHeaderComments">true</Property>
+    <Property Name="sonar.dbcleaner.daysBeforeDeletingClosedIssues">30</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByMonth">4</Property>
+    <Property Name="sonar.lf.gravatarServerUrl">https://secure.gravatar.com/avatar/{EMAIL_MD5}.jpg?s={SIZE}&amp;d=identicon</Property>
+    <Property Name="sonar.cobol.sourceFormat">fixed</Property>
+    <Property Name="sonar.notifications.runningDelayBeforeReportingStatus">600</Property>
+    <Property Name="sonar.jsp.file.suffixes">.jsp,.jspf,.jspx</Property>
+    <Property Name="sonar.javascript.environments">amd, applescript, atomtest, browser, commonjs, couch, embertest, flow, greasemonkey, jasmine, jest, jquery, meteor, mocha, mongo, nashorn, node, phantomjs, prototypejs, protractor, qunit, rhino, serviceworker, shared-node-browser, shelljs, webextensions, worker, wsh, yui</Property>
+    <Property Name="sonar.scm.disabled">false</Property>
+    <Property Name="sonar.typescript.exclusions">**/node_modules/**,**/bower_components/**</Property>
+    <Property Name="sonar.vbnet.file.suffixes">.vb</Property>
+    <Property Name="sonar.cobol.adaprep.activation">false</Property>
+    <Property Name="sonar.abap.file.suffixes">.abap,.ab4,.flow,.asprog</Property>
+    <Property Name="sonar.cfamily.ignoreHeaderComments">true</Property>
+    <Property Name="sonar.technicalDebt.developmentCost">30</Property>
+    <Property Name="sonar.python.file.suffixes">py</Property>
+    <Property Name="sonar.cs.file.suffixes">.cs</Property>
+    <Property Name="sonar.plsql.file.suffixes">sql,tab,pkb</Property>
+    <Property Name="sonaranalyzer.security.cs.ruleNamespace">SonarAnalyzer.Security</Property>
+    <Property Name="sonar.cobol.tab.width">8</Property>
+    <Property Name="sonaranalyzer-vbnet.staticResourceName">SonarAnalyzer-7.15.0.8572.zip</Property>
+    <Property Name="sonar.java.file.suffixes">.java,.jav</Property>
+    <Property Name="sonar.kotlin.file.suffixes">.kt</Property>
+    <Property Name="sonar.php.file.suffixes">php,php3,php4,php5,phtml,inc</Property>
+    <Property Name="sonar.xml.file.suffixes">.xml,.xsd,.xsl</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeDeletingAllSnapshots">480</Property>
+    <Property Name="sonar.auth.bitbucket.allowUsersToSignUp">true</Property>
+    <Property Name="sonar.python.coverage.reportPaths">coverage-reports/*coverage-*.xml</Property>
+    <Property Name="sonar.javascript.jQueryObjectAliases">$, jQuery</Property>
+    <Property Name="sonaranalyzer-vbnet.nuget.packageVersion">7.15.0.8572</Property>
+    <Property Name="sonar.go.file.suffixes">.go</Property>
+    <Property Name="sonar.cpd.cobol.minimumLines">30</Property>
+    <Property Name="sonar.cobol.exec.recoveryMode">true</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyAnalysesWithVersion">104</Property>
+    <Property Name="sonar.php.exclusions">**/vendor/**</Property>
+    <Property Name="sonar.swift.file.suffixes">.swift</Property>
+    <Property Name="sonar.vbnet.roslyn.ignoreIssues">false</Property>
+    <Property Name="sonar.plsql.ignoreHeaderComments">false</Property>
+    <Property Name="sonar.flex.file.suffixes">as</Property>
+    <Property Name="sonar.ruby.file.suffixes">.rb</Property>
+    <Property Name="sonar.python.xunit.reportPath">xunit-reports/xunit-result-*.xml</Property>
+    <Property Name="sonar.javascript.globals">angular,goog,google,OpenLayers,d3,dojo,dojox,dijit,Backbone,moment,casper</Property>
+    <Property Name="sonar.dbcleaner.hoursBeforeKeepingOnlyOneSnapshotByDay">24</Property>
+    <Property Name="sonar.auth.bitbucket.enabled">true</Property>
+    <Property Name="sonar.javascript.exclusions">**/node_modules/**,**/bower_components/**</Property>
+    <Property Name="sonaranalyzer-vbnet.nuget.packageId">SonarAnalyzer.VisualBasic</Property>
+    <Property Name="email.from">noreply@sonarcloud.io</Property>
+    <Property Name="sonaranalyzer-vbnet.pluginVersion">7.15.0.8572</Property>
+    <Property Name="sonaranalyzer.security.cs.analyzerId">SonarAnalyzer.Security</Property>
+    <Property Name="sonar.typescript.node">node</Property>
+    <Property Name="sonar.dbcleaner.weeksBeforeKeepingOnlyOneSnapshotByWeek">1</Property>
+    <Property Name="sonaranalyzer-vbnet.analyzerId">SonarAnalyzer.VisualBasic</Property>
+    <Property Name="email.prefix">[SonarCloud]</Property>
+    <Property Name="sonar.cs.roslyn.ignoreIssues">false</Property>
+    <Property Name="sonar.c.std">c11</Property>
+    <Property Name="sonaranalyzer-cs.pluginKey">csharp</Property>
+    <Property Name="sonar.cpd.cobol.minimumTokens">100</Property>
+    <Property Name="sonaranalyzer.security.cs.pluginKey">securitycsharpfrontend</Property>
+    <Property Name="sonar.cfamily.useCache">true</Property>
+    <Property Name="sonar.branch.longLivedBranches.regex">(branch|release)-.*</Property>
+    <Property Name="sonar.objc.file.suffixes">.m</Property>
+    <Property Name="sonar.ruby.coverage.reportPaths">coverage/.resultset.json</Property>
+    <Property Name="sonaranalyzer-cs.staticResourceName">SonarAnalyzer-7.15.0.8572.zip</Property>
+    <Property Name="sonar.cpd.cobol.ignoreLiteral">true</Property>
+    <Property Name="sonaranalyzer-cs.nuget.packageId">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.authenticator.downcase">false</Property>
+    <Property Name="sonaranalyzer-cs.analyzerId">SonarAnalyzer.CSharp</Property>
+    <Property Name="sonar.organizations.anyoneCanCreate">true</Property>
+    <Property Name="sonar.technicalDebt.ratingGrid">0.05,0.1,0.2,0.5</Property>
+    <Property Name="sonar.lf.enableGravatar">true</Property>
+    <Property Name="sonaranalyzer-cs.pluginVersion">7.15.0.8572</Property>
+    <Property Name="sonaranalyzer.security.cs.staticResourceName">SonarAnalyzer.Security-7.9.0.5105.zip</Property>
+    <Property Name="sonar.javascript.file.suffixes">.js,.jsx,.vue</Property>
+    <Property Name="sonar.cpd.abap.minimumLines">20</Property>
+    <Property Name="sonar.vbnet.analyzeGeneratedCode">false</Property>
+    <Property Name="sonaranalyzer-vbnet.pluginKey">vbnet</Property>
+    <Property Name="sonar.java.collectAnalysisErrors">true</Property>
+    <Property Name="sonar.tsql.file.suffixes">.tsql</Property>
+    <Property Name="sonar.cpp.std">c++11</Property>
+    <Property Name="sonar.core.serverBaseURL">https://sonarcloud.io</Property>
+    <Property Name="sonar.lf.logoWidthPx">105</Property>
+    <Property Name="sonar.core.id">74E9293D-AWHW8ct9-T_TB3XqouNu</Property>
+    <Property Name="sonar.core.startTime">31.07.2019 11:34:51</Property>
+  </ServerSettings>
+  <LocalSettings>
+    <Property Name="sonar.host.url">https://sonarcloud.io</Property>
+    <Property Name="sonar.cs.opencover.reportsPaths">./Tailspin.SpaceGame.Web.Tests/TestResults/Coverage/coverage.opencover.xml</Property>
+    <Property Name="sonar.exclusions">**/wwwroot/lib/**/*</Property>
+    <Property Name="sonar.organization">trondelagfylke</Property>
+  </LocalSettings>
+  <AnalyzersSettings>
+    <AnalyzerSettings>
+      <Language>cs</Language>
+      <RuleSetFilePath>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\SonarQubeRoslyn-cs.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\SonarQubeRoslyn-cs-test.ruleset</TestProjectRuleSetFilePath>
+      <AnalyzerPlugins>
+        <AnalyzerPlugin Key="csharp" Version="7.15.0.8572" StaticResourceName="SonarAnalyzer-7.15.0.8572.zip">
+          <AssemblyPaths>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\Google.Protobuf.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.CSharp.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.dll</Path>
+          </AssemblyPaths>
+        </AnalyzerPlugin>
+        <AnalyzerPlugin Key="vbnet" Version="7.15.0.8572" StaticResourceName="SonarAnalyzer-7.15.0.8572.zip">
+          <AssemblyPaths>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\Google.Protobuf.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\SonarAnalyzer.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\SonarAnalyzer.VisualBasic.dll</Path>
+          </AssemblyPaths>
+        </AnalyzerPlugin>
+        <AnalyzerPlugin Key="securitycsharpfrontend" Version="7.9.0.5105" StaticResourceName="SonarAnalyzer.Security-7.9.0.5105.zip">
+          <AssemblyPaths>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\2\analyzers\dotnet\cs\Google.Protobuf.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\2\analyzers\dotnet\cs\SonarAnalyzer.Security.dll</Path>
+          </AssemblyPaths>
+        </AnalyzerPlugin>
+      </AnalyzerPlugins>
+      <AdditionalFilePaths>
+        <Path>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\cs\SonarLint.xml</Path>
+      </AdditionalFilePaths>
+    </AnalyzerSettings>
+    <AnalyzerSettings>
+      <Language>vbnet</Language>
+      <RuleSetFilePath>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\SonarQubeRoslyn-vbnet.ruleset</RuleSetFilePath>
+      <TestProjectRuleSetFilePath>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\SonarQubeRoslyn-vbnet-test.ruleset</TestProjectRuleSetFilePath>
+      <AnalyzerPlugins>
+        <AnalyzerPlugin Key="csharp" Version="7.15.0.8572" StaticResourceName="SonarAnalyzer-7.15.0.8572.zip">
+          <AssemblyPaths>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\Google.Protobuf.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.CSharp.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\0\SonarAnalyzer.dll</Path>
+          </AssemblyPaths>
+        </AnalyzerPlugin>
+        <AnalyzerPlugin Key="vbnet" Version="7.15.0.8572" StaticResourceName="SonarAnalyzer-7.15.0.8572.zip">
+          <AssemblyPaths>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\Google.Protobuf.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\SonarAnalyzer.dll</Path>
+            <Path>C:\Users\eyeki\AppData\Local\Temp\.sonarqube\resources\1\SonarAnalyzer.VisualBasic.dll</Path>
+          </AssemblyPaths>
+        </AnalyzerPlugin>
+      </AnalyzerPlugins>
+      <AdditionalFilePaths>
+        <Path>C:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\.sonarqube\conf\vbnet\SonarLint.xml</Path>
+      </AdditionalFilePaths>
+    </AnalyzerSettings>
+  </AnalyzersSettings>
+</AnalysisConfig>

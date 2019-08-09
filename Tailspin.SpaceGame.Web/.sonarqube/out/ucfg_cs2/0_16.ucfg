@@ -1,0 +1,420 @@
+
+QTailSpin.SpaceGame.Web.Controllers.HomeController.Index(int, int, string, string)l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs) (."12*°
+0ﬂ‹
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs$ :(8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel"2TailSpin.SpaceGame.Web.Models.LeaderboardViewModelÑ
+Å
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs$ $(-
+
+%1void"ITailSpin.SpaceGame.Web.Models.LeaderboardViewModel.LeaderboardViewModel()*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel˛
+˚
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs& &(
+
+%2void";TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.Page.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+""Ç
+ˇ
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs' '(#
+
+%3void"?TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.PageSize.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+""ê
+ç
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs( ((#
+
+%4void"CTailSpin.SpaceGame.Web.Models.LeaderboardViewModel.SelectedMode.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+
+modestringî
+ë
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs) )('
+
+%5void"ETailSpin.SpaceGame.Web.Models.LeaderboardViewModel.SelectedRegion.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+
+regionstringøº
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs+ 0((
+%6"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>‘
+—
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs+  +(,
+
+%7void")System.Collections.Generic.List<T>.List()**
+(
+%6"System.Collections.Generic.List<T>ß
+§
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs+ 0(
+
+%8void"@TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.GameModes.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel**
+(
+%6"System.Collections.Generic.List<T>øº
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs2" 9((
+%9"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>’
+“
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs2& 2(2
+%10void")System.Collections.Generic.List<T>.List()**
+(
+%9"System.Collections.Generic.List<T>™
+ß
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs2 9(
+%11void"BTailSpin.SpaceGame.Web.Models.LeaderboardViewModel.GameRegions.set*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel**
+(
+%9"System.Collections.Generic.List<T>Ì
+Í
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs$ :(8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel"__id*:
+8
+%02TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*	
+1
+2
+3*¥
+2¿
+Ω
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csB. D(P?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>"__id*
+""≠
+™
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csG% G(56
+%12/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>"__id*|*z3
+1TailSpin.SpaceGame.Web.Controllers.HomeController"C
+_scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>·ﬁ
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csG% G(U+
+%13$System.Threading.Tasks.Task<TResult>"yTailSpin.SpaceGame.Web.IDocumentDBRepository<T>.CountItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)*8
+6
+%12/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*A
+?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>2ICountItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)ﬁ
+€
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csG G(U6
+countItemsTask$System.Threading.Tasks.Task<TResult>"__id*-
++
+%13$System.Threading.Tasks.Task<TResult>≠
+™
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csJ2 J(B6
+%14/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>"__id*|*z3
+1TailSpin.SpaceGame.Web.Controllers.HomeController"C
+_scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>˝˙
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csJ2 O(+
+%15$System.Threading.Tasks.Task<TResult>"∫TailSpin.SpaceGame.Web.IDocumentDBRepository<T>.GetItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Linq.Expressions.Expression<System.Func<T, int>>, int, int)*8
+6
+%14/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*A
+?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>*
+""*
+""*
+""2äGetItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Linq.Expressions.Expression<System.Func<T, int>>, int, int)¥
+±
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csJ# O(3
+scores)System.Collections.Generic.IEnumerable<T>"__id*
+""á
+Ñ
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csR R(6
+%16void"CTailSpin.SpaceGame.Web.Models.LeaderboardViewModel.TotalResults.set*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+""*
+4
+5*‘
+4í
+è
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%17"__concat*
+""*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%18"__concat*
+
+%17*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%19"__concat*
+
+%18*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%20"__concat*
+
+%19*
+""ù
+ö
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%21"__concat*
+
+%20*
+
+modestringì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%22"__concat*
+
+%21*
+""ü
+ú
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%23"__concat*
+
+%22*
+
+regionstringì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW" W(r
+%24"__concat*
+
+%23*
+""Ñ
+Å
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csW W(r
+%25void"?TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.PrevLink.set*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+
+%24*
+5*å
+5˛
+˚
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csY Y(#
+
+%26int"CTailSpin.SpaceGame.Web.Models.LeaderboardViewModel.TotalResults.get*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+6
+7*‘
+6í
+è
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%27"__concat*
+""*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%28"__concat*
+
+%27*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%29"__concat*
+
+%28*
+""ì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%30"__concat*
+
+%29*
+""ù
+ö
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%31"__concat*
+
+%30*
+
+modestringì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%32"__concat*
+
+%31*
+""ü
+ú
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%33"__concat*
+
+%32*
+
+regionstringì
+ê
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[" [(r
+%34"__concat*
+
+%33*
+""Ñ
+Å
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs[ [(r
+%35void"?TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.NextLink.set*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*
+
+%34*
+7*˚
+7¿Ω
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs` `(8)
+%36"System.Collections.Generic.List<T>""System.Collections.Generic.List<T>÷
+”
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs`# `(6
+%37void")System.Collections.Generic.List<T>.List()*+
+)
+%36"System.Collections.Generic.List<T>‘
+—
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs` `(8.
+profiles"System.Collections.Generic.List<T>"__id*+
+)
+%36"System.Collections.Generic.List<T>*
+8*
+8*
+9
+10*€
+9∞
+≠
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csc! c(46
+%38/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>"__id**}3
+1TailSpin.SpaceGame.Web.Controllers.HomeController"F
+_profileRespository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>„
+‡
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cscB c(Q
+%39string"1TailSpin.SpaceGame.Web.Models.Score.ProfileId.get*.
+,
+score#TailSpin.SpaceGame.Web.Models.Score≈¬
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csc! c(R+
+%40$System.Threading.Tasks.Task<TResult>"DTailSpin.SpaceGame.Web.IDocumentDBRepository<T>.GetItemAsync(string)*8
+6
+%38/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*
+
+%39string2GetItemAsync(string)Ô
+Ï
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csc c(S
+%41void"
+__arrayAdd*0
+.
+profiles"System.Collections.Generic.List<T>*: *-
++
+%40$System.Threading.Tasks.Task<TResult>*
+8*È
+10û
+õ
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cse& e(8K
+%42DSystem.Threading.Tasks.Task<TailSpin.SpaceGame.Web.Models.Profile>[]",System.Collections.Generic.List<T>.ToArray()*0
+.
+profiles"System.Collections.Generic.List<T>π
+∂
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cse e(9
+%43void"ISystem.Threading.Tasks.Task.WaitAll(params System.Threading.Tasks.Task[])*"
+System.Threading.Tasks.Task*M
+K
+%42DSystem.Threading.Tasks.Task<TailSpin.SpaceGame.Web.Models.Profile>[]
+Ì
+m
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csh h(Ç0
+%44)System.Collections.Generic.IEnumerable<T>"ºSystem.Linq.Enumerable.Zip<TFirst, TSecond, TResult>(System.Collections.Generic.IEnumerable<TFirst>, System.Collections.Generic.IEnumerable<TSecond>, System.Func<TFirst, TSecond, TResult>)*"
+System.Linq.Enumerable*5
+3
+scores)System.Collections.Generic.IEnumerable<T>*0
+.
+profiles"System.Collections.Generic.List<T>*
+""Æ
+´
+m
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csh h(Ç
+%45void"=TailSpin.SpaceGame.Web.Models.LeaderboardViewModel.Scores.set*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel*2
+0
+%44)System.Collections.Generic.IEnumerable<T>¬ø
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csj j(*
+%46#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel2View(object)"ú
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csj j( ,
+*
+%46#Microsoft.AspNetCore.Mvc.ViewResult*
+11*	
+1
+3
+3*Á
+1¬ø
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csn n(*
+%47#Microsoft.AspNetCore.Mvc.ViewResult"0Microsoft.AspNetCore.Mvc.Controller.View(object)*'%
+#Microsoft.AspNetCore.Mvc.Controller*:
+8
+vm2TailSpin.SpaceGame.Web.Models.LeaderboardViewModel2View(object)"ú
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csn n( ,
+*
+%47#Microsoft.AspNetCore.Mvc.ViewResult*â
+3"É
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.csp p(	
+implicit return*»
+12º
+π
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs) (.
+%48"__entrypoint*
+""*
+""*
+
+modestring*
+
+regionstring*
+0:
+pageint:
+pageSizeint:
+modestring:
+regionstringB53
+1TailSpin.SpaceGame.Web.Controllers.HomeController

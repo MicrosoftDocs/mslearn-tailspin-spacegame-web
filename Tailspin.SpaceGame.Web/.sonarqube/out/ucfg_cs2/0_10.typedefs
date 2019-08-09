@@ -1,0 +1,7 @@
+Ê
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>objectz
+!LocalDocumentDBRepository(string)UTailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.LocalDocumentDBRepository(string)Ž
++LocalDocumentDBRepository(System.IO.Stream)_TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.LocalDocumentDBRepository(System.IO.Stream)`
+GetItemAsync(string)HTailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.GetItemAsync(string)Î
+ŠGetItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Linq.Expressions.Expression<System.Func<T, int>>, int, int)¾TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.GetItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Linq.Expressions.Expression<System.Func<T, int>>, int, int)Ê
+ICountItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)}TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.CountItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)

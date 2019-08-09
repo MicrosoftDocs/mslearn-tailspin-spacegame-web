@@ -1,0 +1,36 @@
+
+èTailSpin.SpaceGame.Web.Controllers.HomeController.HomeController(TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Score>, TailSpin.SpaceGame.Web.IDocumentDBRepository<TailSpin.SpaceGame.Web.Models.Profile>)l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs ("2*†
+0¹
+¶
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs (.z3
+1TailSpin.SpaceGame.Web.Controllers.HomeController"C
+_scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>"__id*D
+B
+scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>¿
+¼
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs (4}3
+1TailSpin.SpaceGame.Web.Controllers.HomeController"F
+_profileRespository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>"__id*G
+E
+profileRespository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*
+1*‰
+1"ƒ
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs (	
+implicit return*Ÿ
+2”
+‘
+l
+bC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\Controllers\HomeController.cs (
+%0"__entrypoint*D
+B
+scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*G
+E
+profileRespository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>*
+0:B
+scoreRepository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>:E
+profileRespository/TailSpin.SpaceGame.Web.IDocumentDBRepository<T>B53
+1TailSpin.SpaceGame.Web.Controllers.HomeController

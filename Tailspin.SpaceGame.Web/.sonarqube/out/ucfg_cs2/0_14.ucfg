@@ -1,0 +1,84 @@
+
+¾TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>.GetItemsAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>, System.Linq.Expressions.Expression<System.Func<T, int>>, int, int)k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs6$ 6(1"0*é
+0‰
+†
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< <((
+%0"System.Collections.Generic.List<T>"__id*g*e5
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>",
+_items"System.Collections.Generic.List<T>·
+´
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< <(-
+%1System.Linq.IQueryable<T>"]System.Linq.Queryable.AsQueryable<TElement>(System.Collections.Generic.IEnumerable<TElement>)*"
+System.Linq.Queryable**
+(
+%0"System.Collections.Generic.List<T>š
+—
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< =(&
+%2System.Linq.IQueryable<T>"…System.Linq.Queryable.Where<TSource>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, bool>>)*"
+System.Linq.Queryable*!
+
+%1System.Linq.IQueryable<T>*A
+?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>½
+º
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< >(<&
+%3 System.Linq.IOrderedQueryable<T>"—System.Linq.Queryable.OrderByDescending<TSource, TKey>(System.Linq.IQueryable<TSource>, System.Linq.Expressions.Expression<System.Func<TSource, TKey>>)*"
+System.Linq.Queryable*!
+
+%2System.Linq.IQueryable<T>*K
+I
+orderDescendingPredicate-System.Linq.Expressions.Expression<TDelegate>©
+¦
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< ?(&
+%4System.Linq.IQueryable<T>"ISystem.Linq.Queryable.Skip<TSource>(System.Linq.IQueryable<TSource>, int)*"
+System.Linq.Queryable*(
+&
+%3 System.Linq.IOrderedQueryable<T>*
+""¢
+Ÿ
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< @(
+%5System.Linq.IQueryable<T>"ISystem.Linq.Queryable.Take<TSource>(System.Linq.IQueryable<TSource>, int)*"
+System.Linq.Queryable*!
+
+%4System.Linq.IQueryable<T>*
+""¿
+¼
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< A(/
+%6)System.Collections.Generic.IEnumerable<T>"]System.Linq.Enumerable.AsEnumerable<TSource>(System.Collections.Generic.IEnumerable<TSource>)*"
+System.Linq.Enumerable*!
+
+%5System.Linq.IQueryable<T>Þ
+Û
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.cs< A(3
+result)System.Collections.Generic.IEnumerable<T>"__id*1
+/
+%6)System.Collections.Generic.IEnumerable<T>®
+«
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csC C(:*
+%7$System.Threading.Tasks.Task<TResult>"8System.Threading.Tasks.Task.FromResult<TResult>(TResult)*"
+System.Threading.Tasks.Task*5
+3
+result)System.Collections.Generic.IEnumerable<T>"›
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csC C(;,
+*
+%7$System.Threading.Tasks.Task<TResult>*ˆ
+1"‚
+k
+aC:\Users\eyeki\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\LocalDocumentDBRepository.csD D(	
+implicit return:?
+queryPredicate-System.Linq.Expressions.Expression<TDelegate>:I
+orderDescendingPredicate-System.Linq.Expressions.Expression<TDelegate>:
+pageint:
+pageSizeintB75
+3TailSpin.SpaceGame.Web.LocalDocumentDBRepository<T>
