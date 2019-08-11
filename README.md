@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/davemorin0450/Space%20Game%20-%20test/_apis/build/status/superdavem.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/davemorin0450/Space%20Game%20-%20test/_build/latest?definitionId=1&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
