@@ -1,185 +1,99 @@
+pool:
+  vmImage: 'Ubuntu-16.04'
+  demands:
+    - npm
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.505'
 
-schedules:
-- cron: '*/5 * * * *'
-  displayName: Deploy every 5 minutes
-  branches:
-    include:
-    - master
-  always: false
+steps:
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
 
-stages:
-- stage: 'Build'
-  displayName: 'Build Stage'
-  jobs:
-  - job: Build
-    displayName: 'Build job'
-    pool:
-      vmImage: 'Ubuntu-16.04'
-      demands:
-        - npm
-    steps:
-    - task: DotNetCoreInstaller@0
-      displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-      inputs:
-        version: '$(dotnetSdkVersion)'
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
-    - task: Npm@1
-      displayName: 'Run npm install'
-      inputs:
-        verbose: false
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'Compile Sass assets'
 
-    - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
-      displayName: 'Compile Sass assets'
+- task: gulp@1
+  displayName: 'Run gulp tasks'
 
-    - task: gulp@1
-      displayName: 'Run gulp tasks'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: $(wwwrootDir)
 
-    - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-      displayName: 'Write build info'
-      workingDirectory: $(wwwrootDir)
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Restore project dependencies'
-      inputs:
-        command: 'restore'
-        projects: '**/*.csproj'
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare SonarCloud analysis'
+  inputs:
+    SonarCloud: 'SonarCloud connection 1'
+    organization: '$(organization)'
+    projectKey: '$(projectKey)'
+    projectName: '$(projectName)'
+    projectVersion: '$(Build.BuildNumber)'
+    extraProperties: |
+     sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+     sonar.exclusions=**/wwwroot/lib/**/*
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Build the project - $(buildConfiguration)'
-      inputs:
-        command: 'build'
-        arguments: '--no-restore --configuration $(buildConfiguration)'
-        projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
 
-    - task: DotNetCoreCLI@2
-      displayName: 'Publish the project - $(buildConfiguration)'
-      inputs:
-        command: 'publish'
-        projects: '**/*.csproj'
-        publishWebProjects: false
-        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-        zipAfterPublish: true
+- task: DotNetCoreCLI@2
+  displayName: 'Install ReportGenerator'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-reportgenerator-globaltool'
 
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish Artifact: drop'
-      condition: succeeded()
-      inputs:
-        pathToPublish: '$(Build.ArtifactStagingDirectory)'
-        artifactName: 'drop'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests - $(buildConfiguration)'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    publishTestResults: true
+    projects: '**/*.Tests.csproj'
 
-- stage: 'DeployDev'
-  displayName: 'Deploy to Dev'
-  dependsOn: Build
-  jobs:
+- script: |
+    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
+  displayName: 'Create code coverage report'
 
-  - job: DeployDev
-    displayName: 'Deploy to Dev environment'
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    steps: 
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud code analysis'
 
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(Build.ArtifactStagingDirectory)'
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud quality gate results'
 
-    - task: AzureRmWebAppDeployment@4
-      displayName: 'Azure App Service Deploy: website'
-      inputs:
-        azureSubscription: 'SandboxFake'
-        DeployToSlotOrASEFlag: true
-        ResourceGroupName: TailspinResourceGroup
-        SlotName: Dev
-        appType: 'webAppLinux'
-        WebAppName: 'TailspinGame13053'
-        StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        Package: $(System.ArtifactsDirectory)/**/*.zip
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
-- stage: 'DeployTest'
-  displayName: 'Deploy to Test environment'
-  dependsOn: 'DeployDev'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
-  jobs:
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
 
-  - job: DeployTest
-    displayName: 'Deploy test job'
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    steps: 
-
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(Build.ArtifactStagingDirectory)'
-
-    - task: AzureRmWebAppDeployment@4
-      displayName: 'Azure App Service Deploy: website'
-      inputs:
-        azureSubscription: 'SandboxFake'
-        DeployToSlotOrASEFlag: true
-        ResourceGroupName: TailspinResourceGroup
-        SlotName: Test
-        appType: 'webAppLinux'
-        WebAppName: 'TailspinGame13053'
-        StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        Package: $(System.ArtifactsDirectory)/**/*.zip
-
-- stage: 'DeployStaging'
-  displayName: 'Deploy to staging environment'
-  dependsOn: 'DeployDev'
-  condition: and(succeeded(), eq(variables['Build.Reason'], 'Schedule'))
-  jobs:
-
-  - job: DeployTest
-    displayName: 'Deploy staging job'
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    steps: 
-
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: 'drop'
-        downloadPath: '$(Build.ArtifactStagingDirectory)'
-
-    - task: AzureRmWebAppDeployment@4
-      displayName: 'Azure App Service Deploy: website'
-      inputs:
-        azureSubscription: 'SandboxFake'
-        DeployToSlotOrASEFlag: true
-        ResourceGroupName: TailspinResourceGroup
-        SlotName: Staging
-        appType: 'webAppLinux'
-        WebAppName: 'TailspinGame13053'
-        StartupCommand: 'dotnet Tailspin.SpaceGame.Web.dll'
-        Package: $(System.ArtifactsDirectory)/**/*.zip
-
-- stage: 'SwapStaging'
-  displayName: 'Swap staging to production'
-  dependsOn: 'DeployDev'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
   condition: succeeded()
-  jobs:
-
-  - job: SwapStaging
-    displayName: 'Swap staging job'
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    steps: 
-
-#  Swap slots - wrong slots for now. just testing. 
-    - task: AzureAppServiceManage@0
-      displayName: Swap Slot Prod
-      inputs:
-        azureSubscription: 'SandboxFake'
-        WebAppName: 'TailspinGame13053'
-        ResourceGroupName: 'TailspinResourceGroup'
-        SourceSlot: 'Dev'
