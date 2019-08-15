@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Tailspin10234/Space%20Game%20-%20Web/_apis/build/status/TessFerrandez.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin10234/Space%20Game%20-%20Web/_build/latest?definitionId=3&branchName=master)
 
 # Contributing
 
