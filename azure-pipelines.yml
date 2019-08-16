@@ -1,6 +1,2 @@
 pool:
   vmImage: 'Ubuntu-16.04'
-git status
-git add azure-pipelines.yml
-git commit -m "Add image pool"
-git push origin master
