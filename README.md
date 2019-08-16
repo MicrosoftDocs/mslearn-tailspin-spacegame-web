@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/sodede0836/Space%20Game%20-%20Web%20-%20Pipeline/_apis/build/status/sodede.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/sodede0836/Space%20Game%20-%20Web%20-%20Pipeline/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
