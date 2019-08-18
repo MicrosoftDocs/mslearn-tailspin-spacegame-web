@@ -46,7 +46,6 @@ steps:
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
-<<<<<<< HEAD
   condition: |
     and
     (
@@ -54,8 +53,6 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
-=======
->>>>>>> 56ee86fe30e47ed2692198e66b8d9aad32ffdf86
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
@@ -85,7 +82,6 @@ steps:
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
-<<<<<<< HEAD
   condition: |
     and
     (
@@ -103,11 +99,6 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
-=======
-
-- task: SonarCloudPublish@1
-  displayName: 'Publish SonarCloud quality gate results'
->>>>>>> 56ee86fe30e47ed2692198e66b8d9aad32ffdf86
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
