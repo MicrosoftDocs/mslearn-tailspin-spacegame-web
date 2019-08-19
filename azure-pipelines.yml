@@ -53,7 +53,7 @@ steps:
      eq(variables['Build.Reason'], 'PullRequest'),
      eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
-
+    
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
