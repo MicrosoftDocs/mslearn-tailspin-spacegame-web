@@ -19,7 +19,7 @@ steps:
     zipAfterPublish: true
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
+  displayName: 'Test the project - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'test'
     arguments: '--no-build --no-restore --configuration ${{ parameters.buildConfiguration }}'
