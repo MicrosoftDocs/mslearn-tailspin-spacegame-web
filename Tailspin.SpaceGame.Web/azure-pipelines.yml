@@ -1,0 +1,2 @@
+pool: 
+  vnimage: 'Ubuntu-16.04' 
