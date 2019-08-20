@@ -1,3 +1,4 @@
+[![Build Status](https://amirali.visualstudio.com/SpaceGameWeb/_apis/build/status/aliamir-hub.mslearn-tailspin-spacegame-web?branchName=master)](https://amirali.visualstudio.com/SpaceGameWeb/_build/latest?definitionId=9&branchName=master)
 
 # Contributing
 
