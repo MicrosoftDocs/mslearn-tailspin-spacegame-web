@@ -1,3 +1,5 @@
+## Common template for build tasks. Will be called from azure-pipelines
+
 parameters:
   buildConfiguration: 'Release'
 
