@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/waheenafirdous/SpaceGame-Web/_apis/build/status/SmartHotel_Petchecker-Web?branchName=master)](https://dev.azure.com/waheenafirdous/SpaceGame-Web/_build/latest?definitionId=7&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
