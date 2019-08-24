@@ -12,7 +12,7 @@ steps:
   - task: DotNetCoreInstaller@0
     displayName: 'Use .Net Core SDK $(dotnetSdkVersion)'
     inputs:
-      version: $(dotnetSdkVersion)')
+      version: $(dotnetSdkVersion)
 
   - task: Npm@1
     displayName: 'Run npm install'
