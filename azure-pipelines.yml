@@ -41,7 +41,7 @@ steps:
 
 - template: templates/build.yml
   paramters:
-    buildConfiguration:'Release'
+    buildConfiguration: 'Release'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
