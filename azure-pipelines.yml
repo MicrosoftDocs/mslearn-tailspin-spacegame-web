@@ -13,8 +13,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet restore
+- task: DotNetCoreCLI@2
   displayName: 'Restore packages'
+  inputs:
+    command: 'restore'
 - task: DotNetCoreCLI@2
   displayName: 'Build the project'
   inputs:
