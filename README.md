@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/dongyanping/Space%20Game/_apis/build/status/studayHard.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/dongyanping/Space%20Game/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
