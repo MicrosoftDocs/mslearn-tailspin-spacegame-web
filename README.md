@@ -1,3 +1,4 @@
+[![Build Status](https://clebris-personal.visualstudio.com/mslearn-tailspin-spacegame-web/_apis/build/status/Mackindel.mslearn-tailspin-spacegame-web?branchName=master)](https://clebris-personal.visualstudio.com/mslearn-tailspin-spacegame-web/_build/latest?definitionId=19&branchName=master)
 
 # Contributing
 
