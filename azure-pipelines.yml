@@ -19,8 +19,8 @@ steps:
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output $(wwwrootDir)'
-  displayName: 'Compile Saas assets'
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'Compile Sass assets'
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
@@ -41,7 +41,7 @@ steps:
 
 - template: templates/build.yml
   parameters:
-    buildConfiguration: 'Release'    
+    buildConfiguration: 'Release'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
