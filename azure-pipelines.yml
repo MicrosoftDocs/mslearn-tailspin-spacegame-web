@@ -9,6 +9,14 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSDKVersion: '2.1.505'
 
+trigger:
+  branches:
+    include:
+    - '*' #builds all branches
+  paths:
+    exclude:
+      - docs/* #exclude the docs folder
+
 steps:
   - task: DotNetCoreInstaller@0
     displayName: 'Use .NET Core SDK $(dotnetSDKVersion)'
