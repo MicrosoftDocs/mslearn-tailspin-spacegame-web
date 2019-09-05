@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Riel0232/Space%20Game%20Web%20-%20flow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Riel0232/Space%20Game%20Web%20-%20flow/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
