@@ -1,4 +1,6 @@
 
+[![Build Status](https://enerplus.visualstudio.com/Azure-DevOps-Demo-20190906/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://enerplus.visualstudio.com/Azure-DevOps-Demo-20190906/_build/latest?definitionId=5&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
