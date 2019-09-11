@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:2.1
+ARG BUILD_CONFIGURATION=Debug
+ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+EXPOSE 80
+
+WORKDIR /src
+COPY ["Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj", "Tailspin.SpaceGame.Web/"]
+
+RUN dotnet restore "Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj"
+COPY . .
+WORKDIR "/src/Tailspin.SpaceGame.Web"
+RUN dotnet build --no-restore "Tailspin.SpaceGame.Web.csproj" -c $BUILD_CONFIGURATION
+
+RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION --" > /entrypoint.sh
+
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
