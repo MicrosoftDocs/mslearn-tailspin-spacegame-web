@@ -1,4 +1,5 @@
 
+[![Build Status](https://makeitonline.visualstudio.com/Space%20Game/_apis/build/status/Dhiman-ghose.mslearn-tailspin-spacegame-web?branchName=master)](https://makeitonline.visualstudio.com/Space%20Game/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
