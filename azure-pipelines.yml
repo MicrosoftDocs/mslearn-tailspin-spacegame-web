@@ -55,6 +55,10 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'e8bb8df766997f2a78c2603fed2bd30614fd36e5'
     projectName: 'mslearningwebspace'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: DotNetCoreCLI@2
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
