@@ -48,7 +48,13 @@ steps:
     command: custom
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool'
-
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'RohCloudSonarConnection'
+    organization: 'ptlearningruben'
+    scannerMode: 'MSBuild'
+    projectKey: 'e8bb8df766997f2a78c2603fed2bd30614fd36e5'
+    projectName: 'mslearningwebspace'
 - task: DotNetCoreCLI@2
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
