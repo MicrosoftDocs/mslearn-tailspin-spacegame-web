@@ -2,7 +2,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
-
+#hello
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
