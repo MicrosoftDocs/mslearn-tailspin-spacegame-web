@@ -1,6 +1,5 @@
 pool:
   vmImage: 'Ubuntu-16.04'
-<<<<<<< HEAD
   demands:
     - npm
 
@@ -37,6 +36,3 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
-=======
-  
->>>>>>> 96468ee273c4a150b85671ab302d561ac863c588
