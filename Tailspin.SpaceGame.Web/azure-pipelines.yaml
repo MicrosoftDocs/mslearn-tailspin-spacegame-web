@@ -5,9 +5,10 @@ pool:
 
 steps:
 - task: DotNetCoreInstaller@0
-  displayName: 'Use .NET Core SDK 2.1.505',
+  displayName: 'Use .NET Core SDK 2.1.505'
   inputs:
     version: 2.1.505
+    
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
