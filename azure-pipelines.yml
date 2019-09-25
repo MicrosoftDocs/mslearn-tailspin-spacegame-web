@@ -1,5 +1,9 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5bad42aff3c98041d513d58f0704e9abfd0e75f1
   demands:
     - npm
 
@@ -46,3 +50,12 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+=======
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
+
+>>>>>>> 5bad42aff3c98041d513d58f0704e9abfd0e75f1
