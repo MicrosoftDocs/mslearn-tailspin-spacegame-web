@@ -1,3 +1,4 @@
+[![Build Status](https://samehhamdy.visualstudio.com/Space%20Game%20-%20web/_apis/build/status/SamehHamdyKing.mslearn-tailspin-spacegame-web?branchName=master)](https://samehhamdy.visualstudio.com/Space%20Game%20-%20web/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
