@@ -1,6 +1,6 @@
 pool:
-  vmImage: 'ubuntu-latest'
+ vmImage:  'ubuntu-latest'
 
 steps:
-- script: echo running
-  displayName: 'running'
+  - script: echo 'running test'
+    displayName: 'running image builder'
