@@ -40,6 +40,8 @@ steps:
     displayName: 'preparing publishing'
     inputs:
       command: publish
+      projects: '**/*.csproj'
+      publishWebProjects: false
       arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirecoty)/Release'
       zipAfterPublish: true
     
