@@ -13,7 +13,7 @@ steps:
     inputs:
       verbose: false
   
-  - script: './node_modules/.bin/node-sass TailSpin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  - script: './node_modules/.bin/node-sass TailSpin.SpaceGame.Web/wwwroot --output TailSpin.SpaceGame.Web/wwwroot'
     displayName: 'compiling sass'
 
   - task: Gulp@1
@@ -21,7 +21,7 @@ steps:
   
   - script: 'echo "$(Build.BuildDefinitionName) $(Build.BuildId) $(Build.BuildNumber)" > buildinfo.txt'
     displayName: 'writing build info'
-    workingDirectory: 'Tailspin.SpaceGame.Web/wwwroot'
+    workingDirectory: 'TailSpin.SpaceGame.Web/wwwroot'
   
   - task: DotNetCoreCLI@2
     displayName: 'restore project dependencies'
