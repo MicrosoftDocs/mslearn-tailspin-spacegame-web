@@ -1,6 +1,5 @@
-pool:
-vmImage:'ubuntu-latest'
-
 steps:
-- script: echo 'install'
-  displayName: 'running image'
+  - script: echo 'running image'
+    displayName: 'running image'
+pool:
+  vmImage:'ubuntu-latest'
