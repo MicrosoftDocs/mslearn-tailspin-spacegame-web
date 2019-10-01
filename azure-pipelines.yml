@@ -6,3 +6,7 @@
 pool:
   vmImage: 'ubuntu-latest'
 
+steps:
+  - script: echo 'running minimal image pool'
+    displayName: 'run the test'
+
