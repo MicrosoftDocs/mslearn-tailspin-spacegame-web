@@ -1,8 +1,6 @@
-# https://aka.ms/yaml
-
 pool:
- vmImage:'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo 'install'
-  displayName: 'running image'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
