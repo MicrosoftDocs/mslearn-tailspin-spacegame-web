@@ -1,0 +1,19 @@
+parameters:
+  buildConfiguration: 'Release'
+  
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'building project dependencies'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
+    
+- task: DotNetCoreCLI@2
+  displayName: 'preparing publishing'
+  inputs:
+    command: publish
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
