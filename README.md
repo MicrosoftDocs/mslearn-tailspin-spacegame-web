@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/claudiobarjasmartinez/Space%20Game%20-%20web%20-%20Tests/_apis/build/status/claudioallphi.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/claudiobarjasmartinez/Space%20Game%20-%20web%20-%20Tests/_build/latest?definitionId=25&branchName=master)
 
 # Contributing
 
