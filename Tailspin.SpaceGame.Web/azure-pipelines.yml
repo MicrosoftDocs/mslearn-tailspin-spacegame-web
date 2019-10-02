@@ -1,0 +1,49 @@
+pool:
+ vmImage:  'ubuntu-latest'
+ demands: 'npm'
+
+variables:
+ buildConfiguration: 'Release'
+ rootDirectory: 'Tailspin.SpaceGame.Web/wwwroot'
+ sdkVersion : '2.1.505'
+
+steps:
+  - task: DotNetCoreInstaller@0
+    displayName: 'installing dotnet core sdk $(sdkVersion)'
+    inputs:
+      version: $(sdkVersion)
+
+  - task: Npm@1
+    displayName: 'running npm install'
+    inputs:
+      verbose: false
+  
+  - script: './node_modules/.bin/node-sass $(rootDirectory) --output $(rootDirectory)'
+    displayName: 'compiling sass'
+
+  - task: Gulp@1
+    displayName: 'running gulp tasks'
+  
+  - script: 'echo "$(Build.BuildDefinitionName) $(Build.BuildId) $(Build.BuildNumber)" > buildinfo.txt'
+    displayName: 'writing build info'
+    workingDirectory: '$(rootDirectory)'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'restore project dependencies'
+    inputs:
+      command: 'restore'
+      projects: '**/*.csproj'
+
+  - template: templates/build.yml
+    parameters:
+      buildConfiguration: 'Release'
+
+  - template: templates/build.yml
+    parameters:
+      buildConfiguration: 'Debug'   
+      
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeeded()
+
+    

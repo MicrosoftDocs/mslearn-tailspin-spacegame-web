@@ -107,6 +107,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write(ex.Message);
                 return View(vm);
             }
         }
@@ -121,6 +122,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
             }
             catch (Exception ex)
             {
+                Console.Write(ex.Message);
                 return RedirectToAction("/");
             }
         }
