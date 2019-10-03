@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/jhughes0562/space-game-web-tests/_apis/build/status/Daimonos.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/jhughes0562/space-game-web-tests/_build/latest?definitionId=4&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
