@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- build-pipeline
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -32,6 +32,7 @@ steps:
     command: 'publish'
     publishWebProjects: true
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/drop'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/drop'
