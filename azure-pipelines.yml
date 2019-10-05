@@ -12,7 +12,7 @@ steps:
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK ${dotnetSdkVersion}'
   inputs:
-    version: ${dotnetSdkVersion}
+    version: '${dotnetSdkVersion}'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -27,7 +27,7 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
-  workingDirectory: ${wwwrootDir}
+  workingDirectory: '${wwwrootDir}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
