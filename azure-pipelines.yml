@@ -1,2 +1,4 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+stages:
+- stage: Test
