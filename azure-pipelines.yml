@@ -1,5 +1,6 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+<<<<<<< HEAD
   demands:
     - npm
 
@@ -55,3 +56,10 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
 
+=======
+
+stages:
+- stage: A
+  jobs:
+  - job: A1
+>>>>>>> 8284ffe54b67a0469d01a709fb60ce25d84152ed
