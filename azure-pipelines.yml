@@ -55,5 +55,3 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
 
-  - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
-  displayName: 'Compile Sass assets'
