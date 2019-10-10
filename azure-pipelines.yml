@@ -1,5 +1,2 @@
 pool:
   vmImage: 'Ubuntu-16.04'
-
-  job:
-    stage: build
