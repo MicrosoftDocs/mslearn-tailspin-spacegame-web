@@ -1,0 +1,2 @@
+pool:
+  vmImage: 'Unbutu-16.04'
