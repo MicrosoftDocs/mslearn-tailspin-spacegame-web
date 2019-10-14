@@ -4,7 +4,7 @@
 const gulp = require("gulp"),
       rimraf = require("rimraf"),
       concat = require("gulp-concat"),
-      cssmin = require("gulp-cssmin"),
+      cleanCSS = require("gulp-clean-css"),
       uglify = require("gulp-uglify");
 
 const paths = {
@@ -32,7 +32,7 @@ gulp.task("min:js", () => {
 gulp.task("min:css", () => {
   return gulp.src([paths.css, "!" + paths.minCss])
     .pipe(concat(paths.concatCssDest))
-    .pipe(cssmin())
+    .pipe(cleanCSS())
     .pipe(gulp.dest("."));
 });
 
