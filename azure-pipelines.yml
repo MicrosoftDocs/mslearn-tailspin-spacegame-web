@@ -4,10 +4,12 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool:
-      vmImage: 'Ubuntu-16.04'
-      demands:
-      - npm
+      pool:
+        vmImage: 'Ubuntu-16.04'
+        demands:
+          - npm
+
+  steps:
   - task: DotNetCoreInstaller@0
     displayName: 'Use .NET Core SDK 2.1.505'
     inputs:
@@ -26,7 +28,7 @@ stages:
 
   - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
     displayName: 'Write build info'
-    workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+      workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
   - task: DotNetCoreCLI@2
     displayName: 'Restore project dependencies'
