@@ -12,7 +12,7 @@ stages:
     variables:
       buildConfiguration: 'Release'
       wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-      dotnetSdkVersion: '$(dotnetSdkVersion)'
+      dotnetSdkVersion: '2.1.505'
 
     steps:
     - task: DotNetCoreInstaller@0
