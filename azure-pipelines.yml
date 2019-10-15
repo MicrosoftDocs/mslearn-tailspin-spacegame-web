@@ -1,5 +1,12 @@
+trigger:
+  branches:
+    include:
+      - '*'
+  paths:
+    exclude:
+      - docs/*
 stages:
-  - stage: 
+  - stage:
     jobs:
       - job:
         pool:
