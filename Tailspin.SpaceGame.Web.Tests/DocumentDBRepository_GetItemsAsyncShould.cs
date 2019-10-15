@@ -7,19 +7,15 @@ using NUnit.Framework;
 using TailSpin.SpaceGame.Web;
 using TailSpin.SpaceGame.Web.Models;
 
-namespace Tests
-{
-    public class DocumentDBRepository_GetItemsAsyncShould
-    {
+namespace Tests {
+    public class DocumentDBRepository_GetItemsAsyncShould {
         private IDocumentDBRepository<Score> _scoreRepository;
 
         [SetUp]
-        public void Setup()
-        {
+        public void Setup() {
             using (Stream scoresData = typeof(IDocumentDBRepository<Score>)
                 .Assembly
-                .GetManifestResourceStream("Tailspin.SpaceGame.Web.SampleData.scores.json"))
-            {
+                .GetManifestResourceStream("Tailspin.SpaceGame.Web.SampleData.scores.json")) {
                 _scoreRepository = new LocalDocumentDBRepository<Score>(scoresData);
             }
         }
@@ -29,8 +25,7 @@ namespace Tests
         [TestCase("Pinwheel")]
         [TestCase("NGC 1300")]
         [TestCase("Messier 82")]
-        public void FetchOnlyRequestedGameRegion(string gameRegion)
-        {
+        public void FetchOnlyRequestedGameRegion(string gameRegion) {
             const int PAGE = 0; // take the first page of results
             const int MAX_RESULTS = 10; // sample up to 10 results
 
