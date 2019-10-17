@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		templates\build.yml = templates\build.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tailspin.SpaceGame.Web.Tests", "mslearn-tailspin-spacegame-test\Tailspin.SpaceGame.Web.Tests.csproj", "{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
