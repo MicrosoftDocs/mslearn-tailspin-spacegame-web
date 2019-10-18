@@ -1,7 +1,7 @@
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'Ubuntu-16.04'
   demands:
-    -npm
+    - npm
 
 steps:
 - task: DotNetCoreInstaller@0
@@ -9,12 +9,12 @@ steps:
   inputs:
     version: 2.1.505
 
-- task: NPm@1
+- task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output TailSpin.SpaceGame.Web/wwwroot'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
