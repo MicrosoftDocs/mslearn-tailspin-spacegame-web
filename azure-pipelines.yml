@@ -1,5 +1,5 @@
 pool:
-  vmImage: 'Ubuntu-1604'
+  vmImage: 'ubuntu-16.04'
   demands:
     -npm
 
