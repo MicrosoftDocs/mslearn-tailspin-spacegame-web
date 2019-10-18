@@ -1,5 +1,5 @@
 pool:
-  vmImage: 'MyLinuxAgent'
+  name: 'Self-Hosted-Azure-VMs-MWANERSK-Linux'
   demands:
     - npm
 
