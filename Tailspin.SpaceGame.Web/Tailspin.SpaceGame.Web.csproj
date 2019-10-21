@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -9,16 +9,19 @@
     <Content Remove="SampleData\profiles.json" />
     <Content Remove="SampleData\scores.json" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="SampleData\profiles.json" />
-    <EmbeddedResource Include="SampleData\scores.json" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,9 +44,11 @@
   <ItemGroup>
     <EmbeddedResource Include="SampleData\profiles.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="SampleData\scores.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
