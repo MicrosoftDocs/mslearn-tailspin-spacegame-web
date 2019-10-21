@@ -1,16 +1,15 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29403.142
+VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tailspin.SpaceGame.Web", "Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj", "{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0DD6F4E4-B0A3-49C1-A055-A06A0CFF5031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tailspin.SpaceGame.Web.Tests", "Tailspin.SpaceGame.Web.Tests\Tailspin.SpaceGame.Web.Tests.csproj", "{773BA444-0D67-4F37-8762-17E108CCD5F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{39ADE6B6-D72E-4893-AA88-A2CC6FBB6099}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
-		templates\build.yml = templates\build.yml
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tailspin.SpaceGame.Web.Tests", "mslearn-tailspin-spacegame-test\Tailspin.SpaceGame.Web.Tests.csproj", "{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,15 +21,5 @@ Global
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A78B81EF-8999-41D0-B4D2-91A0C90CD0AC}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {129DA471-3A40-4018-A32D-E818752CF0F8}
 	EndGlobalSection
 EndGlobal
