@@ -42,13 +42,7 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
-- trigger:
-  branches:
-    include:
-    - '*'     # build all branches
-  paths:
-    exclude:
-    - docs/*  # exclude the docs folder
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
