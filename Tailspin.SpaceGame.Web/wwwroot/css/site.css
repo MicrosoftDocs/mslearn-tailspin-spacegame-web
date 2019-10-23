@@ -1,6 +1,6 @@
 body {
   color: black;
-  --link: #064EC0; }
+  --link: #5771ed; }
 
 a {
   color: var(--link); }
@@ -15,13 +15,14 @@ section {
   border-bottom: 3px solid black; }
 
 .intro {
-  height: 350px;
-  background-color: #666;
-  background-image: url("/images/space-background.svg");
-  background-size: 1440px;
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed; }
+    height: 350px;
+    background-color: #666;
+    background-image: url("https://i.ytimg.com/vi/Wx_7UCssnJc/maxresdefault.jpg");
+    background-size: 1440px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
   .intro .title {
     width: 20rem;
     margin-top: 2rem; }
@@ -33,12 +34,13 @@ section {
     margin-top: 2rem; }
 
 .download .image-cap {
-  height: 180px;
-  background-size: 800px;
-  margin-top: -240px;
-  background-image: url("/images/space-foreground.svg");
-  background-repeat: no-repeat;
-  background-position: center top; }
+    height: 180px;
+    background-size: 800px;
+    margin-top: -240px;
+    background-image: url("https://i.ytimg.com/vi/Wx_7UCssnJc/maxresdefault.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+}
 
 .download .btn {
   margin-top: 5rem;
