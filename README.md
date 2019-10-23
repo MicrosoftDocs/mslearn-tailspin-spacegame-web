@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/bunax6/Space%20Game-Web%20-pipeline/_apis/build/status/bunax6.mslearn-tailspin-spacegame-web%20(1)?branchName=master)](https://dev.azure.com/bunax6/Space%20Game-Web%20-pipeline/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
