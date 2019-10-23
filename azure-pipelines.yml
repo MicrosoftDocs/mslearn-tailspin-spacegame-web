@@ -42,7 +42,7 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
- -trigger:
+- trigger:
   branches:
     include:
     - '*'     # build all branches
