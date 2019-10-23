@@ -1,6 +1,2 @@
 pool:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '2.1.1'
   vmImage: 'ubuntu-16.04'
