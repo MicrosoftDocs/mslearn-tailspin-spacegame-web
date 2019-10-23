@@ -1,3 +1,3 @@
 pool:
- vmImage: "Ubuntu-16.04"
+ vmImage: 'Ubuntu-16.04'
  |# https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/6-create-the-pipeline
