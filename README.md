@@ -1,5 +1,7 @@
 [![Build Status](https://dev.azure.com/vipinputhiyamadathiljohn/Space%20Game%20-%20web%20-%20Pipelin/_apis/build/status/vipinpjohn.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/vipinputhiyamadathiljohn/Space%20Game%20-%20web%20-%20Pipelin/_build/latest?definitionId=5&branchName=master)
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=space-game-web-55)](https://sonarcloud.io/dashboard?id=space-game-web-55)
+
 # Contributing
 dsds
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
