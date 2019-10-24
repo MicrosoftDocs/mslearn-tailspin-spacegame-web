@@ -34,7 +34,6 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
   inputs:
@@ -118,3 +117,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
