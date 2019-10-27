@@ -1,2 +1,7 @@
-pool: 
-    vmImage: 'Ubuntu-16.04'
+stages:
+    - stage: 'Training'
+      displayName: 'setup server'
+      jobs:
+       - job: 'setupVm'
+         pool:
+           vmImage: 'ubuntu-latest'
