@@ -4,4 +4,4 @@ stages:
       jobs:
        - job: 'setupVm'
          pool:
-           vmImage: 'ubuntu-latest'
+           vmImage: 'ubuntu-16.04'
