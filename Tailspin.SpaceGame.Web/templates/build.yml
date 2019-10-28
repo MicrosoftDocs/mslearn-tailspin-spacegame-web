@@ -1,8 +1,3 @@
-stages:
-    - stage: 'Training'
-      displayName: 'Build Script'
-      jobs:
-       - job: 'Build'
          parameters:
            buildConfiguration: 'Release'
            
