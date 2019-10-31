@@ -45,7 +45,7 @@ steps:
 
 - template: templates/build.yml
   parameters:
-    buildConfiguration: $(buildConfiguration)
+    buildConfiguration: $(FWD-DB-UNAME)
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
