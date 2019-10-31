@@ -1,11 +1,11 @@
+pr:
+- master
+- releases/*
+
 pool:
   vmImage: 'Ubuntu-16.04'
   demands:
     - npm
-
-pr:
-- master
-- releases/*
 
 variables:
 - group: SpaceGameVars
