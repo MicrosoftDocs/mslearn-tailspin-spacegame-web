@@ -3,22 +3,26 @@ stages:
       displayName: 'setup server'
       jobs:
        - job: 'setupVm'
+         variables:
+           buildConfiguration: 'Release'
+           SDKversion: '2.1.505'
+           RootLocation: 'Tailspin.SpaceGame.Web/wwwroot'
          pool:
            vmImage: 'ubuntu-16.04'
            demands:
               - npm
          steps:
          - task: DotNetCoreInstaller@0
-           displayName: 'Use .Net Core SDK 2.1.505'
+           displayName: 'Use .Net Core SDK $(SDKversion)'
            inputs:
-             version: 2.1.505
+             version: $(SDKversion)
 
          - task: Npm@1
            displayName: 'Run npm install'
            inputs:
              verbose: false
 
-         - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+         - script: './node_modules/.bin/node-sass $(RootLocation) --output $(RootLocation)'
            displayName: 'Compile Sass assets'
 
 
@@ -27,7 +31,7 @@ stages:
 
          - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
            displayName: 'Write build info'
-           workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+           workingDirectory: $(RootLocation)
  
          - task: DotNetCoreCLI@2
            displayName: 'Restore project dependencies'
