@@ -5,16 +5,16 @@ pool:
 
 variables:
 - group: SpaceGameVars
-
-- script:
-  echo 'dotnetSdkVersion version is $(dotnetSdkVersion) \n----  wwwrootDir value is $(wwwrootDir) ----- and buildConfiguration is $(buildConfiguration) ----'
-
+  
 
 steps:
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
+
+- script: 'echo Publish variables called from group--- dotnetSdkVersion is $(dotnetSdkVersion)-- wwwrootDir is $(wwwrootDir) -- buildConfiguration is $(buildConfiguration)'
+  displayName: 'Group Vars Testing...'
 
 - task: Npm@1
   displayName: 'Run npm install'
