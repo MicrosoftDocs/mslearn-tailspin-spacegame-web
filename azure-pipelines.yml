@@ -4,9 +4,7 @@ pool:
     - npm
 
 variables:
-  buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '2.1.505'
+- group: SpaceGameVars
 
 steps:
 - task: DotNetCoreInstaller@0
