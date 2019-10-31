@@ -3,6 +3,12 @@ pool:
   demands:
     - npm
 
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 
+    keyVaultName: FWD-PRD-CREDS
+    secretsFilter: '*'
+
 variables:
 - group: SpaceGameVars
   
@@ -13,8 +19,8 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-- script: 'echo Publish variables called from group--- dotnetSdkVersion is $(dotnetSdkVersion)-- wwwrootDir is $(wwwrootDir) -- buildConfiguration is $(buildConfiguration)'
-  displayName: 'Group Vars Testing...'
+- script: 'echo Publish variables called from group--- dotnetSdkVersion is $(dotnetSdkVersion)-- wwwrootDir is $(wwwrootDir) -- buildConfiguration is $(buildConfiguration) --- vault items FWD-DB-UNAME is $(FWD-DB-UNAME) --- FWD-DB-PASSWORD is $(FWD-DB-PASSWORD)'
+  displayName: 'Group Vars and Vault Testing...'
 
 - task: Npm@1
   displayName: 'Run npm install'
