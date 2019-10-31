@@ -3,15 +3,10 @@ pool:
   demands:
     - npm
 
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 
-    keyVaultName: FWD-PRD-CREDS
-    secretsFilter: '*'
 
 variables:
 - group: SpaceGameVars
-  
+- group: FWD-Secrets
 
 steps:
 - task: DotNetCoreInstaller@0
