@@ -3,6 +3,9 @@ pool:
   demands:
     - npm
 
+pr:
+- master
+- releases/*
 
 variables:
 - group: SpaceGameVars
