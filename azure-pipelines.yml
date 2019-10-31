@@ -1,2 +1,8 @@
 pool:
  vmImage: 'Ubuntu-16.4'
+- task: PackerBuild@1
+  inputs:
+    templateType: 'builtin'
+    isManagedImage: true
+    baseImageSource: 'default'
+    baseImage: 'MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:windows'
