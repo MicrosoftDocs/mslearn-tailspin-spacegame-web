@@ -1,6 +1,5 @@
 pr:
 - master
-- releases/*
 
 pool:
   vmImage: 'Ubuntu-16.04'
