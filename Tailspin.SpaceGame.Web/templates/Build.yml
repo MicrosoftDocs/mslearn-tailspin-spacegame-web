@@ -17,5 +17,8 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.BuildConfiguration }}'
     zipAfterPublish: true
+<<<<<<< HEAD
 
+=======
+>>>>>>> a298ee3d7f90c96ffb8d1928c51f344338359972
     
