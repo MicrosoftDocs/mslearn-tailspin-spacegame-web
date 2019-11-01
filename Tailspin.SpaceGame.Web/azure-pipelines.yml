@@ -1,2 +1,15 @@
-pool:
-  vmImage: 'Ubuntu-16.04'
+stages:
+- stage: Build
+  jobs:
+  - job: Build
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    continueOnError: true
+    steps:
+    - script: echo my first build job
+- stage: Deploy
+  jobs:
+    # track deployments on the environment
+  - deployment: DeployWeb
+    pool:
+      vmImage: 'Ubuntu-16.04'
