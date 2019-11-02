@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,9 +20,11 @@ namespace Tests
         {
             using (Stream scoresData = typeof(IDocumentDBRepository<Score>)
                 .Assembly
+
                 .GetManifestResourceStream("Tailspin.SpaceGame.Web.SampleData.scores.json"))
             {
                 _scoreRepository = new LocalDocumentDBRepository<Score>(scoresData);
+
             }
         }
 
@@ -35,6 +38,7 @@ namespace Tests
             const int PAGE = 0; // take the first page of results
             const int MAX_RESULTS = 10; // sample up to 10 results
 
+
             // Form the query predicate.
             // This expression selects all scores for the provided game region.
             Expression<Func<Score, bool>> queryPredicate = score => (score.GameRegion == gameRegion);
@@ -44,6 +48,7 @@ namespace Tests
                 queryPredicate, // the predicate defined above
                 score => 1, // we don't care about the order
                 PAGE,
+
                 MAX_RESULTS
             );
             IEnumerable<Score> scores = scoresTask.Result;
@@ -51,6 +56,7 @@ namespace Tests
             // Verify that each score's game region matches the provided game region.
             Assert.That(scores, Is.All.Matches<Score>(score => score.GameRegion == gameRegion));
         }
+
 
         [TestCase(0, ExpectedResult = 0)]
         [TestCase(1, ExpectedResult = 1)]
@@ -71,5 +77,6 @@ namespace Tests
             // Verify that we received the specified number of items.
             return scores.Count();
         }
+
     }
 }
