@@ -4,8 +4,9 @@ pool:
     - npm
   
 steps:  
-- displayName: 'Write build info'
-  script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)"'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)"'
+  displayName: 'Write build info'
+  
 
 - task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK 2.1.505'
