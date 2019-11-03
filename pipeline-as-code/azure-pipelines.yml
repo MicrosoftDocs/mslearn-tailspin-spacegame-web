@@ -1,6 +1,18 @@
 pool:
   vmImage: 'Ubuntu-16.04'
+  demands:
+    - npm
   
 steps:  
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)"'
-  displayName: 'Write build info'
+- displayName: 'Write build info'
+  script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)"'
+
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core SDK 2.1.505'
+  inputs:
+    version: 2.1.505
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false  
