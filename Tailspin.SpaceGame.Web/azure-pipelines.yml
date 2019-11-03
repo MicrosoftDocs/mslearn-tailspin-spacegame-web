@@ -96,7 +96,6 @@ steps:
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
-
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
   inputs:
