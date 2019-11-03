@@ -1,6 +1,6 @@
 parameters:
   name: ''  # defaults for any parameters that aren't specified
   vmImage: ''
-  
+
 pool:
-  vmImage: 'Ubuntu-18.04'
+  vmImage: 'Ubuntu-16.04'
