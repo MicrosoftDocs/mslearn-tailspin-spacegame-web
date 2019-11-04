@@ -33,9 +33,7 @@ steps:
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+    projects: '**/*.csproj'
 
 - template: templates/build.yml
   parameters:
