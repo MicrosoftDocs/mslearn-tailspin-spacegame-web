@@ -63,4 +63,4 @@ steps:
 #succeeded() is the default condition, so you don't need to specify it
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  condition: succeeded(
+  condition: succeeded()
