@@ -3,7 +3,6 @@ pool:
   demands:
     - npm
 
-
 variables:
 	buildconfiguration: 'Release'
 	wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
@@ -36,22 +35,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildconfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildconfiguration)'
-    projects: '**/*.csproj'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - $(buildconfiguration)'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/$(buildconfiguration)'
-    zipAfterPublish: true
-
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
