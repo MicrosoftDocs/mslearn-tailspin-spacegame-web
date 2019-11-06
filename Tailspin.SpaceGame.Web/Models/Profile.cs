@@ -4,6 +4,7 @@ namespace TailSpin.SpaceGame.Web.Models
 {
     public class Profile : Model
     {
+        //Comment
         // The player's user name.
         [JsonProperty(PropertyName = "userName")]
         public string UserName { get; set; }
