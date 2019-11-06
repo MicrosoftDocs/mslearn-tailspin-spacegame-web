@@ -4,7 +4,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
+<<<<<<< HEAD
     - npm
+=======
+  - npm
+
+variables:
+  buildConfiguration: 'Release'
+>>>>>>> 7afcb1a3bc76b3818a7448af3477be119a993f6f
 
 steps:
 - task: DotNetCoreInstaller@0
@@ -39,6 +46,7 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+<<<<<<< HEAD
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
@@ -52,3 +60,5 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+=======
+>>>>>>> 7afcb1a3bc76b3818a7448af3477be119a993f6f
