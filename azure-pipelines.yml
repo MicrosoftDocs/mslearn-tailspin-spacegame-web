@@ -41,7 +41,7 @@ steps:
 
 # Build and Publish templates
 - template: templates/build.yml
-  parameteres:
+  parameters:
     buildConfiguration: 'Debug'
 
 - template: templates/build.yml
