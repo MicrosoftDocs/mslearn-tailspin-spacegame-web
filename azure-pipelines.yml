@@ -64,5 +64,3 @@ steps:
     publishVstsFeed: 'Tailspin.SpaceGame.Web'
     allowPackageConflicts: true
   condition: succeeded()
-
-  
