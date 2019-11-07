@@ -1,4 +1,5 @@
 [![Build Status](https://mortenbg.visualstudio.com/Space%20Game%20-%20Web%20-%20Pipeline/_apis/build/status/Space%20Game%20-%20Web%20-%20Pipeline-CI?branchName=master)](https://mortenbg.visualstudio.com/Space%20Game%20-%20Web%20-%20Pipeline/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
