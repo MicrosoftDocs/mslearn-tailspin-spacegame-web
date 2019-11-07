@@ -1,6 +1,8 @@
 pr:
+- master
+trigger:
     branches:
-        exclude:
+        include:
             - master
 
 pool:
