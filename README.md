@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/simonenocera/Lezione3/_apis/build/status/SimoneNoceraITS.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/simonenocera/Lezione3/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
@@ -29,6 +30,3 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
-
-Thanks for all!
-Goodbye
