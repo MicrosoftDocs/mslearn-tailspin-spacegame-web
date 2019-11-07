@@ -1,9 +1,8 @@
 pr:
-- master
+- '*'
+
 trigger:
-    branches:
-        include:
-            - master
+- '*'
 
 pool:
   vmImage: 'ubuntu-16.04'
@@ -45,10 +44,6 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
-
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Release'
 
 - task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
