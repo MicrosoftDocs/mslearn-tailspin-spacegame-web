@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/simonenocera/Lezione3/_apis/build/status/SimoneNoceraITS.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/simonenocera/Lezione3/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
