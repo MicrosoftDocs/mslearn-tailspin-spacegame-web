@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Tailspin053/Space%20Game%20-%20web/_apis/build/status/Maetis.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin053/Space%20Game%20-%20web/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
