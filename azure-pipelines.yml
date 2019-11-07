@@ -11,6 +11,8 @@ pool:
   demands:
   - npm
 
+
+  # funny, senseless comment! :)
 variables:
   buildConfiguration: 'Release'
 
