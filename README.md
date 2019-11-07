@@ -1,7 +1,7 @@
 [![Build Status](https://dev.azure.com/marcoranalli/Lezione3/_apis/build/status/Rana0510.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/marcoranalli/Lezione3/_build/latest?definitionId=1&branchName=master)
 
 
-# Contributing modificato PULL REQUEST
+# Contributing modificato PULL REQUEST su NEW BRANCH
 
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
