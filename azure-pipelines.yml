@@ -47,11 +47,13 @@ steps:
     buildConfiguration: 'Release'
 
 - task: DotNetCoreCLI@2
-  displayName: 'netcoretest'
+  displayName: "tests"
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
-    arguments: '--configuration Release --no-build'
+    arguments: '--configuration Release --no-build''
+
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
