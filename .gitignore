@@ -138,6 +138,8 @@ _TeamCity*
 *.coverage
 *.coveragexml
 
+[Cc]ode[Cc]overage/
+
 # NCrunch
 _NCrunch_*
 .*crunch*.local.xml
