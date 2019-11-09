@@ -1,3 +1,4 @@
+[![Build Status](https://peter-marynowski.visualstudio.com/MSOnlineCourse/_apis/build/status/peterMary123.mslearn-tailspin-spacegame-web?branchName=master)](https://peter-marynowski.visualstudio.com/MSOnlineCourse/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
