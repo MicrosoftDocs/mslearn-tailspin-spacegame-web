@@ -1,2 +1,15 @@
+trigger:
+- master
+
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
+
+variables:
+buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+displayName: 'dotnet build $(buildConfiguration)'
+
+#pool:
+#  vmImage: 'Ubuntu-16.04'
