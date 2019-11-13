@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/apa1104/tailspinTest01/_apis/build/status/andrejspaeglis.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/apa1104/tailspinTest01/_build/latest?definitionId=3&branchName=master)
 
 # Contributing
 
