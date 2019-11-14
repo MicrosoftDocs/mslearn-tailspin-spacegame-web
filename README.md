@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/nandanlele1/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/RetInnovation.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/nandanlele1/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=3&branchName=master)
 
 # Contributing
 
