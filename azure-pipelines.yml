@@ -4,16 +4,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
-
-variables:
-  buildConfiguration: 'Release'
+    - npm
 
 steps:
-- task: UseDotNet@2
+- task: DotNetCoreInstaller@0
   displayName: 'Use .NET Core SDK 2.1.505'
   inputs:
-    packageType: sdk
     version: 2.1.505
 
 - task: Npm@1
@@ -44,7 +40,7 @@ steps:
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
 
-    - task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
