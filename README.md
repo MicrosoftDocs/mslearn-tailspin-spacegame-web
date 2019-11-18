@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/jiechen0635/tes111720019/_apis/build/status/j2016c.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/jiechen0635/tes111720019/_build/latest?definitionId=1&branchName=master)
 # Contributing----something
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
