@@ -1,0 +1,7 @@
+organization=snkfischer
+projectKey=snkfischer_mslearn-tailspin-spacegame-web
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.2632
+dashboardUrl=https://sonarcloud.io/dashboard?id=snkfischer_mslearn-tailspin-spacegame-web
+ceTaskId=AW5mfgURnfArXwhxGoTX
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW5mfgURnfArXwhxGoTX
