@@ -1,7 +1,7 @@
 organization=snkfischer
 projectKey=space-game-web333-sf
 serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.2769
+serverVersion=8.0.0.2779
 dashboardUrl=https://sonarcloud.io/dashboard?id=space-game-web333-sf
-ceTaskId=AW6ARSn1YJIheUHVH4_G
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW6ARSn1YJIheUHVH4_G
+ceTaskId=AW6EUrakhlz89p6yBzgy
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AW6EUrakhlz89p6yBzgy
