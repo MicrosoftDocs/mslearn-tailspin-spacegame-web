@@ -20,6 +20,7 @@ steps:
   inputs:
     packageType: sdk
     version: 3.0.101
+    installationPath: $(Agent.ToolsDirectory)/dotnet
 
 - task: Npm@1
   displayName: 'Run npm install'
