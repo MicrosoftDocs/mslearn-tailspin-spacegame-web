@@ -15,7 +15,7 @@ steps:
 #   inputs:
 #     packageType: sdk
 #     version: 2.1.505
-- task: UseDotNet@3
+- task: UseDotNet@2
   displayName: 'Use .NET Core SDK 3.0.101'
   inputs:
     packageType: sdk
@@ -36,14 +36,14 @@ steps:
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
-- task: DotNetCoreCLI@3
+- task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
 # - task: DotNetCoreCLI@2
-- task: DotNetCoreCLI@3
+- task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
