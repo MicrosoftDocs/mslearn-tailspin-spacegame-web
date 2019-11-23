@@ -10,11 +10,6 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# - task: UseDotNet@2
-#   displayName: 'Use .NET Core SDK 2.1.505'
-#   inputs:
-#     packageType: sdk
-#     version: 2.1.505
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 3.0.101'
   inputs:
@@ -43,10 +38,22 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-# - task: DotNetCoreCLI@2
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - Release'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
