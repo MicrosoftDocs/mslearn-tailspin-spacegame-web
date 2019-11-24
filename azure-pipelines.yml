@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
+    - npm
 
 variables:
   buildConfiguration: 'Release'
@@ -17,11 +17,10 @@ variables:
   dotnetSdkVersion: '2.1.505'
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK $(dotnetSdkVersion))'
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
-    packageType: sdk
-    version: '$(dotnetSdkVersion)''
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -44,21 +43,6 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
-
-#- task: DotNetCoreCLI@2
-  #displayName: 'Publish the project - $(buildConfiguration)'
-  #inputs:
-   # command: 'publish'
-   # projects: '**/*.csproj'
-  #  publishWebProjects: false
- #   arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-#    zipAfterPublish: true
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
@@ -70,3 +54,12 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+#- task: DotNetCoreCLI@2
+  #displayName: 'Publish the project - $(buildConfiguration)'
+  #inputs:
+   # command: 'publish'
+   # projects: '**/*.csproj'
+  #  publishWebProjects: false
+ #   arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+#    zipAfterPublish: true
