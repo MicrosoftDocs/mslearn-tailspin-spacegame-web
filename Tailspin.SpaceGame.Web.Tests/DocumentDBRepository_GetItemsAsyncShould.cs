@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
@@ -16,9 +17,14 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
-            using (Stream scoresData = typeof(IDocumentDBRepository<Score>)
-                .Assembly
-                .GetManifestResourceStream("Tailspin.SpaceGame.Web.SampleData.scores.json"))
+            // throw new Exception("All : " + string.Join(" ",typeof(IDocumentDBRepository<Score>).Assembly.GetManifestResourceNames()));
+            // throw new Exception(new FileInfo("..\\..\\..\\..\\Tailspin.SpaceGame.Web\\SampleData\\scores.json").Exists.ToString());
+            // using (Stream scoresData = typeof(IDocumentDBRepository<Score>)
+            //     .Assembly
+            //     // .GetManifestResourceStream("..\\..\\..\\..\\Tailspin.SpaceGame.Web\\SampleData\\scores.json"))
+            //     .GetManifestResourceStream("SampleData\\scores.json"))
+            // {
+            using(var scoresData = File.Open("..\\..\\..\\..\\Tailspin.SpaceGame.Web\\SampleData\\scores.json", FileMode.Open))
             {
                 _scoreRepository = new LocalDocumentDBRepository<Score>(scoresData);
             }
