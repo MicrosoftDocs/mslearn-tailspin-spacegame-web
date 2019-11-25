@@ -24,7 +24,8 @@ namespace Tests
             //     // .GetManifestResourceStream("..\\..\\..\\..\\Tailspin.SpaceGame.Web\\SampleData\\scores.json"))
             //     .GetManifestResourceStream("SampleData\\scores.json"))
             // {
-            using(var scoresData = File.Open("..\\..\\..\\..\\Tailspin.SpaceGame.Web\\SampleData\\scores.json", FileMode.Open))
+            // using(var scoresData = File.Open("../../../../Tailspin.SpaceGame.Web/SampleData/scores.json", FileMode.Open))
+            using(var scoresData = File.Open("./SampleData/scores.json", FileMode.Open))
             {
                 _scoreRepository = new LocalDocumentDBRepository<Score>(scoresData);
             }
