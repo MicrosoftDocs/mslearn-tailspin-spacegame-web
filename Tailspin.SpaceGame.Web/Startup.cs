@@ -59,5 +59,6 @@ namespace TailSpin.SpaceGame.Web
 				//endpoints.MapHub<ChatHub>("/chat");
 				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 			});
+        }
     }
 }
