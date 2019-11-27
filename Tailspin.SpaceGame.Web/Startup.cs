@@ -27,10 +27,6 @@ namespace TailSpin.SpaceGame.Web
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            //MvcOptions.EnableEndpointRouting = false;
-            //services.AddMvc();            
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            //services.AddMvc(option => option.EnableEndpointRouting = false);
             // Add document stores. These are passed to the HomeController constructor.
             services.AddSingleton<IDocumentDBRepository<Score>>(new LocalDocumentDBRepository<Score>(@"SampleData/scores.json"));
             services.AddSingleton<IDocumentDBRepository<Profile>>(new LocalDocumentDBRepository<Profile>(@"SampleData/profiles.json"));
@@ -55,7 +51,6 @@ namespace TailSpin.SpaceGame.Web
 			
 			
 			app.UseRouting();
-			//app.UseCors();
 			app.UseAuthentication();
 			app.UseAuthorization();
 			
@@ -64,13 +59,5 @@ namespace TailSpin.SpaceGame.Web
 				//endpoints.MapHub<ChatHub>("/chat");
 				endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 			});
-
-            //app.UseMvc(routes =>
-            //{
-            //    routes.MapRoute(
-            //        name: "default",
-            //        template: "{controller=Home}/{action=Index}/{id?}");
-            //});
-        }
     }
 }
