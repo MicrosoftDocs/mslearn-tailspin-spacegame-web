@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/ArghaOpsDev/Space%20Game%20-%20web/_apis/build/status/ArghaKBera.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/ArghaOpsDev/Space%20Game%20-%20web/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
