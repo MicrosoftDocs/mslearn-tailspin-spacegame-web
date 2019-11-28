@@ -33,6 +33,11 @@ steps:
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+- task: DotNetCoreCLI@1
+  displayName: Restore settings
+  inputs: 
+   command: restore
+   projects: '**/*.csproj'
 - task: DotNetCoreCLI@2
   displayName: Build the project
   inputs:
