@@ -48,6 +48,7 @@ steps:
     projectName: '$(sonarProjectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
+     sonar.branch.name=$(Build.SourceBranchName)
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
 
