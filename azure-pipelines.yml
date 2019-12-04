@@ -1,45 +1,65 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
 trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-16.04'
-  demands:
-  - npm
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK 2.1.505'
+- task: DotNetCoreInstaller@0
+  displayName: installer
   inputs:
-    packageType: sdk
     version: 2.1.505
 
 - task: Npm@1
-  displayName: 'Run npm install'
+  displayName:  run npm install
   inputs:
     verbose: false
 
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayName: 'Compile Sass assets'
+  displayName: compile sccs
 
-- task: gulp@1
-  displayName: 'Run gulp tasks'
+- task: Gulp@1
+  displayName: Run gulp tasks
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+- task: DotNetCoreCLI@1
+  displayName: Restore settings
+  inputs: 
+   command: restore
+   projects: '**/*.csproj'
 - task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
+  displayName: Build the project
   inputs:
-    command: 'restore'
+    command: build
+    arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
+  displayName: Execute Unit Test
   inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'
+    command: test
+    arguments: '--no-build --configuration $(BuildConfiguration)'
+    publishTestResults: true
+    projects: '**/*.Test.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish project
+  inputs:
+    command: publish
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish artifacts
+  condition: succeeded()
