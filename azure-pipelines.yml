@@ -6,6 +6,7 @@
 trigger:
 - '*'
 
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -13,6 +14,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- bash: |
+   echo "$(SonarOrganization)"
 - task: DotNetCoreInstaller@0
   displayName: installer
   inputs:
