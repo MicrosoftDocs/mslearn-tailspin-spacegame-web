@@ -15,7 +15,7 @@ variables:
 
 steps:
 - bash: |
-   echo "$(SonarOrganization)"
+   echo "$(name)"
 - task: DotNetCoreInstaller@0
   displayName: installer
   inputs:
