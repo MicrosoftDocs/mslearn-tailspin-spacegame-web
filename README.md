@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/traceur70/Space%20Game%20-%20web%20-%20Tests/_apis/build/status/Traceur70.mslearn-tailspin-spacegame-web?branchName=code-coverage)](https://dev.azure.com/traceur70/Space%20Game%20-%20web%20-%20Tests/_apis/build/status/Traceur70.mslearn-tailspin-spacegame-web?branchName=code-coverage)
+
 [![Build Status](https://dev.azure.com/traceur70/Space%20Game%20-%20web%20-%20Tests/_apis/build/status/Traceur70.mslearn-tailspin-spacegame-web?branchName=code-coverage)](https://dev.azure.com/traceur70/Space%20Game%20-%20web%20-%20Tests/_build/latest?definitionId=1&branchName=code-coverage)
 
 # Contributing
