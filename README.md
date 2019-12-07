@@ -1,4 +1,6 @@
+[![Build Status](https://dev.azure.com/zooplusAG/Game%20(Demo)/_apis/build/status/kzarms.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/zooplusAG/Game%20(Demo)/_build/latest?definitionId=1&branchName=master)
 
+[![Build Status](https://dev.azure.com/zooplusAG/Game%20(Demo)/_apis/build/status/kzarms.mslearn-tailspin-spacegame-web?branchName=unit-tests)](https://dev.azure.com/zooplusAG/Game%20(Demo)/_build/latest?definitionId=1&branchName=unit-tests)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
