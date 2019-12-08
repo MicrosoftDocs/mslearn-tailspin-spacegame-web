@@ -1,6 +1,6 @@
 parameters:
   buildConfiguration: 'Release'
-  generateCodeCoverage: 'true'
+  generateCodeCoverage: 'false'
   
 steps:
 - task: DotNetCoreCLI@2
@@ -9,13 +9,6 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
     projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Install ReportGenerator'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install --global dotnet-reportgenerator-globaltool'
 
 - task: DotNetCoreCLI@2
   displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
@@ -28,9 +21,11 @@ steps:
 - script: |
     reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
   displayName: 'Create code coverage report'
+  condition: eq(${{ parameters.generateCodeCoverage }}, 'true')
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
+  condition: eq(${{ parameters.generateCodeCoverage }}, 'true')
   inputs:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
