@@ -44,6 +44,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Install ReportGenerator'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-reportgenerator-globaltool'
+  
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
@@ -51,6 +58,7 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
+    generateCodeCoverage: 'true'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
