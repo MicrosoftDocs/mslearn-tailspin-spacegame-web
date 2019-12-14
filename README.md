@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Tailspin0007/Space-Game-Web-Pipeline/_apis/build/status/abhishekagg24.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin0007/Space-Game-Web-Pipeline/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
