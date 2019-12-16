@@ -53,8 +53,8 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
-  - task: PublishBuildArtifact@1
-    displayName: 'Publish Artifact: drop'
-    condition: succeeded()
+- task: PublishBuildArtifact@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
 	
 
