@@ -44,7 +44,7 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
--task: DoNetCoreCLI@2
+- task: DoNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration'
   inputs:
     command: 'publish'
