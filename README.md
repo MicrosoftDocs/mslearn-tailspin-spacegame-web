@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/bikuma0603/DevOpsHandsOn/_apis/build/status/binitku.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/bikuma0603/DevOpsHandsOn/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
