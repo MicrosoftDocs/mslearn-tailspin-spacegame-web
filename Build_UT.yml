@@ -44,9 +44,9 @@ steps:
   displayName: Sonar Analysis
   inputs:
       SonarCloud: 'Sonarcloud'
-      organization: '${SonarOrganization}'
-      projectKey: '$(projectkey)'
-      projectName: '${SonarProjectName}'
+      organization: 'devopsorg48'
+      projectKey: 'spacewebgamer'
+      projectName: 'spacewebgamer'
       projectVersion: $(Build.BuildNumber)
       extraProperties: |
        sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
