@@ -64,7 +64,7 @@ steps:
     command: test
     arguments: '--no-build --configuration $(BuildConfiguration)'
     publishTestResults: true
-    projects: '**/*.Test.csproj'
+    projects: '**/*.Tests.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: Publish project
