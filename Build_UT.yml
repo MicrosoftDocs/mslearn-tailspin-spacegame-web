@@ -1,78 +1,55 @@
-# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-trigger: none
+trigger: 
+ branches:
+     include:
+         - release
+stages:
+    - stage: 'Build'
+      displayName: 'Build the solution'
+      jobs:
+          - job: 'Build'
+            displayName: 'Build web project'
+            steps:
+                - task: 
+    - stage: 'Deploy'
+      dependsOn: 'Build'
+      jobs:
+         - deployment: 'Deploy'
+           pool:
+            name: ''
+           environment: 'dev'
+           variables:
+             - group: 'Azuresetup'
+           strategy:
+            runOnce:
+                deploy:
+                 steps:
+                     -  task: DownloadPipelineArtifact@2
+                        displayName: 'Download'
+                        inputs:
+                         artifactName: ''
+                         targetPath: 
+                     - task: AzureAppServiceManage@0
+                       displayName: 'Stop'
+                       inputs:
+                          Action: Stop Azure App Service
+                          azureSubscription: ''
+                          WebAppName: ''
+                     - task: AzureAppServiceManage@0
+                       displayName: 'Start'
+                       inputs:
+                           Action: Start Azure App Service
+                           azureSubscription: ''
+                           WebAppName: ''
 
+                         
 
-pool:
-  vmImage: 'ubuntu-latest'
+                        
+                          
+                     
+           
+            
+           
+            
 
-variables:
-  buildConfiguration: 'Release'
-
-steps:
-- bash: |
-   echo "$(name)"
-- task: DotNetCoreInstaller@0
-  displayName: installer
-  inputs:
-    version: 2.1.505
-
-- task: Npm@1
-  displayName:  run npm install
-  inputs:
-    verbose: false
-
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayName: compile sccs
-
-- task: Gulp@1
-  displayName: Run gulp tasks
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
-
-- task: DotNetCoreCLI@1
-  displayName: Restore settings
-  inputs: 
-   command: restore
-   projects: '**/*.csproj'
-
-- task: SonarCloudPrepare@1
-  displayName: Sonar Analysis
-  inputs:
-      SonarCloud: 'Sonarcloud'
-      organization: 'devopsorg48'
-      projectKey: 'spacewebgamer'
-      projectName: 'spacewebgamer'
-      projectVersion: $(Build.BuildNumber)
-      extraProperties: |
-       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
-       sonar.exclusions=**/wwwroot/lib/**/*
-- task: DotNetCoreCLI@2
-  displayName: Build the project
-  inputs:
-    command: build
-    arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: Execute Unit Test
-  inputs:
-    command: test
-    arguments: '--no-build --configuration $(BuildConfiguration)'
-    publishTestResults: true
-    projects: '**/*.Tests.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: Publish project
-  inputs:
-    command: publish
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
-    zipAfterPublish: true
-
-- task: PublishBuildArtifacts@1
-  displayName: Publish artifacts
-  condition: succeeded()
+        
+            
