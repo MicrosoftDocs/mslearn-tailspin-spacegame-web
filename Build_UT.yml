@@ -1,55 +1,133 @@
-trigger: 
- branches:
+trigger:
+    branches:
      include:
-         - release
-stages:
-    - stage: 'Build'
-      displayName: 'Build the solution'
-      jobs:
-          - job: 'Build'
-            displayName: 'Build web project'
-            steps:
-                - task: 
-    - stage: 'Deploy'
-      dependsOn: 'Build'
-      jobs:
-         - deployment: 'Deploy'
-           pool:
-            name: ''
-           environment: 'dev'
-           variables:
-             - group: 'Azuresetup'
-           strategy:
-            runOnce:
-                deploy:
-                 steps:
-                     -  task: DownloadPipelineArtifact@2
-                        displayName: 'Download'
-                        inputs:
-                         artifactName: ''
-                         targetPath: 
-                     - task: AzureAppServiceManage@0
-                       displayName: 'Stop'
-                       inputs:
-                          Action: Stop Azure App Service
-                          azureSubscription: ''
-                          WebAppName: ''
-                     - task: AzureAppServiceManage@0
-                       displayName: 'Start'
-                       inputs:
-                           Action: Start Azure App Service
-                           azureSubscription: ''
-                           WebAppName: ''
+      - release 
 
-                         
+variables:
+  buildConfiguration: 'Release'
+  Deploy: true
 
-                        
-                          
-                     
-           
+
+stages:  
+
+- stage: 'Build'
+  displayName: 'Build the web application'
+  jobs: 
+  - job: 'Build'
+    displayName: 'Build job'
+    pool:
+      vmImage: 'Ubuntu-16.04'
+      demands:
+        - npm
+
+    variables:
+      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+      dotnetSdkVersion: '2.1.505'
+
+    steps:
+    - task: DotNetCoreInstaller@0
+      displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+      inputs:
+        version: '$(dotnetSdkVersion)'
+
+    - task: Npm@1
+      displayName: 'Run npm install'
+      inputs:
+        verbose: false
+
+    - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+      displayName: 'Compile Sass assets'
+
+    - task: gulp@1
+      displayName: 'Run gulp tasks'
+
+    - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+      displayName: 'Write build info'
+      workingDirectory: $(wwwrootDir)
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Restore project dependencies'
+      inputs:
+        command: 'restore'
+        projects: '**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Build the project - $(buildConfiguration)'
+      inputs:
+        command: 'build'
+        arguments: '--no-restore --configuration $(buildConfiguration)'
+        projects: '**/*.csproj'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish the project - $(buildConfiguration)'
+      inputs:
+        command: 'publish'
+        projects: '**/*.csproj'
+        publishWebProjects: false
+        arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+        zipAfterPublish: true
+
+    - publish: '$(Build.ArtifactStagingDirectory)'
+      artifact: drop
+
+- stage: 'Deploy'
+  displayName: 'Deploy the web application'
+  dependsOn: Build
+  condition: eq(variables.Deploy, true)
+  jobs:
+  - deployment: Deploy
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    environment: dev
+    variables:
+    - group: AzureSetup
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          #- download: current
+           # artifact: drop
+
+ 
+          - task: DownloadPipelineArtifact@2
+            displayName: 'downlaod'
+            inputs:
+             buildType: current
+             artifactName: drop
+             targetPath: '$(Build.SourcesDirectory)/package'
             
-           
+          - powershell: 'Get-Childitem -Path $(Build.SourcesDirectory)/package/Release'
             
 
-        
+
+          - task: AzureAppServiceManage@0
+            displayName: 'stop $(Webappname-dev)'
+            inputs:
+              azureSubscription: 'azureportal'
+              Action: Stop Azure App Service
+              WebAppName: $(Webappname-dev)  
+              Slot: 'Production'   
+              
+
+               
+         
+          - task: AzurePowerShell@4
+            displayName: 'Azure PowerShell script: InlineScript'
+            inputs:
+             azureSubscription: azureportal
+             azurePowerShellVersion: LatestVersion
+             ScriptType: InlineScript
+             Inline: 'Get-AzWebApp -ResourceGroupName $(RGN) -Name $(Webappname-dev) | Publish-AzWebApp -ArchivePath "$(Build.SourcesDirectory)/package/Release/Tailspin.SpaceGame.Web.zip" -Force'
+             workingDirectory:  $(Build.SourcesDirectory)/package/Release
+          
+
+          - task: AzureAppServiceManage@0
+            displayName: 'start $(Webappname-dev)'
+            inputs:
+              azureSubscription: 'azureportal'
+              Action: Start Azure App Service
+              WebAppName: $(Webappname-dev)    
+              Slot: 'production'
             
+               
+              
