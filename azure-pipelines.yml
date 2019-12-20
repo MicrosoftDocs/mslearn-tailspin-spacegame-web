@@ -50,7 +50,7 @@ steps:
   parameters:
     buildConfiguration: 'Debug'
 
-- template: Tempalte/build.yml
+- template: Template/build.yml
   parameters:
     buildConfiguration: 'Release'
 
