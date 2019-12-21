@@ -48,7 +48,8 @@ steps:
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
+    feedsToUse: 'select, config'
+    includeNuGetOrg: true
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
 
 - task: DotNetCoreCLI@2
@@ -56,7 +57,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.0.0-rc2'
+    arguments: 'install --global dotnet-reportgenerator-globaltool'
   
 - template: templates/build.yml
   parameters:
