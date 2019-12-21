@@ -48,7 +48,7 @@ steps:
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: 'select, config'
+    feedsToUse: 'select'
     includeNuGetOrg: true
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
 
