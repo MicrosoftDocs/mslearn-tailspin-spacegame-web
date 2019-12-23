@@ -59,6 +59,9 @@ steps:
     command: custom
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool'
+    feedsToUse: 'select'
+    includeNuGetOrg: true
+    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
     version: $(dotnetSdkVersion)
   
 - template: templates/build.yml
