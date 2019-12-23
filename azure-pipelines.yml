@@ -53,14 +53,14 @@ steps:
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
     version: $(dotnetSdkVersion)
 
-# - task: DotNetCoreCLI@2
-#  displayName: 'Install ReportGenerator'
-#  inputs:
-#    command: custom
-#    custom: tool
-#    arguments: 'install --global dotnet-reportgenerator-globaltool'
-#    includeNuGetOrg: true
-#    version: $(dotnetSdkVersion)
+- task: DotNetCoreCLI@2
+  displayName: 'Install ReportGenerator'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.3.9'
+    includeNuGetOrg: true
+    version: $(dotnetSdkVersion)
   
 - template: templates/build.yml
   parameters:
