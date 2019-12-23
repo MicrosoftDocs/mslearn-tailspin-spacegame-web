@@ -14,7 +14,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.0.100'
+  dotnetSdkVersion: '2.1.505' # '3.0.100'
 
 steps:
 - task: UseDotNet@2
@@ -48,7 +48,7 @@ steps:
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: 'select, config'
+    feedsToUse: 'select'
     includeNuGetOrg: true
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
 
@@ -58,6 +58,7 @@ steps:
     command: custom
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool'
+    version: $(dotnetSdkVersion)
   
 - template: templates/build.yml
   parameters:
