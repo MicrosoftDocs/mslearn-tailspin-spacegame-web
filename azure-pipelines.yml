@@ -14,7 +14,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '2.1.505' # '3.0.100'
+  dotnetSdkVersion: '2.2.207' # '3.0.100'
 
 steps:
 - task: UseDotNet@2
@@ -51,6 +51,7 @@ steps:
     feedsToUse: 'select'
     includeNuGetOrg: true
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+    version: $(dotnetSdkVersion)
 
 - task: DotNetCoreCLI@2
   displayName: 'Install ReportGenerator'
