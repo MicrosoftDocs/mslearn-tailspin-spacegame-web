@@ -59,8 +59,6 @@ steps:
     command: custom
     custom: tool
     arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.3.9'
-    includeNuGetOrg: true
-    version: $(dotnetSdkVersion)
   
 - template: templates/build.yml
   parameters:
