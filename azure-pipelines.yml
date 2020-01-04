@@ -57,7 +57,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'install --global dotnet-reportgenerator-globaltool --version 4.3.9'
+    arguments: 'install --tool-path . dotnet-reportgenerator-globaltool'
   
 - template: templates/build.yml
   parameters:
