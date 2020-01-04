@@ -41,7 +41,7 @@ steps:
 - task: NuGetToolInstaller@0
   inputs:
     versionSpec: '4.3.0' 
-    checkLatest: true
+    # checkLatest: true
 
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
