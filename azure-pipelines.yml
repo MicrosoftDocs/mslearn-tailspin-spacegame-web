@@ -41,17 +41,16 @@ steps:
 - task: NuGetToolInstaller@0
   inputs:
     versionSpec: '4.3.0' 
-    #checkLatest: false # Optional
+    checkLatest: true
 
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
-    feedsToUse: 'select'
     includeNuGetOrg: true
+    feedsToUse: 'select'
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
-    version: $(dotnetSdkVersion)
 
 - task: DotNetCoreCLI@2
   displayName: 'Install ReportGenerator'
