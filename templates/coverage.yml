@@ -3,9 +3,16 @@ parameters:
     
 steps:
 
-- script: |
-    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
-  displayName: 'Create code coverage report'
+# - script: |
+#    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
+#  displayName: 'Create code coverage report'
+
+- task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
+  displayName: ReportGenerator
+  inputs:
+    reports: $(Build.SourcesDirectory)/**/coverage.cobertura.xml
+    targetdir: $(Build.SourcesDirectory)/CodeCoverage
+    reporttypes: HtmlInline_AzurePipelines
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
