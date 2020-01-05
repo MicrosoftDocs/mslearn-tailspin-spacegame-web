@@ -38,9 +38,9 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-# - task: NuGetToolInstaller@0
-#  inputs:
-#    versionSpec: '4.8.1'
+- task: NuGetToolInstaller@0
+  inputs:
+    versionSpec: '4.8.1'
 
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
