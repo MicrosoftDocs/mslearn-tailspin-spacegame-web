@@ -42,33 +42,33 @@ steps:
 #  inputs:
 #    versionSpec: '4.8.1'
 
-# - task: NuGetCommand@2
+- task: NuGetCommand@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    includeNuGetOrg: true
+    feedsToUse: 'select'
+    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+
+# - task: DotNetCoreCLI@2
 #  displayName: 'Restore project dependencies'
 #  inputs:
 #    command: 'restore'
-#    restoreSolution: '**/*.sln'
+#    projects: '**/*.sln'
 #    includeNuGetOrg: true
 #    feedsToUse: 'select'
 #    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: '**/*.sln'
-    includeNuGetOrg: true
-    feedsToUse: 'select'
-    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Install ReportGenerator'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install dotnet-reportgenerator-globaltool --tool-path .'
-    includeNuGetOrg: true
-    feedsToUse: 'select'
-    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+# - task: DotNetCoreCLI@2
+#  displayName: 'Install ReportGenerator'
+#  inputs:
+#    command: custom
+#    custom: tool
+#    arguments: 'install dotnet-reportgenerator-globaltool --tool-path .'
+#    includeNuGetOrg: true
+#    feedsToUse: 'select'
+#    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
       
 - template: templates/build.yml
   parameters:
