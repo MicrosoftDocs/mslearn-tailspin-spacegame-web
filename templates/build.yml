@@ -18,17 +18,10 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
-- script: |
-    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
-  displayName: 'Create code coverage report'
+- template: coverage.yml
   condition: eq(${{ parameters.generateCodeCoverage }}, 'true')
-
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
-  condition: eq(${{ parameters.generateCodeCoverage }}, 'true')
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+  parameters:
+    buildConfiguration: '${{ parameters.buildConfiguration }}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'

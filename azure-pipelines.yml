@@ -40,8 +40,7 @@ steps:
 
 - task: NuGetToolInstaller@0
   inputs:
-    versionSpec: '4.8.1' 
-    # checkLatest: true
+    versionSpec: '4.8.1'
 
 - task: NuGetCommand@2
   displayName: 'Restore project dependencies'
@@ -52,21 +51,14 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Install ReportGenerator'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install --tool-path . dotnet-reportgenerator-globaltool'
-  
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
+    # generateCodeCoverage: 'true'
 
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
-    generateCodeCoverage: 'true'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
