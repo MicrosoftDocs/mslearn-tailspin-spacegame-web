@@ -50,6 +50,15 @@ steps:
     includeNuGetOrg: true
     feedsToUse: 'select'
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+   
+- task: NuGetCommand@2
+  displayName: 'Install ReportGenerator'
+  inputs:
+    command: 'custom'
+    includeNuGetOrg: true
+    feedsToUse: 'select'
+    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+    arguments: 'tool install dotnet-reportgenerator-globaltool --tool-path .'
 
 - template: templates/build.yml
   parameters:
