@@ -18,10 +18,10 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
-- template: coverage.yml
-  condition: eq(${{ parameters.generateCodeCoverage }}, 'true')
-  parameters:
-    buildConfiguration: '${{ parameters.buildConfiguration }}'
+- ${{ if eq(parameters.generateCodeCoverage, 'true') }}:
+  - template: coverage.yml
+    parameters:
+      buildConfiguration: '${{ parameters.buildConfiguration }}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
