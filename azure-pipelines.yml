@@ -15,6 +15,7 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.607'
+  disable.coverage.autogenerate: 'true'
 
 steps:
 - task: UseDotNet@2
