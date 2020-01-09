@@ -26,3 +26,6 @@ dotnet build --configuration Release
 
 # Publish the build to the /tmp directory.
 dotnet publish --no-build --configuration Release --output /home/jim/repo/mslearn-tailspin-spacegame-web/builds/Release
+
+#echo done
+echo "done"
