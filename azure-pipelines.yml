@@ -43,7 +43,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- taks: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
