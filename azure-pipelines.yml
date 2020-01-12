@@ -12,7 +12,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  appname: 'OutYard Web'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+  displayName: 'dotnet build for $(appname) $(buildConfiguration)'
