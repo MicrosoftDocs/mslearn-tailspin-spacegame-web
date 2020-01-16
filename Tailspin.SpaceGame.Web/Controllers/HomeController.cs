@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+<<<<<<< HEAD
+=======
+using System.Linq.Expressions;
+>>>>>>> a7117f7 (update project to .NET Core 3.1)
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TailSpin.SpaceGame.Web.Models;
@@ -46,7 +50,11 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     "Trio"
                 },
 
+<<<<<<< HEAD
                 GameRegions = new List<string>()
+=======
+                    GameRegions = new List<string>()
+>>>>>>> a7117f7 (update project to .NET Core 3.1)
                 {
                     "Milky Way",
                     "Andromeda",
@@ -61,7 +69,11 @@ namespace TailSpin.SpaceGame.Web.Controllers
                 // Form the query predicate.
                 // Select all scores that match the provided game mode and region (map).
                 // Select the score if the game mode or region is empty.
+<<<<<<< HEAD
                 Func<Score, bool> queryPredicate = score =>
+=======
+                Expression<Func<Score, bool>> queryPredicate = score =>
+>>>>>>> a7117f7 (update project to .NET Core 3.1)
                     (string.IsNullOrEmpty(mode) || score.GameMode == mode) &&
                     (string.IsNullOrEmpty(region) || score.GameRegion == region);
 
