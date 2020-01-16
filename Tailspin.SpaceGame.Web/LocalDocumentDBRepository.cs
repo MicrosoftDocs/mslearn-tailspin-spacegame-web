@@ -33,6 +33,8 @@ namespace TailSpin.SpaceGame.Web
             return Task<T>.FromResult(_items.Single(item => item.Id == id));
         }
 
+        
+
         /// <summary>
         /// Retrieves items from the store that match the given query predicate.
         /// Results are given in descending order by the given ordering predicate.
@@ -61,6 +63,15 @@ namespace TailSpin.SpaceGame.Web
             return Task<IEnumerable<T>>.FromResult(result);
         }
 
+        public Task<IEnumerable<T>> GetItemsAsync(
+           Expression<Func<T, bool>> queryPredicate)
+        {
+            var result = _items.AsQueryable()
+                .Where(queryPredicate) // filter
+                .AsEnumerable(); // make enumeratable
+
+            return Task.FromResult(result);
+        }
         /// <summary>
         /// Retrieves the number of items that match the given query predicate.
         /// </summary>

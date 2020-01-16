@@ -38,6 +38,19 @@ namespace TailSpin.SpaceGame.Web
         );
 
         /// <summary>
+        /// Retrieves items from the store that match the given query predicate.
+        /// Results are given in descending order by the given ordering predicate.
+        /// </summary>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// The task result contains the collection of retrieved items.
+        /// </returns>
+        /// <param name="queryPredicate">Predicate that specifies which items to select.</param>
+        Task<IEnumerable<T>> GetItemsAsync(
+            Expression<Func<T, bool>> queryPredicate
+        );
+
+        /// <summary>
         /// Retrieves the number of items that match the given query predicate.
         /// </summary>
         /// <returns>

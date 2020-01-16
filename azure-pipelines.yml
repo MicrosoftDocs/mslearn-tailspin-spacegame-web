@@ -3,7 +3,7 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-# specifies that push to master bracnh cause a continuous integration build to run
+# specifies that push to master branch cause a continuous integration build to run
 trigger:
 - master
 

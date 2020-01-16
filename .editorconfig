@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# BL0002: Component has multiple CaptureUnmatchedValues parameters
+dotnet_diagnostic.BL0002.severity = none
