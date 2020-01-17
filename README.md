@@ -1,3 +1,5 @@
+# Azure Pipelines
+[![Build Status](https://jamie-briggs.visualstudio.com/space-game/_apis/build/status/jammie97.mslearn-tailspin-spacegame-web?branchName=master)](https://jamie-briggs.visualstudio.com/space-game/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
