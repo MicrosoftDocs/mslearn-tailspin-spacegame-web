@@ -15,6 +15,7 @@ variables:
   appname: 'OutYard Web'
 
 steps:
+# acquires a specific version of .NET Core (3.1)
 - task: UseDotNet@2
   displayName: 'Use .NET Core 3.1 sdk'
   inputs:
