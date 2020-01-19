@@ -22,6 +22,20 @@ steps:
     packageType: sdk
     version: '3.1.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
+# installs a package, specified in package.json file and any packages that it depends on
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build for $(appname) $(buildConfiguration)'
+# compiles the application output    
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+  # writes information about the build to a file buildinfo.txt
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
