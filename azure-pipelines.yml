@@ -5,7 +5,7 @@
 
 # specifies that push to master branch cause a continuous integration build to run
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'ubuntu-latest'
