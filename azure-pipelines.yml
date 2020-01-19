@@ -15,5 +15,12 @@ variables:
   appname: 'OutYard Web'
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core 3.1 sdk'
+  inputs:
+    packageType: sdk
+    version: '3.1.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build for $(appname) $(buildConfiguration)'
