@@ -38,7 +38,7 @@ steps:
       and
       (
         succeeded(),
-        eq(variables['Build.Reason'], '${{ parameters.buildReason }}''),
+        eq(variables['Build.Reason'], '${{ parameters.buildReason }}'),
         eq(variables['System.PullRequest.TargetBranch'], '${{ parameters.targetBranch }}')
       )
 
@@ -48,6 +48,6 @@ steps:
       and
       (
         succeeded(),
-        eq(variables['Build.Reason'], '${{ parameters.buildReason }}''),
+        eq(variables['Build.Reason'], '${{ parameters.buildReason }}'),
         eq(variables['System.PullRequest.TargetBranch'], '${{ parameters.targetBranch }}')
       )
