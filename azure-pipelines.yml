@@ -3,7 +3,7 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-# specifies that push to master branch cause a continuous integration build to run
+# specifies that push to any branch causes a continuous integration build to run
 trigger:
 - '*'
 
@@ -22,20 +22,36 @@ steps:
     packageType: sdk
     version: '3.1.x'
     installationPath: $(Agent.ToolsDirectory)/dotnet
-# installs a package, specified in package.json file and any packages that it depends on
+
+# uses npm to install packages, specified in package.json file and any packages that it depends on
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
-# compiles the application output    
+# compiles the application output (web pages)   
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-  # writes information about the build to a file buildinfo.txt
+# writes information about the build to a file buildinfo.txt
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+
+# restores dotnetcore project dependencies
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+# builds the project, using configuration mode, defined by $(buildConfiguration) var
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build for $(appname) $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
