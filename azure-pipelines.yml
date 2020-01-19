@@ -61,13 +61,6 @@ steps:
     sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
     reportPaths: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
     exclusions: '**/wwwroot/lib/**/*'
-  condition: |
-    and
-    (
-      succeeded(),
-      eq(variables['Build.Reason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
-    )
 
 - template: templates/build.yml
   parameters:
@@ -81,13 +74,6 @@ steps:
 - template: templates/sonar-scan.yml
   parameters:
     action: 'analyzeAndPublish'
-  condition: |
-    and
-    (
-      succeeded(),
-      eq(variables['Build.Reason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
-    )
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'

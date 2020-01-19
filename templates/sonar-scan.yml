@@ -6,12 +6,21 @@ parameters:
   sonarConnectionName: ''
   reportPaths: ''
   exclusions: ''
+  targetBranch: 'master'
+  buildReason: 'PullRequest'
     
 steps:
 
 - ${{ if eq(parameters.action, 'prepare') }}:
   - task: SonarCloudPrepare@1
     displayName: 'Prepare SonarCloud analysis'
+    condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], parameters.buildReason),
+        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+      )
     inputs:
       SonarCloud: '${{ parameters.sonarConnectionName }}'
       organization: '${{ parameters.sonarOrganization }}'
@@ -25,6 +34,20 @@ steps:
 - ${{ if eq(parameters.action, 'analyzeAndPublish') }}:
   - task: SonarCloudAnalyze@1
     displayName: 'Run SonarCloud code analysis'
+    condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], parameters.buildReason),
+        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+      )
 
   - task: SonarCloudPublish@1
     displayName: 'Publish SonarCloud quality gate results'
+    condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], parameters.buildReason),
+        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+      )
