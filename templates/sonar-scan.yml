@@ -1,5 +1,5 @@
 parameters:
-  buildConfiguration: 'Release'
+  action: ''
   sonarOrganization: ''
   sonarProjectKey: ''
   sonarProjectName: ''
@@ -9,35 +9,22 @@ parameters:
     
 steps:
 
-- task: SonarCloudPrepare@1
-  displayName: 'Prepare SonarCloud analysis'
-  inputs:
-    SonarCloud: '${{ parameters.sonarConnectionName }}'
-    organization: '${{ parameters.sonarOrganization }}'
-    projectKey: '${{ parameters.sonarProjectKey }}'
-    projectName: '${{ parameters.sonarProjectName }}'
-    projectVersion: '$(Build.BuildNumber)'
-    extraProperties: |
-      sonar.cs.opencover.reportPaths=${{ parameters.reportPaths }}
-      sonar.exclusions=${{ parameters.exclusions }}
+- ${{ if eq(parameters.action, 'prepare') }}:
+  - task: SonarCloudPrepare@1
+    displayName: 'Prepare SonarCloud analysis'
+    inputs:
+      SonarCloud: '${{ parameters.sonarConnectionName }}'
+      organization: '${{ parameters.sonarOrganization }}'
+      projectKey: '${{ parameters.sonarProjectKey }}'
+      projectName: '${{ parameters.sonarProjectName }}'
+      projectVersion: '$(Build.BuildNumber)'
+      extraProperties: |
+        sonar.cs.opencover.reportPaths=${{ parameters.reportPaths }}
+        sonar.exclusions=${{ parameters.exclusions }}
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
-    projects: '**/*.csproj'
+- ${{ if eq(parameters.action, 'analyzeAndPublish') }}:
+  - task: SonarCloudAnalyze@1
+    displayName: 'Run SonarCloud code analysis'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
-  inputs:
-    command: 'test'
-    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
-    publishTestResults: true
-    projects: '**/*.Tests.csproj'
-
-- task: SonarCloudAnalyze@1
-  displayName: 'Run SonarCloud code analysis'
-
-- task: SonarCloudPublish@1
-  displayName: 'Publish SonarCloud quality gate results'
+  - task: SonarCloudPublish@1
+    displayName: 'Publish SonarCloud quality gate results'

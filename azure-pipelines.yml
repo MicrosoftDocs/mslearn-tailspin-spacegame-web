@@ -52,6 +52,16 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
    
+- template: templates/sonar-scan.yml
+  parameters:
+    action: 'prepare'
+    sonarOrganization: '$(SONAR_ORGANIZATION)'
+    sonarProjectKey: '$(SONAR_PROJECT_KEY)'
+    sonarProjectName: '$(SONAR_PROJECT_NAME)'
+    sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
+    reportPaths: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
+    exclusions: '**/wwwroot/lib/**/*'
+
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
@@ -63,13 +73,7 @@ steps:
   
 - template: templates/sonar-scan.yml
   parameters:
-    buildConfiguration: 'Release'
-    sonarOrganization: '$(SONAR_ORGANIZATION)'
-    sonarProjectKey: '$(SONAR_PROJECT_KEY)'
-    sonarProjectName: '$(SONAR_PROJECT_NAME)'
-    sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
-    reportPaths: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
-    exclusions: '**/wwwroot/lib/**/*'
+    action: 'analyzeAndPublish'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
