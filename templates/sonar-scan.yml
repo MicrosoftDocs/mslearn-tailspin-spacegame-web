@@ -18,8 +18,8 @@ steps:
       and
       (
         succeeded(),
-        eq(variables['Build.Reason'], parameters.buildReason),
-        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+        eq(variables['Build.Reason'], '${{ parameters.buildReason }}'),
+        eq(variables['System.PullRequest.TargetBranch'], '${{ parameters.targetBranch }}')
       )
     inputs:
       SonarCloud: '${{ parameters.sonarConnectionName }}'
@@ -38,8 +38,8 @@ steps:
       and
       (
         succeeded(),
-        eq(variables['Build.Reason'], parameters.buildReason),
-        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+        eq(variables['Build.Reason'], '${{ parameters.buildReason }}''),
+        eq(variables['System.PullRequest.TargetBranch'], '${{ parameters.targetBranch }}')
       )
 
   - task: SonarCloudPublish@1
@@ -48,6 +48,6 @@ steps:
       and
       (
         succeeded(),
-        eq(variables['Build.Reason'], parameters.buildReason),
-        eq(variables['System.PullRequest.TargetBranch'], parameters.targetBranch)
+        eq(variables['Build.Reason'], '${{ parameters.buildReason }}''),
+        eq(variables['System.PullRequest.TargetBranch'], '${{ parameters.targetBranch }}')
       )
