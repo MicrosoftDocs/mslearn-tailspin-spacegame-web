@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/AngusZone/f4638386-6f60-4fd6-aae4-b94206284f66/4ea14314-dcad-42c1-98c7-6219e419c598/_apis/work/boardbadge/99bcf0eb-8a89-47ae-b02a-dfc3b36ed84f)](https://dev.azure.com/AngusZone/f4638386-6f60-4fd6-aae4-b94206284f66/_boards/board/t/4ea14314-dcad-42c1-98c7-6219e419c598/Microsoft.RequirementCategory/)
+[![Board Status](https://dev.azure.com/AngusZone/f4638386-6f60-4fd6-aae4-b94206284f66/4ea14314-dcad-42c1-98c7-6219e419c598/_apis/work/boardbadge/99bcf0eb-8a89-47ae-b02a-dfc3b36ed84f)](https://dev.azure.com/AngusZone/f4638386-6f60-4fd6-aae4-b94206284f66/_boards/board/t/4ea14314-dcad-42c1-98c7-6219e419c598/Microsoft.RequirementCategory/)
 
 # Contributing
 
