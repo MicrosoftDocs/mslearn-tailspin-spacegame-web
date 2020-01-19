@@ -60,6 +60,16 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
+  
+- template: templates/sonar-scan.yml
+  parameters:
+    buildConfiguration: 'Release'
+    sonarOrganization: '$(SONAR_ORGANIZATION)'
+    sonarProjectKey: '$(SONAR_PROJECT_KEY)'
+    sonarProjectName: '$(SONAR_PROJECT_NAME)'
+    sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
+    reportPaths: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
+    exclusions: '**/wwwroot/lib/**/*'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'

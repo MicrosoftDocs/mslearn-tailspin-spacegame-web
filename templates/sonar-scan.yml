@@ -1,0 +1,28 @@
+parameters:
+  buildConfiguration: 'Release'
+  sonarOrganization: ''
+  sonarProjectKey: ''
+  sonarProjectName: ''
+  sonarConnectionName: ''
+  reportPaths: ''
+  exclusions: ''
+    
+steps:
+
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare SonarCloud analysis'
+  inputs:
+    SonarCloud: '${{ parameters.sonarConnectionName }}'
+    organization: '${{ parameters.sonarOrganization }}'
+    projectKey: '${{ parameters.sonarProjectKey }}'
+    projectName: '${{ parameters.sonarProjectName }}'
+    projectVersion: '$(Build.BuildNumber)'
+    extraProperties: |
+      sonar.cs.opencover.reportPaths=${{ parameters.reportPaths }}
+      sonar.exclusions=${{ parameters.exclusions }}
+
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud code analysis'
+
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud quality gate results'
