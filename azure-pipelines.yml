@@ -78,13 +78,13 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
-    condition: |
+  condition: |
       and
       (
         succeeded(),
         eq(variables['Build.Reason'], 'PullRequest'),
         eq(variables['System.PullRequest.TargetBranch'], 'master')
-      )
+      )  
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
