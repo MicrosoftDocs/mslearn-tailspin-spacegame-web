@@ -50,14 +50,26 @@ namespace Tailspin.SpaceGame.Web.Controllers
               );
             scores.ToList().ForEach(async score =>
             {
-                Profile playerProfile = await _profileRespository.GetItemAsync(score.ProfileId);
-                playersScore.Add(
-                        new PlayerScore()
-                        {
-                            Id = playerProfile.Id,
-                            UserName = playerProfile.UserName,
-                            Score = score
-                        }); 
+                try
+                {
+                    Profile playerProfile = await _profileRespository.GetItemAsync(score.ProfileId);
+                    playersScore.Add(
+                            new PlayerScore()
+                            {
+                                Id = playerProfile.Id,
+                                UserName = playerProfile.UserName,
+                                Score = score
+                            });
+                }
+                catch (Exception ex)
+                {
+                    if (ex is InvalidOperationException)
+                    {
+                        //log there
+                    }
+                    else
+                        throw;
+                }
 
             });
             //_scoreRepository.
