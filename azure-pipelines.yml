@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  wwwrootdDir: 'Tailspin.Space.Web/wwwroot'
+  wwwrootDir: 'Tailspin.Space.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
 
 steps:
