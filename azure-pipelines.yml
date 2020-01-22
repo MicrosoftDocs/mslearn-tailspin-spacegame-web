@@ -86,7 +86,7 @@ steps:
   displayName: 'Run SonarCloud code analysis'
 
 - task: SonarCloudPublish@1
-  displayName: 'Publish SonarCloud quality gate'
+  displayName: 'Publish SonarCloud quality gate check'
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
