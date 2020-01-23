@@ -332,8 +332,4 @@ ASALocalRun/
 .mfractor/
 
 # SonarQube
-<<<<<<< HEAD
 .sonarqube/
-=======
-.SonarQube/
->>>>>>> master
