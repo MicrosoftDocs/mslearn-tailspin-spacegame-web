@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/damonstamper2020/Learn%20-%20Create%20a%20build%20pipeline%20with%20Azure%20Pipelines/_apis/build/status/DamonStamper.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/damonstamper2020/Learn%20-%20Create%20a%20build%20pipeline%20with%20Azure%20Pipelines/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
