@@ -1,6 +1,7 @@
 
 [![Build Status](https://dev.azure.com/Kabel-DevOps-Learning/FJPalacios-Space%20Game%20Web%202/_apis/build/status/fjpalaciosfer.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Kabel-DevOps-Learning/FJPalacios-Space%20Game%20Web%202/_build/latest?definitionId=245&branchName=master)
 
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
