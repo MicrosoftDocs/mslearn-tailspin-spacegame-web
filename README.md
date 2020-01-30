@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/maciekbednarczyk/X1/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/maciekbednarczyk/X1/_build/latest?definitionId=8&branchName=master)
+
 
 # Contributing
 
