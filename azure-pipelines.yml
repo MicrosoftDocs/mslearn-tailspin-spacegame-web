@@ -1,21 +1,29 @@
 trigger:
-- '*'
-
+  branches:
+    include:
+    - '*'     # build all branches
+  paths:
+    exclude:
+    - docs/*  # exclude the docs folder
+  
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-    - npm
+  - npm
 
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.1.100'
+  dotnetSdkVersion: '2.1.607'
+  disable.coverage.autogenerate: 'true'
+  coverageReportsFolder: '$(Build.SourcesDirectory)/TestResults/Coverage/'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
-    version: '$(dotnetSdkVersion)'
+    packageType: sdk
+    version: $(dotnetSdkVersion)
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -32,30 +40,53 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@2
+- task: NuGetToolInstaller@0
+  inputs:
+    versionSpec: '4.8.1'
+
+- task: NuGetCommand@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    restoreSolution: '**/*.sln'
+    includeNuGetOrg: true
+    feedsToUse: 'select'
+    vstsFeed: 'Space Game - web - Pipeline/Tailspin.SpaceGame.Web.Models'
+   
+- template: templates/sonar-scan.yml
+  parameters:
+    action: 'prepare'
+    sonarOrganization: '$(SONAR_ORGANIZATION)'
+    sonarProjectKey: '$(SONAR_PROJECT_KEY)'
+    sonarProjectName: '$(SONAR_PROJECT_NAME)'
+    sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
+    reportPaths: '$(coverageReportsFolder)/coverage.opencover.xml'
+    exclusions: '**/wwwroot/lib/**/*'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+    generateCodeCoverage: 'true'
+    coverageReportsFolder: $(coverageReportsFolder)
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - $(buildConfiguration)'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+    coverageReportsFolder: $(coverageReportsFolder)
+  
+- template: templates/sonar-scan.yml
+  parameters:
+    action: 'analyzeAndPublish'
 
 - task: WhiteSource Bolt@20
   displayName: 'Run WhiteSource Bolt'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'

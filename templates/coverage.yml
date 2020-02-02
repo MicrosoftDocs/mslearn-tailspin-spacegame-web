@@ -1,0 +1,38 @@
+# template for generating code coverage reports
+
+# coverlet.msbuild nuget must be installed on test project that generates coverage
+# Palmmedia.reportgenerator must be installed as extenstion in devops
+# if tests ran in separate task set runTests to false
+
+# template parameters
+parameters:
+  buildConfiguration: 'Release'
+  coverageReportsFolder: ''
+  runTests: 'false'
+        
+steps:
+      
+# Run tests and create coverage report
+- ${{ if eq(parameters.runTests, 'true') }}:
+  - task: DotNetCoreCLI@2
+    displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
+    inputs:
+      command: 'test'
+      arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=${{ parameters.coverageReportsFolder }}'
+      publishTestResults: true
+      projects: '**/*.Tests.csproj'
+
+- task: Palmmedia.reportgenerator.reportgenerator-build-release-task.reportgenerator@4
+  displayName: ReportGenerator
+  inputs:
+    reports: '${{ parameters.coverageReportsFolder }}/coverage.opencover.xml'
+    targetdir: '${{ parameters.coverageReportsFolder }}'
+    reporttypes: 'HtmlInline_AzurePipelines;Cobertura;Badges'
+    verbosity: 'verbose'
+
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage results'
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '${{ parameters.coverageReportsFolder }}/coverage.cobertura.xml'
+    reportDirectory: '${{ parameters.coverageReportsFolder }}'
