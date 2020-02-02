@@ -16,6 +16,7 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.607'
   disable.coverage.autogenerate: 'true'
+  coverageReportsFolder: '$(Build.SourcesDirectory)/TestResults/Coverage/'
 
 steps:
 - task: UseDotNet@2
@@ -59,17 +60,19 @@ steps:
     sonarProjectKey: '$(SONAR_PROJECT_KEY)'
     sonarProjectName: '$(SONAR_PROJECT_NAME)'
     sonarConnectionName: '$(SONAR_CONNECTION_NAME)'
-    reportPaths: '$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml'
+    reportPaths: '$(coverageReportsFolder)/coverage.opencover.xml'
     exclusions: '**/wwwroot/lib/**/*'
 
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
     generateCodeCoverage: 'true'
+    coverageReportsFolder: $(coverageReportsFolder)
 
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
+    coverageReportsFolder: $(coverageReportsFolder)
   
 - template: templates/sonar-scan.yml
   parameters:

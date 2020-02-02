@@ -1,6 +1,7 @@
 parameters:
   buildConfiguration: 'Release'
   generateCodeCoverage: 'false'
+  coverageReportsFolder: ''
   
 steps:
 - task: DotNetCoreCLI@2
@@ -14,7 +15,7 @@ steps:
   displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'test'
-    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat="cobertura%2copencover" /p:CoverletOutput=${{ parameters.coverageReportsFolder }}'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
@@ -22,6 +23,7 @@ steps:
   - template: 'coverage.yml'
     parameters:
       buildConfiguration: '${{ parameters.buildConfiguration }}'
+      coverageReportsFolder: ${{ parameters.coverageReportsFolder }}
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
