@@ -16,6 +16,7 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '2.1.607'
   disable.coverage.autogenerate: 'true'
+  coverageReportsFolder: '$(Build.SourcesDirectory)/TestResults/Coverage/'
 
 steps:
 - task: UseDotNet@2
@@ -66,6 +67,7 @@ steps:
   parameters:
     buildConfiguration: 'Debug'
     generateCodeCoverage: 'true'
+    coverageReportsFolder: $(coverageReportsFolder)
 
 - template: templates/build.yml
   parameters:

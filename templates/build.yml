@@ -1,6 +1,7 @@
 parameters:
   buildConfiguration: 'Release'
   generateCodeCoverage: 'false'
+  coverageReportsFolder: ''
   
 steps:
 - task: DotNetCoreCLI@2
@@ -22,6 +23,7 @@ steps:
   - template: 'coverage.yml'
     parameters:
       buildConfiguration: '${{ parameters.buildConfiguration }}'
+      coverageReportsFolder: ${{ parameters.coverageReportsFolder }}
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
