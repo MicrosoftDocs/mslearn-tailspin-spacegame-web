@@ -15,7 +15,7 @@ variables:
 steps:
   - task: UseDotNet@2
     inputs:
-      packageType: 'runtime'
+      packageType: 'sdk'
       version: '3.1.x'
   - script: dotnet build --configuration $(buildConfiguration)
     displayName: 'dotnet build $(buildConfiguration)'
