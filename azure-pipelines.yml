@@ -31,6 +31,11 @@ steps:
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
+
+- script: 'echo "This be a new start"'
+  displayName: 'Dummy Echo!!'
+
+
 - task: gulp@1
   displayName: 'Run Gulp task'
 
