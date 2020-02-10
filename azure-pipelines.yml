@@ -9,7 +9,8 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.0.100'
+  dotnetSdkVersion: 3.0.x
+  performMultiLevelLookup: true
 
 steps:
 - task: DotNetCoreInstaller@0
