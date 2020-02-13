@@ -1,6 +1,6 @@
 trigger:
   - '*'
-  
+
 variables:
   buildConfiguration: 'Release'
 
