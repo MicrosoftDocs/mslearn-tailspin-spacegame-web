@@ -37,25 +37,7 @@ steps:
     displayName: 'Restore project dependencies'
     inputs:
       command: 'restore'
-      projects: '**/*.csproj'
-  
-  - task: UseDotNet@2
-    displayName: 'Use .NET Core SDK 2.1.505 for SonarCloud'
-    inputs:
-      version: '2.1.505'
-
-  - task: SonarCloudPrepare@1
-    displayName: 'Prepare SonarCloud analysis'
-    inputs:
-      SonarCloud: 'SonarCloud connection 1'
-      organization: '$(SonarOrganization)'
-      scannerMode: 'MSBuild'
-      projectKey: '$(SonarProjectKey)'
-      projectName: '$(SonarProjectName)'
-      projectVersion: '$(Build.BuildNumber)'
-      extraProperties: |
-       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
-       sonar.exclusions=**/wwwroot/lib/**/*
+      projects: '**/*.csproj'    
   
   - task: DotNetCoreCLI@2
     displayName: 'Build the project - $(buildConfiguration)'
@@ -83,12 +65,35 @@ steps:
       reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
     displayName: 'Create code coverage report'
   
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core SDK 2.1.505 for SonarCloud'
+    inputs:
+      version: '2.1.505'
+
+  - task: SonarCloudPrepare@1
+    displayName: 'Prepare SonarCloud analysis'
+    inputs:
+      SonarCloud: 'SonarCloud connection 1'
+      organization: '$(SonarOrganization)'
+      scannerMode: 'MSBuild'
+      projectKey: '$(SonarProjectKey)'
+      projectName: '$(SonarProjectName)'
+      projectVersion: '$(Build.BuildNumber)'
+      extraProperties: |
+       sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+       sonar.exclusions=**/wwwroot/lib/**/*
+
   - task: SonarCloudAnalyze@1
     displayName: 'Run SonarCloud code analysis'
   
   - task: SonarCloudPublish@1
     displayName: 'Publish SonarCloud quality gate results'
   
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+    inputs:
+      version: '$(dotnetSdkVersion)'
+
   - task: PublishCodeCoverageResults@1
     displayName: 'Publish code coverage report'
     inputs:
