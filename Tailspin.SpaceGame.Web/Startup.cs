@@ -32,7 +32,7 @@ namespace TailSpin.SpaceGame.Web
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
+                // options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
             // Add document stores. These are passed to the HomeController constructor.
