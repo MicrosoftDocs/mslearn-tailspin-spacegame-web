@@ -60,6 +60,10 @@ steps:
       succeeded(),
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master'),
+      )|
+    and
+    (
+      succeeded(),
       eq(variables['System.PullRequest.SourceBranch'], 'master')
     )
 
@@ -97,6 +101,10 @@ steps:
       succeeded(),
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master'),
+      )|
+    and
+    (
+      succeeded(),
       eq(variables['System.PullRequest.SourceBranch'], 'master')
     )
  
@@ -108,6 +116,10 @@ steps:
       succeeded(),
       eq(variables['Build.Reason'], 'PullRequest'),
       eq(variables['System.PullRequest.TargetBranch'], 'master'),
+      )|
+    and
+    (
+      succeeded(),
       eq(variables['System.PullRequest.SourceBranch'], 'master')
     )
 
