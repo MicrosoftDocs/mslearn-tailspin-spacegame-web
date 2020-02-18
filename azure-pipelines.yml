@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-    - mpm
+    - npm
 
 variables:
   buildConfiguration: 'Release'
@@ -49,7 +49,7 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
-
+s
 - task: DotNetCoreCLI@2
   displayName: 'Publishs the Project - $(buildConfiguration)'
   inputs:
