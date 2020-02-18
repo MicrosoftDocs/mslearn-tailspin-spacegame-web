@@ -51,7 +51,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Publish the Project - $(buildConfiguration)'
+  displayName: 'Publishs the Project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
@@ -60,5 +60,5 @@ steps:
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
+  displayName: 'Publishs Artifact: drop'
   condition: succeeded()
