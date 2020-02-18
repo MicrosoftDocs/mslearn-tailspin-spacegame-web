@@ -46,7 +46,7 @@ steps:
 
 
 - task: DotNetCoreCLI@2
-  displayname: 'Publish the project - Release'
+  displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
