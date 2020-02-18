@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/Org-iloveck/Space%20Game%20-%20web%20-%20Agent/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Org-iloveck/Space%20Game%20-%20web%20-%20Agent/_build/latest?definitionId=3&branchName=master)
+
 [![Build Status](https://dev.azure.com/iloveck/Space%20Game%20-%20web/_apis/build/status/iloveck.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/iloveck/Space%20Game%20-%20web/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
