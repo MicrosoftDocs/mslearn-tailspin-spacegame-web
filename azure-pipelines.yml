@@ -47,13 +47,12 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
-    commands: 'publish'
-    project: '**/*.csproj'
+    command: 'publish'
+    projects: '**/*.csproj'
     publishWebProjects: false
-    argument: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-   
