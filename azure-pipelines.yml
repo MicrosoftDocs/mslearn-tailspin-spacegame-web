@@ -3,6 +3,8 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# from https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/6-create-the-pipeline
+
 trigger:
 - master
 
