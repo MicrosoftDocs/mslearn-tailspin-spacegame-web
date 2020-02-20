@@ -46,4 +46,4 @@ steps:
   inputs:
     command: 'build'
     arguments: '-no-restore --configuration RELEASE'
-    workingDirectory: '**/*/csproj'
+    workingDirectory: '**/*.csproj'
