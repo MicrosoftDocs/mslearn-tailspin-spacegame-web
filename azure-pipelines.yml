@@ -57,5 +57,5 @@ steps:
     publishWebProjects: false
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publich artifact: drop'
+  displayName: 'Publish Artifact: drop'
   condition: succeeded()
