@@ -1,6 +1,12 @@
 trigger:
-  - '*'
-
+  branches:
+    include:
+    - '*'     #build for all branches
+  paths:
+    exclude:
+    - docs/*  #exclude any files within docs folder
+              #by default, a build is triggered when a change is pushed to any file on any branch
+              #with this, its the same, except for changes made to files inside the docs folder.
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
