@@ -45,6 +45,6 @@ steps:
   displayName: 'Build project'
   inputs:
     command: 'build'
-    arguments: '-no-restore --configuration RELEASE'
+    arguments: '--no-restore --configuration RELEASE'
     projects: '**/*.csproj'
 
