@@ -40,6 +40,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
+  continueOnError: true
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration $(buildConfiguration)'
