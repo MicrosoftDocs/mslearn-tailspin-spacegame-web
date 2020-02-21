@@ -5,10 +5,12 @@
 # Test Branch
 
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'ubuntu-16.04'
+  demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
@@ -19,7 +21,7 @@ steps:
   inputs:
     packageType: sdk
     version: 3.1.100
-    
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -30,7 +32,6 @@ steps:
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
-
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
