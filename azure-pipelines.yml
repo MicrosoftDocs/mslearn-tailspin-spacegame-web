@@ -7,7 +7,7 @@ trigger:
 - master
 
 name: 'MyAgentPool'
-  demands:
+demands:
     - npm
 
 variables:
