@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/v-pedsa/Create%20a%20build%20pipeline%20with%20Azure%20Pipelines/_apis/build/status/pmbsantos.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/v-pedsa/Create%20a%20build%20pipeline%20with%20Azure%20Pipelines/_build/latest?definitionId=6&branchName=master)
+
 
 # Contributing
 
