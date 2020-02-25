@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/PURNASRI/SpaceGame%20-%20web%20-pipeline/_apis/build/status/purnajagarlamudi.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/PURNASRI/SpaceGame%20-%20web%20-pipeline/_build/latest?definitionId=3&branchName=master)
+
 
 # Contributing
 
