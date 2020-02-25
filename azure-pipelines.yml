@@ -9,7 +9,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '2.1.505'
+  dotnetSdkVersion: '3.1'
 
 steps:
 - task: DotNetCoreInstaller@0
@@ -32,20 +32,20 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@3
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@3
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@3
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
     command: 'test'
@@ -53,7 +53,7 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@3
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
