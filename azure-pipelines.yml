@@ -6,6 +6,7 @@
 trigger:
 - '*'
 
+# configuration for this pipe
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
