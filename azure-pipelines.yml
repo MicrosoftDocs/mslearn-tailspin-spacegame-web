@@ -55,19 +55,13 @@ steps:
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
-condition: |
-    and
-    (
-      succeeded(),
-      eq(variables['Build.Reason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
-    )
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+  condition: |
+      and
+      (
+        succeeded(),
+        eq(variables['Build.Reason'], 'PullRequest'),
+        eq(variables['System.PullRequest.TargetBranch'], 'master')
+      )
 
 - task: DotNetCoreCLI@2
   displayName: 'Install ReportGenerator'
@@ -86,9 +80,23 @@ condition: |
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
