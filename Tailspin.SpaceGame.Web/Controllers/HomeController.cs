@@ -15,6 +15,8 @@ namespace TailSpin.SpaceGame.Web.Controllers
         private readonly IDocumentDBRepository<Score> _scoreRepository;
         // User profile repository.
         private readonly IDocumentDBRepository<Profile> _profileRespository;
+            private check_this;
+            private password="twwww";
 
         public HomeController(
             IDocumentDBRepository<Score> scoreRepository,
