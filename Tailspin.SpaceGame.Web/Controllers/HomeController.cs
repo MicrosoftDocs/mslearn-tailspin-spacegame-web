@@ -125,7 +125,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
             }
         }
 
- public IActionResult2 Privacy()
+ public IActionResult2 string
         {
            string password = "wwww";
             return password;
