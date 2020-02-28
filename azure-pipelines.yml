@@ -13,7 +13,7 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)3'
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
 
@@ -23,7 +23,7 @@ steps:
     version: '2.1.505'
 
 - task: Npm@1
-  displayName: 'Run npm install2'
+  displayName: 'Run npm install'
   inputs:
     verbose: false
 
@@ -46,7 +46,7 @@ steps:
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
   inputs:
-    SonarCloud: 'Sonar Cloud'
+    SonarCloud: 'SonarCloud connection 1'
     organization: '$(SonarOrganization)'
     scannerMode: 'MSBuild'
     projectKey: '$(SonarProjectKey)'
@@ -56,7 +56,6 @@ steps:
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
 
-
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -65,7 +64,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Install ReportGenerator 2'
+  displayName: 'Install ReportGenerator'
   inputs:
     command: custom
     custom: tool
@@ -107,4 +106,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-
