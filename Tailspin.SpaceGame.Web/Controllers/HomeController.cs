@@ -15,9 +15,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
         private readonly IDocumentDBRepository<Score> _scoreRepository;
         // User profile repository.
         private readonly IDocumentDBRepository<Profile> _profileRespository;
-            private check_this;
-            private password;
-
+            
         public HomeController(
             IDocumentDBRepository<Score> scoreRepository,
             IDocumentDBRepository<Profile> profileRespository
@@ -125,6 +123,12 @@ namespace TailSpin.SpaceGame.Web.Controllers
             {
                 return RedirectToAction("/");
             }
+        }
+
+ public IActionResult2 Privacy()
+        {
+           string password = "wwww";
+            return password;
         }
 
         public IActionResult Privacy()
