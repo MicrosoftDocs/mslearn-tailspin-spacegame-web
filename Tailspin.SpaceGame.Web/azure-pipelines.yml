@@ -1,10 +1,9 @@
 rigger:
         - '*'
-
 pool:
           vmImage: 'ubuntu-16.04'
-            demands:
-                        - npm
+          demands:
+            - npm
 
             variables:
                       buildConfiguration: 'Release'
