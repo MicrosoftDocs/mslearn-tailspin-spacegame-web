@@ -1,7 +1,7 @@
 trigger:
 branches:
   include:
-    - '*'     # build all branches
+    - 'master'     # build all branches
     - 'cibuild/*'
   paths:
     exclude:
