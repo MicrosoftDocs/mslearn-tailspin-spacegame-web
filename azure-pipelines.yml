@@ -1,5 +1,12 @@
 trigger:
-- 'cibuild/*'
+branches:
+  include:
+    - '*'     # build all branches
+    - 'cibuild/*'
+  paths:
+    exclude:
+    - docs/*  # exclude the docs folder
+
 
 pool:
   vmImage: 'ubuntu-16.04'
