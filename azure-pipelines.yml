@@ -47,9 +47,9 @@ steps:
   displayName: 'Prepare SonarCloud analysis'
   inputs:
     SonarCloud: 'SonarCloud connection 1'
-    organization: '$(SonarOrganization)'
+    organization: 'eborquez'
     scannerMode: 'MSBuild'
-    projectKey: '$(SonarProjectKey)'
+    projectKey: 'eborquez'
     projectName: '$(SonarProjectName)'
     projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
