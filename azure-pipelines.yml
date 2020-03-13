@@ -4,31 +4,42 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'windows-latest'
+  demand:
+  - npm
 
 variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: UseDotNet@2
+  displayName: 'Use DotNet Core SDK 3.1.100'
   inputs:
-    restoreSolution: '$(solution)'
+    packageType: SDK
+    version: 3.1.100
 
-- task: VSBuild@1
+- task: Npm@1
+  displayName: 'Run NPM install'
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+  verbose: false
 
-- task: VSTest@2
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" >buildinfo.text'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project Dependency'
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'restore'
+    project: '**/*.csproj'
+  
+  - task: DontNetCoreCLI@2
+    displayName: 'Build the Project - Release'
+    input:
+      command: 'build'
+      arguments: '--no-restore  --configuration Release'
+      project: '**/*.csproj'
