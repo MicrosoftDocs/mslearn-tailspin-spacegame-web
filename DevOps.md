@@ -105,3 +105,53 @@ Verify the application is running
 In development mode, the Space Game web site is configured to run on port 5000.
 From a new browser tab, navigate to http://localhost:5000 to see the running application.
 You see this:
+
+## implement-code-workflow
+
+[implement-code-workflow](https://docs.microsoft.com/nb-no/learn/modules/implement-code-workflow/4-create-pull-request)
+
+Push your branch to GitHub
+Here, you push your code-workflow branch to GitHub and watch Azure Pipelines build the application.
+In the terminal, run git status to see what uncommitted work exists on your branch:
+bash
+
+Kopier
+
+git status
+You see that azure-piplines.yml has been modified. You'll commit that to your branch shortly, but you first need to make sure that Git is tracking this file. This is called staging the file.
+Only staged changes are committed when you run git commit. Next, you run the git add command to add azure-pipelines.yml to the staging area, or index.
+Run the following git add command to add azure-piplines.yml to the staging area:
+bash
+
+Kopier
+```
+git add azure-pipelines.yml
+```
+Run the following git commit command to commit your staged file to the code-workflow branch.
+bash
+
+Kopier
+```
+git commit -m "Add the build configuration"
+```
+The -m argument specifies the commit message. The commit message becomes part of a changed file's history. It helps reviewers understand the change as well as help future maintainers understand how the file changed over time.
+ Tips!
+The best commit messages complete the sentence, "If you apply this commit, you will ..."
+If you omit the -m argument, Git brings up a text editor where you can detail the change. This option is useful when you want to specify a commit message that spans multiple lines. The text up to the first blank line specifies the commit title.
+Run this git push command to push, or upload, the code-workflow branch to your repository on GitHub.
+bash
+
+Kopier
+```
+git push origin code-workflow
+```
+As an optional step, go to your project in Azure Pipelines and trace the build as it runs.
+This build is called a CI build. Your pipeline configuration uses what's called a trigger to control which branches participate in the build process. Here, "*" specifies all branches.
+yml
+
+Kopier
+
+trigger:
+- '*'
+Later, you'll see how to control your pipeline configuration to build from only the branches that you need.
+You see that the build completes successfully and produces an artifact that contains the built web application.
