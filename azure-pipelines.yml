@@ -1,45 +1,45 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
 trigger:
 - '*'
 
 pool:
-  vmImage: 'windows-latest'
-  demand:
+  vmImage: 'ubuntu-16.04'
+  demands:
   - npm
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+steps:
 - task: UseDotNet@2
-  displayName: 'Use DotNet Core SDK 3.1.100'
+  displayName: 'Use .NET Core SDK 3.1.100'
   inputs:
-    packageType: SDK
+    packageType: sdk
     version: 3.1.100
 
 - task: Npm@1
-  displayName: 'Run NPM install'
+  displayName: 'Run npm install'
   inputs:
-  verbose: false
+    verbose: false
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" >buildinfo.text'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
 - task: DotNetCoreCLI@2
-  displayName: 'Restore project Dependency'
+  displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    project: '**/*.csproj'
-  
-  - task: DontNetCoreCLI@2
-    displayName: 'Build the Project - Release'
-    input:
-      command: 'build'
-      arguments: '--no-restore  --configuration Release'
-      project: '**/*.csproj'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
