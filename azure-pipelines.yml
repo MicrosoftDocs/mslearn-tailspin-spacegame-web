@@ -38,7 +38,7 @@ steps:
 - task: PublishCodeCoverageResults@1
   inputs:
     #codeCoverageTool: 'JaCoCo' # Options: cobertura, jaCoCo
-    summaryFileLocation: 
+    summaryFileLocation: `$(System.DefaultWorkingDirectory)/Users\ropicioc\Documents\GitHub\Hello-World\mslearn-tailspin-spacegame-web/coverage.xml`
     #pathToSources: # Optional
     #reportDirectory: # Optional
     #additionalCodeCoverageFiles: # Optional
