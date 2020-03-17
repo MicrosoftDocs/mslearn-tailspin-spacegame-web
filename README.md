@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/delta-n-devops/John/_apis/build/status/devjgl.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/delta-n-devops/John/_build/latest?definitionId=45&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
