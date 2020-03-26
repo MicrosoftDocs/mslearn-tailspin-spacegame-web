@@ -12,7 +12,7 @@ variables:
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 3.1.100'
-  inputs:git stat
+  inputs:
     packageType: sdk
     version: 3.1.100
 
