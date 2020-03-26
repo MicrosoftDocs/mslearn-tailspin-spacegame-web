@@ -2,7 +2,7 @@ name: Spacegame-web
 
 on:
   push:
-    branches: [ master, srivatsamarichi-patch-1]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
