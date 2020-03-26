@@ -29,5 +29,5 @@ jobs:
         # Artifact name
         name: space-web
         # Directory containing files to upload
-        path: ./netcoreapp2.1
+        path: .
 
