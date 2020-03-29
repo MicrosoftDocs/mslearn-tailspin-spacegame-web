@@ -64,16 +64,17 @@ namespace TailSpin.SpaceGame.Web
             app.UseEndpoints(endpoints =>
              {
 
-            app.UseRouting();
+                 app.UseRouting();
 
-            app.UseAuthorization();
+                 app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+                 app.UseEndpoints(endpoints =>
+                 {
+                     endpoints.MapControllerRoute(
+                         name: "default",
+                         pattern: "{controller=Home}/{action=Index}/{id?}");
+                 });
+             });
         }
     }
 }
