@@ -1,4 +1,4 @@
-name: Spacegame-web
+name: Spacegame.Web
 on:
   push:
     branches:
