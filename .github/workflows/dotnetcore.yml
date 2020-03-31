@@ -26,7 +26,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test --configuration Release --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=${{GITHUB_WORKSPACE}}/TestResults/Coverage/'
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
