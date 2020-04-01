@@ -27,5 +27,5 @@ jobs:
       name: Install Trivy
     
     - run: |
-        docker build -f $GITHUB_WORKSPACE/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }} .
+        docker build -f Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }} .
       name: Build image
