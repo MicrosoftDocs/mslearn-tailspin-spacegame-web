@@ -57,4 +57,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-This configuration resembles the basic one you created previously. For brevity, it builds only your project's Release configuration.
