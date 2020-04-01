@@ -9,7 +9,7 @@ on:
     branches: [ master ]
 
 jobs:
-  Build:
+  BUILD_JOB:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2    
@@ -43,7 +43,7 @@ jobs:
 
 #================================================================================================================
   
-  Container build:
+  CONTAINER-BUILD:
     runs-on: ubuntu-latest
     steps:
     - uses: azure/docker-login@v1
