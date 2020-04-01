@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - master
-      - feature/home-page-text
-      - unit-tests
   pull_request:
     branches: [ master ]
 
