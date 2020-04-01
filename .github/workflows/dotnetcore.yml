@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - docker-support
   pull_request:
     branches: [ master ]
 
