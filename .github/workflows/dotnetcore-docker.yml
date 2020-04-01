@@ -8,7 +8,7 @@ on:
     branches: [ master ]
 
 jobs:
-  CONTAINER_BUILD_JOB:
+  CONTAINER_BUILD:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2    
@@ -27,5 +27,7 @@ jobs:
       name: Install Trivy
     
     - run: |
-        docker build -f $GITHUB_WORKSPACE/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
+        echo $GITHUB_WORKSPACE
+        echo ls
+        
       name: Build image
