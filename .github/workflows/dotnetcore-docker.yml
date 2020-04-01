@@ -25,3 +25,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install trivy
       name: Install Trivy
+    
+    - run: |
+        docker build . -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
+      name: Build image
