@@ -40,19 +40,3 @@ jobs:
       with:
         name: space-web
         path: ./Tailspin.SpaceGame.Web/obj/Release/netcoreapp3.1
-
-#================================================================================================================
-  
-  CONTAINER-BUILD:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: azure/docker-login@v1
-      with:
-        login-server: contoso.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-
-    - run: |
-        docker build . -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
-        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH --ignore-unfixed ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
-        docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
