@@ -1,0 +1,19 @@
+name: Spacegame.Web.Docker
+on:
+  push:
+    branches:
+      - master
+      - docker-support
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  BUILD_JOB:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: contoso.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
