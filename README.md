@@ -1,8 +1,9 @@
 # Build Status
 
-|![Spacegame-web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame-web/badge.svg?branch=master)| 
-|------------------------------------------------------|
-|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)|
+|![Spacegame-web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame-web/badge.svg?branch=master)| ![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)|
+|------------------------------------------------------|------|
+|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)| ![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)|
+||![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)|
 
 ## Overview
 
