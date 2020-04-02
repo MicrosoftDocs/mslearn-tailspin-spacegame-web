@@ -29,11 +29,11 @@ jobs:
         
     - name: build, scan and tag image
       run: |
-        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t tailspinspacegameweb:${{ github.sha }} .
-        trivy --exit-code 0 --severity MEDIUM,HIGH tailspinspacegameweb:${{ github.sha }}
-        docker tag tailspinspacegameweb:${{ github.sha }} docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
+        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t tailspinspacegameweb:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH tailspinspacegameweb:${{ github.run_number }}
+        docker tag tailspinspacegameweb:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
    
     - name: push image
       run: |
-        docker push docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
+        docker push docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
     
