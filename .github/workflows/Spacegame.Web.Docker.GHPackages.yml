@@ -1,0 +1,28 @@
+name: Spacegame.Web.Docker.GHPackages
+on:
+  push:
+    branches:
+      - master
+      - docker-support
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  CONTAINER_BUILD:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: docker login to github packages
+      run: |
+        docker login docker.pkg.github.com -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: build image
+      run: |
+        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile .
+        docker -t docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }} .
+    
+    - name: push image
+      run: |
+        docker push docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
+    
