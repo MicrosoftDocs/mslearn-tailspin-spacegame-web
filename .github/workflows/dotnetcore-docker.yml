@@ -46,6 +46,12 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
+    - uses: azure/docker-login@v1
+      with:
+        login-server: darquewarrior.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+      
     - name: 'App Service Deploy' 
       uses: azure/webapps-container-deploy@v1
       with:
