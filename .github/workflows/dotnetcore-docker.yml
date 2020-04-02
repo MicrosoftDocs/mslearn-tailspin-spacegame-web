@@ -18,11 +18,8 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    - name: docker login to github packages
+    - name: Install Trivy
       run: |
-        docker login docker.pkg.github.com -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
-    
-    - run: |
         #!/bin/bash
         sudo apt-get install wget apt-transport-https gnupg lsb-release
         wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
@@ -30,12 +27,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install trivy
         echo $HOME/Library/Caches
-      name: Install Trivy
     
-    - run: |
+    - name: build image
+      run: |
         docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }} .
-      name: Build image
     
-    - run: |
+    - name: scan image
+      run: |
         docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH --ignore-unfixed ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
-      name: Scan container image
+        
