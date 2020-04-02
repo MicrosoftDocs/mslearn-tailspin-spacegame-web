@@ -44,7 +44,7 @@ jobs:
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        creds: ${{ secrets.AZURE_CREDENTIALS }}    
     
     - uses: azure/docker-login@v1
       with:
@@ -56,7 +56,7 @@ jobs:
       uses: azure/webapps-container-deploy@v1
       with:
         app-name: 'grodd'
-        images: '${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}' 
+        images: ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} 
 
     - name: Azure logout
       run: |
