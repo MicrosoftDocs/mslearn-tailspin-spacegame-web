@@ -20,7 +20,7 @@ jobs:
     
     - name: docker login to github packages
       run: |
-        docker login docker.pkg.github.com -u srivatsamarichi ${{ secrets.GITHUB_TOKEN }}
+        docker login docker.pkg.github.com -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
     
     - run: |
         #!/bin/bash
