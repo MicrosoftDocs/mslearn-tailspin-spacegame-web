@@ -3,13 +3,12 @@ on:
   push:
     branches:
       - master
-      - feature/home-page-text
-      - unit-tests
+      - docker-support
   pull_request:
     branches: [ master ]
 
 jobs:
-  Build:
+  BUILD_JOB:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2    
@@ -29,8 +28,6 @@ jobs:
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v1.1
-      with:
-        projectBaseDir: .
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -40,4 +37,3 @@ jobs:
       with:
         name: space-web
         path: ./Tailspin.SpaceGame.Web/obj/Release/netcoreapp3.1
-

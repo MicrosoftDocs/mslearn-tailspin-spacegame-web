@@ -1,0 +1,39 @@
+name: Spacegame.Web.Docker.GHPackages
+on:
+  push:
+    branches:
+      - master
+      - docker-support
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  CONTAINER_BUILD:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: docker login to github packages
+      run: |
+        docker login docker.pkg.github.com -u srivatsamarichi -p ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Install Trivy
+      run: |
+        #!/bin/bash
+        sudo apt-get install wget apt-transport-https gnupg lsb-release
+        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+        echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+        sudo apt-get update
+        sudo apt-get install trivy
+        echo $HOME/Library/Caches
+        
+    - name: build, scan and tag image
+      run: |
+        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t tailspinspacegameweb:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH tailspinspacegameweb:${{ github.run_number }}
+        docker tag tailspinspacegameweb:${{ github.run_number }} docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
+   
+    - name: push image
+      run: |
+        docker push docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.run_number }}
+    

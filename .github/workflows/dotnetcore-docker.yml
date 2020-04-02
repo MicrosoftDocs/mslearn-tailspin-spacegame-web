@@ -1,0 +1,62 @@
+name: Spacegame.Web.Docker
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  CONTAINER_BUILD:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: darquewarrior.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    - name: Install Trivy
+      run: |
+        #!/bin/bash
+        sudo apt-get install wget apt-transport-https gnupg lsb-release
+        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+        echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+        sudo apt-get update
+        sudo apt-get install trivy
+        echo $HOME/Library/Caches
+    
+    - name: build, scan and tag image
+      run: |
+        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
+    
+    - name: push image
+      run: |
+        docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
+#=============================================================================================================== 
+  APP-SERVICE-DEPLOY:
+    runs-on: ubuntu-latest
+    needs: CONTAINER_BUILD
+    steps:
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}    
+    
+    - uses: azure/docker-login@v1
+      with:
+        login-server: darquewarrior.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+      
+    - name: 'App Service Deploy' 
+      uses: azure/webapps-container-deploy@v1
+      with:
+        app-name: 'grodd'
+        images: ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} 
+
+    - name: Azure logout
+      run: |
+        az logout
