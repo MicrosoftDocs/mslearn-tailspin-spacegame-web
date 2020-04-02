@@ -1,11 +1,4 @@
-# Build Status
-
-|| ![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)|
-|------------------------------------------------------|------|
-|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)| ![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)|
-||![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)|
-
-## Overview
+# Overview
 
 Tailspin Toys, or Tailspin for short, is a video game company. Tailspin hosts its game servers and websites in an on-premises data-center. The company just celebrated the release of a new racing game. They'll be releasing a space shooter game, called Space Game, in the coming months.
 
@@ -15,14 +8,9 @@ The Space Game website is a .NET Core app written in C# that's deployed to Linux
 
 ![](https://docs.microsoft.com/en-us/learn/azure-devops/assess-your-development-process/media/2-space-game-top.png)
 
-And here's what the leader board looks like:
+# Build Status
 
-![](https://docs.microsoft.com/en-us/learn/azure-devops/assess-your-development-process/media/2-space-game-leaderboard.png)
-
-You can filter the leader board by mode or by game map. You can also select a player's name to see their profile and game achievements:
-
-![](https://docs.microsoft.com/en-us/learn/azure-devops/assess-your-development-process/media/2-player-profile.png)
-
-## CodeQuality
-
-SonarCloud integration
+|| ![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)|
+|------------------------------------------------------|------|
+|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)| ![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)|
+||![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)|
