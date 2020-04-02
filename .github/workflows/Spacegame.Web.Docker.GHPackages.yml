@@ -20,7 +20,7 @@ jobs:
     - name: build image
       run: |
         docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile .
-        docker tag docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
+        docker tag IMAGE_ID docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
     
     - name: push image
       run: |
