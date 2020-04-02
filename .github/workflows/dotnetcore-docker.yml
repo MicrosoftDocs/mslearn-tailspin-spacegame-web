@@ -17,6 +17,11 @@ jobs:
         login-server: darquewarrior.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
+    
+    - name: docker login to github packages
+      run: |
+        docker login docker.pkg.github.com -u srivatsamarichi ${{ secrets.GITHUB_TOKEN }}
+    
     - run: |
         #!/bin/bash
         sudo apt-get install wget apt-transport-https gnupg lsb-release
