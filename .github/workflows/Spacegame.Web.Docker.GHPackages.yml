@@ -30,7 +30,7 @@ jobs:
     - name: build, scan and tag image
       run: |
         docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t tailspinspacegameweb:${{ github.sha }} .
-        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH --ignore-unfixed tailspinspacegameweb:${{ github.sha }}
+        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 1 --severity CRITICAL --ignore-unfixed tailspinspacegameweb:${{ github.sha }}
         docker tag tailspinspacegameweb:${{ github.sha }} docker.pkg.github.com/srivatsamarichi/tailspin-spacegame-web/tailspinspacegameweb:${{ github.sha }}
    
     - name: push image
