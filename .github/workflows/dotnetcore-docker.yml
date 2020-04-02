@@ -28,11 +28,12 @@ jobs:
         sudo apt-get install trivy
         echo $HOME/Library/Caches
     
-    - name: build image
+    - name: build, scan and tag image
       run: |
-        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }} .
+        docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} .
+        trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
     
-    - name: scan image
+    - name: push image
       run: |
-        docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy --exit-code 0 --severity MEDIUM,HIGH --ignore-unfixed ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.sha }}
+        docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
         
