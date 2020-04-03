@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - website-fixes
   pull_request:
     branches: [ master ]
 
