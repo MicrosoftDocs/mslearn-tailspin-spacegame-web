@@ -47,14 +47,20 @@ steps:
   displayName: 'Prepare SonarCloud analysis'
   inputs:
     SonarCloud: 'SonarCloud connection 1'
-    organization: 'space-game-web-9849'
-    scannerMode: 'MSBuild'
-    projectKey: 'ajayvamsisree_mslearn-tailspin-spacegame-web'
-    projectName: 'mslearn-tailspin-spacegame-web'
-    projectVersion: '1.0'
+    organization: '$(SonarOrganization)'
+    projectKey: '$(SonarProjectKey)'
+    projectName: '$(SonarProjectName)'
+    projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
@@ -84,9 +90,23 @@ steps:
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
-
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
+ 
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
@@ -106,5 +126,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-
-
