@@ -47,11 +47,11 @@ steps:
   displayName: 'Prepare SonarCloud analysis'
   inputs:
     SonarCloud: 'SonarCloud connection 1'
-    organization: 'ajayvamsisree'
+    organization: '$(SonarOrganization)'
     scannerMode: 'MSBuild'
-    projectKey: 'space-game-web-9849'
-    projectName: 'mslearn-tailspin-spacegame-web'
-    projectVersion: '1.0'
+    projectKey: '$(SonarProjectKey)'
+    projectName: '$(SonarProjectName)'
+    projectVersion: '$(Build.BuildNumber)'
     extraProperties: |
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
@@ -105,4 +105,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  condition: succeeded()  
+  condition: succeeded()
+
+
+  
