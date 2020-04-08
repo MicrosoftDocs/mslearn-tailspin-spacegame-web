@@ -1,9 +1,7 @@
 name: Spacegame.Web.k8s
 on:
   push:
-    branches:
-      - master
-      - k8s
+    branches: [master, k8s]
   pull_request:
     branches: [ master ]
 
