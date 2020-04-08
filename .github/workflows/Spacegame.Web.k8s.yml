@@ -39,23 +39,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: CONTAINER_BUILD
     steps:
-    - name: 'Login via Azure CLI'
+    - name: Azure login
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}    
     
     - uses: azure/docker-login@v1
+      name: Docker login
       with:
         login-server: darquewarrior.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
       
     - uses: azure/setup-helm@v1
+      name: Install Helm
       with:
         version: 'latest'
         id: install 
 
-    - name: 'Helm Deploy'
+    - name: Helm Deploy
       uses: 'deliverybot/helm@v1'
       with:
         release: 'spacegameweb'
