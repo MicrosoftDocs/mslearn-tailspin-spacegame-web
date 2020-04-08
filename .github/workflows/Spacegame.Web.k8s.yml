@@ -33,10 +33,8 @@ jobs:
     
     - name: push image
       run: |
-        docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
-	
+        docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}	
 #===============================================================================================================
-
   AKS-DEPLOY:
     runs-on: ubuntu-latest
     needs: CONTAINER_BUILD
