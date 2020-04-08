@@ -67,7 +67,7 @@ jobs:
         values: |
           name: spacegameweb
       env:
-        KUBECONFIG_FILE: '${{ secrets.AKS }}'		
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'		
     - name: Azure logout
       run: |
         az logout
