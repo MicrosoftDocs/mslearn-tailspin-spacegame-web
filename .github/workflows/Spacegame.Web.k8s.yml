@@ -52,8 +52,8 @@ jobs:
       
     - uses: azure/setup-helm@v1
       with:
-	version: 'latest'
-	id: install 
+        version: 'latest'
+        id: install 
 
     - name: 'Helm Deploy'
       uses: 'deliverybot/helm@v1'
