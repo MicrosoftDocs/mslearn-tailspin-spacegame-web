@@ -95,6 +95,7 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
+
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
