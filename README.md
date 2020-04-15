@@ -1,10 +1,8 @@
-# Build Status
-
-|| ![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)|
-|------------------------------------------------------|------|
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1315e116650345da9177b96c327f7901)](https://app.codacy.com/manual/srivatsams/tailspin-spacegame-web?utm_source=github.com&utm_medium=referral&utm_content=srivatsamarichi/tailspin-spacegame-web&utm_campaign=Badge_Grade_Dashboard)
-|[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)| ![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)|
-||![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)|
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=playgroundgithub&metric=alert_status)](https://sonarcloud.io/dashboard?id=playgroundgithub)
+![Spacegame.Web.Docker](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker/badge.svg)
+![Spacegame.Web](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web/badge.svg)
+![Spacegame.Web.Docker.GHPackages](https://github.com/srivatsamarichi/tailspin-spacegame-web/workflows/Spacegame.Web.Docker.GHPackages/badge.svg)
 
 ## Overview
 
