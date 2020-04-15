@@ -1,5 +1,7 @@
 trigger:
-- '*'
+  branches:
+    include:
+    - '*'     # build all branches
 
 pool:
   vmImage: 'ubuntu-16.04'
