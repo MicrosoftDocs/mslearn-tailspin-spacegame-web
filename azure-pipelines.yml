@@ -45,11 +45,11 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
-- template: Tailspin.SpaceGame.Web/templates/build.yml
+- template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: Tailspin.SpaceGame.Web/templates/build.yml
+- template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
 
