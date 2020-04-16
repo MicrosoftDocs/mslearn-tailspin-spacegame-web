@@ -1,10 +1,7 @@
 name: Spacegame.Web.Docker.GHPackages
 on:
   push:
-    branches:
-      - master
-      - docker-support
-      - website-fixes
+    branches: [ master, docker-support, website-fixes ]
   pull_request:
     branches: [ master ]
 
