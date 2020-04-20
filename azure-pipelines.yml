@@ -52,7 +52,10 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
+<<<<<<< HEAD
 ##adding a comment to check push
+=======
+>>>>>>> 9b7d5506a191b1666c5c5360513f08d70ef4618d
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
