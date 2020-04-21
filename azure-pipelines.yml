@@ -44,6 +44,10 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+- script: |
+    reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines
+  displayName: 'Create code coverage report'
+  
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
