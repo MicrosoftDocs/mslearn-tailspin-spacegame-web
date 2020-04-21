@@ -82,9 +82,9 @@ jobs:
     - uses: azure/k8s-bake@v1
       with:
         renderEngine: 'helm2'
-        helmChart: './deploy-k8s/' 
+        helmChart: './deploy-k8s/'
+        releaseName: tailspinweb
         helm-version: 'latest' 
-      id: bake
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
