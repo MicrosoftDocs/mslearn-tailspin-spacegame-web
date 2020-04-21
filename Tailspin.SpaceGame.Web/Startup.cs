@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using TailSpin.SpaceGame.Web.Models;
 using Microsoft.AspNetCore.Http;
 
-
 namespace TailSpin.SpaceGame.Web
 {
     public class Startup
@@ -54,6 +53,7 @@ namespace TailSpin.SpaceGame.Web
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
 
             app.UseRouting();
 
