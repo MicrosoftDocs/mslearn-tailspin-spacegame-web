@@ -85,7 +85,7 @@ jobs:
     - uses: azure/k8s-bake@v1
       name: bake manifest file
       with:
-        renderEngine: 'helm2'
+        renderEngine: 'helm'
         helmChart: './deploy-k8s/'
         releaseName: tailspinweb
         helm-version: 'latest' 
