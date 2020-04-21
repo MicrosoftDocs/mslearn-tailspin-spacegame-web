@@ -60,6 +60,7 @@ jobs:
       
       # Set the target Azure Kubernetes Service (AKS) cluster. 
     - uses: azure/aks-set-context@v1
+      name: Set the target AKS cluster
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: ${{ env.CLUSTER_NAME }}
@@ -68,9 +69,11 @@ jobs:
     # Create namespace if doesn't exist
     - run: |
         kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
+      name: Create namespace if doesn't exist
     
     # Create imagepullsecret for Azure Container registry (ACR)
     - uses: azure/k8s-create-secret@v1
+      name: Create imagepullsecret for ACR
       with:
         container-registry-url: ${{ env.REGISTRY_NAME }}.azurecr.io
         container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
@@ -80,14 +83,17 @@ jobs:
     
     # Baking the helm chart to generate the manifests to deploy
     - uses: azure/k8s-bake@v1
+      name: bake manifest file
       with:
         renderEngine: 'helm2'
         helmChart: './deploy-k8s/'
         releaseName: tailspinweb
         helm-version: 'latest' 
+      id: bake
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
+      name: Deploy app to AKS
       with:
         manifests: ${{ steps.bake.outputs.manifestsBundle }}
         images: |
