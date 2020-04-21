@@ -13,7 +13,7 @@ env:
   NAMESPACE: default
 
 jobs:
-  Container Build:
+  Container_Build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2    
@@ -42,9 +42,9 @@ jobs:
       run: |
         docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}	
 #===============================================================================================================
-  AKS deploy:
+  AKS_deploy:
     runs-on: ubuntu-latest
-    needs: Container Build
+    needs: Container_Build
     steps:
     - name: Azure login
       uses: azure/login@v1
