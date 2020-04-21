@@ -95,7 +95,3 @@ jobs:
         imagepullsecrets: |
           ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
-		
-    - name: Azure logout
-      run: |
-        az logout
