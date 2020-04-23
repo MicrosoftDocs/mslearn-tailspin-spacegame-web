@@ -30,4 +30,4 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
 
-[![Build Status](https://dev.azure.com/tiwariap/spacegame-web-pipeline/_apis/build/status/AshwanthTiwari.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/tiwariap/spacegame-web-pipeline/_build/latest?definitionId=21&branchName=master)
+[![Build Status](https://dev.azure.com/tiwariap/vmcicd/_apis/build/status/vmcicd-CI?branchName=master)](https://dev.azure.com/tiwariap/vmcicd/_build/latest?definitionId=8&branchName=master)
