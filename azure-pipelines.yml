@@ -22,7 +22,7 @@ steps:
     version: 3.1.100
 
 - task: Npm@1
-  displayname: 'Run npm install'
+  DisplayName: 'Run npm install'
   inputs:
     verbose: false
 
