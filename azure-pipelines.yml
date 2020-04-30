@@ -47,5 +47,5 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproject'
+    projects: '**/*.csproj'
 
