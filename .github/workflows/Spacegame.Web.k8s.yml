@@ -1,5 +1,7 @@
 name: Spacegame.Web.k8s
 on:
+  schedule:
+    - cron: '0 0 * * *'
   push:
     branches: [master, k8s]
   pull_request:
