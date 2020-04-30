@@ -88,7 +88,7 @@ jobs:
       name: bake manifest file
       with:
         renderEngine: 'helm'
-        helmChart: './deploy-k8s/'
+        helmChart: 'deploy-k8s'
         releaseName: tailspinweb
         helm-version: 'latest' 
       id: bake
