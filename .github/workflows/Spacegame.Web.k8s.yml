@@ -52,11 +52,11 @@ jobs:
 #===============================================================================================================
   AKS_deploy:
     name: Deploy
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
     needs: Container_Build
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2   
+    #- name: Checkout
+    #  uses: actions/checkout@v2   
     
     - name: Azure login
       uses: azure/login@v1
@@ -93,16 +93,6 @@ jobs:
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         secret-name: ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
-
-    # Baking the helm chart to generate the manifests to deploy
-    # - uses: azure/k8s-bake@v1
-    #  name: bake manifest file
-    #  with:
-    #    renderEngine: 'helm'
-    #    helmChart: 'deploy-k8s'
-    #    releaseName: tailspinweb
-    #    helm-version: 'latest' 
-    #  id: bake 
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
