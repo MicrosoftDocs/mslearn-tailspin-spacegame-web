@@ -19,12 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2    
+    
+    # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: darquewarrior.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
+    # Install Trivy tool
     - name: Install Trivy
       run: |
         #!/bin/bash
@@ -53,6 +56,7 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}    
     
+    # Connect to Azure Container registry (ACR)
     - uses: azure/docker-login@v1
       name: Docker login
       with:
@@ -60,7 +64,7 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
       
-      # Set the target Azure Kubernetes Service (AKS) cluster. 
+    # Set the target Azure Kubernetes Service (AKS) cluster 
     - uses: azure/aks-set-context@v1
       name: Set the target AKS cluster
       with:
@@ -83,6 +87,9 @@ jobs:
         secret-name: ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
     
+    - run: |
+        helm ls
+        
     # Baking the helm chart to generate the manifests to deploy
     - uses: azure/k8s-bake@v1
       name: bake manifest file
