@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/RED-AZ-49/Space%20Game-web-pipeline/_apis/build/status/naruto49.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/RED-AZ-49/Space%20Game-web-pipeline/_build/latest?definitionId=5&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
