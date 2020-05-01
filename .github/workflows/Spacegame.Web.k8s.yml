@@ -88,7 +88,7 @@ jobs:
         namespace: ${{ env.NAMESPACE }}
     
     - run: |
-        helm install --name tailspin deploy-k8s
+        helm install -name tailspin deploy-k8s
         
     # Baking the helm chart to generate the manifests to deploy
     - uses: azure/k8s-bake@v1
