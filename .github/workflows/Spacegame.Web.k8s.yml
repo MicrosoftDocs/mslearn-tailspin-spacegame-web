@@ -73,8 +73,8 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: ${{ env.CLUSTER_NAME }}
         resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
- 
-     - run: |
+    
+    - run: |
         kubectl get nodes
     
     # Create namespace if doesn't exist
