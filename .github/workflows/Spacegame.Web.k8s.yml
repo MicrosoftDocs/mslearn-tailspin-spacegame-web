@@ -86,28 +86,23 @@ jobs:
         container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
         secret-name: ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
-    
-    - run: |
-        pwd 
-        ls -a
-        helm repo update
-        helm install -name tailspin ./deploy-k8s
-        
+
     # Baking the helm chart to generate the manifests to deploy
-    - uses: azure/k8s-bake@v1
-      name: bake manifest file
-      with:
-        renderEngine: 'helm'
-        helmChart: 'deploy-k8s'
-        releaseName: tailspinweb
-        helm-version: 'latest' 
-      id: bake
+    # - uses: azure/k8s-bake@v1
+    #  name: bake manifest file
+    #  with:
+    #    renderEngine: 'helm'
+    #    helmChart: 'deploy-k8s'
+    #    releaseName: tailspinweb
+    #    helm-version: 'latest' 
+    #  id: bake
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       name: Deploy app to AKS
       with:
-        manifests: ${{ steps.bake.outputs.manifestsBundle }}
+        manifests: |
+           manifests/deployment.yml
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/tailspinspacegameweb:${{ github.run_number }}
         imagepullsecrets: |
