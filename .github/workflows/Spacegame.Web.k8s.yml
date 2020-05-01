@@ -102,7 +102,7 @@ jobs:
       name: Deploy app to AKS
       with:
         manifests: |
-           k8s-manifests/deployment.yml
+           manifests/deployment.yml
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/tailspinspacegameweb:${{ github.run_number }}
         imagepullsecrets: |
