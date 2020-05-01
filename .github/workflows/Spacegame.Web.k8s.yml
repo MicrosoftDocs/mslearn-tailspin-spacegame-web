@@ -64,8 +64,8 @@ jobs:
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-      
+        password: ${{ secrets.REGISTRY_PASSWORD }}     
+
     # Set the target Azure Kubernetes Service (AKS) cluster 
     - uses: azure/aks-set-context@v1
       name: Set the target AKS cluster
@@ -73,6 +73,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         cluster-name: ${{ env.CLUSTER_NAME }}
         resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
+ 
+     - run: |
+        kubectl get nodes
     
     # Create namespace if doesn't exist
     - run: |
