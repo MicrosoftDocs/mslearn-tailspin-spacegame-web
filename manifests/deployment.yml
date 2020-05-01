@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: tailspinspace
-        image: darquewarrior.azurecr.io/tailspinspacegameweb:${{ github.run_number }}
+        image: darquewarrior.azurecr.io/tailspinspacegameweb
         imagePullPolicy: Always
         ports:
         - containerPort: 80

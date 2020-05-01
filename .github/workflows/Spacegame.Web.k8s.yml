@@ -79,9 +79,6 @@ jobs:
         cluster-name: ${{ env.CLUSTER_NAME }}
         resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
     
-    - run: |
-        kubectl apply -f ./deployment.yml
-    
     # Create namespace if doesn't exist
     - run: |
         kubectl create namespace ${{ env.NAMESPACE }} --dry-run -o json | kubectl apply -f -
@@ -112,9 +109,9 @@ jobs:
       name: Deploy app to AKS
       with:
         manifests: |
-           $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/deployment.yml
+           manifests/deployment.yml
         images: |
-          ${{ env.REGISTRY_NAME }}.azurecr.io/tailspinspacegameweb:${{ github.run_number }}
+          ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
         imagepullsecrets: |
           ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
