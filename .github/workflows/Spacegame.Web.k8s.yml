@@ -94,12 +94,21 @@ jobs:
         secret-name: ${{ env.REGISTRY_NAME }}-registry-connection
         namespace: ${{ env.NAMESPACE }}
     
+    # Baking the helm chart to generate the manifests to deploy
+    - uses: azure/k8s-bake@v1
+      name: Baking the helm chart
+      with:
+        renderEngine: 'helm2'
+        helmChart: ./deploy-k8s
+        helm-version: 'latest' 
+      id: bake
+    
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
       name: Deploy app to AKS
       with:
-        manifests: |
-           manifests/deployment.yml
+        manifests: ${{ steps.bake.outputs.manifestsBundle }}
+           #manifests/deployment.yml
         images: |
           ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
         imagepullsecrets: |
