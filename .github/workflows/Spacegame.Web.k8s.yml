@@ -18,10 +18,12 @@ jobs:
   Container_Build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2    
+    - name: Checkout
+      uses: actions/checkout@v2    
     
     # Connect to Azure Container registry (ACR)
-    - uses: azure/docker-login@v1
+    - name: Docker login
+      uses: azure/docker-login@v1
       with:
         login-server: darquewarrior.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }}
@@ -38,12 +40,12 @@ jobs:
         sudo apt-get install trivy
         echo $HOME/Library/Caches
     
-    - name: build, scan and tag image
+    - name: Container build, scan and tag image
       run: |
         docker build -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/Dockerfile -t ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} .
         trivy --exit-code 0 --severity MEDIUM,HIGH ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}
     
-    - name: push image
+    - name: Container push to a Azure Container registry (ACR)
       run: |
         docker push ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }}	
 #===============================================================================================================
@@ -102,7 +104,7 @@ jobs:
       name: Deploy app to AKS
       with:
         manifests: |
-           manifests/deployment.yml
+           deployment.yml
         images: |
           ${{ env.REGISTRY_NAME }}.azurecr.io/tailspinspacegameweb:${{ github.run_number }}
         imagepullsecrets: |
