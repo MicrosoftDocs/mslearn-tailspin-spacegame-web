@@ -78,7 +78,7 @@ jobs:
         resource-group: ${{ env.CLUSTER_RESOURCE_GROUP }}
     
     - run: |
-        kubectl apply -f $GITHUB_WORKSPACE/Tailspin.SpaceGame.Web/deployment.yml
+        kubectl apply -f ./deployment.yml
     
     # Create namespace if doesn't exist
     - run: |
