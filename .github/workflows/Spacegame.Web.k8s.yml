@@ -100,7 +100,7 @@ jobs:
     #    helmChart: 'deploy-k8s'
     #    releaseName: tailspinweb
     #    helm-version: 'latest' 
-    #  id: bake
+    #  id: bake 
     
     # Deploy app to AKS
     - uses: azure/k8s-deploy@v1
