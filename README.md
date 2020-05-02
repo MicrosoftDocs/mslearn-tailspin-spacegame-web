@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/sutrinh0319/CodeWorkFlow-GitGitHub/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/sutrinh0319/CodeWorkFlow-GitGitHub/_build/latest?definitionId=25&branchName=master)
 
 # Contributing
 
