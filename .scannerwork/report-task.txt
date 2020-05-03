@@ -1,0 +1,7 @@
+organization=fis-gmc
+projectKey=ngocld_mslearn-tailspin-spacegame-web
+serverUrl=https://sonarcloud.io
+serverVersion=8.0.0.7420
+dashboardUrl=https://sonarcloud.io/dashboard?id=ngocld_mslearn-tailspin-spacegame-web
+ceTaskId=AXHY2pnC2Rtt4448hphR
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AXHY2pnC2Rtt4448hphR
