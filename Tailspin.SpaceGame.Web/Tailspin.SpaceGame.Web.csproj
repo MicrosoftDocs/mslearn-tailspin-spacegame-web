@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -13,11 +13,5 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\azure-pipelines.yml">
-      <Link>azure-pipelines.yml</Link>
-    </Content>
   </ItemGroup>
 </Project>
