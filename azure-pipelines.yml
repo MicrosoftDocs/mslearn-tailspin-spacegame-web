@@ -109,7 +109,7 @@ steps:
     )
 
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
+  displayName: 'Prod-HotFix-1213-Publish code coverage report'
   inputs:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
