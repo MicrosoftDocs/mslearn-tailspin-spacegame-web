@@ -13,7 +13,7 @@ namespace TailSpin.SpaceGame.Web.Models
         public int HighScore { get; set; }
 
         // The game mode the score is associated with.
-        [JsonProperty(PropertyName = "gameMode")]
+        [JsonProperty(PropertyName = "gameMode")] 
         public string GameMode { get; set; }
 
         // The game region (map) the score is associated with.
