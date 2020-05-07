@@ -1,4 +1,8 @@
 
+[![Build Status](https://dev.azure.com/wouterenchristel/afstudeerprojectwvn/_apis/build/status/WouterWallyvanNuland.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/wouterenchristel/afstudeerprojectwvn/_build/latest?definitionId=1&branchName=master)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wouterwallyvannuland&metric=alert_status)](https://sonarcloud.io/dashboard?id=wouterwallyvannuland)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
