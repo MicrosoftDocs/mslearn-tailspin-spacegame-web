@@ -111,12 +111,12 @@ namespace TailSpin.SpaceGame.Web.Controllers
             }
         }
 
-        [Route("/profile/{id}")]
+        [Route("/profile/{id}")] 
         public async Task<IActionResult> Profile(string id, string rank="")
         {
             try
             {
-                // Fetch the user profile with the given identifier.
+                // Fetch the user profile with the given identifier and bullshit.
                 return View(new ProfileViewModel { Profile = await _profileRespository.GetItemAsync(id), Rank = rank });
             }
             catch (Exception)
