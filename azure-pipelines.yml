@@ -51,5 +51,3 @@ steps:
   condition: succeeded()
 
   
-- publish: $(System.DefaultWorkingDirectory)/bin/WebApp
-  artifact: WebApp
