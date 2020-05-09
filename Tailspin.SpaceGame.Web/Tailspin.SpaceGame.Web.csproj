@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <!-- <PackageReference Include="Microsoft.AspNetCore.App" /> -->
+    <!-- <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" /> -->
+>>>>>>> c9fe1e57cf4dc413c50f7069a228daebe95577b7
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
