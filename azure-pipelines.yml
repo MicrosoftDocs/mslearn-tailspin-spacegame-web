@@ -51,9 +51,16 @@ steps:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
-    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(buildConfiguration)'
     zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'run'
+    projects: '**/*.csproj'
+    arguments: '--configuration Release --no-build --project Tailspin.SpaceGame.Web'
+    workingDirectory: '$(wwwrootDir)'/
