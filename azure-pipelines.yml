@@ -63,4 +63,4 @@ steps:
     command: 'run'
     projects: '**/*.csproj'
     arguments: '--configuration Release --no-build --project Tailspin.SpaceGame.Web'
-    workingDirectory: '$(wwwrootDir)'/
+    workingDirectory: '$(wwwrootDir)'
