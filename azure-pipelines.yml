@@ -1,3 +1,4 @@
+#Added conditins for scanning code by SonarCloud
 trigger:
 - '*'
 
