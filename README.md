@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/saample/space-web-game/_apis/build/status/SmartHotel_Petchecker-Web?branchName=master)](https://dev.azure.com/saample/space-web-game/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
