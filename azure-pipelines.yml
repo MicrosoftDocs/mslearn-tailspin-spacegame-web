@@ -57,7 +57,7 @@ steps:
     publishWebProjects: false
     arguments: '--no-restore --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
-- task: PublishBuildArtifacats@1
+- task: PublishBuildArtifacts@1
   displayName: 'Publist Artifact: drop'
   condition: succeeded()
 
