@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/bartlomiejmucha/AZ400Module2/_apis/build/status/bartlomiejmucha.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/bartlomiejmucha/AZ400Module2/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
