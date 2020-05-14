@@ -1,6 +1,9 @@
 parameters:
   buildConfiguration: 'Release'
 
+-task: gulp@1
+displayName: 'Run gulp tasks'
+
 steps:
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
