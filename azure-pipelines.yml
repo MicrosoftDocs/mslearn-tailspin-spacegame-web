@@ -119,12 +119,14 @@ steps:
 - task: WhiteSource Bolt@20
   displayName: 'Scan for open source'
 
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
 - task: DotNetCoreCLI@2
   displayName: 'Publish Project - $(buildConfiguration)'
   inputs:
     command: publish
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory/$(buildConfiguration)'
-    cipAfterPublish: true
+    zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
