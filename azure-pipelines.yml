@@ -116,6 +116,9 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
+- task: WhiteSource Bolt@20
+  displayName: 'Scan for open source'
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish Project - $(buildConfiguration)'
   inputs:
