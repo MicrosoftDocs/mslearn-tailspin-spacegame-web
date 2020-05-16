@@ -1,5 +1,5 @@
 trigger: 
-- 'master'
+- 'security-scan'
 
 pool:
   vmImage: 'ubuntu-16.04'
