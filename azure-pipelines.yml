@@ -38,11 +38,19 @@ steps:
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build project - $(buildConfiguration)'
+#- task: DotNetCoreCLI@2
+#  displayName: 'Build project - $(buildConfiguration)'
+#  inputs:
+#    command: 'restore'
+#    projects: '**/*.csproj'
+
+- task: NuGetCommand@2
+  displayName: Restore Dependencies from Azure Artifacts
   inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
+    command: restore
+    restoreSolution: '**/*.sln'
+    feedstoUse: 'Select'
+    vstsFeed: 'Space Game - web - Dependencies/Tailspin.SpaceGame.Web.Models'
 
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud analysis'
@@ -116,12 +124,17 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
+- task: WhiteSource Bolt@20
+  displayName: 'Scan for open source'
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
 - task: DotNetCoreCLI@2
   displayName: 'Publish Project - $(buildConfiguration)'
   inputs:
     command: publish
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory/$(buildConfiguration)'
-    cipAfterPublish: true
+    zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'

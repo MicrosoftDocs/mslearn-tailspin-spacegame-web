@@ -1,3 +1,4 @@
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=subodhde_mslearn-tailspin-spacegame-web)](https://sonarcloud.io/dashboard?id=subodhde_mslearn-tailspin-spacegame-web)
     
 # Contributing
 
