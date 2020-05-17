@@ -43,7 +43,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: template/ebuild.yml
+- template: template/build.yml
   parameters:
     buildConfiguration: 'Debug'
 
