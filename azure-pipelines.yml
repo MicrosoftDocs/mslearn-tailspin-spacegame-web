@@ -1,6 +1,7 @@
 trigger:
 - 'master'
 - 'develop'
+- 'feature/*'
 - 'azure-pipelines'
 
 pool:
