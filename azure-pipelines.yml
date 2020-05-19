@@ -3,6 +3,7 @@ trigger:
 - 'develop'
 - 'feature/*'
 - 'azure-pipelines'
+- 'feature/*'
 
 pool:
   vmImage: 'ubuntu-16.04'
