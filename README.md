@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/larsschmitt/Demo2/_apis/build/status/BlackCoin671.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/larsschmitt/Demo2/_build/latest?definitionId=3&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
