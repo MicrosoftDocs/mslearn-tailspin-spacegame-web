@@ -1,4 +1,6 @@
 
+[![Build Status](https://shaurajworks.visualstudio.com/TestWebApp2/_apis/build/status/shauraj.mslearn-tailspin-spacegame-web-1?branchName=master)](https://shaurajworks.visualstudio.com/TestWebApp2/_build/latest?definitionId=2&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
