@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/markhazleton/Space%20Game%20Web/_apis/build/status/markhazleton.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/markhazleton/Space%20Game%20Web/_build/latest?definitionId=11&branchName=master)
+
 
 # Contributing
 
