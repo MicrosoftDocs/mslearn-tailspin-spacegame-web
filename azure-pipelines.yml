@@ -5,7 +5,7 @@
 # t2
 
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'ubuntu-latest'
