@@ -26,12 +26,13 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         public async Task<IActionResult> Index(
-            int page = 1, 
-            int pageSize = 10, 
+            int page = 1,
+            int pageSize = 10,
             string mode = "",
             string region = ""
             )
         {
+
             // Create the view model with initial values we already know.
             var vm = new LeaderboardViewModel
             {
@@ -47,7 +48,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     "Trio"
                 },
 
-                    GameRegions = new List<string>()
+                GameRegions = new List<string>()
                 {
                     "Milky Way",
                     "Andromeda",
@@ -112,7 +113,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         [Route("/profile/{id}")]
-        public async Task<IActionResult> Profile(string id, string rank="")
+        public async Task<IActionResult> Profile(string id, string rank = "")
         {
             try
             {
