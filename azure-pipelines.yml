@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- '*'
 
 pool:
   vmImage: 'ubuntu-16.04'
@@ -20,7 +20,6 @@ steps:
   inputs:
     packageType: sdk
     version: 3.1.100
-
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -49,4 +48,3 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
-   
