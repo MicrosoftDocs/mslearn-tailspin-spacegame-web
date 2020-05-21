@@ -12,7 +12,7 @@ pool:
     - npm
 
 variables:
-  #solution: '**/*.sln'         JY
+  #solution: '**/*.sln'         JY2
   #buildPlatform: 'Any CPU'     JY
   buildConfiguration: 'Release'
 
