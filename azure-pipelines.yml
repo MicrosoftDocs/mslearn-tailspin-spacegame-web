@@ -1,14 +1,10 @@
 trigger:
-<<<<<<< HEAD
   branches:
     include:
       - '*'   # build all branches
   paths:
     exclude:
       - docus/*  # exclude the docs folder
-=======
-  - '*'
->>>>>>> abf24493802771291251c812b18f005eea51208d
   
 pool:
   vmImage: 'ubuntu-16.04'
