@@ -13,21 +13,22 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  projectWebRoot: 'Tailspin.SpaceGame.Web/wwwroot'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '3.1.100'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET Core 3.1.100'
+  displayName: 'Use .NET Core $(dotnetSdkVersion)'
   inputs:
     packageType: sdk
-    version: 3.1.100
+    version: $(dotnetSdkVersion)
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass $(projectWebRoot) --output $(projectWebRoot)'
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -35,7 +36,7 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildInfo.txt'
   displayName: 'Write build info'
-  workingDirectory: $(projectWebRoot)
+  workingDirectory: $(wwwrootDir)
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
