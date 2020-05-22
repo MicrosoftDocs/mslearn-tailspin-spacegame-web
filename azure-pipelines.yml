@@ -1,3 +1,4 @@
+# Added comment to test automated CI process from Azure Pipelines to GitHub
 trigger:
   - '*'
   
