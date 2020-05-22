@@ -1,4 +1,5 @@
 # Added comment to test automated CI process from Azure Pipelines to GitHub
+# Testing auto CI from new branch
 trigger:
   - '*'
   
