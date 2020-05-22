@@ -1,3 +1,4 @@
+[![Build Status](https://feliperamos4.visualstudio.com/Space%20Game/_apis/build/status/feliperamos4.mslearn-tailspin-spacegame-web?branchName=master)](https://feliperamos4.visualstudio.com/Space%20Game/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
