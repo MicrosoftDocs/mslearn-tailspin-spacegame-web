@@ -44,7 +44,7 @@ steps:
 
 - task: gulp@1
   inputs:
-    targets: 'run'
+    targets: 'gulp'
     enableCodeCoverage: false
 
 - script: echo $(MyRunNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
