@@ -1,0 +1,215 @@
+[33mcommit 31b6df084f735d1940efa1e2855ca0c7a1a4912e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/build-pipeline[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mbuild-pipeline[m[33m)[m
+Author: S.A.S <alireza13613@gmail.com>
+Date:   Sat May 23 11:54:41 2020 +0200
+
+    Refactor common variables
+
+[33mcommit 1358ee811aaa06d87ac43172511c219bd67972bb[m
+Author: S.A.S <alireza13613@gmail.com>
+Date:   Sat May 23 11:28:47 2020 +0200
+
+    Add build tasks
+
+[33mcommit d298fe42161e3c83c4755b686b060c6b04c828e3[m
+Author: S.A.S <41008322+S-Anoob@users.noreply.github.com>
+Date:   Fri May 22 18:09:33 2020 +0200
+
+    Set up CI with Azure Pipelines
+    
+    [skip ci]
+
+[33mcommit 6bf727ba293b84d8d21a7122aee90e872c560940[m
+Merge: 435520f 4b6b5bd
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Tue Jan 21 10:39:12 2020 -0800
+
+    Merge pull request #1194 from jamcneil/jm/update-dotnet-core-3-1
+    
+    Jm/update dotnet core 3 1
+
+[33mcommit 4b6b5bd2adb9e55c049684b6c315fe21dedbeed2[m
+Author: jamcneil <judy.is@live.com>
+Date:   Mon Jan 13 13:09:21 2020 -0700
+
+    clean up comments
+
+[33mcommit d499c7984224511b180fa491f7a6c4e1b3ab6d6e[m
+Author: jamcneil <judy.is@live.com>
+Date:   Mon Jan 13 13:03:55 2020 -0700
+
+    update master branch to .NET Core 3.1
+
+[33mcommit 435520fe7b3e514e5502c8148e5ca74a6665d638[m
+Merge: 44f4471 cb315af
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Mon Oct 14 12:48:43 2019 -0700
+
+    Merge pull request #636 from MicrosoftDocs/security/WS-2019-0017
+    
+    Use gulp-clean-css
+
+[33mcommit cb315af7db0c842c40a81456ad22bfceb306053c[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Mon Oct 14 10:16:57 2019 -0700
+
+    Use gulp-clean-css
+    
+    Use gulp-clean-css instead of gulp-cssmin.
+    This explicitly resolves WS-2019-0017. It also implicitly resolves CVE-2019-10744 because it removes lodash.template.
+
+[33mcommit 44f4471da5dec7f921a0c190f524e753c1f3d246[m
+Merge: 4c81891 8360a32
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed Sep 25 14:19:37 2019 -0700
+
+    Merge pull request #554 from MicrosoftDocs/tp/close-modal
+    
+    Add close button to modal windows
+
+[33mcommit 8360a323b6fb059a6d7735797390a008cc7cc263[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed Sep 25 14:14:13 2019 -0700
+
+    Add close button to modal windows
+    
+    This helps make it easier for automation tools like Selenium to close modal windows.
+
+[33mcommit 4c818911ac45b3c1ad0474acc7982a7dc0aa9b26[m
+Merge: cb4a114 9b58e2a
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Tue Aug 6 11:30:26 2019 -0700
+
+    Merge pull request #316 from MicrosoftDocs/tp/audit-fix-080619
+    
+    Bump dependencies
+
+[33mcommit 9b58e2a07c37b8b9c025e036e18cdb44853e2347[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Tue Aug 6 11:29:23 2019 -0700
+
+    Bump dependencies
+
+[33mcommit cb4a11435482a38afea97821d78276077a991b3a[m
+Merge: e3071c1 7cb666b
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Tue Aug 6 10:48:31 2019 -0700
+
+    Merge pull request #184 from MicrosoftDocs/dependabot/npm_and_yarn/lodash-4.17.14
+    
+    Bump lodash from 4.17.11 to 4.17.14
+
+[33mcommit 7cb666b7f046dfc47f43c0dc9e11d7fb6ec16c5e[m
+Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com>
+Date:   Thu Jul 18 16:33:54 2019 +0000
+
+    Bump lodash from 4.17.11 to 4.17.14
+    
+    Bumps [lodash](https://github.com/lodash/lodash) from 4.17.11 to 4.17.14.
+    - [Release notes](https://github.com/lodash/lodash/releases)
+    - [Commits](https://github.com/lodash/lodash/compare/4.17.11...4.17.14)
+    
+    Signed-off-by: dependabot[bot] <support@github.com>
+
+[33mcommit e3071c17cb2f69d2735fc0bac495be70a37200cf[m
+Merge: f1c291f 469f29f
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 13:58:56 2019 -0700
+
+    Merge branch 'master' of https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame
+
+[33mcommit f1c291f9726fd74eb3a3f1d242076fcbc65f03ca[m
+Merge: f93a9dd a3d1c13
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 12:14:41 2019 -0700
+
+    Merge pull request #3 from MicrosoftDocs/bump-node-sass
+    
+    Bump node-sass to 4.12.0
+    
+    request-checks: true
+
+[33mcommit 469f29fe57c9553f25e672884f6ce02ca2dd729d[m
+Merge: f93a9dd a3d1c13
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 12:14:41 2019 -0700
+
+    Merge pull request #3 from MicrosoftDocs/bump-node-sass
+    
+    Bump node-sass to 4.12.0
+
+[33mcommit a3d1c13acadf1ecd6e90016fb55008633f2c4263[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 10:59:44 2019 -0700
+
+    Bump node-sass to 4.12.0
+
+[33mcommit f93a9ddb2298ac06cf7bee9a46218b04acfe21e2[m
+Merge: 3382dcf dc84970
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 10:53:57 2019 -0700
+
+    Merge pull request #2 from MicrosoftDocs/CVE-2018-20834
+    
+    Resolve CVE-2018-20834
+
+[33mcommit dc849700c154bf2d25ae3e57be0b26fba7dac16c[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Wed May 22 10:53:13 2019 -0700
+
+    Resolve CVE-2018-20834
+
+[33mcommit 3382dcf0d67e8bb457b5bb696d739f7883d84306[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Fri Apr 12 15:58:28 2019 -0700
+
+    Add ProjectGuid
+    
+    Needed by SonarCloud later.
+
+[33mcommit b51d70187d281d3b6e551121c7230bb316945dee[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Mon Mar 25 17:05:13 2019 -0700
+
+    Initial
+
+[33mcommit 035630b088aee852bc0f6af33a0df38cedbacad6[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Fri Mar 22 22:23:55 2019 -0700
+
+    Rename project file
+
+[33mcommit 0328655b385571699e8bd498db2e9656f2492d2f[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Fri Mar 22 22:22:13 2019 -0700
+
+    Rename solution file
+
+[33mcommit 16970478b07448bf937502c2ecb40f8c91204733[m
+Author: Thomas Petchel <tpetchel@gmail.com>
+Date:   Fri Mar 22 15:41:13 2019 -0700
+
+    Initial
+
+[33mcommit 0a0e4a1cfdaed9a39d9f483d780d3a26e8984d17[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Fri Mar 22 15:20:42 2019 -0700
+
+    Initial commit
+
+[33mcommit ab5775d96509b6481ce72226918c100643bbb234[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Fri Mar 22 15:20:41 2019 -0700
+
+    Initial commit
+
+[33mcommit 4869fea39d938ddc3835301f76061f7e29b65cb3[m
+Author: Microsoft Open Source <microsoftopensource@users.noreply.github.com>
+Date:   Fri Mar 22 15:20:40 2019 -0700
+
+    Initial commit
+
+[33mcommit fb2a8ce0a6dda40c38bbd4868c1b529b4a19d43e[m
+Author: Microsoft GitHub User <msftgits@microsoft.com>
+Date:   Fri Mar 22 15:20:38 2019 -0700
+
+    Initial commit
