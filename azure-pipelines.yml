@@ -39,7 +39,7 @@ steps:
     command: 'install'
 
 - script: sass scss:css
-  displayName: 'npm compile scss
+  displayName: 'npm compile scss'
 
 - task: gulp@1
   inputs:
