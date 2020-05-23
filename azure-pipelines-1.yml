@@ -50,3 +50,16 @@ steps:
 - script: echo $(MyRunNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
 - script: echo $(Build.BuildNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
