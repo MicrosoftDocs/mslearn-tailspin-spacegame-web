@@ -35,7 +35,7 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'install'
+    command: 'npm install node-sass'
 
 - task: CmdLine@2
   inputs:
