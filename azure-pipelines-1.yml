@@ -35,11 +35,11 @@ steps:
 
 - task: Npm@1
   inputs:
-    command: 'npm install node-sass'
+    command: 'install'
 
 - task: CmdLine@2
   inputs:
-    script: 'npm compile scss'
+    script: 'npm install node-sass'
 
 
 - task: gulp@1
