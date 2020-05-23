@@ -44,7 +44,7 @@ steps:
 
 - task: gulp@1
   inputs:
-    targets: 'install'
+    command: 'npm install gulp'
     enableCodeCoverage: false
 
 - script: echo $(MyRunNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
