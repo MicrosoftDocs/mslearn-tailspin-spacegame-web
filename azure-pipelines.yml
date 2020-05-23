@@ -11,6 +11,7 @@ variables:
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
 
+
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
@@ -18,7 +19,7 @@ steps:
     version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
-  displayName: 'Run npm install'
+  displayName: 'Run npm install 2'
   inputs:
     verbose: false
 
