@@ -2,9 +2,33 @@
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
 - task: Npm@1
   inputs:
     command: 'install'
+
+- task: CmdLine@2
+  inputs:
+    command: 'node-sass'
+
+- task: gulp@1
+  inputs:
+    targets: 'run'
+    enableCodeCoverage: false
+
+variables: 
+  MyRunNumber: '1.0.0-CI-$(Build.BuildNumber)'
+
+
+name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+steps:
+- script: echo $(MyRunNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
+- script: echo $(Build.BuildNumber) > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt
+
+
+
+
+
 
 trigger:
 - master
