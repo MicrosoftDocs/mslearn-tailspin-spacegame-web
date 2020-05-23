@@ -37,8 +37,10 @@ steps:
   inputs:
     command: 'install'
 
-- script: sass scss:css
-  displayName: 'npm compile scss'
+- task: CmdLine@2
+  inputs:
+    script: 'npm compile scss'
+
 
 - task: gulp@1
   inputs:
