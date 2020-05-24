@@ -24,7 +24,7 @@ steps:
 - task: Npm@1
   displayName: 'Install Node.js modules as defined in package.json'
   inputs:
-    verbose: false
+    verbose: true
 
 - task: CmdLine@2
   displayName: 'Compile Sass assets'
