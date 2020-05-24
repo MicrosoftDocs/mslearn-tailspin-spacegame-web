@@ -14,7 +14,7 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '--configuration$ {{parameters.buildConfiguration}}'
+    arguments: '--configuration {{parameters.buildConfiguration}}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{parameters.buildConfiguration}}'
