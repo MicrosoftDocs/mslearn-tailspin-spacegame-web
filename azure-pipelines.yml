@@ -1,7 +1,12 @@
 name:  $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)  
 
 trigger:
-- '*'
+  branches:
+    include:
+    - '*'     # build all branches
+  paths:
+    exclude:
+    - docs/*  # exclude the docs folder
 
 pool: 'private'
 
