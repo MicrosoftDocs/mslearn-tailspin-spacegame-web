@@ -6,10 +6,64 @@ trigger:
 pool: 'private'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: Npm@1
+  displayName: 'Install Node.js modules as defined in package.json'
+  inputs:
+    command: 'install'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: CmdLine@2
+  displayName: 'Compile Sass (.scss) files to standard CSS (.css).'
+  inputs:
+    script: 'node-sass Tailspin.SpaceGame.Web/wwwroot'
+
+- task: gulp@1
+  displayName: 'Minify JavaScript and CSS files'
+  inputs:
+    targets: 
+    enableCodeCoverage: false
+
+- task: CmdLine@2
+  displayName: 'Print the date to wwwroot/buildinfo.txt'
+  inputs:
+    script: 'echo `date` > Tailspin.SpaceGame.Web/wwwroot/buildinfo.txt'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install the latest .NET packages the app depends on.'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the app under the Debug configuration'
+  inputs:
+    command: 'build'
+    arguments: '--configuration Debug'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--no-build --configuration Debug --output $(Build.ArtifactStagingDirectory)/Debug'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Debug'
+    ArtifactName: 'Debug'
+    publishLocation: 'Container'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the app under the Release configuration'
+  inputs:
+    command: 'build'
+    arguments: '--configuration Release'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Release'
+    ArtifactName: 'Release'
+    publishLocation: 'Container'
