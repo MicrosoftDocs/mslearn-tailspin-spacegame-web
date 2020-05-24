@@ -1,11 +1,11 @@
 trigger:
-    - '*'
-    
+- '*'
+
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
     - npm
-    
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
@@ -126,3 +126,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
