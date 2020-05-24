@@ -1,3 +1,4 @@
+[![Build Status](https://sqsandres.visualstudio.com/Example/_apis/build/status/sqsandres.mslearn-tailspin-spacegame-web?branchName=master)](https://sqsandres.visualstudio.com/Example/_build/latest?definitionId=5&branchName=master)
 
 # Contributing
 
