@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/omolewa-adeogun-DevOpsOrg1/omolewa-adeogun-DevOpsOrg1-Project1/_apis/build/status/omolewa-gtbhub.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/omolewa-adeogun-DevOpsOrg1/omolewa-adeogun-DevOpsOrg1-Project1/_build/latest?definitionId=2&branchName=master)
 
 # Contributing
 
