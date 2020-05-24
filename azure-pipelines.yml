@@ -7,8 +7,15 @@ pool: 'private'
 
 variables:
   buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '3.1.300'  
 
 steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
+
 - task: Npm@1
   displayName: 'Install Node.js modules as defined in package.json'
   inputs:
@@ -17,7 +24,7 @@ steps:
 - task: CmdLine@2
   displayName: 'Compile Sass assets'
   inputs:
-    script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+    script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
 
 - task: gulp@1
   displayName: 'Minify JavaScript and CSS files'
@@ -29,7 +36,7 @@ steps:
   displayName: 'Write build info'
   inputs:
     script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-    workingDirectory: Tailspin.SpaceGame.Web/wwwroot  
+    workingDirectory: $(wwwrootDir) 
 - task: DotNetCoreCLI@2
   displayName: 'Install the latest .NET packages the app depends on.'
   inputs:
@@ -37,18 +44,19 @@ steps:
     projects: '**/*.csproj'
     feedsToUse: 'select'
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
+  displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
-    arguments: '--no-build --configuration  $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    arguments: '--no-build --configuration  $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
