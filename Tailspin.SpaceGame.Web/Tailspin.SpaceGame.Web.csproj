@@ -28,6 +28,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  
   <ItemGroup>
     <EmbeddedResource Include="SampleData\profiles.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
