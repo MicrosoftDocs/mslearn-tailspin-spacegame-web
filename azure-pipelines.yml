@@ -43,6 +43,12 @@ steps:
     script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
     workingDirectory: $(wwwrootDir) 
 
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
