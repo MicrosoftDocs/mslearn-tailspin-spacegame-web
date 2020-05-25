@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/TebC-Learning/space%20game%20-%20web%20-%20pipeline/_apis/build/status/TebC.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/TebC-Learning/space%20game%20-%20web%20-%20pipeline/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
