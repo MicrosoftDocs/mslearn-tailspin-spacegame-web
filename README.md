@@ -1,4 +1,6 @@
 
+[![Build Status](https://aclaroservices.visualstudio.com/TestBuildGenerator/_apis/build/status/TrevorMann.mslearn-tailspin-spacegame-web?branchName=master)](https://aclaroservices.visualstudio.com/TestBuildGenerator/_build/latest?definitionId=5&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
