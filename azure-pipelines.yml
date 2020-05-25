@@ -4,18 +4,17 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
+    - npm
 
 variables:
+  buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
-  projectsToBuild: '**/*.csproj'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
-    packageType: sdk
     version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
@@ -37,17 +36,23 @@ steps:
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '$(projectsToBuild)'
+    projects: '**/*.csproj'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
-    projectsToBuild: '$(projectsToBuild)'
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Release'
-    projectsToBuild: '$(projectsToBuild)'
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
