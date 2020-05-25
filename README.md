@@ -1,6 +1,5 @@
 
-
-[![Build Status](https://dev.azure.com/DemoMsLearn/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/DemoMsLearn/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=2&branchName=master)
+[![Build Status](https://dev.azure.com/DemoMsLearn/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/achrafbenalaya.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/DemoMsLearn/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
