@@ -20,6 +20,12 @@ namespace TailSpin.SpaceGame.Web
             _items = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(fileName));
         }
 
+        public LocalDocumentDBRepository(Stream stream)
+        {
+            // Serialize the items from the provided JSON document.
+            _items = JsonConvert.DeserializeObject<List<T>>(new StreamReader(stream).ReadToEnd());
+        }
+
         /// <summary>
         /// Retrieves the item from the store with the given identifier.
         /// </summary>
@@ -45,22 +51,21 @@ namespace TailSpin.SpaceGame.Web
         /// <param name="orderDescendingPredicate">Predicate that specifies how to sort the results in descending order.</param>
         /// <param name="page">The 1-based page of results to return.</param>
         /// <param name="pageSize">The number of items on a page.</param>
-        public Task<IEnumerable<T>> GetItemsAsync(
-            Expression<Func<T, bool>> queryPredicate,
-            Expression<Func<T, int>> orderDescendingPredicate,
-            int page = 1, int pageSize = 10
-        )
-        {
-            var result = _items.AsQueryable()
-                .Where(queryPredicate) // filter
-                .OrderByDescending(orderDescendingPredicate) // sort
-                .Skip(page * pageSize) // find page
-                .Take(pageSize) // take items
-                .AsEnumerable(); // make enumeratable
+      public Task<IEnumerable<T>> GetItemsAsync(
+    Expression<Func<T, bool>> queryPredicate,
+    Expression<Func<T, int>> orderDescendingPredicate,
+    int page = 1, int pageSize = 10
+)
+{
+    var result = _items.AsQueryable()
+        .Where(queryPredicate) // filter
+        .OrderByDescending(orderDescendingPredicate) // sort
+        .Skip(page * pageSize) // find page
+        .Take(pageSize) // take items
+        .AsEnumerable(); // make enumeratable
 
-            return Task<IEnumerable<T>>.FromResult(result);
-        }
-
+    return Task<IEnumerable<T>>.FromResult(result);
+}
         /// <summary>
         /// Retrieves the number of items that match the given query predicate.
         /// </summary>
