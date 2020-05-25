@@ -1,7 +1,9 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tailspin.SpaceGame.Web", "Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj", "{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mslearn-tailspin-spacegame-web", "Tailspin.SpaceGame.Web.Test\mslearn-tailspin-spacegame-web.csproj", "{D9F931D5-306E-4D40-BF8D-EE137F5743AB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,5 +15,9 @@ Global
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9F931D5-306E-4D40-BF8D-EE137F5743AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9F931D5-306E-4D40-BF8D-EE137F5743AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9F931D5-306E-4D40-BF8D-EE137F5743AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9F931D5-306E-4D40-BF8D-EE137F5743AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
