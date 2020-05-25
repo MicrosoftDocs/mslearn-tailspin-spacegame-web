@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/liangkaiwen/ca221820-8885-45d3-a32f-2f9c31509a6c/7b4762bf-95da-486d-9eca-d41ea38f5883/_apis/work/boardbadge/59d145a3-507d-4abe-b155-110dacdad32a)](https://dev.azure.com/liangkaiwen/ca221820-8885-45d3-a32f-2f9c31509a6c/_boards/board/t/7b4762bf-95da-486d-9eca-d41ea38f5883/Microsoft.RequirementCategory/)
 
 # Contributing
 
