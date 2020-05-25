@@ -11,6 +11,7 @@ using TailSpin.SpaceGame.Web;
 
 namespace mslearn_tailspin_spacegame_web
 {
+    [TestFixture]
     public class RegionTest
     {
         private LocalDocumentDBRepository<Score> _scoreRepository;
