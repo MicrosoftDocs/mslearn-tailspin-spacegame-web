@@ -88,8 +88,8 @@ steps:
     and 
     (
       succeeded(),
-      eq(variables['MSBbuild.BuildReason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['system.pullRequest.targetBranch'], 'master')
     )
 
 - task: SonarCloudPublish@1
@@ -98,8 +98,8 @@ steps:
     and 
     (
       succeeded(),
-      eq(variables['MSBbuild.BuildReason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['system.pullRequest.targetBranch'], 'master')
     )
 
 - task: PublishCodeCoverageResults@1
