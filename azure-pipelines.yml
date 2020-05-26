@@ -84,9 +84,23 @@ steps:
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud Analysis'
+  condition: |
+    and 
+    (
+      succeeded(),
+      eq(variables['MSBbuild.BuildReason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
+  condition: |
+    and 
+    (
+      succeeded(),
+      eq(variables['MSBbuild.BuildReason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
