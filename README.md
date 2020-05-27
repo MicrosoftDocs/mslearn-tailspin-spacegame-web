@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/dcadenag/Space%20Game%20Web/_apis/build/status/dancade.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/dcadenag/Space%20Game%20Web/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
