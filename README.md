@@ -1,4 +1,5 @@
 
+[![Build Status](https://zewdufekede.visualstudio.com/Space%20-%20Game%20-Web%20-%20Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://zewdufekede.visualstudio.com/Space%20-%20Game%20-Web%20-%20Workflow/_build/latest?definitionId=2&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
