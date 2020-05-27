@@ -1,3 +1,4 @@
+[![Build Status](https://kyeremateng.visualstudio.com/Space%20Game%20-%20web%20-%20Workflow1/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://kyeremateng.visualstudio.com/Space%20Game%20-%20web%20-%20Workflow1/_build/latest?definitionId=3&branchName=master)
 
 # Contributing
 
