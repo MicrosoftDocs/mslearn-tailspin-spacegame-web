@@ -43,7 +43,7 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: ./templates/build.yml
+- template: https://github.com/KevinAlfonso21/mslearn-tailspin-spacegame-web/tree/master/Tailspin.SpaceGame.Web/templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
 
