@@ -4,16 +4,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
-
-variables:
-  buildConfiguration: 'Release'
+    - npm
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 3.1.100'
   inputs:
-    packageType: sdk
     version: 3.1.100
 
 - task: Npm@1
@@ -27,7 +23,7 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "SpaceGame-Web-CI, $(Build.BuildId), 115" > buildinfo.txt'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
@@ -44,7 +40,7 @@ steps:
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
 
-  - task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
@@ -53,6 +49,6 @@ steps:
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
 
-  - task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  git condition: succeeded()
+  condition: succeeded()
