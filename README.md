@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/sidneyocirqueira0020/Space%20Game/_apis/build/status/sidneyocirqueira.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/sidneyocirqueira0020/Space%20Game/_build/latest?definitionId=3&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
