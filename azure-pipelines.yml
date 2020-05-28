@@ -35,13 +35,13 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
     
- - task: UseDotNet@2
+- task: UseDotNet@2
   displayName: 'Use .NET Core SDK 3.1.100'
   inputs:
     packageType: sdk
     version: 3.1.100
   
- - task: Npm@1
+- task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
