@@ -17,8 +17,6 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-
-
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -56,10 +54,6 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
-
-
-
-
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
