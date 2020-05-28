@@ -7,7 +7,7 @@ pool:
     - npm
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Releaze'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
 
@@ -53,7 +53,7 @@ steps:
     projects: '**/*.csproj'
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
+    zipAfterPublish: truegit 
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
