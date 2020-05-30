@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/green-cloud/Space%20Game%202/_apis/build/status/rai69.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/green-cloud/Space%20Game%202/_build/latest?definitionId=79&branchName=master)
 
 # Contributing
 
