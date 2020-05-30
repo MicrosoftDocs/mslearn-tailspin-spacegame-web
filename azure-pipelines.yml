@@ -1,5 +1,4 @@
 
-=======
 # ASP.NET Core (.NET Framework)
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
@@ -18,6 +17,11 @@ variables:
   dotnetSdkVersion: '3.1.100'
 
 steps:
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK 2.1.505 for SonarCloud'
+  inputs:
+    version: '2.1.505'
 
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK 2.1.505 for SonarCloud'
@@ -53,6 +57,25 @@ steps:
      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
      sonar.exclusions=**/wwwroot/lib/**/*
 
+- task: SonarCloudPrepare@1
+  displayName: 'Prepare SonarCloud analysis'
+  inputs:
+    SonarCloud: 'SonarCloud connection 1'
+    organization: '$(SonarOrganization)'
+    projectKey: '$(SonarProjectKey)'
+    projectName: '$(SonarProjectName)'
+    projectVersion: '$(Build.BuildNumber)'
+    extraProperties: |
+     sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+     sonar.exclusions=**/wwwroot/lib/**/*
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -81,9 +104,26 @@ steps:
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud code analysis'
-
+  
 - task: SonarCloudPublish@1
   displayName: 'Publish SonarCloud quality gate results'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
+ 
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud quality gate results'
+  condition: |
+    and
+    (
+      succeeded(),
+      eq(variables['Build.Reason'], 'PullRequest'),
+      eq(variables['System.PullRequest.TargetBranch'], 'master')
+    )
 
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish code coverage report'
