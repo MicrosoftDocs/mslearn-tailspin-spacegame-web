@@ -33,7 +33,7 @@ namespace TailSpin.SpaceGame.Web
         Task<IEnumerable<T>> GetItemsAsync(
             Expression<Func<T, bool>> queryPredicate,
             Expression<Func<T, int>> orderDescendingPredicate,
-            int page = -1,
+            int page = 1,
             int pageSize = 10
         );
 
