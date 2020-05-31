@@ -1,4 +1,5 @@
 trigger:
+- dev
 - '*'
 
 pool:
@@ -6,7 +7,7 @@ pool:
   demands:
     - npm
 
-variables:
+variables:git status
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
