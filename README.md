@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/allylee25/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/alee25.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/allylee25/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
