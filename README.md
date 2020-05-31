@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/premkumarpalanichamy/Laya%20Project/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/premkumarpalanichamy/Laya%20Project/_build/latest?definitionId=6&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
