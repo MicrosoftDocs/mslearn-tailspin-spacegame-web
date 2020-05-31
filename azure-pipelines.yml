@@ -1,30 +1,24 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 trigger:
 - '*'
 
 pool:
   vmImage: 'ubuntu-16.04'
   demands:
-  - npm
-  
+    - npm
+
 variables:
   buildConfiguration: 'Release'
-  MyRunNumber: '1.0.0-CI-$(Build.BuildNumber)'
-  wwwrootdir: 'Tailspin.SpaceGame.Web/wwwroot'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-  inputs: 
-    packageType: SDK
+  inputs:
     version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
-  displayName: 'Run Npm Install'
+  displayName: 'Run npm install'
   inputs:
     verbose: false
 
@@ -49,7 +43,7 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'   
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
@@ -59,14 +53,6 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
-
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
-
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Release'    
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
