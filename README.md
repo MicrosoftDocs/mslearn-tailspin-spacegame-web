@@ -1,3 +1,4 @@
+[![Build Status](https://jurjanbrust.visualstudio.com/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/jurjanbrust.mslearn-tailspin-spacegame-web?branchName=master)](https://jurjanbrust.visualstudio.com/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
