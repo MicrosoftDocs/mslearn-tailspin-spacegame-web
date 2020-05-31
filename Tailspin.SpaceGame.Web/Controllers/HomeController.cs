@@ -26,8 +26,8 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         public async Task<IActionResult> Index(
-            int page = 1, 
-            int pageSize = 10, 
+            int page = 1,
+            int pageSize = 10,
             string mode = "",
             string region = ""
             )
@@ -47,7 +47,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     "Trio"
                 },
 
-                    GameRegions = new List<string>()
+                GameRegions = new List<string>()
                 {
                     "Milky Way",
                     "Andromeda",
@@ -76,7 +76,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     score => score.HighScore, // sort descending by high score
                     page - 1, // subtract 1 to make the query 0-based
                     pageSize
-                  );
+                );
 
                 // Wait for the total count.
                 vm.TotalResults = await countItemsTask;
@@ -112,7 +112,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         [Route("/profile/{id}")]
-        public async Task<IActionResult> Profile(string id, string rank="")
+        public async Task<IActionResult> Profile(string id, string rank = "")
         {
             try
             {
