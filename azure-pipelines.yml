@@ -39,31 +39,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-<<<<<<< HEAD
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
-||||||| merged common ancestors
-- template: templates/build.yml
-parameters:
-  buildConfiguration: 'Debug'
-=======
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
->>>>>>> 249fa4c45564da46580d30ff7658a8fd57b986b5
-
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - $(buildConfiguration)'
-  inputs:
-    command: 'publish'
-      projects: '**/*.csproj'
-      publishWebProjects: false
-      arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-      zipAfterPublish: true
+    
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish build artifacts'
