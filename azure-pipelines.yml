@@ -1,3 +1,6 @@
+
+stages:
+  - stage: 'Beginning-Stage'
 trigger:
   - '*'
   
