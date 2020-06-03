@@ -42,4 +42,9 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
+<<<<<<< HEAD
     projects: '**/*.csproj'
+=======
+    projects: '**/*.csproj'
+    #
+>>>>>>> 860e7bde36354321259742b1b416546de2172de4
