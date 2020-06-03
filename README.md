@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Kabel-DevOps-Learning/MLZayas-Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Kabel-DevOps-Learning/MLZayas-Workflow/_build/latest?definitionId=438&branchName=master)
 
 # Contributing
 
