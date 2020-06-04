@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 trigger:
 - '*'
 
@@ -58,4 +57,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
->>>>>>> 7ed0bf107e32061063ed54b6d351a5e0e772a488
