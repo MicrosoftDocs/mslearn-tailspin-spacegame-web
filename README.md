@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/adilearning/Az%20400/_apis/build/status/aditya921.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/adilearning/Az%20400/_build/latest?definitionId=7&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
