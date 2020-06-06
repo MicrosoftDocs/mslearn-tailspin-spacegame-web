@@ -1,5 +1,7 @@
 
 # Contributing
+[![Build Status](https://dev.azure.com/royacloud/AzureSpaceGame/_apis/build/status/AzureSpaceGame?branchName=master)](https://dev.azure.com/royacloud/AzureSpaceGame/_build/latest?definitionId=27&branchName=master)
+
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
