@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/royacloud/AzureSpaceGame/_apis/build/status/AzureSpaceGame?branchName=master)](https://dev.azure.com/royacloud/AzureSpaceGame/_build/latest?definitionId=27&branchName=master)
+
 
 # Contributing
 
