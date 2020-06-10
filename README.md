@@ -1,4 +1,4 @@
-
+[![Build Status](https://alexanderforbes1.visualstudio.com/Vuyisile%20azure%20Training/_apis/build/status/Space%20Game%20-%20web?branchName=master)](https://alexanderforbes1.visualstudio.com/Vuyisile%20azure%20Training/_build/latest?definitionId=241&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
