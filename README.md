@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/ebtdy/Space%20Game/_apis/build/status/nagyworldcup.mslearn-tailspin-spacegame-web%20(1)?branchName=master)](https://dev.azure.com/ebtdy/Space%20Game/_build/latest?definitionId=11&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
