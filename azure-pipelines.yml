@@ -1,3 +1,4 @@
+#Build pipeline - with tests
 trigger:
 - '*'
 
