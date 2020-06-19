@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/RanjaniGP0373/RanjaniGP/_apis/build/status/RanjaniGP.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/RanjaniGP0373/RanjaniGP/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
