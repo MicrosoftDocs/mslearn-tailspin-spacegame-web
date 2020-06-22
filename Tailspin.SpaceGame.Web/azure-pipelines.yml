@@ -52,7 +52,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'publish the project - $(buildConfiguration)'
+  displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
