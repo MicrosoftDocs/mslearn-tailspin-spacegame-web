@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/Tailspin06091989/Space%20Game%20-web%20-Pipeline/_apis/build/status/Harikkumar.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/Tailspin06091989/Space%20Game%20-web%20-Pipeline/_build/latest?definitionId=1&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
