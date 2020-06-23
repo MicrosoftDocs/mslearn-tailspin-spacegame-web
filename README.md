@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/v-panaee/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status/Space%20Game%20-%20web%20-%20Workflow-ASP.NET%20Core-CI?branchName=feature%2Fhome-page-text)](https://dev.azure.com/v-panaee/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=7&branchName=feature%2Fhome-page-text)
 
 # Contributing
 
