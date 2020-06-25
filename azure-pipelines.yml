@@ -1,10 +1,5 @@
-# ASP.NET
-# Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
-
 trigger:
-- -*-
+- '*'
 
 pool:
   vmImage: 'ubuntu-18.04'
@@ -16,7 +11,7 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  dispayName: 'Use .NET Core SDK 3.1.300'
+  displayName: 'Use .NET Core SDK 3.1.300'
   inputs:
     packageType: sdk
     version: 3.1.300
@@ -25,6 +20,9 @@ steps:
   displayName: 'Run npm install'
   inputs:
     verbose: false
+
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
