@@ -28,7 +28,7 @@ steps:
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass %(wwwrootDir) --output $(wwwrootDir)'
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: ''
 - task: NuGetCommand@2
   inputs:
