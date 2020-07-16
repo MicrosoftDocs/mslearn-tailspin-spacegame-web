@@ -56,8 +56,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-<<<<<<< HEAD
-=======
   condition: succeeded()
 
 trigger:
@@ -118,5 +116,4 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
->>>>>>> 9d69cc3d641a848019f8e98f0beb4b6751642f85
   condition: succeeded()
