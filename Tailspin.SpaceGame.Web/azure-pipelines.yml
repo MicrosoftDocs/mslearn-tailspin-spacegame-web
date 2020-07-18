@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-18.04'
   demands:
   - npm
-
+  
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
@@ -16,7 +16,7 @@ steps:
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-
+    
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
