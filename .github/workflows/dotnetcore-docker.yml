@@ -1,8 +1,7 @@
 name: Spacegame.Web.Docker
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
     branches: [ master ]
 
@@ -41,18 +40,18 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     needs: CONTAINER_BUILD
-    steps:
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}    
+    #steps:
+    #- name: 'Login via Azure CLI'
+    #  uses: azure/login@v1
+    #  with:
+    #    creds: ${{ secrets.AZURE_CREDENTIALS }}    
     
-    - name: Docker Login
-      uses: azure/docker-login@v1
-      with:
-        login-server: darquewarrior.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
+    #- name: Docker Login
+    #  uses: azure/docker-login@v1
+    #  with:
+    #    login-server: darquewarrior.azurecr.io
+    #    username: ${{ secrets.REGISTRY_USERNAME }}
+    #    password: ${{ secrets.REGISTRY_PASSWORD }}
       
     #- name: 'App Service Deploy' 
     #  uses: azure/webapps-container-deploy@v1
@@ -60,6 +59,6 @@ jobs:
     #    app-name: 'grodd'
     #    images: ${{ secrets.ACR }}/tailspinspacegameweb:${{ github.run_number }} 
 
-    - name: Azure logout
-      run: |
-        az logout
+    #- name: Azure logout
+    #  run: |
+    #    az logout
