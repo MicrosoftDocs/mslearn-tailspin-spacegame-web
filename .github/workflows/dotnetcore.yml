@@ -10,16 +10,12 @@ on:
 
 jobs:
   BUILD_JOB:
+    name: Build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    
-    - name: Lint Code Base
-      uses: docker://github/super-linter:v2.1.1
-      env:
-        VALIDATE_ALL_CODEBASE: true
-    
+        
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
