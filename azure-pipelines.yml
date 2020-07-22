@@ -11,7 +11,7 @@ schedules:
   branches:
     include:
     - release
-  always: true 
+  always: false 
 
 stages:
 - stage: 'Build'
