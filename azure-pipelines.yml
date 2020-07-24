@@ -4,12 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-  branchs:
+  branches:
     include: 
     - '*'         # build all branches
   paths:
     exclude:
-      -docs/*     # exclude the docs folder
+    - docs/*     # exclude the docs folder
 
 pool:
   vmImage: 'ubuntu-18.04'
