@@ -4,14 +4,53 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- master
+- '*'
 
 pool:
-  vmImage: 'ubuntu-latest'
-
+  vmImage: 'ubuntu-18.04'
+  demands: 
+  - npm
 variables:
   buildConfiguration: 'Release'
+  wwwRootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: 3.1.300
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: UseDotNet@2
+  displayName: 'Use dot net core $(dotnetSdkVersion)'
+  inputs: 
+    packageType: sdk
+    version: $(dotnetSdkVersion)
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs: 
+    verbose: false
+
+- script: './node_modules/.bin/node-sass $(wwwRootDir) --output $(wwwRootDir)'
+  displayName: 'Compile Saas assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: $(wwwRootDir)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- template: templates/build.yml
+  parameters: 
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters: 
+    buildConfiguration: 'Release'  
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish artifact drop'
+  condition: succeeded()
