@@ -1,7 +1,6 @@
 [![Board Status](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/_apis/work/boardbadge/08ffc851-8333-4108-bd1d-c7f9f648e84f)](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/_boards/board/t/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/Microsoft.RequirementCategory)
 
 # Contributing
-#Hudson adding more details to the readme file and testing the GitHub-to-AzureBoards link features!
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
