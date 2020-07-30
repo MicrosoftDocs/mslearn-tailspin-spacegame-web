@@ -1,4 +1,4 @@
-[![Board Status](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/_apis/work/boardbadge/08ffc851-8333-4108-bd1d-c7f9f648e84f)](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/_boards/board/t/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/Microsoft.RequirementCategory)
+[![Board Status](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/_apis/work/boardbadge/08ffc851-8333-4108-bd1d-c7f9f648e84f?columnOptions=1)](https://dev.azure.com/cloudtac/ae650578-c234-4a98-8ad8-d48d1091f876/_boards/board/t/e56b5fd0-68b1-4536-9e26-cc7ec01eecd7/Microsoft.RequirementCategory/)
 
 # Contributing
 
