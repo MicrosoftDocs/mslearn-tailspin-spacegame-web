@@ -9,7 +9,11 @@ trigger:
 pool:
   vmImage: 'ubuntu-18.04'
   demands:
+<<<<<<< HEAD
     - npm
+=======
+  - npm
+>>>>>>> 9d95f7c50d996afc38d70e46c0518427d034b968
 
 variables:
   buildConfiguration: 'Release'
@@ -18,16 +22,27 @@ variables:
 
 steps:
 - task: UseDotNet@2
+<<<<<<< HEAD
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
+=======
+  displayName: 'Use .NET Core SDK 3.1.300'
+  inputs:
+    packageType: sdk
+    version: 3.1.300
+>>>>>>> 9d95f7c50d996afc38d70e46c0518427d034b968
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
+<<<<<<< HEAD
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+=======
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+>>>>>>> 9d95f7c50d996afc38d70e46c0518427d034b968
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -35,7 +50,11 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
+<<<<<<< HEAD
   workingDirectory: $(wwwrootDir)
+=======
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+>>>>>>> 9d95f7c50d996afc38d70e46c0518427d034b968
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
@@ -44,6 +63,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+<<<<<<< HEAD
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
@@ -63,3 +83,10 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
   
+=======
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
+>>>>>>> 9d95f7c50d996afc38d70e46c0518427d034b968
