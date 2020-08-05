@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/SfelionStudy/Space%20Game-%20web%20-%20Pipeline/_apis/build/status/sfelion.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/SfelionStudy/Space%20Game-%20web%20-%20Pipeline/_build/latest?definitionId=4&branchName=build-pipeline)
 
 # Contributing
 
