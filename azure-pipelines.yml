@@ -40,12 +40,12 @@
       projects: '**/*.csproj'
   
   - template: templates/build.yml
-      parameters:
-        buildConfiguration: 'Debug'
+    parameters:
+      buildConfiguration: 'Debug'
     
-    - template: templates/build.yml
-      parameters:
-        buildConfiguration: 'Release'
+  - template: templates/build.yml
+    parameters:
+      buildConfiguration: 'Release'
     
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
