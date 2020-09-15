@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/shanmukkatakamsetty/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/Shanmuk369.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/shanmukkatakamsetty/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=10&branchName=master)
 
 # Contributing
 
