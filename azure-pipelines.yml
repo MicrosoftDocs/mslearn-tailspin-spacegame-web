@@ -12,7 +12,7 @@ pool:
 
       variables:
           buildConfiguration: 'Release'
-            wwwrootDir: 'megum@LAPTOP-2S4PPQ36 MINGW64 ~/mslearn-tailspin-spacegame-web/Tailspin.SpaceGame.Web/wwwroot'
+            wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
               dotnetSdkVersion: '3.1.108'
 
               steps:
