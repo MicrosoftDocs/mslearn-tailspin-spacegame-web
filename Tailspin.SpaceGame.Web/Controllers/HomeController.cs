@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Controller of web app
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
