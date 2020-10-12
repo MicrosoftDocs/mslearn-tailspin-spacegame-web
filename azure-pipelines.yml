@@ -73,6 +73,11 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
+- task: codecoveragecomparerbt@1
+  inputs:
+    codecoveragetarget: '5'
+    codecoveragemeasurementmethod: 'Lines'
+    
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
