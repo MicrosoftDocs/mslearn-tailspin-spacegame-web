@@ -38,6 +38,15 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+# when using build.yml template to support multiple configs
+# - template: templates/build.yml
+#   parameters:
+#     buildConfiguration: 'Debug'
+
+# - template: templates/build.yml
+#   parameters:
+#     buildConfiguration: 'Release'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
