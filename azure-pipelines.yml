@@ -43,24 +43,24 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: SonarCloudPrepare@1
-  displayName: 'Prepare SonarCloud analysis'
-  inputs:
-    SonarCloud: 'SonarCloud connection 1'
-    organization: '$(SonarOrganization)'
-    projectKey: '$(SonarProjectKey)'
-    projectName: '$(SonarProjectName)'
-    projectVersion: '$(Build.BuildNumber)'
-    extraProperties: |
-     sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
-     sonar.exclusions=**/wwwroot/lib/**/*
-  condition: |
-    and
-    (
-      succeeded(),
-      eq(variables['Build.Reason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
-    )
+# - task: SonarCloudPrepare@1
+#   displayName: 'Prepare SonarCloud analysis'
+#   inputs:
+#     SonarCloud: 'SonarCloud connection 1'
+#     organization: '$(SonarOrganization)'
+#     projectKey: '$(SonarProjectKey)'
+#     projectName: '$(SonarProjectName)'
+#     projectVersion: '$(Build.BuildNumber)'
+#     extraProperties: |
+#      sonar.cs.opencover.reportsPaths=$(Build.SourcesDirectory)/TestResults/Coverage/coverage.opencover.xml
+#      sonar.exclusions=**/wwwroot/lib/**/*
+#   condition: |
+#     and
+#     (
+#       succeeded(),
+#       eq(variables['Build.Reason'], 'PullRequest'),
+#       eq(variables['System.PullRequest.TargetBranch'], 'master')
+#     )
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -97,21 +97,21 @@ steps:
       eq(variables['System.PullRequest.TargetBranch'], 'master')
     )
  
-- task: SonarCloudPublish@1
-  displayName: 'Publish SonarCloud quality gate results'
-  condition: |
-    and
-    (
-      succeeded(),
-      eq(variables['Build.Reason'], 'PullRequest'),
-      eq(variables['System.PullRequest.TargetBranch'], 'master')
-    )
+# - task: SonarCloudPublish@1
+#   displayName: 'Publish SonarCloud quality gate results'
+#   condition: |
+#     and
+#     (
+#       succeeded(),
+#       eq(variables['Build.Reason'], 'PullRequest'),
+#       eq(variables['System.PullRequest.TargetBranch'], 'master')
+#     )
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
-  inputs:
-    codeCoverageTool: 'cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+# - task: PublishCodeCoverageResults@1
+#   displayName: 'Publish code coverage report'
+#   inputs:
+#     codeCoverageTool: 'cobertura'
+#     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
