@@ -1,3 +1,4 @@
+[![Build Status](https://manishgirdhar.visualstudio.com/GitProject-Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://manishgirdhar.visualstudio.com/GitProject-Workflow/_build/latest?definitionId=4&branchName=master)
 
 # Contributing
 
