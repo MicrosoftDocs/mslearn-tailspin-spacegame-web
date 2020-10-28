@@ -11,50 +11,18 @@ parameters:
     appPoolPassword: '--'
     MemCachedServiceName: '--'
 
-jobs:
-- deployment: DeployInfra
-  displayName: Deploy Infrastructure
-  environment: 
-    name: ${{parameters.environment}}
-    resourceType: VirtualMachine
-    tags: ${{parameters.tags}}
-  workspace:
-    clean: all
-#  condition: and(succeeded(), contains(stageDependencies.Pre_Build.Pre_Build.outputs['GetModifiedSolutions.deployQueue'], 'x.infrastructure')) 
-  strategy:
-    runOnce:
-      deploy:
-        steps:
-        - download: none
-        - task: DownloadBuildArtifacts@0
-          name: downloadUiArtifact
-          displayName: Download Infrastructure Artifact
-          inputs:
-            buildType: current
-            downloadType: 'single'
-            artifactName: InTouch Infrastructure ${{parameters.version}}
-            itemPattern: '**'
-            downloadPath: $(Build.SourcesDirectory)\bin\
-
-        ### todo:
-        ### check / grant permissions for existing deployment target folders etc
-        ### does anything else need to be provisioned? directories + permissions etc?
-
-        ### modify build outputs: 
-        ### Output one Service directory and transform the output based on environment.
-
-        - task: PowerShell@2
-          displayName: 'Stop Memcached Service'
-          condition: false
-          inputs:
-            filePath: '$(Build.SourcesDirectory)\bin\Scripts\ManageService.ps1'
-            arguments: '-ServiceName "${{parameters.MemCachedServiceName}}" -ServiceAction Stop'
-            failOnStderr: true
-
-        - task: PowerShell@2
-          displayName: 'Agent Rights Check'
-          inputs:
-            filePath: '$(Build.SourcesDirectory)\bin\InTouch Infrastructure ${{parameters.version}}\Install_Scripts\PipelineAgentRightsCheck.ps1'  
+- task: PowerShell@2
+  displayName: 'Stop Memcached Service'
+  condition: false
+  inputs:
+    filePath: '$(Build.SourcesDirectory)\bin\Scripts\ManageService.ps1'
+    arguments: '-ServiceName "${{parameters.MemCachedServiceName}}" -ServiceAction Stop'
+    failOnStderr: true
+    
+- task: PowerShell@2
+  displayName: 'Agent Rights Check'
+  inputs:
+    filePath: '$(Build.SourcesDirectory)\bin\InTouch Infrastructure ${{parameters.version}}\Install_Scripts\PipelineAgentRightsCheck.ps1'  
 
 #        - task: IISWebAppManagementOnMachineGroup@0
 #          displayName: Manage IIS Web App
