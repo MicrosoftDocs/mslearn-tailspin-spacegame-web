@@ -22,7 +22,7 @@ stages:
 
   jobs:
   - job: Do_The_thing
-  
+    steps:
     - task: Npm@1
       displayName: 'Run npm install'
       inputs:
