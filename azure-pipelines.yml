@@ -12,13 +12,13 @@ stages:
 - stage: DeploySITRC
   displayName: Deploy Release Candidate to SIT
   variables:
-  MemCachedServiceName: spooler
-  BuildVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewBuildVersion'] ]
-  RevisionVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewVersion'] ]
-  buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.1.300'
-  azuresub: "DevSecOps"
+    MemCachedServiceName: spooler
+    BuildVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewBuildVersion'] ]
+    RevisionVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewVersion'] ]
+    buildConfiguration: 'Release'
+    wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+    dotnetSdkVersion: '3.1.300'
+    azuresub: "DevSecOps"
 
 steps:
 #- task: UseDotNet@2
