@@ -66,7 +66,7 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       condition: succeeded()
-    
+        
   - job: infra_deploy 
     steps:
     - template: Infra_DeploymentTemplate.yml
