@@ -11,6 +11,30 @@ parameters:
     appPoolPassword: '--'
     MemCachedServiceName: '--'
 
+jobs:
+- deployment: DeployInfra
+  displayName: Deploy Infrastructure
+  environment: 
+    name: ${{parameters.environment}}
+    resourceType: VirtualMachine
+    tags: ${{parameters.tags}}
+  workspace:
+    clean: all
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - download: none
+        - task: DownloadBuildArtifacts@0
+          name: downloadUiArtifact
+          displayName: Download Infrastructure Artifact
+          inputs:
+            buildType: current
+            downloadType: 'single'
+            artifactName: InTouch Infrastructure ${{parameters.version}}
+            itemPattern: '**'
+            downloadPath: $(Build.SourcesDirectory)\bin\
+
 - task: PowerShell@2
   displayName: 'Stop Memcached Service'
   condition: false
