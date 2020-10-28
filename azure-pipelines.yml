@@ -13,10 +13,8 @@ stages:
   displayName: Deploy Release Candidate to SIT
   variables:
   MemCachedServiceName: spooler
-  - name: BuildVersion
-    value: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewBuildVersion'] ]
-  - name: RevisionVersion
-    value: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewVersion'] ]
+  BuildVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewBuildVersion'] ]
+  RevisionVersion: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewVersion'] ]
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.300'
