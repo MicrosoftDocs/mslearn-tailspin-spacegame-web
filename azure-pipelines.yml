@@ -72,7 +72,7 @@ stages:
       condition: false
       inputs:
         filePath: '$(Build.SourcesDirectory)\bin\Scripts\ManageService.ps1'
-        arguments: '-ServiceName "${{parameters.MemCachedServiceName}}" -ServiceAction Stop'
+        arguments: '-ServiceName $(MemCachedServiceName) -ServiceAction Stop'
         failOnStderr: true
         
     - task: PowerShell@2
@@ -80,22 +80,22 @@ stages:
       inputs:
         filePath: '$(Build.SourcesDirectory)\bin\Scripts\PipelineAgentRightsCheck.ps1'   
   
-  - job: infra_deploy 
-    steps:
-    - template: Infra_DeploymentTemplate.yml
-      parameters:
-        environment: SIT
-        tags: Infrastructure
-        version: $(BuildVersion)
-        dotNetVersionForWebsite: $(.NetFramework)
-        appPoolName: APPpool
-        websiteName: dummy.azure.net
-        websiteBindings: some_things
-        websitePhysicalPath: "/bin"
-        appPoolUsername: dave
-        appPoolPassword: Password123
-        MemCachedServiceName: $(MemCachedServiceName)
-        InTouchAuthConnectionString: $(ConnectionString_InTouchAuthorisation)
+# - job: infra_deploy 
+#   steps:
+#   - template: Infra_DeploymentTemplate.yml
+#     parameters:
+#       environment: SIT
+#       tags: Infrastructure
+#       version: $(BuildVersion)
+#       dotNetVersionForWebsite: $(.NetFramework)
+#       appPoolName: APPpool
+#       websiteName: dummy.azure.net
+#       websiteBindings: some_things
+#       websitePhysicalPath: "/bin"
+#       appPoolUsername: dave
+#       appPoolPassword: Password123
+#       MemCachedServiceName: $(MemCachedServiceName)
+#       InTouchAuthConnectionString: $(ConnectionString_InTouchAuthorisation)
  
 # - task: AzureWebApp@1
 #   inputs:
