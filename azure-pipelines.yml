@@ -8,6 +8,7 @@ pool:
   demands:
   - npm
 
+stages:
 - stage: DeploySITRC
   displayName: Deploy Release Candidate to SIT
   variables:
