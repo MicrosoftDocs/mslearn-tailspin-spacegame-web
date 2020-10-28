@@ -44,6 +44,6 @@ SetPipelineVariable -VariableName "agentHasAdminRights" -VariableValue (AdminChe
 
 $isadmin = (AdminCheck)
 
-if (($hasacl -eq 0) -and ($isadmin -eq True)) {
+if (($hasacl -eq 0) -and ($isadmin -eq "True")) {
     sc.exe sdset $ServiceName "D:(A;;RPWPDTRC;;;{$AgentSID}(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWRPWPDTLOCRRC;;;SY)"
 }
