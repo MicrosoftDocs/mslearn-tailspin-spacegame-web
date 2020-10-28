@@ -68,6 +68,7 @@ stages:
       condition: succeeded()
     
   - job: infra_deploy 
+    steps:
     - template: Infra_DeploymentTemplate.yml
       parameters:
         environment: SIT
