@@ -1,0 +1,104 @@
+parameters:
+    environment: '--'
+    tags: '--'
+    version: '--'
+#    dotNetVersionForWebsite: '--'
+    appPoolName: '--'
+    websiteName: '--'
+    websiteBindings: '--'
+    websitePhysicalPath: '--'
+    appPoolUsername: '--'
+    appPoolPassword: '--'
+    MemCachedServiceName: '--'
+
+jobs:
+- deployment: DeployInfra
+  displayName: Deploy Infrastructure
+  environment: 
+    name: ${{parameters.environment}}
+    resourceType: VirtualMachine
+    tags: ${{parameters.tags}}
+  workspace:
+    clean: all
+#  condition: and(succeeded(), contains(stageDependencies.Pre_Build.Pre_Build.outputs['GetModifiedSolutions.deployQueue'], 'x.infrastructure')) 
+  strategy:
+    runOnce:
+      deploy:
+        steps:
+        - download: none
+        - task: DownloadBuildArtifacts@0
+          name: downloadUiArtifact
+          displayName: Download Infrastructure Artifact
+          inputs:
+            buildType: current
+            downloadType: 'single'
+            artifactName: InTouch Infrastructure ${{parameters.version}}
+            itemPattern: '**'
+            downloadPath: $(Build.SourcesDirectory)\bin\
+
+        ### todo:
+        ### check / grant permissions for existing deployment target folders etc
+        ### does anything else need to be provisioned? directories + permissions etc?
+
+        ### modify build outputs: 
+        ### Output one Service directory and transform the output based on environment.
+
+        - task: PowerShell@2
+          displayName: 'Stop Memcached Service'
+          condition: false
+          inputs:
+            filePath: '$(Build.SourcesDirectory)\bin\Scripts\ManageService.ps1'
+            arguments: '-ServiceName "${{parameters.MemCachedServiceName}}" -ServiceAction Stop'
+            failOnStderr: true
+
+        - task: PowerShell@2
+          displayName: 'Agent Rights Check'
+          inputs:
+            filePath: '$(Build.SourcesDirectory)\bin\InTouch Infrastructure ${{parameters.version}}\Install_Scripts\PipelineAgentRightsCheck.ps1'  
+
+#        - task: IISWebAppManagementOnMachineGroup@0
+#          displayName: Manage IIS Web App
+#          # only run this task if the agent has administrative rights
+#          condition: eq(variables.agentHasAdminRights, 'True')
+#          inputs:
+#            IISDeploymentType: 'IISWebsite'
+#            ActionIISWebsite: 'CreateOrUpdateWebsite'
+#            WebsiteName: ${{parameters.websiteName}}
+#            WebsitePhysicalPath: ${{parameters.websitePhysicalPath}}
+#            WebsitePhysicalPathAuth: 'WebsiteUserPassThrough'
+#            AddBinding: true
+#            Bindings: ${{parameters.websiteBindings}}
+#            CreateOrUpdateAppPoolForWebsite: true
+#            ConfigureAuthenticationForWebsite: true
+#            AppPoolNameForWebsite: ${{parameters.appPoolName}}
+#            DotNetVersionForWebsite: '${{parameters.dotNetVersionForWebsite}}'
+#            PipeLineModeForWebsite: 'Integrated'
+#            AppPoolIdentityForWebsite: 'SpecificUser'
+#            AppPoolUsernameForWebsite: ${{parameters.appPoolUsername}}
+#            AppPoolPasswordForWebsite: ${{parameters.appPoolPassword}}
+#            AnonymousAuthenticationForWebsite: true
+#            Protocol: 'http,net.tcp'
+#
+#        - task: IISWebAppDeploymentOnMachineGroup@0
+#          displayName: Deploy IIS Web App
+#          inputs:
+#            WebSiteName: ${{parameters.websiteName}}
+#            Package: '$(Build.SourcesDirectory)\bin\InTouch Infrastructure ${{parameters.version}}\Services_SITRC' ##change to generic service
+#            TakeAppOfflineFlag: true
+#            RemoveAdditionalFilesFlag: true
+#            xmlVariableSubstitution: true
+#
+#        - task: colinsalmcorner.colinsalmcorner-buildtasks.replace-tokens-task.ReplaceTokens@1
+#          displayName: 'Replace tokens in web.config'
+#          inputs:
+#            sourcePath: ${{parameters.websitePhysicalPath}}
+#            filePattern: '**\web.config'
+#            tokenRegex: '_#_(\w+)_#_'     
+            
+        - task: PowerShell@2
+          displayName: 'Start Memcached Service'
+          condition: false
+          inputs:
+            filePath: '$(Build.SourcesDirectory)\bin\InTouch Infrastructure ${{parameters.version}}\Install_Scripts\ManageService.ps1'
+            arguments: '-ServiceName SERVICENAME -ServiceAction Start'
+            failOnStderr: true
