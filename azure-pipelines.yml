@@ -8,7 +8,14 @@ pool:
   demands:
   - npm
 
-variables:
+- stage: DeploySITRC
+  displayName: Deploy Release Candidate to SIT
+  variables:
+  MemCachedServiceName: spooler
+  - name: BuildVersion
+    value: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewBuildVersion'] ]
+  - name: RevisionVersion
+    value: $[ stageDependencies.Pre_Build.Pre_Build.outputs['SetVersionNumber.NewVersion'] ]
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.300'
@@ -63,9 +70,25 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-  
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: $(azuresub)
-    appName: "dso-akv-demo-webapp"
-    package: $(Build.ArtifactStagingDirectory)/$(buildConfiguration)/**/*.Web.zip
+
+  jobs: 
+    - template: Infra_DeploymentTemplate.yml
+      parameters:
+        environment: SIT
+        tags: Infrastructure
+        version: $(BuildVersion)
+        dotNetVersionForWebsite: $(.NetFramework)
+        appPoolName: APPpool
+        websiteName: dummy.azure.net
+        websiteBindings: some_things
+        websitePhysicalPath: "/bin"
+        appPoolUsername: dave
+        appPoolPassword: Password123
+        MemCachedServiceName: $(MemCachedServiceName)
+        InTouchAuthConnectionString: $(ConnectionString_InTouchAuthorisation)
+ 
+# - task: AzureWebApp@1
+#   inputs:
+#     azureSubscription: $(azuresub)
+#     appName: "dso-akv-demo-webapp"
+#     package: $(Build.ArtifactStagingDirectory)/$(buildConfiguration)/**/*.Web.zip
