@@ -40,10 +40,11 @@ Function SvcCtrlCheck {
 
 # Main
 
-SetPipelineVariable -VariableName "agentHasAdminRights" -VariableValue (AdminCheck)
-
+write-host "checking admin rights"
 $isadmin = (AdminCheck)
+SetPipelineVariable -VariableName "agentHasAdminRights" -VariableValue $isadmin
 
+SvcCtrlCheck
 if (($hasacl -eq 0) -and ($isadmin -eq "True")) {
     sc.exe sdset $ServiceName "D:(A;;RPWPDTRC;;;{$AgentSID}(A;;CCLCSWLOCRRC;;;AU)(A;;CCDCLCSWRPWPDTLOCRSDRCWDWO;;;BA)(A;;CCLCSWRPWPDTLOCRRC;;;SY)"
 }
