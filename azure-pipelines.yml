@@ -71,14 +71,14 @@ stages:
       displayName: 'Stop Memcached Service'
       condition: false
       inputs:
-        filePath: '$(Build.SourcesDirectory)\bin\Scripts\ManageService.ps1'
+        filePath: '$(Build.SourcesDirectory)\Scripts\ManageService.ps1'
         arguments: '-ServiceName $(MemCachedServiceName) -ServiceAction Stop'
         failOnStderr: true
         
     - task: PowerShell@2
       displayName: 'Agent Rights Check'
       inputs:
-        filePath: '$(Build.SourcesDirectory)\bin\Scripts\PipelineAgentRightsCheck.ps1'   
+        filePath: '$(Build.SourcesDirectory)\Scripts\PipelineAgentRightsCheck.ps1'   
   
 # - job: infra_deploy 
 #   steps:
