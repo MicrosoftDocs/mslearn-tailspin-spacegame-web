@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/arashms/SpaceGame/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/arashms/SpaceGame/_build/latest?definitionId=120&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
