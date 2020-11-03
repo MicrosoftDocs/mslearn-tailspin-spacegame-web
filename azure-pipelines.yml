@@ -3,8 +3,8 @@ trigger:
 
 pool:
   name: 'MyAgentPool'
- # demands:
- #   - npm
+  demands:
+   - npm
 
 variables:
   buildConfiguration: 'Release'
