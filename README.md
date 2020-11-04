@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/mnadobnik/LearnTest/_apis/build/status/MateuszNad.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/mnadobnik/LearnTest/_build/latest?definitionId=9&branchName=master)
 
 # Contributing
 
