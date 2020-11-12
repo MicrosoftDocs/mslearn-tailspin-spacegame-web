@@ -8,15 +8,9 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '3.1.300'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'  
 
 steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
-  inputs:
-    version: '$(dotnetSdkVersion)'
-
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
