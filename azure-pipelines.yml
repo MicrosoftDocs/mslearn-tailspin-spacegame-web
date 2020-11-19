@@ -52,7 +52,7 @@ steps:
   
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
-   inputs:
+  inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
@@ -62,4 +62,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-  
