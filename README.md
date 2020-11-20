@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/sashozahariev/Testis%20Two/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/sashozahariev/Testis%20Two/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
