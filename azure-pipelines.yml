@@ -1,7 +1,7 @@
 pool:
   vmImage: ubuntu-latest
 stages:
-  - stage: CI-build-stage
+  - stage: CIbuildstage
     jobs:
     - job : CIjob
       steps:
