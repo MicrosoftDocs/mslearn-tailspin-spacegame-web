@@ -1,11 +1,11 @@
 pool:
   vmImage: ubuntu-latest
 stages:
-  - stage: CI build stage
+  - stage: CI-build-stage
     jobs:
     - job : CIjob
       steps:
       - script: dotnet restore
-        displayName: restore task
+        displayName: restore-task
       - script: dotnet build
-        displayName: dotnet build task
+        displayName: dotnet-build-task
