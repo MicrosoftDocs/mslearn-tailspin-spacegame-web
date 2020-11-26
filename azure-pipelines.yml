@@ -16,4 +16,4 @@ steps:
 - script: |
     echo "##vso[task.setvariable variable=sauce]crushed tomatoes"
 - script: |
-    echo $("sauce")
+    echo $(sauce)
