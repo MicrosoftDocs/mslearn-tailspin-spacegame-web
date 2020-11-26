@@ -13,5 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: |
+    echo "##vso[task.setvariable variable=sauce]crushed tomatoes"
+- script: |
+    echo $("sauce")
