@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/SamehSelmi/last/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/SamehSelmi/last/_build/latest?definitionId=31&branchName=code-workflow)
 
 # Contributing
 
