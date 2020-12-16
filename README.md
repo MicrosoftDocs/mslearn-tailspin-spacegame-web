@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/dakshjain00/Internship-2020/_apis/build/status/Dakshjain1.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/dakshjain00/Internship-2020/_build/latest?definitionId=1&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
