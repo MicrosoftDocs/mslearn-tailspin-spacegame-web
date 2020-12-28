@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/YauhenMikhailovskii/AZ400/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/YauhenMikhailovskii/AZ400/_build/latest?definitionId=1&branchName=refs%2Fpull%2F2%2Fmerge)
 
 # Contributing
 
