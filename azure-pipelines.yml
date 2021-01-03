@@ -15,7 +15,7 @@ steps:
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
-    version: $(dotnetSdkVersion)
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -45,7 +45,7 @@ steps:
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
-    
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
