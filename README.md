@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/rspb/Josh%20Test%20Project/_apis/build/status/Watson6982.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/rspb/Josh%20Test%20Project/_build/latest?definitionId=167&branchName=master)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
