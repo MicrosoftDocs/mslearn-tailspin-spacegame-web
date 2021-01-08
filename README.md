@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/M8070425/Space%20Game%20-Web%20-%20Pipeline/_apis/build/status/mindtree-repo.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/M8070425/Space%20Game%20-Web%20-%20Pipeline/_build/latest?definitionId=1&branchName=build-pipeline)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
