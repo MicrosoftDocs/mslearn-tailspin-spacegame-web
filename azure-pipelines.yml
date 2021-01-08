@@ -1,5 +1,10 @@
 trigger:
-- '*'
+  branches:
+    include:
+    - '*'
+  paths:
+    exclude:
+    - docs/*
 
 pool:
   vmImage: 'ubuntu-18.04'
