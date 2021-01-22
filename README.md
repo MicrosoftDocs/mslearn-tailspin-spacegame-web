@@ -1,5 +1,6 @@
 
 # Contributing
+At the top of the page, add a blank line, and then paste the contents of the clipboard.
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
