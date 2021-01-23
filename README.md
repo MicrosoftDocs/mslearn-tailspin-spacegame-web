@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/AnirbanSaha0801/msft-learn-geico-rampup/_apis/build/status/anirbansaha96.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/AnirbanSaha0801/msft-learn-geico-rampup/_build/latest?definitionId=1&branchName=master)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
