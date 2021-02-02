@@ -1,31 +1,40 @@
+#  Azure Pipelines for Space Game project
+[Azure Pipelines](https://docs.microsoft.com/en-us/learn/modules/create-a-build-pipeline/1-introduction)
 
-# Contributing
+## Origin repository
+[Space Game](https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web)
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+## Forked repository
+[yxiao168 / mslearn-tailspin-spacegame-web](https://github.com/yxiao168/mslearn-tailspin-spacegame-web)
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Update to run for dotnet 5.0
+Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
 
-# Legal Notices
+## Build and run the web app
+```shell
+$ dotnet build --configuration Release
+Microsoft (R) Build Engine version 16.8.3+39993bd9d for .NET
+Copyright (C) Microsoft Corporation. All rights reserved.
 
-Microsoft and any contributors grant you a license to the Microsoft documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
+  Determining projects to restore...
+  Restored /media/WS1/WORK/azure/Learn/mslearn-tailspin-spacegame-web/Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj (in 114 ms).
+  Tailspin.SpaceGame.Web -> /media/WS1/WORK/azure/Learn/mslearn-tailspin-spacegame-web/Tailspin.SpaceGame.Web/bin/Release/netcoreapp5.0/Tailspin.SpaceGame.Web.dll
+  Tailspin.SpaceGame.Web -> /media/WS1/WORK/azure/Learn/mslearn-tailspin-spacegame-web/Tailspin.SpaceGame.Web/bin/Release/netcoreapp5.0/Tailspin.SpaceGame.Web.Views.dll
 
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
-may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
-The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
 
-Privacy information can be found at https://privacy.microsoft.com/en-us/
-
-Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
-or trademarks, whether by implication, estoppel or otherwise.
+Time Elapsed 00:00:03.42
+$
+$
+$ dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {67794de4-cc69-46a8-b81a-3ee593d845b6} may be persisted to storage in unencrypted form.
+Hosting environment: Production
+Content root path: /media/WS1/WORK/azure/Learn/mslearn-tailspin-spacegame-web/Tailspin.SpaceGame.Web
+Now listening on: http://localhost:5000
+Now listening on: https://localhost:5001
+Application started. Press Ctrl+C to shut down.
+```
