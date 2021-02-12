@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/nguyenphong28/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/phong-nguyen-PE.mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/nguyenphong28/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=1&branchName=code-workflow)
 
 # Contributing
 
