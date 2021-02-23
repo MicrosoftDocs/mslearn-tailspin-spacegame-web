@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/timstraat42/Space%20Game%20-web/_apis/build/status/timstraat42.mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/timstraat42/Space%20Game%20-web/_build/latest?definitionId=1&branchName=code-workflow)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
