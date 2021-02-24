@@ -1,6 +1,4 @@
-[![Build Status](https://dev.azure.com/learningorg01/Space%20Game%20-%20web%20-%20pipeline/_apis/build/status/ReginaLin24.mslearn-tailspin-spacegame-web?branchName=feature%2Fhome-page-text)](https://dev.azure.com/learningorg01/Space%20Game%20-%20web%20-%20pipeline/_build/latest?definitionId=1&branchName=feature%2Fhome-page-text)
-
-
+[![Build Status](https://dev.azure.com/learningorg01/Space%20Game%20-%20web%20-%20pipeline/_apis/build/status/ReginaLin24.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/learningorg01/Space%20Game%20-%20web%20-%20pipeline/_build/latest?definitionId=1&branchName=master)
 
 # Contributing
 
