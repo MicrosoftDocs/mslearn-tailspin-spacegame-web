@@ -53,7 +53,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     "Andromeda",
                     "Pinwheel",
                     "NGC 1300",
-                    "Messier 82",
+                    "Messier 821",
                 }
             };
 
