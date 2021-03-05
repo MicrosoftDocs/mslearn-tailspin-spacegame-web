@@ -12,3 +12,4 @@ stages:
         displayName: restore-task
       - script: dotnet build
         displayName: dotnet-build-task
+  
