@@ -28,5 +28,8 @@ steps:
     - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
       displayName: 'Compile Sass assets'
 
+    - task: gulp@1
+        displayName: 'Run gulp tasks'
+
     - script: dotnet build --configuration $(buildConfiguration)
       displayName: 'dotnet build $(buildConfiguration)'
