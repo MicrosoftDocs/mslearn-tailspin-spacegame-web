@@ -29,7 +29,7 @@ steps:
       displayName: 'Compile Sass assets'
 
     - task: gulp@1
-        displayName: 'Run gulp tasks'
+      displayName: 'Run gulp tasks'
 
     - script: dotnet build --configuration $(buildConfiguration)
       displayName: 'dotnet build $(buildConfiguration)'
