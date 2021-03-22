@@ -45,5 +45,3 @@ steps:
     projects: '**/*.csproj'
 
 
-
-
