@@ -5,15 +5,15 @@
 trigger:
   - '*'
   
-  pool:
-    vmImage: 'ubuntu-18.04'
-    demands:
-    - npm
+pool:
+  vmImage: 'ubuntu-18.04'
+  demands:
+  - npm
   
-  variables:
-    buildConfiguration: 'Release'
+variables:
+  buildConfiguration: 'Release'
   
-  steps:
+steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core SDK 3.1.300'
     inputs:
