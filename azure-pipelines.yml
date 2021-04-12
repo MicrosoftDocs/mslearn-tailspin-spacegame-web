@@ -54,6 +54,16 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
+# A template enables you to define common build tasks one time and reuse those tasks multiple times.
+# You call a template from the parent pipeline as a build step. You can pass parameters into a template from the parent pipeline.
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+  
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
