@@ -10,6 +10,8 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.300'
+  azureSubscription: '0292e681-862f-41d1-b080-7f7b434d481d'
+  appName: 'demo-bt-nicold'
 
 steps:
 - task: UseDotNet@2
@@ -49,3 +51,11 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: AzureWebApp@1
+  displayName: 'Azure Web App Deploy'
+  inputs:
+    azureSubscription: $(azureSubscription)
+    appType: webAppLinux
+    appName: $(appName)
+    package: $(System.ArtifactsDirectory)/Release/*.zip
