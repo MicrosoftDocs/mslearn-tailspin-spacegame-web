@@ -10,7 +10,7 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.300'
-  azureSubscription: '0292e681-862f-41d1-b080-7f7b434d481d'
+  azureSubscription: 'consip-bt-connection-sample'
   appName: 'demo-bt-nicold'
 
 steps:
