@@ -23,7 +23,7 @@ steps:
     version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
-  displayName: 'Run the npm install'
+  displayName: 'Run the npm install now'
   inputs:
     verbose: false
 
