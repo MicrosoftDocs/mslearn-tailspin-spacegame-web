@@ -333,3 +333,4 @@ ASALocalRun/
 
 # SonarQube
 .sonarqube/
+.scannerwork/
