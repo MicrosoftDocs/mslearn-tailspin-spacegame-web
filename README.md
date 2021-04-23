@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/emilianoarce/pipeline-lab-github/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/emilianoarce/pipeline-lab-github/_build/latest?definitionId=5&branchName=master)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=erac03_mslearn-tailspin-spacegame-web&metric=alert_status)](https://sonarcloud.io/dashboard?id=erac03_mslearn-tailspin-spacegame-web)
 # Contributing
 
