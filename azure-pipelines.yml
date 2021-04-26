@@ -2,10 +2,9 @@ trigger:
 - '*'
 
 pool:
-  name: default
+  vmImage: 'ubuntu-18.04'
   demands:
   - npm
-  - gulp
 
 variables:
   buildConfiguration: 'Release'
