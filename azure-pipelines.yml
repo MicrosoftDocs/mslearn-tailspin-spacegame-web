@@ -2,8 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: Azure Pipelines
-  vmImage: 'ubuntu-18.04'
+  name: default
   demands:
   - npm
   - gulp
