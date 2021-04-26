@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: default
+  name: Azure Pipeline
   vmImage: 'ubuntu-18.04'
   demands:
   - npm
