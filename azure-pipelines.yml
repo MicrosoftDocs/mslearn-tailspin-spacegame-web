@@ -2,8 +2,12 @@ trigger:
 - '*'
 
 pool:
+<<<<<<< HEAD
   name: default
   vmImage: 'ubuntu-18.04'
+=======
+  vmImage: 'default'
+>>>>>>> 549520fbadc110229d788ab902fb5aec2d4a6c4c
   demands:
   - npm
 
