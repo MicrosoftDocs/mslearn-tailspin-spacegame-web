@@ -23,7 +23,7 @@ steps:
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+- script: './node_modules/.bin/node-sass Tailspin.Space.Game.Web/wwwroot --output Tailspin.Space.Game.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
