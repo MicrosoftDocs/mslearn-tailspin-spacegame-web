@@ -37,6 +37,7 @@ steps:
       arguments: --no-restore --configuration $(buildConfiguration)
       projects: "**/*.csproj"
   - task: DotNetCoreCLI@2
+<<<<<<< HEAD
     displayName: Run unit tests - $(buildConfiguration)
     inputs:
       command: test
@@ -44,6 +45,8 @@ steps:
       publishTestResults: true
       projects: "**/*.Tests.csproj"
   - task: DotNetCoreCLI@2
+=======
+>>>>>>> master
     displayName: Publish the project - $(buildConfiguration)
     inputs:
       command: publish
