@@ -2,8 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name:'Default' 
-  vmImage: 'MyWinAgent'
+  name:'Default'
 
 variables:
   buildConfiguration: 'Release'
