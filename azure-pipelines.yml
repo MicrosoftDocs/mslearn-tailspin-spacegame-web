@@ -4,8 +4,6 @@ trigger:
 pool:
   name:'Default' 
   vmImage: 'agentwinazvm'
-  demands:
-  - npm
 
 variables:
   buildConfiguration: 'Release'
