@@ -3,7 +3,7 @@ trigger:
 
 pool:
   name:'Default' 
-  vmImage: 'agentwinazvm'
+  vmImage: 'MyWinAgent'
 
 variables:
   buildConfiguration: 'Release'
