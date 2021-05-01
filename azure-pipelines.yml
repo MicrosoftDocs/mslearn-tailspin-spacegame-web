@@ -3,9 +3,10 @@ trigger:
 
 pool:
   name: Default
-  vmImage: 'MyWinAgent'
+  vmImage: 'MyLinuxAgent'
   demands:
   - npm
+
 variables:
   buildConfiguration: 'Release'
 
