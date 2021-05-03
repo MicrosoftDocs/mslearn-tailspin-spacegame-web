@@ -1,3 +1,3 @@
-git add azure-pipelines.yml templates/build.yml
-git commit -m "Support build configurations"
-git push origin build-pipeline
+git add azure-pipelines.yml
+git commit -m "Add the build configuration"
+git push origin code-workflow
