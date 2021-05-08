@@ -10,7 +10,7 @@ trigger:
 
   paths:
     exclude:
-    - docs/*
+    - Test/*
 
 pool:
   vmImage: 'ubuntu-18.04'
