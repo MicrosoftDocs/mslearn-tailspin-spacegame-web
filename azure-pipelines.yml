@@ -6,6 +6,10 @@
 trigger:
 - '*'
 
+Paths:
+  exclude:
+  - docs/*
+
 pool:
   vmImage: 'ubuntu-18.04'
   demands:
