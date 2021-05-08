@@ -6,7 +6,7 @@
 trigger:
 - '*'
 
-Paths:
+paths:
   exclude:
   - docs/*
 
