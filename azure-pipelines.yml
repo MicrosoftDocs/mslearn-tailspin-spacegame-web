@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'windows'
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
