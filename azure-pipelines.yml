@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  name: iDevelopAgentPool
 
 variables:
   buildConfiguration: 'Release'
