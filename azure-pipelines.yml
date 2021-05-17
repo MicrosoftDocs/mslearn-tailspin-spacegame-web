@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-18.04'
+  name: 'iDevAgentPool'
   demands:
     - npm
 
