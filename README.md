@@ -1,4 +1,8 @@
 
+[![Build Status](https://dev.azure.com/abishek1701003/sampleProjectLearning/_apis/build/status/abishek-Rajasegar.mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/abishek1701003/sampleProjectLearning/_build/latest?definitionId=29&branchName=master)
+
+
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
