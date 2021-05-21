@@ -2,6 +2,7 @@ trigger:
 - task: WhiteSource@21
   inputs:
     cwd: '$(System.DefaultWorkingDirectory)'
+    directScan: true
 - '*'
 
 pool:
