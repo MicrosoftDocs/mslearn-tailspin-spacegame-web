@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 3dbffcf0c598225daf74f52e6c85bf9e41f7a55a
-ms.sourcegitcommit: ac2ef45a787885996570376b660e03e9f559531d
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "109933166"
+### ms.openlocfilehash: 3dbffcf0c598225daf74f52e6c85bf9e41f7a55a
+### ms.sourcegitcommit: ac2ef45a787885996570376b660e03e9f559531d
+### ms.translationtype: HT
+### ms.contentlocale: es-ES
+### ms.lasthandoff: 05/19/2021
+### ms.locfileid: "109933166"
 trigger:
 - '*'
 pool:
