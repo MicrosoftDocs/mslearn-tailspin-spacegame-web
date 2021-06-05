@@ -9,10 +9,10 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .Net Core SDK 3.1.409'
+  displayName: 'Use .Net Core SDK 5.0.300'
   inputs:
     packageType: sdk
-    version: 3.1.409
+    version: 5.0.300
 
 - task: Npm@1
   displayName: 'Run npm install'
