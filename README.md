@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/masternishant/Pipeline%20Exercise/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/masternishant/Pipeline%20Exercise/_build/latest?definitionId=2&branchName=code-workflow)
 
 # Contributing
 
