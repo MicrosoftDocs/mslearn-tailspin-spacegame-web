@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: MarieLap
+  name: Default
 
 variables:
   buildConfiguration: 'Release'
