@@ -2,6 +2,9 @@ trigger:
 - '*'
 
 pool:
+vmImage: 'windows'
+
+pool:
   vmImage: 'ubuntu-20.04'
   demands:
   - npm
