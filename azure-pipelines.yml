@@ -17,13 +17,13 @@ variables:
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 5.0'
-  input:
+  inputs:
     packageType: sdk
     version: 5.0.203
 
 - task: Npm@1
   displayName: 'Run npm install'
-  input:
+  inputs:
     verbose: false
 
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
