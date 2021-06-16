@@ -5,8 +5,10 @@
 # ms.contentlocale: zh-TW
 # ms.lasthandoff: 02/14/2021
 # ms.locfileid: "104288439"
-# trigger:
-# - '*'
+
+trigger:
+  - '*'
+
 # pool:
 #   vmImage: ubuntu-18.04
 #   demands:
