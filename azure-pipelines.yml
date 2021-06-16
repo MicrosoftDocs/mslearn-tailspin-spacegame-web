@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: vmlinux001
+#  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
