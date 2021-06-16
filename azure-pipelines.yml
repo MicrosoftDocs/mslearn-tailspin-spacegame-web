@@ -15,11 +15,19 @@ variables:
   dotnetSdkVersion: 3.1.300
 
 steps:
-- task: UseDotNet@2
-  displayName: 使用 .NET Core SDK 5.0.103
+
+- task: DotNetCoreCLI@2
+  displayName: 建置專案 - Release
   inputs:
-    version: '5.0.x'
-    includePreviewVersions: true # Required for preview versions
+    command: build
+    arguments: --no-restore --configuration Release
+    projects: '**/*.csproj'
+
+# - task: UseDotNet@2
+#   displayName: 使用 .NET Core SDK 5.0.103
+#   inputs:
+#     version: '5.0.x'
+#     includePreviewVersions: true # Required for preview versions
 
 # - task: Npm@1
 #   displayName: Run npm install
