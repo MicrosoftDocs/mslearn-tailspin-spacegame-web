@@ -16,9 +16,10 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayName: Use .NET Core SDK $(dotnetSdkVersion)
+  displayName: 使用 .NET Core SDK 5.0.103
   inputs:
-    version: $(dotnetSdkVersion)
+    version: '5.0.x'
+    includePreviewVersions: true # Required for preview versions
 
 # - task: Npm@1
 #   displayName: Run npm install
