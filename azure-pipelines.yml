@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: vmlinux001
+pool: Default
 #  vmImage: ubuntu-latest
 
 variables:
