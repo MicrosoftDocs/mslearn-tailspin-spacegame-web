@@ -6,11 +6,16 @@ pool:
   demands:
   - npm
 
+variables:
+  buildConfiguration: 'Release'
+  wwwtoorDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '5.0.203'
+
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK 5.0'
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
-    version: 5.0.203
+    version: $(dotnetSdkVersion)
 
 - task: Npm@1
   displayName: 'Run npm install'
