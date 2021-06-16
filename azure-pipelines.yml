@@ -17,10 +17,9 @@ variables:
 steps:
 
 - task: DotNetCoreCLI@2
-  displayName: 建置專案 - Release
+  displayName: 還原專案相依
   inputs:
-    command: build
-    arguments: --no-restore --configuration Release
+    command: restore
     projects: '**/*.csproj'
 
 # - task: UseDotNet@2
