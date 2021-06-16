@@ -12,7 +12,7 @@ pool: Default
 variables:
   buildConfiguration: Release
   wwwrootDir: Tailspin.SpaceGame.Web/wwwroot
-  dotnetSdkVersion: '5.0.x'
+  dotnetSdkVersion: 3.1.300
 
 steps:
 - task: UseDotNet@2
