@@ -8,6 +8,8 @@ trigger:
 
 pool:
   name: 'AdaDevOps'
+  demands: 
+  - npm
 
 variables:
   buildConfiguration: 'Release'
