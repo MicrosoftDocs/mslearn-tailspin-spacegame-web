@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: AdaDevOps
 
 variables:
   buildConfiguration: 'Release'
