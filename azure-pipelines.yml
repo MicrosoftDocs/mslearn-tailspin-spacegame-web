@@ -7,9 +7,7 @@ trigger:
 - main
 
 pool:
-  name: 'AdaDevOps'
-  demands: 
-  - npm
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
