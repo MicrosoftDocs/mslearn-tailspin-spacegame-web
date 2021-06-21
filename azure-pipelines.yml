@@ -41,7 +41,7 @@ steps:
 - template: templ/build.yml
   parameters:
     buildConfiguration: 'Debug'
-g
+
 - template: templ/build.yml
   parameters:
     buildConfiguration: 'Release'
