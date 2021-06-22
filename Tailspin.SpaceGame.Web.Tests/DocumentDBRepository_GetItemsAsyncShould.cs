@@ -57,7 +57,7 @@ namespace Tests
         [TestCase(10, ExpectedResult = 10)]
         public int ReturnRequestedCount(int count)
         {
-            const int PAGE = 0; // take the first page of results
+            const int PAGE = 1; // take the first page of results
 
             // Fetch the scores.
             Task<IEnumerable<Score>> scoresTask = _scoreRepository.GetItemsAsync(
