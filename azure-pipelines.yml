@@ -5,6 +5,7 @@
 
 trigger:
 - main
+- build-pipeline
 
 pool:
   #vmImage: ubuntu-latestt
