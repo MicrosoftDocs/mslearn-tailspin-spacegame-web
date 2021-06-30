@@ -38,11 +38,11 @@ steps:
   displayName: 'Write Build Info'
   workingDirectory: $(wwwrootDir)
 
-- template: ./templates/build.yml
+- template: ../templates/build.yml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: ./templates/build.yml
+- template: ../templates/build.yml
   parameters:
     buildConfiguration: 'Release'
     
