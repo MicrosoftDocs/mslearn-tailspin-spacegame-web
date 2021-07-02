@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/biotechbusiness/TJ/_apis/build/status/jeromequilliet.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/biotechbusiness/TJ/_build/latest?definitionId=1&branchName=build-pipeline)
 
 # Contributing
 
