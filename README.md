@@ -1,5 +1,5 @@
 
-https://dev.azure.com/AlanBarnett/_apis/resources/Containers/14783090/drop?itemPath=drop%2FRelease%2FTailspin.SpaceGame.Web.zip
+[![Build Status](https://dev.azure.com/AlanBarnett/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/AlanBarnett/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=1&branchName=main)
 
 # Contributing
 
