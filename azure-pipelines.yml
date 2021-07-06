@@ -7,8 +7,8 @@ ms.lasthandoff: 06/09/2021
 ms.locfileid: "111864219"
 trigger:
 - '*'
-pool:
-  vmImage: ubuntu-20.04
+pool: 
+  name: Default
   demands:
   - npm
 variables:
