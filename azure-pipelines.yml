@@ -1,7 +1,8 @@
 trigger:
 - '*'
 
-pool: default
+pool: 
+  name: default
   demands:
   - npm
 
