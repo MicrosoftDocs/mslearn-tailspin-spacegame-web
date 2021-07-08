@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/VuongVuV/Space%20Game%20Web%20Pipplinen/_apis/build/status/lilvip9999.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/VuongVuV/Space%20Game%20Web%20Pipplinen/_build/latest?definitionId=2&branchName=main)
 
 # Contributing
 
