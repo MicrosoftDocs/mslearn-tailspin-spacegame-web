@@ -36,6 +36,9 @@ steps:
     displayName: 'Write build info'
     workingDirectory: Tailspin.SpaceGame.Web/wwwroot
   
+  - script: 'echo "Build.ArtifactStagingDirectory: $(Build.ArtifactStagingDirectory)"'
+    displayName: 'Learning variables'
+  
   - task: DotNetCoreCLI@2
     displayName: 'Restore project dependencies'
     inputs:
@@ -48,3 +51,16 @@ steps:
       command: 'build'
       arguments: '--no-restore --configuration Release'
       projects: '**/*.csproj'
+  
+  - task: DotNetCoreCLI@2
+    displayName: 'Publish the project - Release'
+    inputs:
+      command: 'publish'
+      projects: '**/*.csproj'
+      publishWebProjects: false
+      arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+      zipAfterPublish: true
+    
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+    condition: succeeded()
