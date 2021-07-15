@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json;
 using TailSpin.SpaceGame.Web.Models;
 
 namespace TailSpin.SpaceGame.Web
@@ -17,7 +17,7 @@ namespace TailSpin.SpaceGame.Web
         public LocalDocumentDBRepository(string fileName)
         {
             // Serialize the items from the provided JSON document.
-            _items = JsonConvert.DeserializeObject<List<T>>(File.ReadAllText(fileName));
+            _items = JsonSerializer.Deserialize<List<T>>(File.ReadAllText(fileName));
         }
 
         /// <summary>
