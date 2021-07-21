@@ -8,4 +8,26 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="SampleData\profiles.json" />
+    <Content Remove="SampleData\scores.json" />
+    <Content Remove="SampleData\profiles.json" />
+    <Content Remove="SampleData\scores.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="SampleData\profiles.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="SampleData\scores.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SampleData\profiles.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SampleData\scores.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
