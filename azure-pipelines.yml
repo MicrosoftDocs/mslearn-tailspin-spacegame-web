@@ -4,12 +4,13 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
+schedules:
 - cron: "0 18 * * Mon,Tue,Wed,Thu,Fri"
   displayName: Daily midnight build
   branches:
     include:
     - main
-    - release
+    - new-feature
 
 pool:
   vmImage: 'ubuntu-20.04'
