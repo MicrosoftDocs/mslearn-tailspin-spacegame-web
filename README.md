@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/BlakeDevGroup/Tutor%20Planning%20and%20Scheduling%20Application/_apis/build/status/BlakeDevGroup.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/BlakeDevGroup/Tutor%20Planning%20and%20Scheduling%20Application/_build/latest?definitionId=1&branchName=build-pipeline)
 
 # Contributing
 
