@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- cron: "0 18 * * Mon,Tue,Wed,Thu,Fri"
+- cron: "0 18 * * 1,2,3,4,5"
   displayName: Build Every Workday
   branches:
     include:
