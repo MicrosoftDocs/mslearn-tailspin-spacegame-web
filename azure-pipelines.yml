@@ -45,7 +45,7 @@ steps:
     projects: '**/*.csproj'
 
 - template: templates/build.yml
-  paramters:
+  parameters:
   buildConfiguration: 'Debug'
 
 - template: templates/build.yml
