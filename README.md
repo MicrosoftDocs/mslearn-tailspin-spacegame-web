@@ -1,4 +1,6 @@
 
+[![Build Status](https://westaf.visualstudio.com/PIPE-01%20Create%20a%20build%20pipeline/_apis/build/status/babacardiop.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://westaf.visualstudio.com/PIPE-01%20Create%20a%20build%20pipeline/_build/latest?definitionId=5&branchName=build-pipeline)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
