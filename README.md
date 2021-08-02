@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/gtlambating/Space%20Game%20-%20web%20-%20Delivery%20plans/_apis/build/status/gtlambating.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/gtlambating/Space%20Game%20-%20web%20-%20Delivery%20plans/_build/latest?definitionId=3&branchName=main)
 
 # Contributing
 
