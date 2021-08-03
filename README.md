@@ -1,4 +1,8 @@
 
+[![Build Status](https://dev.azure.com/del-sueldol/pace%20Game%20-%20web%20-%20Pipeline/_apis/build/status/leandrodelsueldo.mslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/del-sueldol/pace%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=28&branchName=refs%2Fpull%2F2%2Fmerge)
+
+https://dev.azure.com/del-sueldol/pace%20Game%20-%20web%20-%20Pipeline/_apis/build/status/leandrodelsueldo.mslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
