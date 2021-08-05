@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  Name: 'Space-Games'
 
 variables:
   solution: '**/*.sln'
