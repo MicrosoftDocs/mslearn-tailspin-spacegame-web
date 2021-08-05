@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  Name: 'Space-Games'
+pool: Space-Games
 
 variables:
   solution: '**/*.sln'
