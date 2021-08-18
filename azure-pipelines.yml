@@ -37,7 +37,7 @@ steps:
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration Release -p:Version=1.0.$(Build.BuildNumber)'
+    arguments: '--no-restore --configuration Release -p:Version=1.0.$(Build.BuildId)'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
