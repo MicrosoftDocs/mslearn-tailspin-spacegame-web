@@ -12,7 +12,7 @@ variables:
   dotnetSdkVersion: '5.x'
   versionNumberMajor: '1'
   versionNumberMinor: '0'
-  versionNumberRevision: '$(Rev:r)'
+  versionNumberRevision: '$(Build.BuildId)'
   versionNumber: '$(versionNumberMajor).$(versionNumberMinor).$(versionNumberRevision)'
 
 steps:
