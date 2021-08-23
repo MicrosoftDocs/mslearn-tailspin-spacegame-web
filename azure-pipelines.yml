@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ASP.NET
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
@@ -123,4 +122,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
->>>>>>> df5d3f7cfcbdc75867c909816c7e40a77edd3e9d
