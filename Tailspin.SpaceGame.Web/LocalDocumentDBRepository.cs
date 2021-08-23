@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -65,23 +65,6 @@ namespace TailSpin.SpaceGame.Web
                 .AsEnumerable(); // make enumeratable
 
             return Task<IEnumerable<T>>.FromResult(result);
-        }
-
-        /// <summary>
-        /// Retrieves the number of items that match the given query predicate.
-        /// </summary>
-        /// <returns>
-        /// A task that represents the asynchronous operation.
-        /// The task result contains the number of items that match the query predicate.
-        /// </returns>
-        /// <param name="queryPredicate">Predicate that specifies which items to select.</param>
-        public Task<int> CountItemsAsync(Expression<Func<T, bool>> queryPredicate)
-        {
-            var count = _items.AsQueryable()
-                .Where(queryPredicate) // filter
-                .Count(); // count
-
-            return Task<int>.FromResult(count);
         }
     }
 }
