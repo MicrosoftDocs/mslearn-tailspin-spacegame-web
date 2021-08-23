@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +13,10 @@ namespace TailSpin.SpaceGame.Web
     {
         // An in-memory list of all items in the collection.
         private readonly List<T> _items;
+
+        public LocalDocumentDBRepository()
+        {
+        }
 
         public LocalDocumentDBRepository(string fileName)
         {
@@ -61,27 +65,25 @@ namespace TailSpin.SpaceGame.Web
                 .Where(queryPredicate) // filter
                 .OrderByDescending(orderDescendingPredicate) // sort
                 .Skip(page * pageSize) // find page
-                .Take(pageSize - 1) // take items
+                .Take(pageSize) // take items
                 .AsEnumerable(); // make enumeratable
 
             return Task<IEnumerable<T>>.FromResult(result);
         }
 
-        /// <summary>
-        /// Retrieves the number of items that match the given query predicate.
-        /// </summary>
-        /// <returns>
-        /// A task that represents the asynchronous operation.
-        /// The task result contains the number of items that match the query predicate.
-        /// </returns>
-        /// <param name="queryPredicate">Predicate that specifies which items to select.</param>
-        public Task<int> CountItemsAsync(Expression<Func<T, bool>> queryPredicate)
+        Task<int> IDocumentDBRepository<T>.CountItemsAsync(Expression<Func<T, bool>> queryPredicate)
         {
-            var count = _items.AsQueryable()
-                .Where(queryPredicate) // filter
-                .Count(); // count
+            throw new NotImplementedException();
+        }
 
-            return Task<int>.FromResult(count);
+        Task<T> IDocumentDBRepository<T>.GetItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<T>> IDocumentDBRepository<T>.GetItemsAsync(Expression<Func<T, bool>> queryPredicate, Expression<Func<T, int>> orderDescendingPredicate, int page, int pageSize)
+        {
+            throw new NotImplementedException();
         }
     }
 }
