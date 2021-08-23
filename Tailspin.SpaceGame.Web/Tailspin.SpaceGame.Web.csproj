@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
+<<<<<<< HEAD
+=======
   </ItemGroup>
   <ItemGroup>
     <Content Remove="SampleData\profiles.json" />
@@ -29,5 +31,6 @@
     <EmbeddedResource Include="SampleData\scores.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </EmbeddedResource>
+>>>>>>> df5d3f7cfcbdc75867c909816c7e40a77edd3e9d
   </ItemGroup>
 </Project>
