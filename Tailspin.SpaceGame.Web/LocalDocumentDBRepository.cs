@@ -14,6 +14,10 @@ namespace TailSpin.SpaceGame.Web
         // An in-memory list of all items in the collection.
         private readonly List<T> _items;
 
+        public LocalDocumentDBRepository()
+        {
+        }
+
         public LocalDocumentDBRepository(string fileName)
         {
             // Serialize the items from the provided JSON document.
@@ -65,6 +69,21 @@ namespace TailSpin.SpaceGame.Web
                 .AsEnumerable(); // make enumeratable
 
             return Task<IEnumerable<T>>.FromResult(result);
+        }
+
+        Task<int> IDocumentDBRepository<T>.CountItemsAsync(Expression<Func<T, bool>> queryPredicate)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<T> IDocumentDBRepository<T>.GetItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<T>> IDocumentDBRepository<T>.GetItemsAsync(Expression<Func<T, bool>> queryPredicate, Expression<Func<T, int>> orderDescendingPredicate, int page, int pageSize)
+        {
+            throw new NotImplementedException();
         }
     }
 }
