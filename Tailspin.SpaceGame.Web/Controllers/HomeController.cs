@@ -26,8 +26,8 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         public async Task<IActionResult> Index(
-            int page = 1, 
-            int pageSize = 10, 
+            int page = 1,
+            int pageSize = 10,
             string mode = "",
             string region = ""
             )
@@ -47,13 +47,13 @@ namespace TailSpin.SpaceGame.Web.Controllers
                     "Trio"
                 },
 
-                    GameRegions = new List<string>()
+                GameRegions = new List<string>()
                 {
-                    "Milky Way",
                     "Andromeda",
-                    "Pinwheel",
-                    "NGC 1300",
                     "Messier 82",
+                    "Milky Way",
+                    "NGC 1300",
+                    "Pinwheel",
                 }
             };
 
@@ -112,7 +112,7 @@ namespace TailSpin.SpaceGame.Web.Controllers
         }
 
         [Route("/profile/{id}")]
-        public async Task<IActionResult> Profile(string id, string rank="")
+        public async Task<IActionResult> Profile(string id, string rank = "")
         {
             try
             {
