@@ -19,7 +19,7 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '3.1.301'
+        dotnet-version: '3.1'
         include-prerelease: true
 
     - name: Build with dotnet
@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'azqatar-mslearn-tailspin-spacegame-web'
         slot-name: 'staging'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_96171d4daddf4c9e8fde14d1659bf360 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5a6fad9b182a4cfdb304dce3be276046 }}
         package: .
