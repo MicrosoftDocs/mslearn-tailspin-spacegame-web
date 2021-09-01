@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "Tailspin.SpaceGame.Web\\bin\\Release\\net5.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/843194f0-795a-4ab9-ae40-1f0e2b917cf8/resourceGroups/mslearn-tailspin-spacegame-web/providers/Microsoft.Web/sites/azqatar-mslearn-tailspin-spacegame-web"
+}
