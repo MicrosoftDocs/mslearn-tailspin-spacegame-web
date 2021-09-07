@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'Windows10agent1'
+  name: Default
 
 variables:
   solution: '**/*.sln'
