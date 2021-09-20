@@ -13,12 +13,10 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot/'
   dotnetSdkVersion: '5.x'
 
 steps:
-- task: NuGetToolInstaller@1
-
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
@@ -45,27 +43,14 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: '**/*.csproj'
-    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactsStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
-
-- task: CopyFiles@2
-  inputs:
-    targetFolder: '$(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
 - task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
