@@ -1,34 +1,43 @@
-# ASP.NET Core (.NET Framework)
-# Build and test ASP.NET Core projects targeting the full .NET Framework.
-# Add steps that publish symbols, save build artifacts, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
-
+### YamlMime:Yaml
+ms.openlocfilehash: e8e0c0487370439eb50ee376aa05769b8455f241
+ms.sourcegitcommit: 57d343a6c7c2aa43c9f007d7823891d2141eb471
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113169688"
 trigger:
-- main
-
+- '*'
 pool:
-  vmImage: 'windows-latest'
-
+  vmImage: ubuntu-20.04
+  demands:
+  - npm
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
-
+  buildConfiguration: Release
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: UseDotNet@2
+  displayName: Use .NET SDK 5.x
   inputs:
-    restoreSolution: '$(solution)'
-
-- task: VSBuild@1
+    packageType: sdk
+    version: 5.x
+- task: Npm@1
+  displayName: Run npm install
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
+    verbose: false
+- script: ./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot
+  displayName: Compile Sass assets
+- task: gulp@1
+  displayName: Run gulp tasks
+- script: echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt
+  displayName: Write build info
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+- task: DotNetCoreCLI@2
+  displayName: Restore project dependencies
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: restore
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: Build the project - Release
+  inputs:
+    command: build
+    arguments: --no-restore --configuration Release
+    projects: '**/*.csproj'
