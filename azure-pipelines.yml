@@ -1,6 +1,10 @@
 ### YamlMime:Yaml
-
-
+ms.openlocfilehash: e8e0c0487370439eb50ee376aa05769b8455f241
+ms.sourcegitcommit: 57d343a6c7c2aa43c9f007d7823891d2141eb471
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/01/2021
+ms.locfileid: "113169688"
 trigger:
 - '*'
 pool:
@@ -34,6 +38,6 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: Build the project - Release
   inputs:
-    command: 'build'
+    command: build
+    arguments: --no-restore --configuration Release
     projects: '**/*.csproj'
-    arguments: '--no-restore --configuration Release'
