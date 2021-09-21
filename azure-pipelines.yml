@@ -41,5 +41,3 @@ steps:
     command: build
     arguments: --no-restore --configuration Release
     projects: '**/*.csproj'git add azure-pipelines.yml
-git commit -m "Add build tasks"
-git push origin build-pipeline
