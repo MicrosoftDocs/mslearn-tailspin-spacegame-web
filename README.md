@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/workflowmslearn/Space%20Game-web-Workflow/_apis/build/status/atSignNicolaas.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/workflowmslearn/Space%20Game-web-Workflow/_build/latest?definitionId=2&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
