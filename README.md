@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/edtlt/testdemo/_apis/build/status/Edwardtlt.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/edtlt/testdemo/_build/latest?definitionId=3&branchName=main)
 
 # Contributing
 
