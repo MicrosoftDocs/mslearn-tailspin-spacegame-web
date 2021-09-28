@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/ptchau/Space%20Game%20-%20web/_apis/build/status/ptchau2003.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/ptchau/Space%20Game%20-%20web/_build/latest?definitionId=4&branchName=main)
 
 # Contributing
 
