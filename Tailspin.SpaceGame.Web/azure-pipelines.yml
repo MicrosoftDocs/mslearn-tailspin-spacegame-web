@@ -17,7 +17,7 @@ steps:
     version: '5.x'
 
 - task: Npm@1
-  displayName: 'Run npm install'
+  displayName: 'Run a npm install'
   inputs:
     verbose: false
 
