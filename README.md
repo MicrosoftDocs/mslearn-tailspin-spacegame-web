@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/adonismohamedibrahima/azuredevopstest/_apis/build/status/adonismi.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/adonismohamedibrahima/azuredevopstest/_build/latest?definitionId=1&branchName=build-pipeline)
 
 # Contributing
 
