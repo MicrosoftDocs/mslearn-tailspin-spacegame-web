@@ -1,5 +1,5 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: e8e0c0487370439eb50ee376aa05769b8455f241
+ms.openlocfilehash: 16dc8b4edff051168ef33aca865771632e9e8a6e
 ms.sourcegitcommit: 57d343a6c7c2aa43c9f007d7823891d2141eb471
 ms.translationtype: HT
 ms.contentlocale: fr-FR
@@ -11,13 +11,10 @@ pool:
   vmImage: ubuntu-20.04
   demands:
   - npm
-variables:
-  buildConfiguration: Release
 steps:
 - task: UseDotNet@2
   displayName: Use .NET SDK 5.x
   inputs:
-    packageType: sdk
     version: 5.x
 - task: Npm@1
   displayName: Run npm install
@@ -41,3 +38,14 @@ steps:
     command: build
     arguments: --no-restore --configuration Release
     projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: Publish the project - Release
+  inputs:
+    command: publish
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: --no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release
+    zipAfterPublish: true
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
