@@ -1,0 +1,24 @@
+### YamlMime:Yaml
+ms.openlocfilehash: 32819343100f4d8212e660497c1dd9a1e652711a
+ms.sourcegitcommit: 57d343a6c7c2aa43c9f007d7823891d2141eb471
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/10/2021
+ms.locfileid: "113169702"
+parameters:
+  buildConfiguration: Release
+steps:
+- task: DotNetCoreCLI@2
+  displayName: Build the project - ${{ parameters.buildConfiguration }}
+  inputs:
+    command: build
+    arguments: --no-restore --configuration ${{ parameters.buildConfiguration }}
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: Publish the project - ${{ parameters.buildConfiguration }}
+  inputs:
+    command: publish
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: --no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}
+    zipAfterPublish: true
