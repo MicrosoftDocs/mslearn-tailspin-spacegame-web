@@ -6,6 +6,13 @@
 trigger:
 - '*'
 
+schedules:
+  - cron: '0 3 * * 1-5'
+    displayName: Daily release
+    branches:
+      include:
+        - main
+
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
