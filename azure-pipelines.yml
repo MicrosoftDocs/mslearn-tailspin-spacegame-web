@@ -9,7 +9,7 @@ trigger:
 pool:
   name: Default
   demands:
-   - agent.name -equals Ubuntu_AWS_DevOps_AgentPool
+   - agent.name -equals mydockeragent
 
 variables:
   buildConfiguration: 'Release'
