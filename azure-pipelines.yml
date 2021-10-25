@@ -6,9 +6,9 @@
 trigger:
 - '*'
 
-pool: 'akpool'
-  demands:
-  - npm
+pool: 
+  name: 'akpool'
+  demands: 'npm'
 
 variables:
   buildConfiguration: 'Release'
