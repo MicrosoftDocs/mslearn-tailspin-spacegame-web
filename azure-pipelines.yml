@@ -7,7 +7,7 @@ trigger:
 - '*'
 
 pool: 
-  name: 'Azure Pipelines'
+  name: 'akpool'
 
 variables:
   buildConfiguration: 'Release'
