@@ -8,7 +8,6 @@ trigger:
 
 pool: 
   name: 'akpool'
-  demands: 'npm'
 
 variables:
   buildConfiguration: 'Release'
