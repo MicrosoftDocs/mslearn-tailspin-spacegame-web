@@ -14,6 +14,7 @@ stages:
         displayName: test
       - script: dotnet publish
         displayName: publish artifact
+        
           
 
 
