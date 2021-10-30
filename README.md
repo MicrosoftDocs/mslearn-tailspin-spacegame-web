@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/AdamCzepielDevops/TestProject/_apis/build/status/Space%20Game%20-%20web?branchName=main)](https://dev.azure.com/AdamCzepielDevops/TestProject/_build/latest?definitionId=30&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
