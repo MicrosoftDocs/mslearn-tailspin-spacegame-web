@@ -1,5 +1,6 @@
 trigger:
   - "*"
+  - Release
 
 pool:
   vmImage: "ubuntu-20.04"
