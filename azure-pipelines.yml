@@ -5,6 +5,7 @@
 
 trigger:
 - main
+- build-pipeline
 
 pool:
   name: 'Default'
