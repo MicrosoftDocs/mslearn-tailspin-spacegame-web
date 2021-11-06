@@ -8,6 +8,8 @@ trigger:
 
 pool:
   name: 'Default'
+  demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
