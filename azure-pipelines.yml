@@ -4,7 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
+<<<<<<< HEAD
 - '*'
+=======
+- main
+- build-pipeline
+>>>>>>> 7b6dc5056e1be037f14f5ed4addad813e773e621
 
 pool:
   name: 'Default'
