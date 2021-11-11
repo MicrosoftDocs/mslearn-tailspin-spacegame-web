@@ -10,9 +10,9 @@ steps:
     projects: '**/*.csproj'
   
 - task: DotNetCoreCLI@2
-displayName: 'Published the project - ${{ parameters.buildConfiguration }}'
-inputs:
-  command: 'publish'
-  projects: '**/*.csproj'
-  publishWebProjects: false
-  arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
+  displayName: 'Published the project - ${{ parameters.buildConfiguration }}'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfiguration }}'
