@@ -29,10 +29,10 @@ steps:
 - script: './node_modules/.bin/node-sass Tailspin.Space.Web/wwwroot -- output Tailspin.SpaceGame.Web/w'
   displayName: 'Compile Sass assets'
 
-- tasks: gulp@1
+- task: gulp@1
   displayName: 'Run gulp tasks'
 
-- scrpit: 'echo "$(Build.DefinitionName), $(Build.buildid),$(BuildNumber)" > buildinfo.txt'
+- script: 'echo "$(Build.DefinitionName), $(Build.buildid),$(BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.web/wwwroot
 
