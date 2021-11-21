@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/PwC-DevOps-Challenge/Space%20Game-web-Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=feature%2Fhome-page-text)](https://dev.azure.com/PwC-DevOps-Challenge/Space%20Game-web-Workflow/_build/latest?definitionId=1&branchName=feature%2Fhome-page-text)
+
 
 # Contributing
 
