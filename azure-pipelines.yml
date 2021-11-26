@@ -1,5 +1,5 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 1f16ddecd0df0d946cdcc20c946ed58193f9f1c2
+ms.openlocfilehash: 3021ff59990a44d5d0e71b5a887f4570c79b69f4
 ms.sourcegitcommit: f3937681c3f6e310355071e1842967695e365751
 ms.translationtype: HT
 ms.contentlocale: pt-BR
@@ -36,20 +36,12 @@ steps:
   inputs:
     command: restore
     projects: '**/*.csproj'
-- task: DotNetCoreCLI@2
-  displayName: Build the project - $(buildConfiguration)
-  inputs:
-    command: build
-    arguments: --no-restore --configuration $(buildConfiguration)
-    projects: '**/*.csproj'
-- task: DotNetCoreCLI@2
-  displayName: Publish the project - $(buildConfiguration)
-  inputs:
-    command: publish
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: --no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)
-    zipAfterPublish: true
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: Debug
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: Release
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
