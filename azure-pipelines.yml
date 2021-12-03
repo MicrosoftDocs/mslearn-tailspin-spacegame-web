@@ -19,6 +19,10 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x' 
+    
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
