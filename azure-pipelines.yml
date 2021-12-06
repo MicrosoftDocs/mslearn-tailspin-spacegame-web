@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'default'
 
 variables:
   buildConfiguration: 'Release'
