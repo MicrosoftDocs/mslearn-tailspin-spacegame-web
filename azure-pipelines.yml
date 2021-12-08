@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 718aff1ba89c3c4a615ade497d84406e3dd3cbc8
-ms.sourcegitcommit: f3937681c3f6e310355071e1842967695e365751
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2021
-ms.locfileid: "130747933"
+#ms.openlocfilehash: 718aff1ba89c3c4a615ade497d84406e3dd3cbc8
+#ms.sourcegitcommit: f3937681c3f6e310355071e1842967695e365751
+#ms.translationtype: HT
+#ms.contentlocale: fr-FR
+#ms.lasthandoff: 10/29/2021
+#ms.locfileid: "130747933"
 trigger:
 - '*'
 pool:
@@ -25,7 +25,7 @@ steps:
   inputs:
     versionSpec: '6.x'
     checkLatest: true
-    
+
 - task: Npm@1
   displayName: Run npm install
   inputs:
