@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### YamlMime:Yaml
 #ms.openlocfilehash: 718aff1ba89c3c4a615ade497d84406e3dd3cbc8
 #ms.sourcegitcommit: f3937681c3f6e310355071e1842967695e365751
@@ -66,3 +67,22 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+=======
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
+>>>>>>> main
