@@ -18,6 +18,11 @@ steps:
     version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
+  displayName: 'npm ci'
+  inputs:
+    verbose: true
+    
+- task: Npm@1
   displayName: 'npm install'
   inputs:
     verbose: false
