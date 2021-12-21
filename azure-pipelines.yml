@@ -1,10 +1,10 @@
 trigger:
   branches:
     include:
-    - '*' # build all branches.
+    - '*'     # build all branches
   paths:
-    include:
-    - docs/* #exclude build off the docs folder.
+    exclude:
+    - docs/*  # exclude the docs folder
 
 pool:
   vmImage: 'ubuntu-20.04'
