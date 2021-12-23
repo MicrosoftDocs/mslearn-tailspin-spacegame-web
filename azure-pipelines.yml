@@ -45,6 +45,16 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
+#This build task runs the dotnet test command.
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Unit Test - $(buildConfiguration)'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    publishWebProjects: true
+    projects: '**/*.Tests.csproj'    
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:

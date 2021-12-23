@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+
 using NUnit.Framework;
+
 using TailSpin.SpaceGame.Web;
 using TailSpin.SpaceGame.Web.Models;
 
@@ -40,14 +42,15 @@ namespace Tests
 
             // Fetch the scores.
             Task<IEnumerable<Score>> scoresTask = _scoreRepository.GetItemsAsync(
-                queryPredicate, // the predicate defined above
+                queryPredicate.Compile(), // the predicate defined above
                 score => 1, // we don't care about the order
                 PAGE,
                 MAX_RESULTS
             );
             IEnumerable<Score> scores = scoresTask.Result;
 
-            // Verify that each score's game region matches the provided game region.
+            // Verification Method to Verify that each score's game region matches the provided game region.
+            // Assert that the game region of each returned score matches the provided game region.
             Assert.That(scores, Is.All.Matches<Score>(score => score.GameRegion == gameRegion));
         }
     }
