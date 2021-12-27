@@ -36,7 +36,7 @@ namespace Tests
 
             // Form the query predicate.
             // This expression selects all scores for the provided game region.
-            Expression<Func<Score, bool>> queryPredicate = score => (score.GameRegion == gameRegion);
+            Func<Score, bool> queryPredicate = score => (score.GameRegion == gameRegion);
 
             // Fetch the scores.
             Task<IEnumerable<Score>> scoresTask = _scoreRepository.GetItemsAsync(
