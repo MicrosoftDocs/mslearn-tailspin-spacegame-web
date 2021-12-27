@@ -1,43 +1,45 @@
-### YamlMime:Yaml
-ms.openlocfilehash: e8e0c0487370439eb50ee376aa05769b8455f241
-ms.sourcegitcommit: 6ba4cafffd53c85f6f022afe7e28825d9b0797a4
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 12/26/2021
-ms.locfileid: "133213718"
 trigger:
   - "*"
+
 pool:
-  vmImage: ubuntu-20.04
+  vmImage: "ubuntu-20.04"
   demands:
     - npm
+
 variables:
-  buildConfiguration: Release
+  buildConfiguration: "Release"
+
 steps:
   - task: UseDotNet@2
-    displayName: Use .NET SDK 5.x
+    displayName: "Use .NET SDK 5.x"
     inputs:
       packageType: sdk
-      version: 5.x
+      version: "5.x"
+
   - task: Npm@1
-    displayName: Run npm install
+    displayName: "Run npm install"
     inputs:
       verbose: false
-  - script: ./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot
-    displayName: Compile Sass assets
+
+  - script: "./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot"
+    displayName: "Compile Sass assets"
+
   - task: gulp@1
-    displayName: Run gulp tasks
-  - script: echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt
-    displayName: Write build info
+    displayName: "Run gulp tasks"
+
+  - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+    displayName: "Write build info"
     workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+
   - task: DotNetCoreCLI@2
-    displayName: Restore project dependencies
+    displayName: "Restore project dependencies"
     inputs:
-      command: restore
+      command: "restore"
       projects: "**/*.csproj"
+
   - task: DotNetCoreCLI@2
-    displayName: Build the project - Release
+    displayName: "Build the project - Release"
     inputs:
-      command: build
-      arguments: --no-restore --configuration Release
+      command: "build"
+      arguments: "--no-restore --configuration Release"
       projects: "**/*.csproj"
