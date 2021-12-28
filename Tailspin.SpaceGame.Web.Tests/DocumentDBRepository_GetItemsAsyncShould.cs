@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-<<<<<<< HEAD
 using System.Linq;
-=======
 using System.Linq.Expressions;
->>>>>>> code-coverage
 using System.Threading.Tasks;
 using NUnit.Framework;
 using TailSpin.SpaceGame.Web;
