@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: wewllthat 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wewllthat
+  template:
+    metadata:
+      labels:
+        app: wewllthat 
+    spec:
+      containers:
+        - name: wewllthat 
+          image: spanglab.azurecr.io/wewllthat
+          ports:
+          - containerPort: 8080
