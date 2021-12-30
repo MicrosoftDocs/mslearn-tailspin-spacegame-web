@@ -1,0 +1,10 @@
+is_global = true
+build_property.TargetFramework = net5.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Tailspin.SpaceGame.Web
+build_property.ProjectDir = c:\Users\CHS\OneDrive - Pactera Technologies, NA Inc\桌面\mslearn-tailspin-spacegame-web\Tailspin.SpaceGame.Web\
