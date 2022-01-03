@@ -29,7 +29,8 @@ git branch | grep -ve "main" | xargs git branch -D
 branches=$(git branch -r 2> /dev/null | grep -ve "main" | cut -d "/" -f 2)
 # Synchronize each branch with main and push the result
 while IFS= read -r branch; do
-    # Fetch and switch to feature branch
+   [![Build Status](https://dev.azure.com/christianmanaois/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=master)](https://dev.azure.com/christianmanaois/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=2&branchName=master)
+   # Fetch and switch to feature branch
     git fetch origin $branch
     git checkout $branch
     # Ensure local environment is free of extra files
