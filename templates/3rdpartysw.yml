@@ -1,0 +1,8 @@
+
+parameters:
+  verboseconfig: false
+steps:
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: ${{ parameters.verboseconfig}}

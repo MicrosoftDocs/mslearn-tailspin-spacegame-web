@@ -18,10 +18,9 @@ steps:
     packageType: sdk
     version: $(dotnetsdkversion)
 
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose: false
+- template: templates/3rdpartysw.yml
+  parameters:
+    verboseconfig: false
 
 - script: './node_modules/.bin/node-sass $(rootdirectory) --output $(rootdirectory)'
   displayName: 'Compile Sass assets'
