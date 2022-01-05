@@ -4,10 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+- '*'
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
 
 variables:
   solution: '**/*.sln'
