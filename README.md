@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/valentinemasina/SpaceGame/_apis/build/status/randforum.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/valentinemasina/SpaceGame/_build/latest?definitionId=17&branchName=build-pipeline)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
