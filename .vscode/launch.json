@@ -20,7 +20,8 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "token": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDXlvkiJdLAPJUdZKtzVQ5X8vIb7J2NUgIT5G4z2DX25hmOkexvg0hGPR8BdflDh9KHbeEdQ8J9QxVozc9QjmMLvS6vyC58FktEszewYzw2GYdtGaLw9pLUHHwHh4q/3MK0GfqVkMHK3KqhKRiOkW86lbIf8trbxQXEUuTsb7/EACGZky2YzmLmcyZC7K42fH+uTKASomgX4SmK+gA2QsA79/edX8rUSfVza5S6Re9JW/z5rB5uPUAMyLsykE1YDTiFy4a/EYUuuyRdxZ+ZwnQ3/Syk3yUltFw6zNH9ferFJ/2/oQIOe1WbqniShsI8Cj/75WhZqN2LuEWJY2bwMt0hzpj3Y44TF4BW9nwSqoSIV6s39/Ysw3JL8JZRPQoDmrzAqxHuJmpkqGlezFiWem3zkM/fFoE+zZ0dlsZsBvu7O+cAKQjNyuzA5X5sq8WJCI/vldrYL1yGv84cB/ZKfQzw88uVyO29chl+o3PqYyaDqk7/Obz5I3FoHkdIW8YOY1k= dator@DESKTOP-Q7DEQCV"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
