@@ -1,3 +1,4 @@
+![example workflow](https://github.com/sherifsameh/mslearn-tailspin-spacegame-web/actions/workflows/azure-pipelines.yml/badge.svg)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
