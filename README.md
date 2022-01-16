@@ -1,4 +1,3 @@
-[![YourActionName Actions Status](https://github.com/{userName}/{repoName}/workflows/{workflowName}/badge.svg)](https://github.com/{userName}/{repoName}/actions)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
