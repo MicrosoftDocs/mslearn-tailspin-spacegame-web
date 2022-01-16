@@ -5,6 +5,7 @@
 
 trigger:
 - main
+- unit-tests
 
 pool:
   vmImage: 'windows-latest'
