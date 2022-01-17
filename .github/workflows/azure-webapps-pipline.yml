@@ -22,7 +22,7 @@ name: Build and deploy ASP.Net Core app to an Azure Web App
 env:
   AZURE_WEBAPP_NAME: mslearn-tailspin-spacegame-web    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: 'https://github.com/sherifsameh/mslearn-tailspin-spacegame-web'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '5'                 # set this to the .NET Core version to use
+  DOTNET_VERSION: '5.0.0'          # set this to the .NET Core version to use
 
 on:
   push:
