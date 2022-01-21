@@ -12,6 +12,7 @@ variables:
   dotnetSdkVersion: '5.x'
 
 steps:
+
 - script: 'echo "Source branch: $(Build.SourceBranch)"'
   displayName: 'Source branch: $(Build.SourceBranch)'
   
@@ -63,3 +64,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
