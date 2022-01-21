@@ -12,10 +12,10 @@ variables:
   dotnetSdkVersion: '5.x'
 
 steps:
-- script: 'echo "Source branch: $(Build.SourceBranch)"
+- script: 'echo "Source branch: $(Build.SourceBranch)"'
   displayName: 'Source branch: $(Build.SourceBranch)'
   
-- script: 'echo "Source branch name: $(Build.SourceBranchName)"
+- script: 'echo "Source branch name: $(Build.SourceBranchName)"'
   displayName: 'Source branch name: $(Build.SourceBranchName)'
 
 - task: UseDotNet@2
