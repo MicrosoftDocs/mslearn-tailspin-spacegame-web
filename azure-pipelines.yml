@@ -8,7 +8,8 @@ pool:
   demands:
   - agent.os -equals Linux
   - npm
-  - Node.js  
+  - Node.js
+  - gulp  
   
 variables:
   buildConfiguration: Release
