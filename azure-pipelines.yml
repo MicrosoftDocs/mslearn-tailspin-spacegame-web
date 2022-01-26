@@ -3,7 +3,7 @@
 
 trigger:
 - '*'
-pool:
+pool: LocalPool
   vmImage: ubuntu-20.04
   demands:
   - npm
