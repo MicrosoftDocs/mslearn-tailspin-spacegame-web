@@ -6,7 +6,9 @@ trigger:
 pool:
   name: LocalPool
   demands:
-  - agent.os -equals Linux  
+  - agent.os -equals Linux
+  - npm
+  - Node.js  
   
 variables:
   buildConfiguration: Release
