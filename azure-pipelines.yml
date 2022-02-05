@@ -13,7 +13,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwroot'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '5.x'
 
 steps:
@@ -22,6 +22,7 @@ steps:
   inputs:
     packageType: sdk
     version: '$(dotnetSdkVersion)'
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
