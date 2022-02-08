@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/roshansample/space%20game%20web%20pipeline/_apis/build/status/RoshanBastola.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/roshansample/space%20game%20web%20pipeline/_build/latest?definitionId=21&branchName=build-pipeline)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
