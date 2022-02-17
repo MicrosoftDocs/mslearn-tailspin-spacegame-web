@@ -3,10 +3,16 @@ trigger:
 
 pool:
     vmImage: 'ubuntu-20.04'
+
         variables:
             buildConfiguration: 'Release'
 
             steps:
+              - task: NodeTool@0 
+                    inputs:
+                            versionSpec: '16.x' # replace this value with the version that you need for your project
+                                  displayName: 'Install Node.js'
+
               - task: UseDotNet@2
                   displayName: 'Use .NET SDK 5.x'
                       inputs:
