@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Text.Json;
 using TailSpin.SpaceGame.Web.Models;
@@ -46,17 +45,16 @@ namespace TailSpin.SpaceGame.Web
         /// <param name="page">The 1-based page of results to return.</param>
         /// <param name="pageSize">The number of items on a page.</param>
         public Task<IEnumerable<T>> GetItemsAsync(
-            Expression<Func<T, bool>> queryPredicate,
-            Expression<Func<T, int>> orderDescendingPredicate,
+            Func<T, bool> queryPredicate,
+            Func<T, int> orderDescendingPredicate,
             int page = 1, int pageSize = 10
         )
         {
-            var result = _items.AsQueryable()
+            var result = _items
                 .Where(queryPredicate) // filter
                 .OrderByDescending(orderDescendingPredicate) // sort
                 .Skip(page * pageSize) // find page
-                .Take(pageSize) // take items
-                .AsEnumerable(); // make enumeratable
+                .Take(pageSize); // take items
 
             return Task<IEnumerable<T>>.FromResult(result);
         }
@@ -69,9 +67,9 @@ namespace TailSpin.SpaceGame.Web
         /// The task result contains the number of items that match the query predicate.
         /// </returns>
         /// <param name="queryPredicate">Predicate that specifies which items to select.</param>
-        public Task<int> CountItemsAsync(Expression<Func<T, bool>> queryPredicate)
+        public Task<int> CountItemsAsync(Func<T, bool> queryPredicate)
         {
-            var count = _items.AsQueryable()
+            var count = _items
                 .Where(queryPredicate) // filter
                 .Count(); // count
 
