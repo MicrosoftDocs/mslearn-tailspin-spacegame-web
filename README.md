@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/kaivandenbroek/Space%20game%20-%20web/_apis/build/status/KaivandenBroek.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/kaivandenbroek/Space%20game%20-%20web/_build/latest?definitionId=2&branchName=build-pipeline)
 
 # Contributing
 
