@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/wesselrooth/pipelineproject/_apis/build/status/wesselhva.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/wesselrooth/pipelineproject/_build/latest?definitionId=3&branchName=build-pipeline)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
