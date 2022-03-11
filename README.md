@@ -1,3 +1,4 @@
+[![Build Status](https://flutebot.visualstudio.com/Space%20Game%20web%20Workflow/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://flutebot.visualstudio.com/Space%20Game%20web%20Workflow/_build/latest?definitionId=4&branchName=main)
 
 # Contributing
 
