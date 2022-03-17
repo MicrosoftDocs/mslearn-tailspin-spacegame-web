@@ -3,17 +3,17 @@ parameters:
 
 steps:
 - task: DotNetCoreCLI@2
-    displayName: 'Build the project - ${{parameters.buildConfiguration}}'
-    inputs:
-      command: 'build'
-      arguments: '--no-build --configuration ${{parameters.buildConfiguration}}'
-      projects: '**/*.csproj'
+displayName: 'Build the project - ${{parameters.buildConfiguration}}'
+inputs:
+    command: 'build'
+    arguments: '--no-build --configuration ${{parameters.buildConfiguration}}'
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-    displayName: 'Publish project - ${{parameters.buildConfiguration}}'
-    inputs:
-      command: 'publish'
-      projects: '**/*.csproj'
-      publishWebProjects: false
-      arguments: '--no-build --configuration ${{parameters.buildConfiguration}} --output $(Build.ArtifactStagingDirectory)/${{parameters.buildConfiguration}}'
-      zipAfterPublish: true
+displayName: 'Publish project - ${{parameters.buildConfiguration}}'
+inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration ${{parameters.buildConfiguration}} --output $(Build.ArtifactStagingDirectory)/${{parameters.buildConfiguration}}'
+    zipAfterPublish: true
