@@ -1,4 +1,6 @@
 
+[![Build Status](https://austindsouza.visualstudio.com/Space%20Game%20-%20web%20-%20WorkfloW%201/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://austindsouza.visualstudio.com/Space%20Game%20-%20web%20-%20WorkfloW%201/_build/latest?definitionId=2&branchName=code-workflow)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
