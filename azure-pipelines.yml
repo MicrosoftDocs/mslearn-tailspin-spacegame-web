@@ -1,8 +1,10 @@
-  #Test 8
   
+   #my brain hurts  like hell
+   
   trigger:
   - '*'
   
+
   pool:
     vmImage: 'ubuntu-20.04'
     demands:
