@@ -1,14 +1,15 @@
-  #Test
-  
-  #trigger:
-  #- '*'
-
-  trigger: 
-    branches:
-      include: 
-      - releases/*
-      exclude:
-      - releases/old*
+  #Test5
+# this is being defined in app-ci pipeline
+resources:
+  pipelines:
+  - pipeline: PICBrahma.mslearn-tailspin-spacegame-web
+    source: build-pipeline
+    trigger: 
+      branches:
+        include: 
+        - code-workflow
+        exclude:
+        - releases/old*
   
   pool:
     vmImage: 'ubuntu-20.04'
