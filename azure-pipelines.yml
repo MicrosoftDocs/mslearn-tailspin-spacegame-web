@@ -1,7 +1,14 @@
   #Test
   
-  trigger:
-  - '*'
+  #trigger:
+  #- '*'
+
+  trigger: 
+    branches:
+      include: 
+      - releases/*
+      exclude:
+      - releases/old*
   
   pool:
     vmImage: 'ubuntu-20.04'
