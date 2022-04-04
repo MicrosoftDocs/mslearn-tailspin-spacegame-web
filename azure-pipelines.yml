@@ -7,7 +7,7 @@ trigger:
   - "*"
 
 pool:
-  vmImage: "ubuntu-20.02"
+  vmImage: "ubuntu-20.04"
   deamnds:
     - npm
 
