@@ -20,6 +20,7 @@ steps:
   - task: UseDotNet@2
     displayName: "Use .Net SDK 5.x"
     inputs:
+      packageType: "sdk"
       verbose: false
 
   - task: Npm@1
