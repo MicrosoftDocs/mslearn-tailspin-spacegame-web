@@ -1,3 +1,8 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
 trigger:
   - "*"
 
@@ -8,22 +13,21 @@ pool:
 
 steps:
   - task: UseDotNet@2
-    displayName: "Use .NET SDK 5.x"
+    displayName: "Use .Net SDK 5.x"
     inputs:
-      version: "5.x"
+      packageType: "sdk"
+      verbose: false
 
   - task: Npm@1
     displayName: "Run npm install"
-    inputs:
-      verbose: false
 
   - script: "./node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot"
-    displayName: "Compile Sass assets"
+    displayName: "Compile node-sass assets"
 
   - task: gulp@1
     displayName: "Run gulp tasks"
 
-  - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.buildNumber)" > buildInfo.txt'
     displayName: "Write build info"
     workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
@@ -34,10 +38,10 @@ steps:
       projects: "**/*.csproj"
 
   - task: DotNetCoreCLI@2
-    displayName: "Build the project - Release"
+    displayName: "Build project -Release"
     inputs:
       command: "build"
-      arguments: "--no-restore --configuration Release"
+      argumenets: "--no-restore --configuration Release"
       projects: "**/*.csproj"
 
   - task: DotNetCoreCLI@2
@@ -50,5 +54,5 @@ steps:
       zipAfterPublish: true
 
   - task: PublishBuildArtifacts@1
-    displayName: "Publish Artifact: drop"
+    displayName: "Publish artifact- Drop"
     condition: succeeded()
