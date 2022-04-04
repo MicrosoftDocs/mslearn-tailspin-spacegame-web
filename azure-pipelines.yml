@@ -18,22 +18,22 @@ variables:
 
 steps:
   - task: UseDotNet@2
-displayName: "Use .Net SDK 5.x"
-inputs:
-  verbose: false
+  displayName: "Use .Net SDK 5.x"
+  inputs:
+    verbose: false
   
 - task: Npm@1
-displayName: 'Run npm install'
+  displayName: "Run npm install"
 
--script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-displayName: 'Compile node-sass assets'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile node-sass assets'
 
-task: gulp@1
-displayName: 'Run gulp tasks'
+- task: gulp@1
+  displayName: 'Run gulp tasks'
 
--script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.buildNumber)" > buildInfo.txt'
-displayName: 'Write build info'
-workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.buildNumber)" > buildInfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
 - task: DotNetCoreCL@2
 displayName: 'Restore project dependencies'
@@ -43,11 +43,11 @@ inputs:
 
 
 - task: DotNetCoreCL@2
-displayName: 'Build project -Release'
-inputs:
-  command: 'build'
-  argumenets: '--no-restore configuration Release'
-  projects: '**/*.csproj'
+  displayName: 'Build project -Release'
+  inputs:
+    command: 'build'
+    argumenets: '--no-restore configuration Release'
+    projects: '**/*.csproj'
 
 
   
