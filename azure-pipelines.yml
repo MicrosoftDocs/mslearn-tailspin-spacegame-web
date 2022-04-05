@@ -1,5 +1,5 @@
 stages:
-  - stage: continuos-integration
+  - stage: continuosintegration
     jobs:
       - job: build
         steps:
