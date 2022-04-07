@@ -5,16 +5,26 @@ stages:
         steps:
           - script: dotnet restore
           - script: dotnet build
-          - script: dotnet publish 
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
           
   - stage: cd
     jobs:
       - job: deploy
         steps:
+        - task: DownloadBuildArtifacts@1
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
         - task: AzureRmWebAppDeployment@4
           inputs:
             ConnectionType: 'AzureRM'
             azureSubscription: 'Pay-As-You-Go(049cc0b9-2696-4e70-871b-4366be487c19)'
             appType: 'webApp'
             WebAppName: 'webapp378'
-            packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+            packageForLinux: '$(System.ArtifactsDirectory)/drop/*.zip'
