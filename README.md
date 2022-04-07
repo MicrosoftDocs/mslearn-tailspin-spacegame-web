@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/jonesnebula/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status/jonesnebula.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/jonesnebula/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=7&branchName=main)
 
 # Contributing
 
