@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/AcademyAzure2022/Space%20Game%20-%20web%20-%20pipeline%20Johan%20implement/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/AcademyAzure2022/Space%20Game%20-%20web%20-%20pipeline%20Johan%20implement/_build/latest?definitionId=26&branchName=code-workflow)
 
 # Contributing
 
