@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/AcademyAzure2022/Space%20Game%20-%20web%20-%20Workflow%20Noora/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/AcademyAzure2022/Space%20Game%20-%20web%20-%20Workflow%20Noora/_build/latest?definitionId=36&branchName=main)
 
 # Contributing
 
