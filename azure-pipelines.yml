@@ -8,20 +8,30 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '5.x'
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 5.x'
   inputs:
     packageType: sdk
+<<<<<<< HEAD
     version: '5.x'
+=======
+    version: '$(dotnetSdkVersion)'
+>>>>>>> f22a04ba4a37532b5b8dfae452a41ea3f4c7637d
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
+<<<<<<< HEAD
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+=======
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+>>>>>>> f22a04ba4a37532b5b8dfae452a41ea3f4c7637d
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -29,7 +39,11 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
+<<<<<<< HEAD
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+=======
+  workingDirectory: $(wwwrootDir)
+>>>>>>> f22a04ba4a37532b5b8dfae452a41ea3f4c7637d
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
@@ -37,9 +51,32 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+<<<<<<< HEAD
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+=======
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters: 
+    buildConfiguration: 'Release'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
+>>>>>>> f22a04ba4a37532b5b8dfae452a41ea3f4c7637d
