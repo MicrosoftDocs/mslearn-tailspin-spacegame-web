@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/milkeanuj/PyTestProject/_apis/build/status/AnujMilke.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/milkeanuj/PyTestProject/_build/latest?definitionId=1&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
