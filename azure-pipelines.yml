@@ -6,7 +6,8 @@
 trigger:
 - main
 
-pool: NHAFLM
+pool:
+  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
