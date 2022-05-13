@@ -1,0 +1,56 @@
+trigger:
+- '*'
+
+pool:
+  name: Default
+  demands:
+  - npm
+
+variables:
+  buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '5.x'
+
+stages: 
+  stage: first-stage
+    jobs:
+      job: build-stage
+        steps:
+        - task: UseDotNet@2
+          displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+          inputs:
+            version: '$(dotnetSdkVersion)'
+
+        - task: Npm@1
+          displayName: 'Run npm install'
+          inputs:
+            verbose: false
+
+        - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+          displayName: 'Compile Sass assets'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'Restore project dependencies'
+          inputs:
+            command: 'restore'
+            projects: '**/*.csproj'
+
+        - template: templates/build.yml
+          parameters:
+            buildConfiguration: 'Debug'
+
+        - template: templates/build.yml
+          parameters:
+            buildConfiguration: 'Release'
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact: drop'
+          condition: succeeded()
+
+      job: publish-stage
+      dependsOn: build-stage
+
+  stage: second-stage
+
+
+  
