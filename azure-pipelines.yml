@@ -49,5 +49,5 @@ steps:
 #   displayName: 'Publish Artifact: drop'
 #   condition: succeeded()
 
-- script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -d"" "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags/service=$(serviceName)?api-version=7.1-preview.3"'
+- script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags/service=$(serviceName)?api-version=7.1-preview.3"'
   displayName: Tag Build
