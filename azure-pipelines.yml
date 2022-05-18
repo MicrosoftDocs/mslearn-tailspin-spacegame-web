@@ -50,3 +50,4 @@ steps:
 #   condition: succeeded()
 
 - script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" $(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags/service=$(serviceName)?api-version=7.1-preview.3'
+  displayName: Tag Build
