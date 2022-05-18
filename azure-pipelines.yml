@@ -49,16 +49,4 @@ steps:
 #   displayName: 'Publish Artifact: drop'
 #   condition: succeeded()
 
-
-- task: PowerShell@2
-  name: TagRun
-  displayName: Tag run
-  inputs:
-    failOnStderr: true
-    targetType: 'inline'
-    script: |
-      $contentType = "application/json";
-      $headers = @{ Authorization = 'Bearer $(System.AccessToken)' };
-      $request = ConvertTo-Json @($rawRequest);
-      $uri = "$(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags/service=$(serviceName)?api-version=7.1-preview.3"
-      Invoke-RestMethod -uri $uri -method PUT -Headers $headers -ContentType $contentType;
+- script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" $(System.CollectionUri)$(System.TeamProject)/_apis/build/builds/$(Build.BuildId)/tags/service=$(serviceName)?api-version=7.1-preview.3'
