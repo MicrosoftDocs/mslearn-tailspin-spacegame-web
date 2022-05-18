@@ -57,6 +57,6 @@ steps:
 # - script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)Space%20Game%20-%20web%20-%20Pipeline/_apis/build/builds/$(Build.BuildId)/tags/service=$((parameters.serviceName)?api-version=7.1-preview.3"'
 #   displayName: Tag Build
 
-- script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags/service=$(parameters.ServiceName)?api-version=7.1-preview.3"'
+- script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags/service=${{ parameters.ServiceName }}?api-version=7.1-preview.3"'
   displayName: Tag Build
 
