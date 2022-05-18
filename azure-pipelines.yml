@@ -47,3 +47,10 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: AzureCLI@2
+  inputs:
+    azureSubscription: 'Pay-As-You-Go(6ba70ef7-bab6-4b5d-99da-704d84831fa7)'
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'az pipelines build tag add --build-id $(Build.BuildId) --tags service=$(serviceName)'
