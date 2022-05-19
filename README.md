@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Auszubildende/Ricardo%20Test/_apis/build/status/ricLanger.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/Auszubildende/Ricardo%20Test/_build/latest?definitionId=23&branchName=main)
 
 # Contributing
 
