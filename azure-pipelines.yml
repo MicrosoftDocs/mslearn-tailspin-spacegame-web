@@ -65,8 +65,8 @@ steps:
 # - script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags/service=${{ parameters.ServiceName }}?api-version=7.1-preview.3"'
 #   displayName: Tag Build
 
-- script: 'curl -X GET -H"Authorization: Bearer $(System.AccessToken)"
-          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3"'
+- script: 'while [ 0 != $(curl -X GET -H"Authorization: Bearer $(System.AccessToken)"
+          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3" | jq \'.count\') ]; do echo "Wait for parallel operation"; sleep 5; done'
   displayName: Check for conflicting builds
 
 
@@ -77,7 +77,7 @@ steps:
   displayName: Perform critical deployment actions
 
 - script: 'curl -X GET -H"Authorization: Bearer $(System.AccessToken)"
-          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3"'
+          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3" | jq'
   displayName: Check for inProgress tagged builds
 
 
