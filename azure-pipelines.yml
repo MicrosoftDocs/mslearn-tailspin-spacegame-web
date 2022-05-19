@@ -66,7 +66,7 @@ steps:
 #   displayName: Tag Build
 
 - script: 'while [ 0 != $(curl -X GET -H"Authorization: Bearer $(System.AccessToken)"
-          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3" | jq \'.count\') ]; do echo "Wait for parallel operation"; sleep 5; done'
+          "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3" | jq ".count") ]; do echo "Wait for parallel operation"; sleep 5; done'
   displayName: Check for conflicting builds
 
 
