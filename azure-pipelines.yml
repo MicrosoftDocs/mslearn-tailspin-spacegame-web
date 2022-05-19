@@ -73,6 +73,9 @@ steps:
 - script: 'curl -v -X POST -H"Authorization: Bearer $(System.AccessToken)" -H"Content-Type: application/json"  -d"[\"ServiceName=${{ parameters.ServiceName }}\",\"Location=${{ parameters.Location }}\",\"Release=${{ parameters.Release }}\"]"  "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags?api-version=7.1-preview.3"'
   displayName: Tag Build
 
+- script: 'sleep 120'
+  displayName: Perform critical deployment actions
+
 - script: 'curl -X GET -H"Authorization: Bearer $(System.AccessToken)"
           "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3"'
   displayName: Check for inProgress tagged builds
