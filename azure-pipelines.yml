@@ -65,7 +65,7 @@ steps:
 # - script: 'curl -X PUT -H"Authorization: Bearer $(System.AccessToken)" -H "Content-Length: 0" "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags/service=${{ parameters.ServiceName }}?api-version=7.1-preview.3"'
 #   displayName: Tag Build
 
-- script: 'curl -v -X GET -H"Authorization: Bearer $(System.AccessToken)" \
+- script: 'curl -v -X GET -H"Authorization: Bearer $(System.AccessToken)"
           "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3"'
   displayName: Check for conflicting builds
 
@@ -73,7 +73,7 @@ steps:
 - script: 'curl -v -X POST -H"Authorization: Bearer $(System.AccessToken)" -H"Content-Type: application/json"  -d"[\"ServiceName=${{ parameters.ServiceName }}\",\"Location=${{ parameters.Location }}\",\"Release=${{ parameters.Release }}\"]"  "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds/$(Build.BuildId)/tags?api-version=7.1-preview.3"'
   displayName: Tag Build
 
-- script: 'curl -v -X GET -H"Authorization: Bearer $(System.AccessToken)" \
+- script: 'curl -v -X GET -H"Authorization: Bearer $(System.AccessToken)"
           "$(System.CollectionUri)$(System.TeamProjectId)/_apis/build/builds?tagFilters=Location=${{ parameters.Location }}&statusFilter=inProgress&api-version=7.1-preview.3"'
   displayName: Check for inProgress tagged builds
 
