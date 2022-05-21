@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/basumridul/Space%20Game%20-%20web%20-%20Pipelines%201/_apis/build/status/mridulbasu.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/basumridul/Space%20Game%20-%20web%20-%20Pipelines%201/_build/latest?definitionId=1&branchName=main)
+
 
 # Contributing
 
