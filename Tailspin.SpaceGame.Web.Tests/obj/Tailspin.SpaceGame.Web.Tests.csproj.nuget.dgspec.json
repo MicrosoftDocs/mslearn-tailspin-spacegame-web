@@ -1,0 +1,143 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web.Tests\\Tailspin.SpaceGame.Web.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web.Tests\\Tailspin.SpaceGame.Web.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web.Tests\\Tailspin.SpaceGame.Web.Tests.csproj",
+        "projectName": "Tailspin.SpaceGame.Web.Tests",
+        "projectPath": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web.Tests\\Tailspin.SpaceGame.Web.Tests.csproj",
+        "packagesPath": "C:\\Users\\laura.mercedes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\laura.mercedes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\Tailspin.SpaceGame.Web.csproj": {
+                "projectPath": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\Tailspin.SpaceGame.Web.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.10.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.17.0, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "nunit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\Tailspin.SpaceGame.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\Tailspin.SpaceGame.Web.csproj",
+        "projectName": "Tailspin.SpaceGame.Web",
+        "projectPath": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\Tailspin.SpaceGame.Web.csproj",
+        "packagesPath": "C:\\Users\\laura.mercedes\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura.mercedes\\Desktop\\mslearn-tailspin-spacegame-web\\mslearn-tailspin-spacegame-web\\Tailspin.SpaceGame.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\laura.mercedes\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
