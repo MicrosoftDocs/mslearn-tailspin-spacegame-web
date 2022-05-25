@@ -21,7 +21,11 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+<<<<<<< HEAD
     restoreSolution: '$(solution)'
+=======
+    version: '$(dotnetSdkVersion)'
+>>>>>>> ae2e984 (Support build configurations)
 
 - task: VSBuild@1
   inputs:
@@ -30,7 +34,37 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+<<<<<<< HEAD
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+=======
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: $(wwwrootDir)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- template: template/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template: template/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
+>>>>>>> ae2e984 (Support build configurations)
