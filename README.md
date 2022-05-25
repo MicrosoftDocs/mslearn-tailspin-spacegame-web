@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/eulectio/Space%20Game%20-Web%20-%20Fluxo%20de%20trabalho/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/eulectio/Space%20Game%20-Web%20-%20Fluxo%20de%20trabalho/_build/latest?definitionId=2&branchName=code-workflow)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
