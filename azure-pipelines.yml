@@ -2,9 +2,8 @@ trigger:
 - '*'
 
 pool:
-  name: Default
+  vmImage: 'Ubuntu-20.04'
   demands:
-   - agent.name -equals cobiself-agent
    - npm
 
 variables:
