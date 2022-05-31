@@ -12,6 +12,13 @@ variables:
   dotnetSdkVersion: '5.x'
 
 steps:
+
+- task: gitreleasemanager/addasset@0
+  inputs:
+    owner: 'cgonzalez'
+    repository: 'mslearn-tailspin-spacegame-web'
+    token: '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'
+    tagName: 'Release1'
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
@@ -52,8 +59,9 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
-    
+
 - task: DotNetCoreCLI@2
+
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
