@@ -2,6 +2,7 @@ trigger:
 - '*'
 
 pool:
+  vmImage: 'windows-2022'
   demands:
   - npm
 
