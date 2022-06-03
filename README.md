@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/vibeets21080659/CI-Demo-SmallLearningSession/_apis/build/status/vibeets2108.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/vibeets21080659/CI-Demo-SmallLearningSession/_build/latest?definitionId=1&branchName=main)
 
 # Contributing
 
