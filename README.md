@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/oitmpt-umn/CK%20MSLearn%20SpaceGame%202/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/oitmpt-umn/CK%20MSLearn%20SpaceGame%202/_build/latest?definitionId=10&branchName=main)
 
 # Contributing
 
