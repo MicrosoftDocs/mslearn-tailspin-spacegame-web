@@ -1,3 +1,8 @@
+STATUS OF THE GITHUB ACTION WORKFLOW:
+
+![example workflow](https://github.com/AlanJ97/mslearn-tailspin-spacegame-web/workflows/github-action-demo.yml/badge.svg)
+
+
 
 # Contributing
 
