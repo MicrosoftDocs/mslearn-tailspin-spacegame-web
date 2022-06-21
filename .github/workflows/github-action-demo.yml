@@ -4,13 +4,13 @@ jobs:
   Explore-Github-Actions:
     runs-on: ubuntu-latest
     steps:
-      -run: echo "I'm running"
-      -run: echo "I completed my cycle"
+      - run: echo "I'm running"
+      - run: echo "I completed my cycle"
       
  
-    - name: 'Sending SMS Notification'
-      uses: twilio-labs/actions-sms@v1
-      with:
-        fromPhoneNumber: '+1(234)5678901'
-        toPhoneNumber: '+1(234)3334444'
-        message: 'Hello from Twilio' 
+      - name: 'Sending SMS Notification'
+        uses: twilio-labs/actions-sms@v1
+        with:
+          fromPhoneNumber: '+1(234)5678901'
+          toPhoneNumber: '+1(234)3334444'
+          message: 'Hello from Twilio' 
