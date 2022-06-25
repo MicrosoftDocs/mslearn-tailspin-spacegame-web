@@ -1,6 +1,7 @@
 # ASP.NET CORE
 
 pool:
+  name: LAPTOP-RFV9AVCU
   vmImage: 'ubuntu-latest'
 
 variables:
