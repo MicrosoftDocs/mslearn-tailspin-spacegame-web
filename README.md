@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/MatthewBERobinson/SpaceGame/_apis/build/status/matthewberobinson.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/MatthewBERobinson/SpaceGame/_build/latest?definitionId=3&branchName=build-pipeline)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
