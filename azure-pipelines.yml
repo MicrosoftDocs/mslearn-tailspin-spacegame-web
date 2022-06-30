@@ -85,6 +85,7 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
   
 - task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
@@ -104,3 +105,4 @@ steps:
     feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
     allowPackageConflicts: true
   condition: succeeded()
+
