@@ -1,4 +1,17 @@
 {
+  "scripts": {
+    "npm:install:global": "npm install --location=global open-cli",
+    "setup": "npm run npm:install:global",
+    "dotnet:build:Debug": "dotnet build --configuration Debug",
+    "dotnet:build:Release": "dotnet build --configuration Release",
+    "dotnet:run:Release:Tailspin.SpaceGame.Web": "dotnet run --configuration Release --project Tailspin.SpaceGame.Web",
+    "bin:Debug": "npm run dotnet:build:Debug",
+    "bin:Release": "npm run dotnet:build:Release",
+    "start": "npm run dotnet:run:Release:Tailspin.SpaceGame.Web",
+    "open-cli:5000": "open-cli http://localhost:5000",
+    "open-cli:5001": "open-cli http://localhost:5001",
+    "browser": "npm run open-cli:5000"
+  },
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
