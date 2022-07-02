@@ -46,6 +46,24 @@ done <<< "$branches"
 # Switch back to main
 git checkout main
 ```
+## For build and run the web application using Docker
+To verify your changes, build and run the web application locally using Docker.
+
+### Build and run the Docker image
+1. Open a command prompt and navigate to your project folder.
+2. Use the following commands to build and run your Docker image:
+
+```bash
+# Build image
+docker build -t tailspin.spacegame.web . 
+```
+
+```bash
+# Run image 
+docker run -d -p 5000:80 --name myapp tailspin.spacegame.web
+```
+### View the web page running from a container
+In a new browser tab, navigate to http://localhost:5000 to see the running application.
 
 # Legal Notices
 
