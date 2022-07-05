@@ -2,14 +2,14 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-20.04' #windows-2022
+  vmImage: 'windows-2022' #
   demands:
   - npm
 
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '5.x'
+  dotnetSdkVersion: '6.x'
 
 steps:
 - task: UseDotNet@2
@@ -52,7 +52,7 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
-    
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
