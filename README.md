@@ -23,3 +23,28 @@ $> npm run setup
 ```bash
 $> npm install
 ```
+
+# `dotnet`
+
+## Configurations
+
+* `Debug`
+* `Release`
+
+## Build
+
+```bash
+$> npm run dotnet:build:(Debug|Release)
+```
+
+## Publish
+
+```bash
+$> npm run dotnet:publish:(Debug|Release)
+```
+
+# CI/CD
+
+## Azure Pipelines
+
+![azure-pipelines.yml](./README/azure-pipelines.png)
