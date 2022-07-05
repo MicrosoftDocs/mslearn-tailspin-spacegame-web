@@ -1,12 +1,30 @@
 {
   "scripts": {
-    "npm:install:global": "npm install --location=global open-cli",
+    "npm:install:global": "npm install --location=global yarn open-cli gulp node-sass",
     "setup": "npm run npm:install:global",
+    "yarn:licenses:list:prod": "yarn licenses list --prod > publish/LICENSES.txt",
+    "yarn:licenses:generate-disclaimer:prod": "yarn licenses generate-disclaimer --prod > publish/LICENSES.md",
+    "yarn:licenses:prod": "npm run yarn:licenses:list:prod && npm run yarn:licenses:generate-disclaimer:prod",
+    "LICENSES": "npm run yarn:licenses:prod",
+    "sass:Tailspin.SpaceGame.Web:wwwroot": "node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot",
+    "gulp": "gulp --verbose",
+    "wwwroot": "npm run sass:Tailspin.SpaceGame.Web:wwwroot && npm run gulp",
+    "dotnet:restore": "dotnet restore",
+    "dotnet:dev-certs:https": "dotnet dev-certs https --trust",
     "dotnet:build:Debug": "dotnet build --configuration Debug",
     "dotnet:build:Release": "dotnet build --configuration Release",
     "dotnet:run:Release:Tailspin.SpaceGame.Web": "dotnet run --configuration Release --project Tailspin.SpaceGame.Web",
-    "bin:Debug": "npm run dotnet:build:Debug",
-    "bin:Release": "npm run dotnet:build:Release",
+    "rm:publish": "rm -rf ./publish",
+    "pre_dotnet:publish": "npm run rm:publish && npm run wwwroot && npm run dotnet:restore",
+    "post_dotnet:publish": "npm run LICENSES",
+    "predotnet:publish:Debug": "npm run pre_dotnet:publish",
+    "dotnet:publish:Debug": "dotnet publish --configuration Debug --output ./publish",
+    "postdotnet:publish:Debug": "npm run post_dotnet:publish",
+    "predotnet:publish:Release": "npm run pre_dotnet:publish",
+    "dotnet:publish:Release": "dotnet publish --configuration Release --output ./publish",
+    "postdotnet:publish:Release": "npm run post_dotnet:publish",
+    "build:Debug": "npm run dotnet:build:Debug",
+    "build:Release": "npm run dotnet:build:Release",
     "start": "npm run dotnet:run:Release:Tailspin.SpaceGame.Web",
     "open-cli:5000": "open-cli http://localhost:5000",
     "open-cli:5001": "open-cli http://localhost:5001",
@@ -19,5 +37,10 @@
     "gulp-uglify": "3.0.0",
     "node-sass": "^7.0.1",
     "rimraf": "2.6.1"
+  },
+  "dependencies": {
+    "jquery": "3.3.1",
+    "jquery-validation": "1.17.0",
+    "jquery-validation-unobtrusive": "3.2.9"
   }
 }
