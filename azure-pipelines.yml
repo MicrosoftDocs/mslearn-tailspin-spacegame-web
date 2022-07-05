@@ -20,12 +20,15 @@ steps:
   displayName: 'npm setup:ci'
 
 - script: 'npm ci'
+  displayName: 'npm ci'
 
 - script: 'npm run sass'
   displayName: 'node-sass'
 
 - task: gulp@1
   displayName: 'gulp'
+  inputs:
+    verbose: true
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'buildinfo.txt'
