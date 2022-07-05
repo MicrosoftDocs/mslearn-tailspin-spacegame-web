@@ -7,7 +7,7 @@ pool:
   - npm
 
 variables:
-  buildConfiguration: 'Release'
+  CONFIGURATION: 'Release'
 
 steps:
 - task: UseDotNet@2
@@ -22,13 +22,13 @@ steps:
     verbose: false
 
 - script: 'npm run sass'
-  displayName: 'Compile Sass assets'
+  displayName: 'node-sass'
 
 - task: gulp@1
   displayName: 'gulp'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
+  displayName: 'buildinfo.txt'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
 - task: DotNetCoreCLI@2
@@ -38,8 +38,21 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet build: Release'
+  displayName: 'dotnet build: $(CONFIGURATION)'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration Release'
+    arguments: '--no-restore --configuration $(CONFIGURATION)'
     projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(CONFIGURATION) --output $(Build.ArtifactStagingDirectory)/$(CONFIGURATION)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
