@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/DemosDevOps2022/Space%20Game%20-%20Test%20ScrumDay2022/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/DemosDevOps2022/Space%20Game%20-%20Test%20ScrumDay2022/_build/latest?definitionId=5&branchName=main)
 
 # Contributing
 
