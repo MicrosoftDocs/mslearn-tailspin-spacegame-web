@@ -9,3 +9,17 @@ See [CONTRIBUTING](./CONTRIBUTING.md)
 # Legal Notices
 
 See [LEGAL_NOTICE](./LEGAL_NOTICE.md)
+
+# Setup
+
+## First time
+
+```bash
+$> npm run setup
+```
+
+## Dependencies
+
+```bash
+$> npm install
+```

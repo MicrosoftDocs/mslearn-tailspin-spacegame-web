@@ -16,10 +16,10 @@ steps:
     packageType: sdk
     version: '6.x'
 
-- task: Npm@1
-  displayName: 'npm install'
-  inputs:
-    verbose: false
+- script: 'npm run setup:ci'
+  displayName: 'npm setup:ci'
+
+- script: 'npm ci'
 
 - script: 'npm run sass'
   displayName: 'node-sass'
