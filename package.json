@@ -7,6 +7,7 @@
     "yarn:licenses:prod": "npm run yarn:licenses:list:prod && npm run yarn:licenses:generate-disclaimer:prod",
     "LICENSES": "npm run yarn:licenses:prod",
     "sass:Tailspin.SpaceGame.Web:wwwroot": "node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot",
+    "sass": "npm run sass:Tailspin.SpaceGame.Web:wwwroot",
     "gulp": "gulp --verbose",
     "wwwroot": "npm run sass:Tailspin.SpaceGame.Web:wwwroot && npm run gulp",
     "dotnet:restore": "dotnet restore",
