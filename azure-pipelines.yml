@@ -49,5 +49,5 @@ steps:
     CONFIGURATION: 'Release'
 
 - task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
+  displayName: 'Publish Artifact: $(Build.ArtifactStagingDirectory)'
   condition: succeeded()

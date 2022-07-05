@@ -10,7 +10,7 @@ steps:
       projects: '**/*.csproj'
 
   - task: DotNetCoreCLI@2
-    displayName: 'dotnet publish'
+    displayName: 'dotnet publish: ${{ parameters.CONFIGURATION }}'
     inputs:
       command: 'publish'
       projects: '**/*.csproj'
