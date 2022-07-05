@@ -40,21 +40,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet build: $(CONFIGURATION)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(CONFIGURATION)'
-    projects: '**/*.csproj'
+- template: azure/pipelines/dotnet.yml
+  parameters:
+    CONFIGURATION: 'Debug'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet publish'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration $(CONFIGURATION) --output $(Build.ArtifactStagingDirectory)/$(CONFIGURATION)'
-    zipAfterPublish: true
+- template: azure/pipelines/dotnet.yml
+  parameters:
+    CONFIGURATION: 'Release'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
