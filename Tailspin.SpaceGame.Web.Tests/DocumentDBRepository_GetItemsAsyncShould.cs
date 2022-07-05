@@ -36,6 +36,7 @@ namespace Tests
 
             // Form the query predicate.
             // This expression selects all scores for the provided game region.
+            // Select all scores for the provided game region.
             Func<Score, bool> queryPredicate = score => (score.GameRegion == gameRegion);
 
             // Fetch the scores.
@@ -50,7 +51,6 @@ namespace Tests
             // Verify that each score's game region matches the provided game region.
             Assert.That(scores, Is.All.Matches<Score>(score => score.GameRegion == gameRegion));
         }
-
         [TestCase(0, ExpectedResult = 0)]
         [TestCase(1, ExpectedResult = 1)]
         [TestCase(10, ExpectedResult = 10)]
@@ -70,5 +70,6 @@ namespace Tests
             // Verify that we received the specified number of items.
             return scores.Count();
         }
+
     }
 }
