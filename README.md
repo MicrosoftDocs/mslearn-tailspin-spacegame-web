@@ -2,49 +2,53 @@
 
 Forked from [github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web](https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web)
 
-# Contributing
+## Setup
 
-See [CONTRIBUTING](./CONTRIBUTING.md)
-
-# Legal Notices
-
-See [LEGAL_NOTICE](./LEGAL_NOTICE.md)
-
-# Setup
-
-## First time
+### First time
 
 ```bash
 $> npm run setup
 ```
 
-## Dependencies
+### Dependencies
 
 ```bash
 $> npm install
 ```
 
-# `dotnet`
+## `dotnet`
 
-## Configurations
+### Configurations
 
 * `Debug`
 * `Release`
 
-## Build
+### Build
 
 ```bash
 $> npm run dotnet:build:(Debug|Release)
 ```
 
-## Publish
+### Publish
 
 ```bash
 $> npm run dotnet:publish:(Debug|Release)
 ```
 
-# CI/CD
+## CI/CD
 
-## Azure Pipelines
+### Azure Pipelines
 
 ![azure-pipelines.yml](./README/azure-pipelines.png)
+
+## 'To-Do's
+
+See [TODO](./TODO.md)
+
+## Contributing
+
+See [CONTRIBUTING](./CONTRIBUTING.md)
+
+## Legal Notices
+
+See [LEGAL_NOTICE](./LEGAL_NOTICE.md)
