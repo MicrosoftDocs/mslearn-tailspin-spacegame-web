@@ -37,7 +37,13 @@ steps:
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud'
+    organization: 'demosdevops2022'
+    scannerMode: 'MSBuild'
+    projectKey: 'DemosDevOps2022_Space-Game---web'
+    projectName: 'Space Game - web'
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -53,6 +59,10 @@ steps:
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
