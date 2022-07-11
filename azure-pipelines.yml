@@ -1,9 +1,5 @@
 trigger:
-<<<<<<< HEAD
 - '*'
-=======
-- 'main'
->>>>>>> 2a0e7ea7e2200166269db5a3d1407b8d61188a4a
 
 variables:
   buildConfiguration: 'Release'
