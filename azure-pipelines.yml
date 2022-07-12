@@ -9,7 +9,11 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+<<<<<<< HEAD
   dotnetSdkVersion: '5.x'
+=======
+  dotnetSdkVersion: '6.x'
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
 
 steps:
 - task: UseDotNet@2
@@ -17,11 +21,21 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+<<<<<<< HEAD
+=======
+# install node package mgr
+
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
+<<<<<<< HEAD
+=======
+# run scripts on command line
+
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
@@ -38,6 +52,11 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
+<<<<<<< HEAD
+=======
+# CI part 
+
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
@@ -45,8 +64,25 @@ steps:
     arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
+<<<<<<< HEAD
 - task: DotNetCoreCLI@2
   displayName: 'Install .NET Core tools from local manifest'
+=======
+# to run unit test 
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests - $(buildConfiguration)'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    publishTestResults: true
+    projects: '**/*.Tests.csproj'
+
+# to run code coverage
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install .NET tools from local manifest'
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
   inputs:
     command: custom
     custom: tool
@@ -73,6 +109,11 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
+<<<<<<< HEAD
+=======
+# CD part
+
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
@@ -84,4 +125,8 @@ steps:
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
+<<<<<<< HEAD
   condition: succeeded()
+=======
+  condition: succeeded()
+>>>>>>> b9cfb8fcdaad291e67278601406a3bc5ea432990
