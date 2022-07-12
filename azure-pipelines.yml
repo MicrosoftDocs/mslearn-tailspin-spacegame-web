@@ -98,8 +98,6 @@ steps:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
-
-=======
 # CD part
 
 - task: DotNetCoreCLI@2
