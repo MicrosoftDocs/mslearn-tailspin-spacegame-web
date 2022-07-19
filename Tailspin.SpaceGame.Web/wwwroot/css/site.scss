@@ -22,7 +22,7 @@ section {
 
 .intro {
     height: 350px;
-    background-color: #666;
+    background-color: green;
     background-image: url('/images/space-background.svg');
     background-size: 1440px;
     background-position: center top;
@@ -141,12 +141,12 @@ section {
         .pagination {
             margin-top: 1rem;
 
-            > li > a {
+            >li>a {
                 border-color: #999;
                 color: var(--link);
             }
 
-            > .active > a {
+            >.active>a {
                 background-color: var(--link);
                 color: white;
             }
