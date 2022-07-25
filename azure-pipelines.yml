@@ -15,3 +15,6 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: Npm@1
+  inputs:
+    command: 'install'
