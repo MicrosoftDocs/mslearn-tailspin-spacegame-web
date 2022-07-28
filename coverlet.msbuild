@@ -1,3 +1,0 @@
-dotnet new tool-manifest
-dotnet tool install dotnet-reportgenerator-globaltool
-dotnet add Tailspin.SpaceGame.Web.Tests package coverlet.msbuild
