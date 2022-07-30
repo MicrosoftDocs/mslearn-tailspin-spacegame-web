@@ -1,5 +1,3 @@
-trigger:
-- '*'
 
 pool:
   vmImage: 'ubuntu-20.04'
