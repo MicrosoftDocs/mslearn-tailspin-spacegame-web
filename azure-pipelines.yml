@@ -5,6 +5,7 @@ pool:
   name: yyeye
   demands:
   - npm
+  - node.js
   
   
 
