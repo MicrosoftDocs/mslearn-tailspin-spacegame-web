@@ -86,3 +86,4 @@ steps:
     publishRegistry: useExternalRegistry | useFeed # Registry location. Default: useExternalRegistry
     publishFeed: string # Required when publishRegistry = useFeed. Target registry. 
     publishEndpoint: string # Required when publishRegistry = useExternalRegistry. External Registry.
+    
