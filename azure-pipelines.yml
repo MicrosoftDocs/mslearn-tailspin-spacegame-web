@@ -25,6 +25,7 @@ steps:
   displayName: 'Run npm install'
   inputs:
     workingDir: C:\Users\HP\AppData\Roaming\npm
+    command: custom
   
     
 
