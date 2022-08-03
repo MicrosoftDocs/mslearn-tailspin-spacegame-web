@@ -6,7 +6,7 @@ pool:
   demands:
   - npm
   - node.js
-  - Agent.Version --equals 2.163.1
+  - Agent.Version -equals 2.163.1
   
   
 
