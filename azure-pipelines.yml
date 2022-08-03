@@ -24,7 +24,7 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    verbose: false
+    workingDir: C:\Users\HP\AppData\Roaming\npm
   
     
 
