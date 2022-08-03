@@ -5,7 +5,7 @@ pool:
   name: yyeye
   demands:
   - npm
-  - node.js
+  
   - Agent.Version -equals 2.206.1
   
   
@@ -24,7 +24,7 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    workingDir: C:\Users\HP\AppData\Roaming\npm
+    workingDir: nodejs\node_modules\npm
     command: custom
   
     
