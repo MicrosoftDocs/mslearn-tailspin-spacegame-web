@@ -75,7 +75,7 @@ steps:
   
     customRegistry: useNpmrc | useFeed # Registries to use. Default: useNpmrc
     customFeed: string # Required when customRegistry = useFeed. Use packages from this Azure Artifacts/TFS registry. 
-    customEndpoint: string # Optional. Use when customRegistry = useNpmrc. Credentials for registries outside this organization/collection. 
+    
   
     publishRegistry: useExternalRegistry | useFeed # Registry location. Default: useExternalRegistry
     publishFeed: string # Required when publishRegistry = useFeed. Target registry. 
