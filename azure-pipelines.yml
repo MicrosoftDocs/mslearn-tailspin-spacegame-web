@@ -12,7 +12,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  wwwrootDir: C:\Program Files\nodejs\node_modules\npm\node_modules
   dotnetSdkVersion: '6.x'
 
 steps:
