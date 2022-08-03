@@ -26,7 +26,7 @@ steps:
   inputs:
     
     command: install 
-    workingDir: nodejs\node_modules\npm
+    workingDir: C/Program Files/nodejs/node_modules/npm
     customCommand: string # Required when command = custom. Command and arguments. 
   
     
