@@ -25,8 +25,8 @@ steps:
   displayName: 'Run npm install'
   inputs:
     
-    command: install
-    workingDir: C:\Users\HP\mslearn-tailspin-spacegame-web
+    command: install 
+    workingDir: C:\Program Files\nodejs
     customCommand: string # Required when command = custom. Command and arguments. 
   
     
