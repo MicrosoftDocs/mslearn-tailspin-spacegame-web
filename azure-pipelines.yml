@@ -2,9 +2,10 @@ trigger:
 - '*'
 
 pool:
-  yyeye
-demands:
+  name: yyeye
+  demands:
   - npm
+  
   
 
 variables:
