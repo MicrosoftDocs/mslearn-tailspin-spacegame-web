@@ -24,9 +24,11 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    verbose: false
-    command: install
     
+    command: install
+    workingDir: C:\Users\HP\mslearn-tailspin-spacegame-web\package.json
+    customCommand: string # Required when command = custom. Command and arguments. 
+  
     
 
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
