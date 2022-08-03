@@ -24,10 +24,7 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    
-    command: install 
-    workingDir: 'C/Program Files/nodejs/node_modules/npm/node_modules'
-    customCommand: string # Required when command = custom. Command and arguments. 
+    verbose: false
   
     
 
