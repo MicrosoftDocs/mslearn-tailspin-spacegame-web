@@ -65,12 +65,12 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    verbose: false
+    verbose:  false
     command: install # Required. Command. Default: install
     workingDir: string # Working folder that contains package.json. 
     customCommand: string # Required when command = custom. Command and arguments. 
           
-    verbose: boolean # Verbose logging. 
+      
     publishPackageMetadata: boolean # Optional. Use when command = publish && publishRegistry = useFeed. Publish pipeline metadata. Default: True
   
     customRegistry: useNpmrc | useFeed # Registries to use. Default: useNpmrc
