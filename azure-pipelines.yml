@@ -17,7 +17,12 @@ steps:
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
-
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    command: 'install'
+    workingDir: 'string'
+    verbose: true
 
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
@@ -69,22 +74,6 @@ steps:
   displayName: 'npm build'
     
 # Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose:  false
-    command: install # Required. Command. Default: install
-    workingDir: string # Working folder that contains package.json. 
-    customCommand: string # Required when command = custom. Command and arguments. 
-          
-      
-    publishPackageMetadata: boolean # Optional. Use when command = publish && publishRegistry = useFeed. Publish pipeline metadata. Default: True
-  
-    customRegistry: useNpmrc | useFeed # Registries to use. Default: useNpmrc
-    customFeed: string # Required when customRegistry = useFeed. Use packages from this Azure Artifacts/TFS registry. 
-    
-  
-    publishRegistry: useExternalRegistry | useFeed # Registry location. Default: useExternalRegistry
-    publishFeed: string # Required when publishRegistry = useFeed. Target registry. 
+
     
 
