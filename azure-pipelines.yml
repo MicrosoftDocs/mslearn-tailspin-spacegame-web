@@ -58,8 +58,15 @@ steps:
 # Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH
 - task: NodeTool@0
   inputs:
-    versionSpec: '6.x' 
+    versionSpec: '16.x' 
     
+- script: |
+    npm install
+  displayName: 'npm install'
+
+- script: |
+    npm run build
+  displayName: 'npm build'
     
 # Install and publish npm packages, or run an npm command. Supports npmjs.com and authenticated registries like Azure Artifacts.
 - task: Npm@1
