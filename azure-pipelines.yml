@@ -36,7 +36,7 @@ steps:
   displayName: 'Run gulp tasks'
   inputs:
     targets: 
-    workingDirectory: 'C:\Users\HP\Downloads\skydash-free-bootstrap-admin-template-main\template'
+    gulpjs: 'node_modules/gulp/bin/gulp.js'
     enableCodeCoverage: false
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
