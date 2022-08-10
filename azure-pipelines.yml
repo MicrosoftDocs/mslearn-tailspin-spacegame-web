@@ -16,13 +16,13 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayNawm: 'Used .Net SDK 6.x'
+  displayName: 'Used .Net SDK 6.x'
   inputs:
     packageType: sdk
     version: '6.x'
 
 - task: Npm@1
-  DisplayName: 'Run npm install'
+  displayName: 'Run npm install'
   inputs:
     verbose: false
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
