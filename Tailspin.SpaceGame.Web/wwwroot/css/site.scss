@@ -141,12 +141,12 @@ section {
         .pagination {
             margin-top: 1rem;
 
-            > li > a {
+            >li>a {
                 border-color: #999;
                 color: var(--link);
             }
 
-            > .active > a {
+            >.active>a {
                 background-color: var(--link);
                 color: white;
             }
