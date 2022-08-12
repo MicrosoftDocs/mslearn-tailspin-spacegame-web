@@ -63,3 +63,4 @@ Privacy information can be found at https://privacy.microsoft.com/en-us/
 
 Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
 or trademarks, whether by implication, estoppel or otherwise.
+[![Build Status](https://dev.azure.com/caalesoc/Juego%20espacial%20-%20web%20-%20Flujo%20de%20trabajo/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/caalesoc/Juego%20espacial%20-%20web%20-%20Flujo%20de%20trabajo/_build/latest?definitionId=2&branchName=code-workflow)
