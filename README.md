@@ -1,4 +1,6 @@
 
+[![Build Status](https://aminerevitex.visualstudio.com/hammoumiamine/_apis/build/status/hammoumi123.mslearn-tailspin-spacegame-web%20(1)?branchName=refs%2Fpull%2F3%2Fmerge)](https://aminerevitex.visualstudio.com/hammoumiamine/_build/latest?definitionId=3&branchName=refs%2Fpull%2F3%2Fmerge)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
