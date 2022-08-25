@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/varun0298/Space-Game-Web-Pipeline/_apis/build/status/varuntangri03.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/varun0298/Space-Game-Web-Pipeline/_build/latest?definitionId=8&branchName=main)
 
 # Contributing
 
