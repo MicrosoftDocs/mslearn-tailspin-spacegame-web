@@ -30,4 +30,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ReportGenerator" Version="5.1.9" />
+  </ItemGroup>
 </Project>
