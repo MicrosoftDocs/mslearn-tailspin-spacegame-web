@@ -78,7 +78,7 @@ steps:
 # Pipelinen använder uppgiften script eftersom den är en vanlig genväg för CmdLine@2.
 
 - task: DotNetCoreCLI@2
-  displayName: displayName: 'Publish the project - $(buildConfiguration)'
+  displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
