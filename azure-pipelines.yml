@@ -1,0 +1,100 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
+
+# Observera avsnittet variables, som definierar dessa variabler:
+# buildConfiguration: Anger byggkonfigurationen.
+# wwwrootDir: Anger sökvägen till katalogen wwwroot .
+# dotnetSdkVersion: Anger den .NET SDK-version som ska användas.
+# Om du vill referera till dessa variabler använder du 
+# syntaxen $() precis som för inbyggda variabler. 
+
+variables:
+  buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '6.x'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
+
+# Skriptkommandot använder variabeln för att definiera både källkatalogen 
+# för Sass-filer och katalogen där CSS-filer ska skrivas. Den använder också 
+# variabeln för att definiera aktivitetsnamnet som visas i användargränssnittet.
+
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: $(wwwrootDir)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
+
+# Avsnittet demands under pool anger att du behöver npm, den Node.js pakethanteraren, 
+# installerad på byggsystemet.
+
+# I avsnittet steps visas de bygguppgifter som mappar till vart och ett av de skriptkommandon 
+# som vi identifierade tidigare.
+
+# Azure Pipelines tillhandahåller inbyggda bygguppgifter som mappar till många vanliga byggaktiviteter. 
+# Till exempel mappar uppgiften DotNetCoreCLI@2 till kommandoradsverktyget dotnet. Pipelinen använder 
+# DotNetCoreCLI@2 två gånger: en gång för att återställa eller installera projektets beroenden och en 
+# gång för att skapa projektet.
+
+# Kom ihåg att inte alla byggaktiviteter mappar till en inbyggd uppgift. Det finns till exempel ingen 
+# inbyggd uppgift som kör verktyget node-Sass eller skriver bygginformation till en textfil. 
+# Om du vill köra allmänna systemkommandon använder du uppgiften CmdLine@2 eller script. 
+# Pipelinen använder uppgiften script eftersom den är en vanlig genväg för CmdLine@2.
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
+
+# Den första aktiviteten använder DotNetCoreCLI@2 uppgiften för att publicera eller paketera 
+# appens byggresultat (inklusive dess beroenden) i en mapp. 
+# Argumentet zipAfterPublish anger att byggresultatet ska läggas till i en .zip-fil.
+
+# Den andra uppgiften använder uppgiften PublishBuildArtifacts@1 för att publicera .zip-filen 
+# till Azure Pipelines. Argumentet condition anger att uppgiften endast ska köras när den 
+# föregående uppgiften lyckas. succeeded() är standardvillkoret, så du behöver inte ange det. 
+# Men vi visar det här för att visa dess användning.    
