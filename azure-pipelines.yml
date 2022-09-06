@@ -1,4 +1,4 @@
-name: $(Date:yyyy.MM.dd)-$(Build.BuildId)-$(Build.BuildNumber)
+name: $(Date:yyyy.MM.dd)-$(Build.DefinitionName)-$(Build.BuildId)-$(Build.BuildNumber)
 
 trigger:
 - '*'
