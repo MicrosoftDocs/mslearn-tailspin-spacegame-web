@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: 'Hosted Agent'
+  name: 'MyLinuxAgent'
   demands:
   - npm
 
