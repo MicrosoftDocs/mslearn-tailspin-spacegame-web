@@ -1,5 +1,5 @@
 trigger:
-- '*'
+- build-pipeline
 
 pool:
   name: 'MyAgentPool'
