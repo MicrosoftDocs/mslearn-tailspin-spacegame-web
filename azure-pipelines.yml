@@ -2,26 +2,17 @@
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-cor
+[8:47 PM] Bijjam Vinay
 trigger:
-
-- build-pipeline
-
-
+- build-pipeline
 
 pool:
-
-  name: 'MyAgentPool'
-
-
+  name: 'MyAgentPool'
 
 variables:
-
-  buildConfiguration: 'Release'
-
-
+  buildConfiguration: 'Release'
 
 steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
 
-- script: dotnet build --configuration $(buildConfiguration)
-
-  displayName: 'dotnet build $(buildConfiguration)'
