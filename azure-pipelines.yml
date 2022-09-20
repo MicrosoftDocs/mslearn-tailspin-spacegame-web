@@ -3,13 +3,47 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-cor
 trigger:
-- build-pipeline
+- '*'
+
 pool:
- name: 'MyAgentPool'
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
+
 variables:
- buildConfiguration: 'Release'
+  buildConfiguration: 'Release'
+
 steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
 
-- script: dotnet build --configuration $(buildConfiguration)
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
-  displayName: 'dotnet build $(buildConfiguration)'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
