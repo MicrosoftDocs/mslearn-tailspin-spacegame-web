@@ -5,13 +5,10 @@
 [8:47 PM] Bijjam Vinay
 trigger:
 - build-pipeline
-
 pool:
   name: 'MyAgentPool'
-
 variables:
   buildConfiguration: 'Release'
-
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
