@@ -3,26 +3,13 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-cor
 trigger:
-
 - build-pipeline
-
-
-
 pool:
-
-  name: 'MyAgentPool'
-
-
-
+ name: 'MyAgentPool'
 variables:
-
-  buildConfiguration: 'Release'
-
-
-
+ buildConfiguration: 'Release'
 steps:
 
 - script: dotnet build --configuration $(buildConfiguration)
 
   displayName: 'dotnet build $(buildConfiguration)'
-
