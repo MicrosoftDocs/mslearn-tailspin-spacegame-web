@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/marktaylor79/Space%20Game%20-%20web/_apis/build/status/mmt79.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/marktaylor79/Space%20Game%20-%20web/_build/latest?definitionId=3&branchName=main)
 
 # Contributing
 
