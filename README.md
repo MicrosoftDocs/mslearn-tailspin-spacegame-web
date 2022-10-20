@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/Midietec-DevOps/Tailspin-Space%20Game/_apis/build/status/build-pipelines/Soy-Mico.mslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/Midietec-DevOps/Tailspin-Space%20Game/_build/latest?definitionId=44&branchName=refs%2Fpull%2F2%2Fmerge)
 
 # Contributing
 
