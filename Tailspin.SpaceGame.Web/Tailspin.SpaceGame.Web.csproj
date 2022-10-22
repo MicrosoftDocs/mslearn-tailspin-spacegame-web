@@ -6,6 +6,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="SampleData\scores.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SampleData\scores.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
 </Project>
