@@ -9,6 +9,18 @@ steps:
     arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
     projects: '**/*.csproj'
 
+
+- task: DotNetCoreCLI@2
+  condition: and(succeeded(), eq('${{ parameters.buildConfiguration }}', 'Release'))
+  displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}'
+    #Genere el archivo .trx en un directorio temporal, accesible a través de la variable integrada $(Agent.TempDirectory). Equivalente al parámetro dotnet test --logger trx
+    publishTestResults: true
+    projects: '**/*.Tests.csproj'
+
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
   inputs:
