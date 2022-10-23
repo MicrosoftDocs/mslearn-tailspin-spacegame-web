@@ -15,7 +15,7 @@ steps:
   displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'test'
-    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}' /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
     #Genere el archivo .trx en un directorio temporal, accesible a través de la variable integrada $(Agent.TempDirectory). Equivalente al parámetro dotnet test --logger trx
     publishTestResults: true
     projects: '**/*.Tests.csproj'
