@@ -16,8 +16,11 @@ steps:
       packageType: sdk
       version: '6.x'
   
-  - script: 'npm install uuid@latest'
-    displayName: 'Run npm install'
+  - script: 'npm cache clean –force'
+    displayName: 'Remove npm install'
+
+  - script: 'npm install uuid@7.0.3 --force'
+    displayName: 'npm install'
         
   - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
     displayName: 'Compile Sass assets'
