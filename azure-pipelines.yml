@@ -16,12 +16,11 @@ steps:
       packageType: sdk
       version: '6.x'
   
-  - script: 'npm cache clean –force'
-    displayName: 'Remove npm install'
-
-  - script: 'npm install uuid@7.0.3 --force'
-    displayName: 'npm install'
-        
+  - task: Npm@1
+    displayName: 'Run npm install'
+    inputs:
+      verbose: false
+  
   - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
     displayName: 'Compile Sass assets'
   
