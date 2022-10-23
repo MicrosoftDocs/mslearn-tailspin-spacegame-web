@@ -55,6 +55,13 @@ steps:
 #     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
 #     zipAfterPublish: true
 
+- task: DotNetCoreCLI@2
+  displayName: 'Install .NET tools from local manifest'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'restore'
+
 - template: templates/build.yml
   parameters:
     buildConfiguration: 'Release'
