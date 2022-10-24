@@ -1,5 +1,5 @@
 trigger:
-- 'code-workflow'
+- 'QA'
 
 pool:
   vmImage: 'ubuntu-20.04'
