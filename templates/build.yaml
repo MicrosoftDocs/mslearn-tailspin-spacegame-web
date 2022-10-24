@@ -18,13 +18,7 @@ steps:
     projects: '**/*.Tests.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Install .NET tools from local manifest'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'restore'
-
-
+  displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
