@@ -40,7 +40,7 @@ steps:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
-    vstsFeed: 'Tailspin.SpaceGame.DomainModel'
+    vstsFeed: 'Tailspin-SpaceGame.DomainModel'
 
 # - task: DotNetCoreCLI@2
 #   displayName: 'Build the project - $(buildConfiguration)'
