@@ -6,6 +6,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="SampleData\scores.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SampleData\scores.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Tailspin.SpaceGame.Web.Models" Version="1.0.0-CI-20221023-175637" />
   </ItemGroup>
 </Project>

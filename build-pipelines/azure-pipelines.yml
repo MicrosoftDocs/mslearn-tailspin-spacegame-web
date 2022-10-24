@@ -1,0 +1,78 @@
+trigger:
+- '*'
+
+pool:
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
+
+variables:
+  buildConfiguration: 'Release'
+  wwwRootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotNetSdkVersion: '6.x'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    packageType: sdk
+    version: $(dotNetSdkVersion)
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
+
+- script: './node_modules/.bin/node-sass $(wwwRootDir) --output $(wwwRootDir)'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: $(wwwRootDir)
+
+#Pull Project Depenencies from Azure Artifacts Feed 'Tailspin.SpaceGame.DomainModel'
+- task: NuGetCommand@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+    vstsFeed: 'Tailspin-SpaceGame.DomainModel'
+
+# - task: DotNetCoreCLI@2
+#   displayName: 'Build the project - $(buildConfiguration)'
+#   inputs:
+#     command: 'build'
+#     arguments: '--no-restore --configuration $(buildConfiguration)'
+#     projects: '**/*.csproj'
+
+# - task: DotNetCoreCLI@2
+#   displayName: 'Publish the project - $(buildConfiguration)'
+#   inputs:
+#     command: 'publish'
+#     projects: '**/*.csproj'
+#     publishWebProjects: false
+#     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+#     zipAfterPublish: true
+
+- task: DotNetCoreCLI@2
+  displayName: 'Install .NET tools from local manifest'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'restore'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- task: PublishBuildArtifacts@1
+  condition: succeeded()    
+  displayName: 'Publish Artifact: drop'
