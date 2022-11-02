@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/jp49269/space%20game%20delivery%20plans/_apis/build/status/pjakimczyk.mslearn-tailspin-spacegame-web%20(1)?branchName=main)](https://dev.azure.com/jp49269/space%20game%20delivery%20plans/_build/latest?definitionId=2&branchName=main)
 
 # Contributing
 
