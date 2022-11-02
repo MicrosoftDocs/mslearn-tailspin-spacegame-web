@@ -8,4 +8,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tailspin.SpaceGame.Web.Models\Tailspin.SpaceGame.Web.Models.csproj" />
+  </ItemGroup>
 </Project>
