@@ -31,4 +31,7 @@ steps:
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
     configuration: '$(buildConfiguration)'
