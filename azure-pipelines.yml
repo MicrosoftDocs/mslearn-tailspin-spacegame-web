@@ -10,7 +10,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: UseDotNetSDK@2
+- task: UseDotNet@2
   displayName: 'Use .Net SDK 6.x'
   inputs: 
    packagetype: 'SDK'
