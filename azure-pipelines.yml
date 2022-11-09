@@ -1,24 +1,24 @@
 trigger:
-  - '*'
+- '*'
 
 pool:
-  vm-image: 'ubuntu-20.04'
-  demands: 
-   - npm
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .Net SDK 6.x'
-  inputs: 
-   packagetype: 'SDK'
-   version:   '6.x'
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
 
-- task: npm@1
-  displayName: 'Install nodejs'
-  inputs: 
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
     verbose: false
 
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
@@ -27,18 +27,18 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "$(Build.BuildDefinitionName), $(Build.BuildId), $(BuildNumber)" > buildinfo.txt'
-  displayName: 'Build Info for QA'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
-- task: DotNetCoreCli@2
-  displayName: 'Restore Project Dependencies'
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
-    
-- task: DotNetCoreCli@2
-  displayName: 'Build Proejct - Release'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
