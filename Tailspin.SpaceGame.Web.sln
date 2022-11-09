@@ -7,6 +7,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A99836B3-2625-4F0F-8E2C-414154C24616}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines.yml = azure-pipelines.yml
+		templates\build.yaml = templates\build.yaml
 	EndProjectSection
 EndProject
 Global
