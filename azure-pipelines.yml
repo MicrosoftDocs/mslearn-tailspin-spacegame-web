@@ -11,13 +11,13 @@ variables:
 
 steps:
 - task: UseDotNetSDK@2
-  displayname: 'Use .Net SDK 6.x'
+  displayName: 'Use .Net SDK 6.x'
   inputs: 
    packagetype: 'SDK'
    version:   '6.x'
 
 - task: npm@1
-  displayname: 'Install nodejs'
+  displayName: 'Install nodejs'
   inputs: 
     verbose: false
 
@@ -25,20 +25,20 @@ steps:
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
-  displayname: 'Run gulp tasks'
+  displayName: 'Run gulp tasks'
 
 - script: 'echo "$(Build.BuildDefinitionName), $(Build.BuildId), $(BuildNumber)" > buildinfo.txt'
-  displayname: 'Build Info for QA'
-  workingdirectory: Tailspin.SpaceGame.Web/wwwroot
+  displayName: 'Build Info for QA'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
 - task: DotNetCoreCli@2
-  displayname: 'Restore Project Dependencies'
+  displayName: 'Restore Project Dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
     
 - task: DotNetCoreCli@2
-  displayname: 'Build Proejct - Release'
+  displayName: 'Build Proejct - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
