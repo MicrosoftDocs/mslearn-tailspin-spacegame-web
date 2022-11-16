@@ -1,5 +1,6 @@
 
 # Contributing
+[![Build Status](https://dev.azure.com/luisenriquegranillo/Space%20Game-%20web-Pipeline/_apis/build/status/LuisGranilloGamino.mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/luisenriquegranillo/Space%20Game-%20web-Pipeline/_build/latest?definitionId=10&branchName=code-workflow)
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
@@ -18,6 +19,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 This repository uses feature branches to associate code with specific modules on Microsoft Learn. Any changes you make to the default branch will likely need to be propagated to each feature branch in this repo. A common example is when we need to update Node packages in `package.json`.
 
 Here's one way to update the remote feature branches when you make a change to the default branch. Note that this process deletes all local branches except for `main`.
+
 
 ```bash
 # Synchronize with the remote main branch
