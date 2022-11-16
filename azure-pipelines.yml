@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'MyAgentPool'
+  vmImage: 'ubuntu-20.04'
   demands:
   - npm
 
