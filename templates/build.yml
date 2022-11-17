@@ -3,7 +3,7 @@ parameters:
 
 steps: 
 - task: DotNetCoreCLI@2
-  diaplayName: 'build the project ${{ parameters.buildConfiguration }}'
+  displayName: 'build the project ${{ parameters.buildConfiguration }}'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
