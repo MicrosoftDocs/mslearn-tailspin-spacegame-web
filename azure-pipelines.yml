@@ -51,7 +51,7 @@ stages:
       condition: succeeded()
 
 - stage: 'Dev'
-  displayName: 'Deploy the web application'
+  displayName: 'Deploy Dev Env'
   dependsOn: Build
   condition: |
     and
@@ -79,7 +79,7 @@ stages:
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
 - stage: 'Test'
-  displayName: 'Deploy the web application'
+  displayName: 'Deploy Test Env'
   dependsOn: Dev
   jobs:
   - deployment: Deploy
