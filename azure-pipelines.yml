@@ -84,7 +84,7 @@ stages:
   displayName: 'Deploy Test Env'
   dependsOn: Dev
   condition: |
-    and
+    or
     (
       succeeded(),
       eq(variables['Build.SourceBranchName'], variables['releaseTestBranchName'])
