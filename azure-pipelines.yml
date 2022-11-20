@@ -80,7 +80,7 @@ stages:
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
 - stage: 'Test'
   displayName: 'Deploy Test Env'
-  dependsOn: Dev
+  dependsOn: Test
   jobs:
   - deployment: Deploy
     pool:
@@ -99,4 +99,26 @@ stages:
             inputs:
               azureSubscription: 'tailspin-space-game'
               appName: '$(WebAppNameTest)'
+              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
+- stage: 'Stage'
+  displayName: 'Deploy Stage Env'
+  dependsOn: Test
+  jobs:
+  - deployment: Deploy
+    pool:
+      vmImage: 'ubuntu-20.04'
+    environment: stage
+    variables:
+    - group: Release
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureWebApp@1
+            displayName: 'Azure App Service Deploy: website'
+            inputs:
+              azureSubscription: 'tailspin-space-game'
+              appName: '$(WebAppNameStageg)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
