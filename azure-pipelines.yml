@@ -42,5 +42,9 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
+<<<<<<< HEAD
     projects: '**/*.csproj'
     
+=======
+    projects: '**/*.csproj'
+>>>>>>> 538cd04 (spacegametask)
