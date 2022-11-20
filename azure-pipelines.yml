@@ -10,7 +10,6 @@ stages:
 - stage: 'Build'
   displayName: 'Build the web application'
   condition: |
-    and
     (
       eq(variables['Build.SourceBranchName'], variables['releaseDevBranchName'])
     )
