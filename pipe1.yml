@@ -1,0 +1,15 @@
+- stages:
+    - stage: continuous integration
+      displayName: CI
+      jobs:
+        - job: buildjob
+          displayName: build
+          steps:
+            - script: dotnet restore
+              displayName: restore
+            - script: dotnet build
+              displayName: build
+            - script: dotnet test
+              displayName: test
+            - script: dotnet publish
+              displayName: publish
