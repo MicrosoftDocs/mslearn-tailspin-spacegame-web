@@ -1,6 +1,6 @@
 trigger:
 - '*'
-# Master sheet 
+# Master sheet with approval
 variables:
   buildConfiguration: 'Release'
   releaseDevBranchName: 'release-pipeline'
