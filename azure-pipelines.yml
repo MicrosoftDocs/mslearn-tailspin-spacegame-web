@@ -1,6 +1,6 @@
 trigger:
 - '*'
-
+# Master sheet 
 variables:
   buildConfiguration: 'Release'
   releaseDevBranchName: 'release-pipeline'
