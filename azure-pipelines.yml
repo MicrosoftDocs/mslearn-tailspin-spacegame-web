@@ -16,6 +16,7 @@ variables:
 
 steps:
 - task: Npm@1
-  displayName: 'Run npm install'
   inputs:
-    verbose: false
+    command: 'install'
+    workingDir: '/'
+    verbose: true
