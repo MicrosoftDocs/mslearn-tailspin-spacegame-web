@@ -4,9 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
 trigger:
-- main
+- branch-pipeline
 
-pool: my-laptop 
+pool: 
+  name: my-laptop 
+  demands: 
+   -npm
  
 variables:
   buildConfiguration: 'Release'
