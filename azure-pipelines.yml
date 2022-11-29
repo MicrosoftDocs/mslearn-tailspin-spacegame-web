@@ -9,7 +9,7 @@ trigger:
 pool: 
   name: my-laptop 
   demands: 
-   -npm
+   - npm
  
 variables:
   buildConfiguration: 'Release'
