@@ -1,6 +1,11 @@
 trigger:
 - '*'
+<<<<<<< HEAD
 # Master sheet with approval
+=======
+#Test run
+
+>>>>>>> 884ec71217d64c3f928f8f127465c2ae001ec7e1
 variables:
   buildConfiguration: 'Release'
   releaseDevBranchName: 'release-pipeline'
