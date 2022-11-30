@@ -1,10 +1,6 @@
 trigger:
 - '*'
 
-variables:
-  buildConfiguration: 'Release'
-  releaseBranchName: 'release'
-
 stages:
 - stage: 'Build'
   displayName: 'Build the web application'
