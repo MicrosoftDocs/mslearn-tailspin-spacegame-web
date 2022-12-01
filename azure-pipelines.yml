@@ -1,6 +1,6 @@
 trigger:
 - '*'
-minorVersion: '1'
+
 pool:
   vmImage: 'ubuntu-20.04'
   demands:
