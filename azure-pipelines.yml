@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 trigger:
 - '*'
 
@@ -53,7 +51,6 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
->>>>>>> d976c1b (Add azure-pipelines.yml)
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
