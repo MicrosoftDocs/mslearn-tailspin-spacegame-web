@@ -27,7 +27,10 @@ steps:
     packageType: 'sdk'
     version: '6.x'
 - task: gulp@1
-  displayName: 'Run Gulp task'
+  inputs:
+    gulpFile: './gulpfile.js'
+    targets: 
+    enableCodeCoverage: false
 
 - script: 'echo "($Build.DefinitionName) , $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
