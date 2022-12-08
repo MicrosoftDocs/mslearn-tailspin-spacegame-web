@@ -26,3 +26,20 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '6.x'
+- task: gulp@1
+  displayName: 'Run Gulp task'
+
+- script: 'echo "($Build.DefinitionName) , $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory:   Tailspin.SpaceGame.Web/wwwroot
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--no-restore --configuration Release'
