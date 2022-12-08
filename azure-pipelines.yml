@@ -19,11 +19,10 @@ steps:
   inputs:
     command: 'install'
     verbose: true
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
     packageType: 'sdk'
     version: '6.x'
-- task: PowerShell@2
-  inputs:
-    filePath: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
