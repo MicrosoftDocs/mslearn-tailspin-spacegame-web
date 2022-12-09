@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/rbgonzalez0438/Space%20Game%20-%20web%20-%20pipeline/_apis/build/status/rabugo.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/rbgonzalez0438/Space%20Game%20-%20web%20-%20pipeline/_build/latest?definitionId=4&branchName=build-pipeline)
 
 # Contributing
 
