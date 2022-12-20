@@ -38,6 +38,14 @@ stages:
       inputs:
         command: 'restore'
         projects: '**/*.csproj'
+    - task: SonarCloudPrepare@1
+      displayName: 'Prepare Sonar Analysis'
+      inputs:
+        SonarCloud: 'SonarCloud'
+        organization: 'subodhde-spacegame'
+        scannerMode: 'MSBuild'
+        projectKey: 'subodhde_mslearn-tailspin-spacegame-web'
+        projectName: 'mslearn-tailspin-spacegame-web'
 
     - template: templates/build.yaml
       parameters:
@@ -50,6 +58,12 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       condition: succeeded()
+    - task: SonarCloudAnalyze@1
+      displayName: 'Run SonarCloud Analyser'
+    - task: SonarCloudPublish@1
+      displayName: 'Publish SonarCloud Result'
+      inputs:
+        pollingTimeoutSec: '300'
 
 - stage: 'Dev'
   displayName: 'Deploy Dev Env'
