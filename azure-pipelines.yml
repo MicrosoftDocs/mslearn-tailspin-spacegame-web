@@ -50,6 +50,25 @@ stages:
     - task: PublishBuildArtifacts@1
       displayName: 'Publish Artifact: drop'
       condition: succeeded()
+    - task: PowerShell@2
+      inputs:
+        targetType: 'inline'
+        script: |
+          $token = [System.Text.Encoding]::UTF8.GetBytes($env:SONAR_TOKEN + ":")
+          $base64 = [System.Convert]::ToBase64String($token)
+           
+          $basicAuth = [string]::Format("Basic {0}", $base64)
+          $headers = @{ Authorization = $basicAuth }
+           
+          $result = Invoke-RestMethod -Method Get -Uri https://sonarcloud.io/api/qualitygates/project_status?projectKey=subodhde_mslearn-tailspin-spacegame-web&branch=release-pipeline -Headers $headers
+          $result | ConvertTo-Json | Write-Host
+           
+          if ($result.projectStatus.status -eq "OK") {
+          Write-Host "Quality Gate Succeeded"
+          }else{
+          throw "Quality gate failed"
+          }
+
 
 - stage: 'Dev'
   displayName: 'Deploy Dev Env'
