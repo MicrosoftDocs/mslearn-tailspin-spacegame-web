@@ -162,6 +162,7 @@ stages:
               azureSubscription: 'tailspin-space-game'
               appName: '$(WebAppNameTest)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/Tailspin.SpaceGame.Web.zip'
+#Control COmment
 - stage: 'Stage'
   displayName: 'Deploy Stage Env'
   dependsOn: Build
