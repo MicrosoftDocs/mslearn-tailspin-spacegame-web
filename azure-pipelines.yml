@@ -3,7 +3,7 @@ trigger:
 variables:
   buildConfiguration: 'Release'
   releaseDevBranchName: 'release-pipeline'
-  releaseTestBranchName: 'code-workflow'
+  releaseTestBranchName: 'qa-branch'
   releaseStageBranchName: 'master'  
 stages:
 - stage: 'Build'
