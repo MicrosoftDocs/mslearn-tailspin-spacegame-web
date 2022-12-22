@@ -1,6 +1,7 @@
 trigger:
 - '*'
 variables:
+#Updted branch details
   buildConfiguration: 'Release'
   releaseDevBranchName: 'dev-branch'
   releaseTestBranchName: 'qa-branch'
