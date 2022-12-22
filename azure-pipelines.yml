@@ -2,7 +2,7 @@ trigger:
 - '*'
 variables:
   buildConfiguration: 'Release'
-  releaseDevBranchName: 'release-pipeline'
+  releaseDevBranchName: 'dev-branch'
   releaseTestBranchName: 'qa-branch'
   releaseStageBranchName: 'master'  
 stages:
@@ -98,7 +98,7 @@ stages:
                 $basicAuth = [string]::Format("Basic {0}", $base64)
                 $headers = @{ Authorization = $basicAuth }
                 
-                $result = Invoke-RestMethod -Method Get -Uri 'https://sonarcloud.io/api/qualitygates/project_status?projectKey=subodhde_mslearn-tailspin-spacegame-web&branch=release-pipeline' -Headers $headers
+                $result = Invoke-RestMethod -Method Get -Uri 'https://sonarcloud.io/api/qualitygates/project_status?projectKey=subodhde_mslearn-tailspin-spacegame-web&branch=dev-branch' -Headers $headers
                 $result | ConvertTo-Json | Write-Host
                 
                 if ($result.projectStatus.status -eq "OK") {
