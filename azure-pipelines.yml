@@ -4,10 +4,12 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- main
+- '*'
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
