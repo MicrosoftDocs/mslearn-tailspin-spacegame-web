@@ -90,6 +90,7 @@ stages:
           steps:
 
           - task: PowerShell@2
+            displayName: 'SonarQube Status Check'
             inputs:
               targetType: 'inline'
               script: |
