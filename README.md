@@ -1,3 +1,4 @@
+[![Build Status](https://michaelrains.visualstudio.com/LearnDevOps-Testing/_apis/build/status/mslearn-tailspin-spacegame-web?branchName=main)](https://michaelrains.visualstudio.com/LearnDevOps-Testing/_build/latest?definitionId=26&branchName=main)
 
 # Contributing
 
