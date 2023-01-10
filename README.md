@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/mdelattre0892/Space%20Game%20-%20web/_apis/build/status/mdelattre-seabird.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/mdelattre0892/Space%20Game%20-%20web/_build/latest?definitionId=1&branchName=build-pipeline)
 
 # Contributing
 
