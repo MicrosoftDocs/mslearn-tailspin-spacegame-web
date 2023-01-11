@@ -15,25 +15,7 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-trigger:
-- '*'
-
-pool:
-  vmImage: 'ubuntu-20.04'
-  demands:
-  - npm
-
-variables:
-  buildConfiguration: 'Release'
-  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '6.x'
-
-steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
-  inputs:
-    version: '$(dotnetSdkVersion)'
-
+  
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
