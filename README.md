@@ -17,7 +17,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 This repository uses feature branches to associate code with specific modules on Microsoft Learn. Any changes you make to the default branch will likely need to be propagated to each feature branch in this repo. A common example is when we need to update Node packages in `package.json`.
 
-Here's one way to update the remote feature branches when you make a change to the default branch. Note that this process deletes all local branches except for `main`.
+Here's one way to update the remote feature branches when you make a change to the default branch. Note that this process deletes all local branches except for `main`.ffd
 
 ```bash
 # Synchronize with the remote main branch
