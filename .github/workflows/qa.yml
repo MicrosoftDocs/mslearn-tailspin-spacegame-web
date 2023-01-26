@@ -1,0 +1,9 @@
+on: 
+  push:
+    branches:
+      - master
+jobs:
+  print_hello:
+    runs-on: windows-2022
+    steps:
+      - run: echo "test action workflow"      
