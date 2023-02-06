@@ -2,7 +2,7 @@
     - '*'
   
   pool:
-      vmImage: 'latest'
+      vmImage: ubuntu-latest
     
   variables:
       buildConfiguration: 'Release'
