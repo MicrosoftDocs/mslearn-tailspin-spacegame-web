@@ -5,6 +5,11 @@
     <ProjectGuid>{A0C4E31E-AC75-4F39-9F59-0AA19D9B8F46}</ProjectGuid>
   </PropertyGroup>
 
+  <!-- added the web models ItemGroup  -->
+  <ItemGroup>
+    <PackageReference Include="Tailspin.SpaceGame.Web.Models" Version="1.0.0-CI-20230203-111623" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
