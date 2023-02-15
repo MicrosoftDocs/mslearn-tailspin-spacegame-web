@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/ahishow/Space%20game%20-%20web%20-%20pipeline/_apis/build/status/adrian-hishow-mlreply.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/ahishow/Space%20game%20-%20web%20-%20pipeline/_build/latest?definitionId=1&branchName=build-pipeline)
 
 # Contributing
 
