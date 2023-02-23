@@ -19,7 +19,7 @@ steps:
     - '*'
     
   pool:
-      vmImage: 'ubuntu-20.04'
+      vmImage: 'ubuntu-20-latest'
       demands:
       - npm
     
