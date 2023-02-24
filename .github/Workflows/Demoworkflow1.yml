@@ -1,7 +1,7 @@
 name: Demoworkflow1
 
 on:
-  push:
+  pull request:
     branches: [$main]
   pull_request:
     branches: [$main]
