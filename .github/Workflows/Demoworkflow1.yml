@@ -2,7 +2,7 @@ name: Demoworkflow1
 
 on:
   push:
-    branches: [$main]
+    branches: [$feature_demo_workflow]
   pull_request:
     branches: [$main]
 
