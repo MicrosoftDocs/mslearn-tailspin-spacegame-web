@@ -1,10 +1,10 @@
 name: Demoworkflow1
 
 on:
-  pull request:
-    branches: [$main]
+  push:
+    branches: [ $default-branch ]
   pull_request:
-    branches: [$main]
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -14,5 +14,18 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run a one-line script
-        run: echo Hello World from Demo Workflow1 
-        
+        run: echo Hello from Octo Organizations
+      {
+          "name": "Octo Organization Workflow",
+    "description": "Octo Organization CI starter workflow.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+    "filePatterns": [
+        "package.json$",
+        "^Dockerfile",
+        ".*\\.md$"
+    ]
+}
+
