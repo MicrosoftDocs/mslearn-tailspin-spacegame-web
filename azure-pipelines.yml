@@ -1,5 +1,5 @@
 trigger:
-- '*'
+- 'main'
 
 pool:
   vmImage: 'ubuntu-22.04'
