@@ -6,6 +6,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/src'
 
 steps:
 - task: UseDotNet@2
@@ -17,10 +18,11 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
+    #workingDir: '$(System.DefaultWorkingDirectory)/src'
     workingDir: '$(System.DefaultWorkingDirectory)/src'
     verbose: false
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: '$(System.DefaultWorkingDirectory)/src/node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
