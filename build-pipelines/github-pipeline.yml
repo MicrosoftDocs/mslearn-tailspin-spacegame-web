@@ -7,22 +7,23 @@ pool:
 variables:
   buildConfiguration: 'Release'
   workingDirectory: '$(System.DefaultWorkingDirectory)/src'
+  wwwrootDir: '$(workingDirectory)/Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '6.x'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK 6.x'
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     packageType: sdk
-    version: '6.x'
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
-    #workingDir: '$(System.DefaultWorkingDirectory)/src'
     workingDir: '$(workingDirectory)'
     verbose: false
 
-- script: '$(workingDirectory)/node_modules/.bin/node-sass $(workingDirectory)/Tailspin.SpaceGame.Web/wwwroot --output $(workingDirectory)/Tailspin.SpaceGame.Web/wwwroot'
+- script: '$(workingDirectory)/node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -31,8 +32,8 @@ steps:
     gulpFile: '$(workingDirectory)/gulpfile.js'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+  displayName: 'Write build info as .txt file'
+  workingDirectory: $(wwwrootDir)
 
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
@@ -41,8 +42,21 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
+  displayName: 'Build the project - $(BuildConfiguration)'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration Release'
+    arguments: '--no-restore --configuration $(BuildConfiguration)'
     projects: '**/*.csproj'
+    
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(BuildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(BuildConfiguration)'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact - $(BuildConfiguration): drop'
+  condition: succeeded()    
