@@ -19,7 +19,7 @@ steps:
   displayName: 'Run npm install'
   inputs:
     #workingDir: '$(System.DefaultWorkingDirectory)/src'
-    workingDir: '$(System.DefaultWorkingDirectory)/src'
+    workingDir: '$(workingDirectory)'
     verbose: false
 
 - script: '$(System.DefaultWorkingDirectory)/src/node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
