@@ -22,11 +22,12 @@ steps:
     workingDir: '$(workingDirectory)'
     verbose: false
 
-- script: '$(System.DefaultWorkingDirectory)/src/node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: '$(workingDirectory)/node_modules/.bin/node-sass $(workingDirectory)/Tailspin.SpaceGame.Web/wwwroot --output $(workingDirectory)/Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
+  workingDir: '$(workingDirectory)'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
