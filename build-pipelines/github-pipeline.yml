@@ -41,11 +41,11 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: build-pipelines/templates/dotnet-build-template.yml
+- template: templates/dotnet-build-template.yml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: build-pipelines/templates/dotnet-build-template.yml
+- template: templates/dotnet-build-template.yml
   parameters:
     buildConfiguration: 'Release'
 
