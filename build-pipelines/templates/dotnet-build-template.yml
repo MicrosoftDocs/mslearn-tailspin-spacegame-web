@@ -8,7 +8,18 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration ${{ parameters.buildConfiguration }}'
     projects: '**/*.csproj'
-    
+
+#If Build Configuration is Release, run Unit Tests
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
+  condition: and(succeeded(), eq('${{ parameters.buildConfiguration }}', 'Release'))
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}'
+    publishTestResults: true    #Equivalent to dotnet test ... --logger trx
+    projects: '**/*.Tests.csproj'
+
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
   inputs:

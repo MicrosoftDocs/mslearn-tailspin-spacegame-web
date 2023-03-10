@@ -48,11 +48,11 @@ steps:
 
 - template: templates/dotnet-build-template.yml
   parameters:
-    buildConfiguration: 'Debug'
+    buildConfiguration: 'Release'
 
 - template: templates/dotnet-build-template.yml
   parameters:
-    buildConfiguration: 'Release'
+    buildConfiguration: 'Debug'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact - $(buildConfiguration): drop'
