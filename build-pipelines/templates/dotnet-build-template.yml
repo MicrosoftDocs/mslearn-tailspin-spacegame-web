@@ -10,15 +10,39 @@ steps:
     projects: '**/*.csproj'
 
 #If Build Configuration is Release, run Unit Tests
+#Tests run 'coverlet' tool to generate code coberture info (coverlet.msbuild package)
 - task: DotNetCoreCLI@2
   displayName: 'Run unit tests - ${{ parameters.buildConfiguration }}'
   condition: and(succeeded(), eq('${{ parameters.buildConfiguration }}', 'Release'))
   inputs:
     command: 'test'
-    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }}'
+    arguments: '--no-build --configuration ${{ parameters.buildConfiguration }} /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
     publishTestResults: true    #Equivalent to dotnet test ... --logger trx
     projects: '**/*.Tests.csproj'
 
+#Tools read from .config/dotnet-tools.json local manifest file
+#Tool to install: ReportGenerator
+- task: DotNetCoreCLI@2
+  displayName: 'Install .NET tools from local manifest'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'restore'
+
+#Generate code coberture report
+- task: DotNetCoreCLI@2
+  displayName: 'Create code coverage report'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'run reportgenerator -reports:$(Build.SourcesDirectory)/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/CodeCoverage -reporttypes:HtmlInline_AzurePipelines'
+
+#Publish  code coberture report
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'    
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - ${{ parameters.buildConfiguration }}'
