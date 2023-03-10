@@ -30,5 +30,5 @@
     <EmbeddedResource Include="SampleData\scores.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </EmbeddedResource>
-  </ItemGroup>  
+  </ItemGroup> 
 </Project>
