@@ -28,7 +28,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'dotnet tool install --tool-manifiest ${{ parameters.workingDirectory }}/.config'
+    arguments: 'install --tool-manifiest ${{ parameters.workingDirectory }}/.config'
 
 #Generate code coberture report
 - task: DotNetCoreCLI@2
