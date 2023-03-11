@@ -49,6 +49,7 @@ steps:
 - template: templates/dotnet-build-template.yml
   parameters:
     buildConfiguration: 'Release'
+    workingDirectory: $(workingDirectory)
 
 - template: templates/dotnet-build-template.yml
   parameters:

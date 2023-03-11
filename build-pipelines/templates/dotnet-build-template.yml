@@ -1,5 +1,6 @@
 parameters:
   buildConfiguration: 'Release'
+  workingDirectory: 
 
 steps:
 - task: DotNetCoreCLI@2
@@ -27,7 +28,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'restore'
+    arguments: 'restore ${{ parameters.workingDirectory }}'
 
 #Generate code coberture report
 - task: DotNetCoreCLI@2
