@@ -28,7 +28,7 @@ steps:
   inputs:
     command: custom
     custom: tool
-    arguments: 'restore ${{ parameters.workingDirectory }}'
+    arguments: 'restore --tool manifiest ${{ parameters.workingDirectory }}/.config'
 
 #Generate code coberture report
 - task: DotNetCoreCLI@2
