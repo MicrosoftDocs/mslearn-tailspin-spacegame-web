@@ -1,5 +1,4 @@
 name: Demo Workflow for Java Application 
-#Buils and test 
 
 on:
   Pull request
