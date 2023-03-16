@@ -1,7 +1,7 @@
 name: Demo Workflow for Java Applications 
 
 on:
-  Pull request
+  Workflow dispatch
     branches: [ main ]
 
 jobs:
