@@ -1,6 +1,6 @@
 # This workflow will build a docker container, publish it to Google Container Registry, and deploy it to GKE when there is a push to the "main" branch.
 #
-# To configure this workflow:
+# To configure this workflow
 #
 # 1. Ensure that your repository contains the necessary configuration for your Google Kubernetes Engine cluster, including deployment.yml, kustomization.yml, service.yml, etc.
 #
