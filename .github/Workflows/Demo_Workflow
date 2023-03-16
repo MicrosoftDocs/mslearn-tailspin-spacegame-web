@@ -1,4 +1,4 @@
-name: Demo Workflow for Java Application 
+name: Demo Workflow for Java Applications 
 
 on:
   Pull request
