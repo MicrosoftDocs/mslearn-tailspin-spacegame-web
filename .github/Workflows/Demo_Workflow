@@ -1,7 +1,7 @@
-name: Demo Workflow for Java Applications 
+name: Build Workflow
 
 on:
-  Workflow dispatch
+  push
     branches: [ main ]
 
 jobs:
