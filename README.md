@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/AzureLearnLab/Space%20Game%20-%20web/_apis/build/status/Saxolee.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/AzureLearnLab/Space%20Game%20-%20web/_build/latest?definitionId=7&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
