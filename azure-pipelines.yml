@@ -1,8 +1,14 @@
+
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
 trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-20.04'
+  vmImage: 'windows-latest'
   demands:
   - npm
 
@@ -46,6 +52,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+
   displayName: 'Install .NET Core tools from local manifest'
   inputs:
     command: custom
@@ -57,10 +64,17 @@ steps:
   inputs:
     command: 'test'
     arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)/TestResults/Coverage/'
+
+  displayName: 'Run unit tests - $(buildConfiguration)'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+
     publishTestResults: true
     projects: '**/*.Tests.csproj'
 
 - task: DotNetCoreCLI@2
+
   displayName: 'Create code coverage report'
   inputs:
     command: custom
@@ -74,6 +88,7 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
+
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
