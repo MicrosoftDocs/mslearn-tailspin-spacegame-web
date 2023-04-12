@@ -1,7 +1,7 @@
 trigger:
   - '*'
   
-  pool:
+  -pool:
     vmImage: 'ubuntu-20.04'
     demands:
     - npm
@@ -56,4 +56,4 @@ trigger:
   
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact: drop'
-    condition: succeeded()
+    condition: succeeded()git 
