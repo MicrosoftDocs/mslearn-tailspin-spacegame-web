@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Codespace PAT for Tailspin Toys module
+  name: 'Azure Pipelines'
 
 variables:
   solution: '**/*.sln'
