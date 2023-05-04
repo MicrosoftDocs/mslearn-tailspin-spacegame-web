@@ -3,6 +3,9 @@ parameters:
   buildConfiguration: 'Release'
 
 steps:
+
+# This task uses the DotNetCoreCLI@2 task to publish or package the app's build results (including its dependencies) into a folder. 
+# The zipAfterPublish argument specifies to add the built results to a .zip file.
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - ${{ parameters.buildConfiguration }}'
   inputs:

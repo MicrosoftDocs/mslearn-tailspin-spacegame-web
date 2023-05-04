@@ -9,6 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-22.04'
 
+# Use variables when you repeat the same value multiple times or when a value, like a dependency version, might change.
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
@@ -49,6 +50,7 @@ steps:
   parameters:
     buildConfiguration: 'Release'
 
+# This task uses the PublishBuildArtifacts@1 task to publish the .zip file to Azure Pipelines. 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
