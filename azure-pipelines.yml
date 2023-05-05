@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-22.04'
 
+variables:
+  buildConfiguration: 'Release'
+
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
