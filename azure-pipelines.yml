@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: windozs-latest
+  vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
