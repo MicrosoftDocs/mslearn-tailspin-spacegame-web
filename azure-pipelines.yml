@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: 'Azure Pipelines'
+  name: 'Default'
   demands:
   - npm
 
