@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: mslearn_pool
 
 variables:
   buildConfiguration: 'Release'
