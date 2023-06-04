@@ -45,6 +45,7 @@ while IFS= read -r branch; do
 done <<< "$branches"
 # Switch back to main
 git checkout main
+
 ```
 
 # Legal Notices
