@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Default
+  name: ADO_ORG
 
 variables:
   solution: '**/*.sln'
