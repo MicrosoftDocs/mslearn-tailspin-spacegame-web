@@ -7,7 +7,7 @@ if [ -z "$DOTNET_VERSION" ]; then
 fi
 
 # Add the Node.js PPA so that we can install the latest version
-curl -sL https://deb.nodesource.com/setup_18.x | bash -
+curl -sL https://deb.nodesource.com/setup_16.x | bash -
 
 # Install Node.js and jq
 apt-get install -y nodejs
