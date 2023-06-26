@@ -1,4 +1,11 @@
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'b652b57d-8b56-4a8e-80ef-195b0b15a550'
+
 trigger: 
 - main 
 
@@ -8,12 +15,6 @@ pool:
 variables:
     buildConfiguration: 'Release'
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: 'b652b57d-8b56-4a8e-80ef-195b0b15a550'
 
 steps:
 - script:  dotnet build --configuration $(buildConfiguration)
