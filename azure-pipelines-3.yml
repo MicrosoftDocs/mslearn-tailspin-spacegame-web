@@ -15,14 +15,17 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
--script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build  $(buildConfiguration)'
+
 - task: NuGetToolInstaller@1
 
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--configuration $(buildConfiguration)'
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -34,3 +37,4 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
