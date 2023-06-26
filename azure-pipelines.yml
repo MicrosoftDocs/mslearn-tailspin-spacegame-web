@@ -4,8 +4,7 @@
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'b652b57d-8b56-4a8e-80ef-195b0b15a550'
-
+#    publishVstsFeed: 'b652b57d-8b56-4a8e-80ef-195b0b15a550'
 trigger: 
 - main 
 
