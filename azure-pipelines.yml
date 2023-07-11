@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: windowshosted
+  name: good
 
 variables:
   buildConfiguration: 'Release'
