@@ -3,6 +3,7 @@ trigger:
 
 pool:
   name: good
+  demands: npm
 
 variables:
   buildConfiguration: 'Release'
