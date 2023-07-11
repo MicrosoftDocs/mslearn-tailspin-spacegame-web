@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: myAgentPool
+  name: windowshosted
 
 variables:
   buildConfiguration: 'Release'
