@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: good
+  name: goodtoo
 
 
 variables:
