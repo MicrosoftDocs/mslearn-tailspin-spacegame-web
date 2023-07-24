@@ -1,8 +1,8 @@
 stages:
-  - stage: ci-stage
+  - stage: cistage
     displayName: cistage
     jobs:
-    - job: build-job
+    - job: buildjob
       displayName: buildjob
       steps:
         - script: dotnet restore
