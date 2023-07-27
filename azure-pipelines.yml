@@ -1,12 +1,3 @@
-trigger:
-- main
-
-pool:
-  name: Default
-
-variables:
-  buildConfiguration: 'Release'
-
+pool: MyAgentPool
 steps:
-- script: dotnet build --cofiguration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- bash: echo hello world
