@@ -2,7 +2,7 @@ terraform {
   required_providers {
     azurerm = {
       source = "hashicorp/azurerm"
-      version = "1.5.3"
+      version = "3.5.0"
     }
   }
 }
