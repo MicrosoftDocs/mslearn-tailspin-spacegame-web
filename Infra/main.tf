@@ -29,10 +29,11 @@ resource "azurerm_resource_group" "appservicerglabel12" {
       "name" = "${local.setup_name}-rsg"
     }
 }
-resource "azurerm_app_service_plan" "appplanlabel11" {
+resource "azurerm_service_plan" "appplanlabel11" {
     name = "appplan11"
     location = azurerm_resource_group.appservicerglabel12.location
     resource_group_name = azurerm_resource_group.appservicerglabel12.name
+    os_type = "Windows"
     sku {
         tier = "standard"
         size = "S1"
@@ -49,9 +50,9 @@ resource "azurerm_app_service" "webapplabell1" {
     name = "webapp12581"
     resource_group_name = azurerm_resource_group.appservicerglabel12.name
     location = azurerm_resource_group.appservicerglabel12.location
-    app_service_plan_id = azurerm_app_service_plan.appplanlabel11.id
+    app_service_plan_id = azurerm_service_plan.appplanlabel11.id
     depends_on = [
-      azurerm_app_service_plan.appplanlabel11
+      azurerm_service_plan.appplanlabel11
     ]
     tags = {
       "name" = "${local.setup_name}-webapp"
