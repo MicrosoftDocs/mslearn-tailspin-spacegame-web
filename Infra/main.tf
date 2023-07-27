@@ -34,10 +34,7 @@ resource "azurerm_service_plan" "appplanlabel11" {
     location = azurerm_resource_group.appservicerglabel12.location
     resource_group_name = azurerm_resource_group.appservicerglabel12.name
     os_type = "Windows"
-    sku {
-        tier = "standard"
-        size = "S1"
-    }
+    sku_name = "S1"
     depends_on = [
       azurerm_resource_group.appservicerglabel12
     ]
