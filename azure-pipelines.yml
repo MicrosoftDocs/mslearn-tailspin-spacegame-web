@@ -1,4 +1,0 @@
-pool: 
- vmImage: Defalt
-steps:
-- bash: echo hello world
