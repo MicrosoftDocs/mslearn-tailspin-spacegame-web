@@ -2,7 +2,7 @@
 # steps:
 # - bash: echo hello world
 trigger:
-- main
+  - main
 
 pool:
   vmImage: ubuntu-latest
@@ -11,5 +11,5 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuraiotn  $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+  - script: dotnet build --configuration  $(buildConfiguration)
+    displayName: 'dotnet build $(buildConfiguration)'
