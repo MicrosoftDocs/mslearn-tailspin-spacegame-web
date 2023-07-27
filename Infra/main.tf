@@ -1,11 +1,10 @@
 terraform {
-  backend "azurerm" {
-    resource_group_name = "Appserver-RG"
-    storage_account_name = "cicdestorage"
-    container_name = "terraform"
-    key = "terraform.terraform"
-    access_key = "CyAvuoT8SNy3A1nQ77XeywVufA/IqgiMKoFojJpngn2pnMAYGskB/f0RsTGt9VQ61/VaxTp9RgOB+AStyagDvQ=="
-  }  
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "3.66.0"
+    }
+  }
 }
 provider "azurerm" {
     features {
