@@ -2,8 +2,8 @@ terraform {
     backend "azurerm" {
         resource_group_name = "Appserver-RG"
         storage_account_name = "cicdestorage"
-        container_name = "dev"
-        key = "terraform.dev"
+        container_name = "qaenv"
+        key = "terraform.qaenv"
         access_key = "CyAvuoT8SNy3A1nQ77XeywVufA/IqgiMKoFojJpngn2pnMAYGskB/f0RsTGt9VQ61/VaxTp9RgOB+AStyagDvQ=="
       
     }
