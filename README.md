@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/dodson7dodson/Space%20Game%20-%20Web%20-%20Pipeline/_apis/build/status%2F3ddc.mslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/dodson7dodson/Space%20Game%20-%20Web%20-%20Pipeline/_build/latest?definitionId=1&branchName=refs%2Fpull%2F2%2Fmerge)
 
 # Contributing
 
