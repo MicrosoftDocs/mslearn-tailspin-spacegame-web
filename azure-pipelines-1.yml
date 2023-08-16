@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Space-game-PAT
+  name: default
 
 variables:
   solution: '**/*.sln'
