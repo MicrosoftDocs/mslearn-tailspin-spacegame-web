@@ -1,4 +1,5 @@
 ﻿/// <binding Clean='clean' />
+// gulp tasks that minify JavaScript and CSS assets
 "use strict";
 
 const gulp = require("gulp"),
