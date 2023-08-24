@@ -1,3 +1,10 @@
 pool: MyAgentPool
 steps:
 - bash: echo hello world
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      
+      echo Hello world
