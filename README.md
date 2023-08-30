@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/alexandrmorskyi1/Raptor/_apis/build/status%2Fmslearn-tailspin-spacegame-web?branchName=refs%2Fpull%2F2%2Fmerge)](https://dev.azure.com/alexandrmorskyi1/Raptor/_build/latest?definitionId=18&branchName=refs%2Fpull%2F2%2Fmerge)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
