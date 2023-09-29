@@ -2,6 +2,7 @@
 #Build and test ASP.NET Core projects targeting .NET Core.
 #Add steps that run tests, create a nuGet package, deploy, and more:
 #https://docs.microsoft.com/azure/devops/pipelines/languates/dotnet-core
+#rerun 
 
 trigger:
 - '*'
