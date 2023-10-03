@@ -53,6 +53,8 @@ namespace TailSpin.SpaceGame.Web
             }
 
             app.UseHttpsRedirection();
+
+
             app.UseStaticFiles();
 
             app.UseRouting();
