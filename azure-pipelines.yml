@@ -14,16 +14,16 @@ steps:
     packageType: sdk
     version: '6.x'
 
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose: false
+# - task: Npm@1
+#   displayName: 'Run npm install'
+#   inputs:
+#     verbose: false
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayName: 'Compile Sass assets'
+# - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+#   displayName: 'Compile Sass assets'
 
-- task: gulp@1
-  displayName: 'Run gulp tasks'
+# - task: gulp@1
+#   displayName: 'Run gulp tasks'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
