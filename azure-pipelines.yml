@@ -36,11 +36,11 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: template/build.yml
+- template: templates/build.yaml
   parameters:
     buildConfiguration: 'Debug'
 
-- template: template/build.yml
+- template: templates/build.yaml
   parameters:
     buildConfiguration: 'Release'
 - task: PublishBuildArtifacts@1
