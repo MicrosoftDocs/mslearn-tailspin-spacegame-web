@@ -6,7 +6,7 @@
 trigger:
 - main
 pool:
-    vmImage: EzzOps
+    name: EzzOps
 variables:
     buildConfiguration: 'Release'
 steps:
