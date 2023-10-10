@@ -3,6 +3,7 @@ trigger:
 
 pool:
   name: 'EzzOps' #replace if needed with name of your agent pool
+  demands: node
 
 variables:
   buildConfiguration: 'Release'
@@ -20,8 +21,8 @@ steps:
   inputs:
     verbose: false
 
-# - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
-#   displayName: 'Compile Sass assets'
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'Compile Sass assets'
 
 # - task: gulp@1
 #   displayName: 'Run gulp tasks'
