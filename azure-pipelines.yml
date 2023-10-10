@@ -3,7 +3,9 @@ trigger:
 
 pool:
   name: 'EzzOps' #replace if needed with name of your agent pool
-  demands: node
+  demands:
+  - npm
+  - node
 
 variables:
   buildConfiguration: 'Release'
