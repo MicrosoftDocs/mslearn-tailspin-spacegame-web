@@ -3,6 +3,7 @@
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 #13/10/2023 1037
+
 trigger:
 - main
 
