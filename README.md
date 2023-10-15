@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/ischaq/Testing/_apis/build/status%2FGChan-Ch.mslearn-tailspin-spacegame-web%20(1)?branchName=build-pipeline)](https://dev.azure.com/ischaq/Testing/_build/latest?definitionId=22&branchName=build-pipeline)
 
 # Contributing
 
