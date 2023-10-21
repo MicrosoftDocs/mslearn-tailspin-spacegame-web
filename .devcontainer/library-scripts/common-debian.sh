@@ -102,7 +102,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         libkrb5-3 \
         libgssapi-krb5-2 \
         libicu[0-9][0-9] \
-        liblttng-ust[1-9] \
+       
         libstdc++6 \
         zlib1g \
         locales \
@@ -113,7 +113,7 @@ if [ "${PACKAGES_ALREADY_INSTALLED}" != "true" ]; then
         manpages \
         manpages-dev \
         init-system-helpers"
-        
+    # remove line liblttng-ust[0-9] \   
     # Needed for adding manpages-posix and manpages-posix-dev which are non-free packages in Debian
     if [ "${ADD_NON_FREE_PACKAGES}" = "true" ]; then
         # Bring in variables from /etc/os-release like VERSION_CODENAME
