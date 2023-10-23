@@ -1,4 +1,8 @@
 pool: MyAgentPool
+- task: UseDotNet@2
+  inputs:
+    packageType: 'runtime'
+    version: 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'run'
