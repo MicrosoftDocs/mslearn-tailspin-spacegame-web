@@ -1,4 +1,10 @@
 pool: MyAgentPool
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
