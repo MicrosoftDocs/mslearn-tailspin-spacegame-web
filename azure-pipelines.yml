@@ -1,3 +1,7 @@
 pool: MyAgentPool
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: 
 steps:
 - bash: echo hello world
