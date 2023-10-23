@@ -1,27 +1,23 @@
-pool: MyAgentPool
-- task: UseDotNet@2
-  inputs:
-    packageType: 'runtime'
-    version: 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'run'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'run'
-- task: UseDotNet@2
-  inputs:
-    packageType: 'runtime'
-    version: 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: 
-steps:
-- bash: echo hello world
+
+
+— main
+
+
+
+
+
+vmImage: ubuntu-latest
+
+
+
+
+
+buildConfiguration: -'Release'
+
+
+
+
+
+ — script: dotnet build —configuration $(buildConfiguration)
+
+ displayName: 'dotnet build $(buildConfiguration) '
