@@ -6,7 +6,7 @@ variables:
 
 jobs:
   - job: 
-      Packeage-Tailspin-Space-Game
+      Package_Tailspin_Space_Game
     pool:
       vmImage: ubuntu-latest
 
