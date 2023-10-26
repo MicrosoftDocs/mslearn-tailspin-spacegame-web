@@ -48,6 +48,24 @@ steps:
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'Publicar proyecto - Realease'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar artifac: drop'
+  condition: succeeded()
+  
+  
+
+
+
+
 
   # - script: dotnet build --configuration $(buildConfiguration)
   #   displayName: 'dotnet build $(buildConfiguration)'
