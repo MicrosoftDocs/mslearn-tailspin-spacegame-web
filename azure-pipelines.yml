@@ -33,19 +33,20 @@ steps:
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Mostrar información de compilación'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
 - task: DotNetCoreCLI@2
   displayName: 'Restaurar dependencias del proyecto'
   inputs:
     command: 'restore'
-    projects: '**/*.sln'
+    projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: 'Compilar el proyecto - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.sln'
+    projects: '**/*.csproj'
 
 
   # - script: dotnet build --configuration $(buildConfiguration)
