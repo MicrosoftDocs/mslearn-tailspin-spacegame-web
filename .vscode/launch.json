@@ -26,6 +26,7 @@
                 "/Views": "${workspaceFolder}/Views"
             }
         },
+        //what do code do 
         {
             "name": ".NET Core Attach",
             "type": "coreclr",
