@@ -1,3 +1,3 @@
 pool: MyAgentPool
 steps:
-- bash: echo hello world
+- bash: echo hello world how are you testing the scripts
