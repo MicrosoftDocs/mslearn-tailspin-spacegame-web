@@ -43,14 +43,14 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/*.Tests.csproj'
-    
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Unit-Testing'
 
 - template: templates/build.yml
   parameters:
-    buildConfiguration: 'Staging'
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
