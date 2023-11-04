@@ -38,7 +38,7 @@ steps:
 
 - template: templates/build.yml
   parameters:
-    buildConfiguration: 'Unit Testing'
+    buildConfiguration: 'Unit-Testing'
 
 - template: templates/build.yml
   parameters:
