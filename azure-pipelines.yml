@@ -6,11 +6,18 @@
   trigger:
   - '*'
 
-  pool:
-    vmImage: 'ubuntu-20.04'
-    demands:
-    - npm
+  # pool:
+  #   vmImage: 'ubuntu-20.04'
+  #   demands:
+  #   - npm
 
+  pool:
+    name: Default
+    demands:
+     - agent.name -equals MySelfHosted
+     - npm  
+
+  
   variables:
     buildConfiguration: 'Release'
     wwwroofDir: 'Tailspin.SpaceGame.Web/wwwroot'
