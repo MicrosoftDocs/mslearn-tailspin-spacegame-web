@@ -34,9 +34,9 @@
   #   inputs:
   #     verbose: false
 
-  - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-    displayName: 'Write Build Info'
-    workingDirectory: $(wwwrootDir)
+  # - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  #   displayName: 'Write Build Info'
+  #   workingDirectory: $(wwwrootDir)
 
   - task: DotNetCoreCLI@2
     displayName: 'Restoremproject dependencies'
