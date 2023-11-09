@@ -19,6 +19,8 @@ This repository uses feature branches to associate code with specific modules on
 
 Here's one way to update the remote feature branches when you make a change to the default branch. Note that this process deletes all local branches except for `main`.
 
+Ahmed Ali
+
 ```bash
 # Synchronize with the remote main branch
 git checkout main
