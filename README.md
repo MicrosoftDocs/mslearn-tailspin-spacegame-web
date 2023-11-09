@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/opsmachina/test123/_apis/build/status%2Fmwidmanski.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/opsmachina/test123/_build/latest?definitionId=1&branchName=main)
 
 # Contributing
 
