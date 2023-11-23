@@ -1,3 +1,18 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+# Nom du pipeline
+name: MonPremierPipeline
+
+# Déclenchement du pipeline à chaque commit sur la branche main
+trigger:
+- main
+
+# Pool d'agents à utiliser pour le pipeline
+pool:
+  vmImage: 'windows-latest'
+
+# Étapes du pipeline
+jobs:
+- job: Build
+  displayName: 'Build Job'
+  steps:
+  - script: echo 'Hello, World!'
+    displayName: 'Print Hello World'
