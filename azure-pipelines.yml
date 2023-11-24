@@ -6,8 +6,7 @@ variables:
     buildConfiguration: 'Release'
 
 steps:
-    - script: ls
+    - script:
        dotnet build --configuration $(buildConfiguration)
-       displayName:'dotnet build $(buildConfiguration)'
 
 
