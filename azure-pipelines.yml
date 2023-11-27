@@ -1,7 +1,9 @@
 trigger:
 - main
 
-pool: PrimaryAgent
+jobs:
+- job: Windows
+  pool: PrimaryAgent
 
 variables:
   buildConfiguration: 'Release'
