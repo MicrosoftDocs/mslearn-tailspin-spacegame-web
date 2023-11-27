@@ -2,7 +2,6 @@ trigger:
 - main
 
 jobs:
-- job: Windows
   pool: PrimaryAgent
 
 variables:
