@@ -1,7 +1,6 @@
 trigger:
 - main
 
-jobs:
   pool: PrimaryAgent
 
 variables:
