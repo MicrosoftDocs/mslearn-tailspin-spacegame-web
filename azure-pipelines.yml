@@ -2,6 +2,7 @@ trigger:
 - main
 
 pool: PrimaryAgent
+  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
