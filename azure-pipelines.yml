@@ -1,3 +1,13 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+# ASP.NET Core
+# Compile y pruebe proyectos de ASP.Net con destino .NET Core
+# Agrege pasos que ejecuten pruebas, creen NuGet, implementen y más
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  builConfiguration: 'Release'
