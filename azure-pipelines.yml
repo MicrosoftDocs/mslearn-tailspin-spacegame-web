@@ -4,7 +4,7 @@ trigger:
 pool: PrimaryAgent
 
 variables:
-  buildconfiguration: 'Release'
+  buildConfiguration: 'Release'
 
 steps:
 - script: dotnet build --configuration %(buildConfiguration)
