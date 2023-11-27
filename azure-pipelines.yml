@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool:
+pool: PrimaryAgent
 
 variables:
   buildConfiguration: 'Release'
