@@ -5,4 +5,4 @@ pool: PrimaryAgent
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
-  displayname: 'donet build $(buildConfiguration)'
+  displayName: 'donet build $(buildConfiguration)'
