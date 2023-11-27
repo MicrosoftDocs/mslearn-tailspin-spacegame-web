@@ -1,7 +1,9 @@
 trigger:
 - main
 
-pool: PrimaryAgent
+- job: Windows
+  pool: PrimaryAgent
+    vmImage: 'windows-latest'
 
 variables:
   buildConfiguration: 'Release'
