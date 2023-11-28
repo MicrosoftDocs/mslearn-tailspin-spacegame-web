@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool:
+pool: PrimaryAgent
   vmImage: ubuntu-latest
 
 variables:
