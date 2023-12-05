@@ -7,7 +7,8 @@ trigger:
 - main
 
 pool:
-  name: Default
+  vmImage: ubuntu-latest
+  name: Azure Pipelines
 
 variables:
   buildConfiguration: 'Release'
