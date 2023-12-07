@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/normans-labs/Space%20Game%20-%20Web%20-%20Workflow/_apis/build/status%2Fmslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/normans-labs/Space%20Game%20-%20Web%20-%20Workflow/_build/latest?definitionId=22&branchName=code-workflow)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
