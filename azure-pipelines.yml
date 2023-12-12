@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  vmImage: 'ubuntu-20.04'
+  name: Test
   demands:
   - npm
 
@@ -21,6 +21,11 @@ steps:
   inputs:
     versionSpec: '5.9.1'
 
+- task: NodeTool@0
+  displayName: 'Run Node.js install'
+  inputs:
+    versionSpec: '12.x' 
+    
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -31,11 +36,22 @@ steps:
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
+  inputs:
+    gulpFile: 'gulpfile.js'
+    gulpjs: 'node_modules/gulp/bin/gulp.js'
 
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
+- task: NuGetCommand@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
+    feedsToUse: 'select'
+    vstsFeed: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'  
+  
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
