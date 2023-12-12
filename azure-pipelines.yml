@@ -2,10 +2,10 @@ trigger:
   - '*'
   
   pool:
-    vmImage: ubuntu-latest
+  - vmImage: ubuntu-latest
   
   variables:
-    buildConfiguration: 'Release'
+  - buildConfiguration: 'Release'
     wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
     dotnetSdkVersion: '6.x'
   
