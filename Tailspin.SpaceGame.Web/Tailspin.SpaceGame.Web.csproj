@@ -6,11 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\avatars\" />
-    </ItemGroup>
-
-  <ItemGroup>
-      <PackageReference Include="Tailspin.SpaceGame.Web.Models" Version="1.0.0" />
+    <PackageReference Include="Tailspin.SpaceGame.Web.Models" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\avatars\" />
+  </ItemGroup>
 </Project>
