@@ -34,7 +34,7 @@ RUN cd /home/vscode/azure-pipelines \
     && tar xzf /home/vscode/azure-pipelines/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
     && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
     && sudo dpkg -i packages-microsoft-prod.deb \
-    && rm packages-microsoft-prod.deb
+    && rm packages-microsoft-prod.deb \
     && /home/vscode/azure-pipelines/bin/installdependencies.sh
 
 # copy over the start.sh script
