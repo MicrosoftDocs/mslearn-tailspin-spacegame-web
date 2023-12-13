@@ -16,4 +16,12 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  Deploy-test:
+    name: deploy-test
+    needs: Explore-GitHub-Actions
+    if: success()
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+       - run: echo "🍏 This job id done"
       
