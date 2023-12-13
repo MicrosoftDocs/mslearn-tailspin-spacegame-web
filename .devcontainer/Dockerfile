@@ -32,6 +32,8 @@ ARG AGENT_VERSION="3.225.3"
 RUN cd /home/vscode/azure-pipelines \
     && curl -O -L https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
     && tar xzf /home/vscode/azure-pipelines/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
+    && apt-get update \
+    && apt-get install -y libicu-dev \
     && /home/vscode/azure-pipelines/bin/installdependencies.sh
 
 #    && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
