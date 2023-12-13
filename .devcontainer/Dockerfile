@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/dotnet:6.0
+FROM mcr.microsoft.com/devcontainers/dotnet:8.0
 
 # Install NodeJS
 # [Choice] Node.js version: none, lts/*, 18, 16, 14
@@ -30,15 +30,12 @@ ARG ARCH="x64"
 ARG AGENT_VERSION="3.225.3"
 
 RUN cd /home/vscode/azure-pipelines \
-    && sudo apt install libicu72 \
-    && curl -O -L https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
+    && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
+    && sudo dpkg -i packages-microsoft-prod.deb \
+    && rm packages-microsoft-prod.deb \    && curl -O -L https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
     && tar xzf /home/vscode/azure-pipelines/vsts-agent-linux-${ARCH}-${AGENT_VERSION}.tar.gz \
-    && /home/vscode/azure-pipelines/bin/installdependencies.sh \
-    && sudo apk add sl
+    && /home/vscode/azure-pipelines/bin/installdependencies.sh
 
-#    && wget https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb -O packages-microsoft-prod.deb \
-#    && sudo dpkg -i packages-microsoft-prod.deb \
-#    && rm packages-microsoft-prod.deb \
 
 
 # copy over the start.sh script
