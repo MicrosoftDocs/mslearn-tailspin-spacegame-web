@@ -30,7 +30,7 @@
         "args": {
             "UPGRADE_PACKAGES": "true",
             "ARCH": "x64",
-            "AGENT_VERSION": "2.206.1"
+            "AGENT_VERSION": "2.294.0"
         }
     },
     "features": {
