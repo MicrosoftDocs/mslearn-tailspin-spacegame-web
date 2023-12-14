@@ -21,7 +21,7 @@ jobs:
   Deploy-test:
     name: deploy-test
     needs: Explore-GitHub-Actions
-    if: success() && github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.review.state == 'approved' && github.event.pull_request.merged == true
+    if: success()
     runs-on: ubuntu-latest
     environment: test
     steps:
