@@ -1,14 +1,16 @@
 # ASP.NET CORE
 # BUILD AND TEST ASP.NET CORE
+
 trigger:
--mian
+- main
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'ubuntu-latest'
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayNmae: 'dotnet build $(buildConfiguration) '
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
