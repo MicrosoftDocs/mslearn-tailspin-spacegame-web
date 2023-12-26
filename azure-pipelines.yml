@@ -2,7 +2,7 @@ trigger:
 - main
 
 pool:
-  vmImage: Spacegame
+  vmImage: default
 
   variables:
     buildConfiguration: 'Release'
