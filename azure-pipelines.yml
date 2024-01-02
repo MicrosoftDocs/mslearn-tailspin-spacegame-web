@@ -4,11 +4,10 @@ trigger:
 - main
 
 pool: 
-  vmImage: ubuntu-latest
+  vmImage: PROD-FACTORY
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
-  displayname: 'dotnet build $(buildConfiguration)'
