@@ -1,4 +1,10 @@
-pool: MyAgentPool
+
+trigger:
+- main
+
+pool:
+    vmImage: ubuntu-latest
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
