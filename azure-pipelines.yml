@@ -5,10 +5,9 @@ trigger:
 pool:
     vmImage: ubuntu-latest
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfig)'
+variables:
+    buildConfig: Release
+
 steps:
-- bash: echo hello world
+- script: dotnet build --configuration $(buildConfig)
+  displayName: 'dotnet build $(buildConfig)'
