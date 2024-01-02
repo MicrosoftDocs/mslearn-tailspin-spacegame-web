@@ -1,8 +1,10 @@
 
+
 trigger:
 - main
 
-pool: PROD-FACTORY
+pool: 
+  vmImage: PROD-FACTORY
 
 variables:
   buildConfiguration: 'Release'
@@ -10,4 +12,3 @@ variables:
 steps:
 - script: dotnet build -- configuration $(buildConfiguration)
   displayname: 'dotnet build $(buildConfiguration)'
-  
