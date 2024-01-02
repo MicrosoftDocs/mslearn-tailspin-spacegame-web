@@ -10,3 +10,4 @@ variables:
 steps:
 - script: dotnet build -- configuration $(buildConfiguration)
   displayname: 'dotnet build $(buildConfiguration)'
+  
