@@ -1,0 +1,14 @@
+name: Testing Workflow
+on: 
+  workflow_dispatch
+
+env:
+  SKIP_QGS: 'ALL'
+
+jobs:
+  Skip_QGs: 
+    runs-on: windows-latest
+    steps:
+    - name: 'Skipping Quality Gates'
+      run: |
+        echo "Skipping Quality Gates $SKIP_QGS"
