@@ -1,5 +1,5 @@
 trigger:
-  - '*' -
+   '*' 
   
   pool:
     name: Default
