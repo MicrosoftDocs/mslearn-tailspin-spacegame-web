@@ -1,4 +1,17 @@
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    
+# ASP.NET Core
+# Compile y pruebe proyectos de ASP NET Core con destino .NET Core.
+# Agregue pasos que ejecuten pruebas, creen un paquete NuGet, implementen y más!
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+  - script: dotnet build configuration $(buildConfiguration)
+    displayName: 'dotnet build $(buildConfiguration)'
