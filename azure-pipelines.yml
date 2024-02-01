@@ -1,8 +1,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: Build-Agent-Mac
   
 variables:
   buildConfiguration: 'Release'
