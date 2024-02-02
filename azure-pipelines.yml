@@ -3,3 +3,8 @@ pool:
 steps:
 - bash: echo hello world
 
+
+- task: TerraformInstaller@1
+  displayName: install terraform
+  inputs:
+    terraformVersion: latest
