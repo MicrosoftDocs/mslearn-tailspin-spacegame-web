@@ -4,7 +4,10 @@ steps:
 - bash: echo hello world!!
 
 
-- task: TerraformInstaller@1
-  displayName: install terraform
-  inputs:
-    terraformVersion: latest
+stages:
+  - stage: TerraformInstall
+    displayName: "Terraform Install"
+      - task: TerraformInstaller@1
+          displayName: install terraform
+            inputs:
+              terraformVersion: latest
