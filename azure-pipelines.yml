@@ -1,5 +1,5 @@
 pool:
-  pool: 'Default'
+  name: Default
 steps:
 - bash: echo hello world
 
