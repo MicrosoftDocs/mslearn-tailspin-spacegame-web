@@ -11,9 +11,9 @@ variables:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK $('2.1.401')'
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
-    version: '$('2.1.401')'
+    version: '$(dotnetSdkVersion)'
 
 - task: NuGetToolInstaller@0
   inputs:
