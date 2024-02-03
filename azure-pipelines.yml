@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: 'Lokesh' 
+  name: 'Default' 
 
 variables:
   buildConfiguration: 'Release'
