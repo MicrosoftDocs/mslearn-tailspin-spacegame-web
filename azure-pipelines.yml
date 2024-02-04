@@ -94,9 +94,8 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
-    - task: DotNetCoreCLI@2
-
     
+- task: DotNetCoreCLI@2
   displayName: 'Pack the project - $(buildConfiguration)'
   inputs:
     command: 'pack'
