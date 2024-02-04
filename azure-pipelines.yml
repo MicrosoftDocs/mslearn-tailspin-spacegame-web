@@ -1,49 +1,6 @@
-# pool:
-#   name: Default
-
-# variables:
-#   buildConfiguration: 'Release'
-#   dotnetSdkVersion: '6.x'
-
-# steps:
-# - task: UseDotNet@2
-#   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
-#   inputs:
-#     version: '$(dotnetSdkVersion)'
-
-# - task: DotNetCoreCLI@2
-#   displayName: 'Restore project dependencies'
-#   inputs:
-#     command: 'restore'
-#     projects: '**/*.csproj'
-
-# - task: DotNetCoreCLI@2
-#   displayName: 'Build the project - $(buildConfiguration)'
-#   inputs:
-#     command: 'build'
-#     arguments: '--no-restore --configuration $(buildConfiguration)'
-#     projects: '**/*.csproj'
-
-# - task: DotNetCoreCLI@2
-#   displayName: 'Pack the project - $(buildConfiguration)'
-#   inputs:
-#     command: 'pack'
-#     projects: '**/*.csproj'
-#     arguments: '--no-build --configuration $(buildConfiguration)'
-#     versioningScheme: byPrereleaseNumber
-#     majorVersion: '1'
-#     minorVersion: '0'
-#     patchVersion: '0'
- 
-# - task: NuGetCommand@2
-#   displayName: 'Publish NuGet package'
-#   inputs:
-#     command: push
-#     feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web'
-#     allowPackageConflicts: true
-#   condition: succeeded()
 pool:
-  vmImage: 'windows-latest' 
+  name: Default
+
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
@@ -85,3 +42,6 @@ steps:
     feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web'
     allowPackageConflicts: true
   condition: succeeded()
+  
+- script: dotnet nuget locals all --clear
+  displayName: 'Clear NuGet cache'
