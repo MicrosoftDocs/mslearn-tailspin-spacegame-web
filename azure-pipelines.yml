@@ -43,8 +43,7 @@
 #     allowPackageConflicts: true
 #   condition: succeeded()
 pool:
-  name: Default
-
+  vmImage: 'windows-latest' 
 variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
