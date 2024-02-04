@@ -5,12 +5,18 @@ variables:
   buildConfiguration: 'Release'
   dotnetSdkVersion: '6.x'
 
+# steps:
+# - task: UseDotNet@2
+#   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
+#   inputs:
+#     version: '$(dotnetSdkVersion)'
 steps:
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
-    version: '$(dotnetSdkVersion)'
-
+    version: '2.1.401'  # Specify the desired version
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+    displayName: 'Use .NET SDK'
+    
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
