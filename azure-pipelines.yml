@@ -5,17 +5,12 @@
 #   buildConfiguration: 'Release'
 #   dotnetSdkVersion: '6.x'
 
-# # steps:
-# # - task: UseDotNet@2
-# #   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
-# #   inputs:S
-# #     version: '$(dotnetSdkVersion)'
 # steps:
 # - task: UseDotNet@2
-#   displayName: 'Use .NET SDK 6.x'
+#   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
 #   inputs:
-#     packageType: sdk
-#     version: '6.x'
+#     version: '$(dotnetSdkVersion)'
+
 # - task: DotNetCoreCLI@2
 #   displayName: 'Restore project dependencies'
 #   inputs:
@@ -47,69 +42,3 @@
 #     feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web'
 #     allowPackageConflicts: true
 #   condition: succeeded()
-
-
-
-
-trigger:
-- '*'
-
-pool:
-  name: 'Default' # Replace Default with the name of your agent pool if you used a different pool
-
-variables:
-  buildConfiguration: 'Release'
-
-steps:
-- task: UseDotNet@2
-  displayName: 'Use .NET SDK 6.x'
-  inputs:
-    packageType: sdk
-    version: '6.x'
-
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose: false
-
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayName: 'Compile Sass assets'
-
-- task: gulp@1
-  displayName: 'Run gulp tasks'
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
-
-- task: DotNetCoreCLI@2
-  displayName: 'Restore project dependencies'
-  inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'
-    
-- task: DotNetCoreCLI@2
-  displayName: 'Pack the project - $(buildConfiguration)'
-  inputs:
-    command: 'pack'
-    projects: '**/*.csproj'
-    arguments: '--no-build --configuration $(buildConfiguration)'
-    versioningScheme: byPrereleaseNumber
-    majorVersion: '1'
-    minorVersion: '0'
-    patchVersion: '0'
- 
-- task: NuGetCommand@2
-  displayName: 'Publish NuGet package'
-  inputs:
-    command: push
-    feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web'
-    allowPackageConflicts: true
-  condition: succeeded()
