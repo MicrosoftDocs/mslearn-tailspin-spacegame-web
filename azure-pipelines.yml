@@ -51,7 +51,8 @@
 
 
 
-
+trigger:
+- '*'
 
 pool:
   name: 'Default' # Replace Default with the name of your agent pool if you used a different pool
@@ -93,3 +94,23 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+    - task: DotNetCoreCLI@2
+
+    
+  displayName: 'Pack the project - $(buildConfiguration)'
+  inputs:
+    command: 'pack'
+    projects: '**/*.csproj'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
+ 
+- task: NuGetCommand@2
+  displayName: 'Publish NuGet package'
+  inputs:
+    command: push
+    feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web'
+    allowPackageConflicts: true
+  condition: succeeded()
