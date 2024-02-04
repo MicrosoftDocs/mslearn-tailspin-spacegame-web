@@ -1,5 +1,4 @@
-pool:
-  name: Default
+pool  name: Default
 
 variables:
   buildConfiguration: 'Release'
