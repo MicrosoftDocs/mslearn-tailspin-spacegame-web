@@ -13,7 +13,7 @@ variables:
 steps:
 - task: UseDotNet@2
   inputs:
-    version: '2.1.401'  # Specify the desired version
+    version: '6.0.0'  # Specify the desired version
     installationPath: $(Agent.ToolsDirectory)/dotnet
     displayName: 'Use .NET SDK'
     
