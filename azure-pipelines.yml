@@ -1,11 +1,9 @@
 trigger:
-- '*'
+- master
 
 pool:
-vmImage: 'windows-latest'
-demands:
-  - npm
-
+  vmImage: 'windows-latest'
+  
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
