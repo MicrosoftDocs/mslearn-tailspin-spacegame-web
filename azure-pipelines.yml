@@ -1,9 +1,11 @@
 trigger:
-- 'master'
+- '*'
 
 pool:
-  vmImage: 'windows-latest'
-  
+  vmImage: 'ubuntu-20.04'
+  demands:
+  - npm
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
