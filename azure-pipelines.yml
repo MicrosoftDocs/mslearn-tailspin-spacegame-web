@@ -3,6 +3,8 @@ trigger:
 
 pool:
 vmImage: 'windows-latest'
+demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
