@@ -1,13 +1,3 @@
-pool:
-  name: Default
+pool: MyAgentPool
 steps:
-- bash: echo hello world!!
-
-
-stages:
-  - stage: TerraformInstall
-    displayName: "Terraform Install"
-      - task: TerraformInstaller@1
-          displayName: install terraform
-            inputs:
-              terraformVersion: latest
+- bash: echo hello world
