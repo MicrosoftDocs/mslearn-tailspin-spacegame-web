@@ -30,7 +30,8 @@ steps:
   - task: TerraformCLI@0
     displayName: 'terraform plan'
     inputs:
-      command: plan -var 'cliente=teste'
+      command: plan
+      commandOptions: -var 'cliente=${{parameter.myString}}'
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
