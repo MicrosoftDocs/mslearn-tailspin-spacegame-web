@@ -1,6 +1,11 @@
 parameters:
 - name: myCliente
-  displayName: Cliente
+  displayName: Nome da conta do Cliente
+  type: string
+  default:
+
+- name: myEmail
+  displayName: Email da conta do Cliente
   type: string
   default:
 
@@ -34,7 +39,7 @@ steps:
     displayName: 'terraform plan'
     inputs:
       command: plan
-      commandOptions: '-var cliente=${{parameters.myCliente}}'
+      commandOptions: '-var cliente=${{parameters.myCliente}} email=${{parameters.myEmail}}'
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
