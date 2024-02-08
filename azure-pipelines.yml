@@ -20,7 +20,7 @@ steps:
   - task: TerraformCLI@0
     displayName: 'terraform init'
     inputs:
-      command: init
+      command: init terraform/cloudwatch
 
 #jobs:
 #- job: build
