@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/kavaskar12340571/space%20game%20-web%20pipeline/_apis/build/status%2FKavas2002.mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/kavaskar12340571/space%20game%20-web%20pipeline/_build/latest?definitionId=11&branchName=code-workflow)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
