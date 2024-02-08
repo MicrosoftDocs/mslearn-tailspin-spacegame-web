@@ -6,7 +6,7 @@ parameters:
 
 trigger: none
 
-workingDirectory: './terraform/cloudwatch'
+
 
 steps:
   - task: TerraformInstaller@1
@@ -20,6 +20,7 @@ steps:
       command: version
 
   - task: TerraformCLI@0
+    workingDirectory: './terraform/cloudwatch'
     displayName: 'terraform init'
     inputs:
       provider: 'aws'
