@@ -8,8 +8,6 @@ parameters:
   - ubuntu-latest
   - macOS-latest
 
-trigger: none
-
 jobs:
 - job: build
   displayName: build
