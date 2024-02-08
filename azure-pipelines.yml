@@ -1,8 +1,9 @@
 parameters:
-- name: myString
+- name: myCliente
   displayName: Cliente
   type: string
   default:
+
 
 trigger: none
 
@@ -33,7 +34,7 @@ steps:
     displayName: 'terraform plan'
     inputs:
       command: plan
-      commandOptions: '-var cliente=${{parameters.myString}}'
+      commandOptions: '-var cliente=${{parameters.myCliente}}'
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
