@@ -13,7 +13,8 @@ parameters:
 trigger: none
 
 
-steps:
+stage:
+  steps:
   - bash:
       echo ${{parameters.myCliente}}
       echo ${{parameters.myEmail}}
