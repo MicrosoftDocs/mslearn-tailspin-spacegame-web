@@ -8,7 +8,8 @@ trigger: none
 
 
 steps:
-  - bash: ls -la $(System.DefaultWorkingDirectory)
+  - bash: cd terraform/cloudwatch
+      pwd
     displayName: SAPLEURA
   - task: TerraformInstaller@1
     displayName: install terraform
