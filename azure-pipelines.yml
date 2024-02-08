@@ -6,6 +6,8 @@ parameters:
 
 trigger: none
 
+workingDirectory: './terraform/cloudwatch'
+
 steps:
   - task: TerraformInstaller@1
     displayName: install terraform
@@ -22,7 +24,6 @@ steps:
     inputs:
       provider: 'aws'
       command: init
-      workingDirectory: 'terraform/cloudwatch'
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
