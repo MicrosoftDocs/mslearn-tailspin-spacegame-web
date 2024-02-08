@@ -8,7 +8,8 @@ trigger: none
 
 
 steps:
-  - bash: cd terraform/cloudwatch
+  - bash: |
+      cd terraform/cloudwatch
       pwd
     displayName: SAPLEURA
   - task: TerraformInstaller@1
