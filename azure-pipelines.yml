@@ -10,7 +10,7 @@ trigger: none
 
 steps:
   - bash:
-      echo ${{parameters.myString}}
+      echo ${{parameters.myCliente}}
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
