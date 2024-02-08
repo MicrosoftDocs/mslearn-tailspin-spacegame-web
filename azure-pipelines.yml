@@ -1,5 +1,15 @@
+parameters:
+  - name: image
+    displayName: Pool Image
+    type: string
+    default: ubuntu-latest
+    values:
+      - windows-latest
+      - ubuntu-latest
+      - macOS-latest
+
 trigger:
-- '*'
+- none
 
 pool:
   vmImage: ubuntu-latest
