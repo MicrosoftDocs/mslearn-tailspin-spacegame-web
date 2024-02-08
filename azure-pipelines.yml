@@ -15,8 +15,7 @@ trigger: none
 
 stages:
   - stage: "Instalar e testar instalação do Terraform"
-    jobs:
-      steps:
+    steps:
         - bash:
             echo ${{parameters.myCliente}}
             echo ${{parameters.myEmail}}
