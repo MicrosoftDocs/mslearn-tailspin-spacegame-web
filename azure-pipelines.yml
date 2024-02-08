@@ -6,9 +6,9 @@ parameters:
 
 trigger: none
 
-workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/cloudwatch'
 
 steps:
+  - workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/cloudwatch'
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
