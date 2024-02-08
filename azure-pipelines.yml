@@ -15,50 +15,14 @@ trigger: none
 
 stages:
   - stage: "Instalar e testar instalação do Terraform"
-     - task: TerraformInstaller@1
-       displayName: install terraform
-       inputs:
-        terraformVersion: latest
+    jobs:
+      - job1:
+          - task: TerraformInstaller@1
+            displayName: install terraform
+            inputs:
+            terraformVersion: latest
 
-      - task: TerraformCLI@0
-        displayName: 'check terraform version'
-        inputs:
-          command: version
-
-      - task: TerraformCLI@0
-        displayName: 'terraform init'
-        inputs:
-          provider: 'aws'
-          command: init
-        env:
-         AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-         AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
-- stage: "Plan do Terraform"
-  jobs:
-    - task: TerraformCLI@0
-      condition: manual()
-      displayName: 'terraform plan'
-      inputs:
-        command: plan
-        commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
-      env:
-        AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-        AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
-- stage: "Apply do Terraform"
-  jobs:
-    steps:
-      - task: TerraformCLI@0
-        condition: manual()
-        displayName: 'terraform plan'
-        inputs:
-          command: plan
-          commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
-        env:
-          AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-          AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
-
-
-
+      -
 
 
 
