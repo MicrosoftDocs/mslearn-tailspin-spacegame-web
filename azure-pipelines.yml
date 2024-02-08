@@ -9,7 +9,7 @@ trigger: none
 
 steps:
   - bash: echo "$(System.DefaultWorkingDirectory)
-    diplayName: SAPLEURA
+    displayName: SAPLEURA
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
