@@ -1,5 +1,5 @@
 parameters:
-- name: image
+- name: Imagem
   displayName: Pool Image
   type: string
   default: ubuntu-latest
@@ -9,6 +9,14 @@ parameters:
   - macOS-latest
   - jujubinha
 
+parameters:
+- name: Cliente
+  displayName: Pool Image
+  type: string
+
+
+
+
 trigger: none
 
 jobs:
@@ -17,4 +25,4 @@ jobs:
   pool:
     vmImage: ${{ parameters.image }}
   steps:
-  - script: echo building $(Build.BuildNumber) with ${{ parameters.image }} in commit $(Build.SourceVersionMessage)
+  - script: echo building $(Build.BuildNumber) with ${{ parameters.image }} in commit $(BUILD.SOURCEVERSIONMESSAGE)
