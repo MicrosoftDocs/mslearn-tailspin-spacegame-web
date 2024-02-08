@@ -20,9 +20,9 @@ steps:
       command: version
 
   - task: TerraformCLI@0
-    workingDirectory: './terraform/cloudwatch'
     displayName: 'terraform init'
     inputs:
+      workingDirectory: './terraform/cloudwatch'
       provider: 'aws'
       command: init
     env:
