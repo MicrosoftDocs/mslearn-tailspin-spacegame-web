@@ -8,9 +8,6 @@ trigger: none
 
 
 steps:
-  - bash: cd terraform/cloudwatch
-      pwd
-    displayName: SAPLEURA
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
