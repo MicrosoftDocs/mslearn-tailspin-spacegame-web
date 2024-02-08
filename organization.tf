@@ -5,6 +5,6 @@ resource "aws_organizations_account" "account" {
 
   # There is no AWS Organizations API for reading role_name
   lifecycle {
-    ignore_changes = [aws_organizations_account.account.role_name]
+    ignore_changes = [role_name]
   }
 }
