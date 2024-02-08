@@ -26,6 +26,13 @@ steps:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
+  - task: TerraformCLI@0
+    displayName: 'terraform plan'
+    inputs:
+      command: plan
+      environmentServiceName: 'My Azure Service Connection'
+
+
 
 #jobs:
 #- job: build
