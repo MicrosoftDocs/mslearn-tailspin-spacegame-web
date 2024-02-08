@@ -6,16 +6,17 @@ parameters:
 
 trigger: none
 
+steps:
+  - task: TerraformInstaller@1
+    displayName: install terraform
+    inputs:
+      terraformVersion: latest
 
-- task: TerraformInstaller@1
-  displayName: install terraform
-  inputs:
-    terraformVersion: latest
+  - task: TerraformCLI@0
+    displayName: 'check terraform version'
+    inputs:
+      command: version
 
-- task: TerraformCLI@0
-  displayName: 'check terraform version'
-  inputs:
-    command: version
 
 #jobs:
 #- job: build
