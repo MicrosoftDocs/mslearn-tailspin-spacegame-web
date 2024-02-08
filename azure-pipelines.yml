@@ -9,10 +9,10 @@ trigger: none
 
 
 steps:
+  - checkout: self
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
-      workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/cloudwatch'
       terraformVersion: latest
 
   - task: TerraformCLI@0
