@@ -8,6 +8,8 @@ trigger: none
 
 
 steps:
+  - bash:
+      echo ${{parameters.myString}}
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
@@ -31,7 +33,7 @@ steps:
     displayName: 'terraform plan'
     inputs:
       command: plan
-      commandOptions: '-var cliente=parameter.myString'
+      commandOptions: '-var cliente=${{parameters.myString}}'
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
