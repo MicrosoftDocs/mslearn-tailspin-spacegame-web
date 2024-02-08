@@ -6,11 +6,22 @@ parameters:
 
 trigger: none
 
-jobs:
-- job: build
-  displayName: build
-  pool:
-    vmImage: ubuntu-latest
-  steps:
-  - script: echo building $(Build.BuildNumber) with ${{ parameters.myString }} in commit $(BUILD.SOURCEVERSIONMESSAGE)
+
+- task: TerraformInstaller@1
+  displayName: install terraform
+  inputs:
+    terraformVersion: latest
+
+- task: TerraformCLI@0
+  displayName: 'check terraform version'
+  inputs:
+    command: version
+
+#jobs:
+#- job: build
+#  displayName: build
+#  pool:
+#    vmImage: ubuntu-latest
+#  steps:
+#  - script: echo building $(Build.BuildNumber) with ${{ parameters.myString }} in commit $(BUILD.SOURCEVERSIONMESSAGE)
 
