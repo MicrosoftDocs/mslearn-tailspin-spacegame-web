@@ -1,5 +1,5 @@
 parameters:
-- name: Imagem
+- name: image
   displayName: Pool Image
   type: string
   default: ubuntu-latest
@@ -8,8 +8,6 @@ parameters:
   - ubuntu-latest
   - macOS-latest
   - jujubinha
-
-
 
 trigger: none
 
