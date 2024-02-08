@@ -30,7 +30,6 @@ steps:
     displayName: 'terraform plan'
     inputs:
       command: plan
-      environmentServiceName: 'My Azure Service Connection'
 
 
 
