@@ -10,7 +10,7 @@ jobs:
 - job: build
   displayName: build
   pool:
-    vmImage: ${{ parameters.image }}
+    vmImage: ubuntu-latest
   steps:
   - script: echo building $(Build.BuildNumber) with ${{ parameters.myString }} in commit $(BUILD.SOURCEVERSIONMESSAGE)
 
