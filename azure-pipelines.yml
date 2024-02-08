@@ -37,17 +37,16 @@ steps:
       AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
 stages:
-  - stage: "Plan"
-    job:
-      - task: TerraformCLI@0
-        displayName: 'terraform plan'
-        dependsOn: pleura
-        inputs:
-          command: plan
-          commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
-        env:
-          AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-          AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+  condition: Manual
+  -task: TerraformCLI@0
+  displayName: 'terraform plan'
+  dependsOn: pleura
+  inputs:
+  command: plan
+  commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
+  env:
+    AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+    AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
  # - stage:
  #   - task: TerraformCLI@0
