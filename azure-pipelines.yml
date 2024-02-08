@@ -9,12 +9,6 @@ parameters:
   - macOS-latest
   - jujubinha
 
-parameters:
-- name: Cliente
-  displayName: Pool Image
-  type: string
-
-
 
 
 trigger: none
