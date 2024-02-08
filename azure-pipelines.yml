@@ -7,6 +7,9 @@ parameters:
   - windows-latest
   - ubuntu-latest
   - macOS-latest
+  - jujubinha
+
+trigger: none
 
 jobs:
 - job: build
