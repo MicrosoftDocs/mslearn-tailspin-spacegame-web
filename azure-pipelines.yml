@@ -8,6 +8,8 @@ trigger: none
 
 
 steps:
+  - bash: echo "$(System.DefaultWorkingDirectory)
+    diplayName: SAPLEURA
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
@@ -22,7 +24,6 @@ steps:
     displayName: 'terraform init'
     inputs:
       provider: 'aws'
-      bash: echo $(System.DefaultWorkingDirectory) + 'jujuba'
       command: init
     env:
       AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
