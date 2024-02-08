@@ -16,6 +16,7 @@ trigger: none
 steps:
   - bash:
       echo ${{parameters.myCliente}}
+      echo ${{parameters.myEmail}}
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
