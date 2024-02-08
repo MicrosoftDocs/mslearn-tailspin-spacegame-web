@@ -13,7 +13,7 @@ parameters:
 trigger: none
 
 
-stage:
+stages:
   steps:
   - bash:
       echo ${{parameters.myCliente}}
