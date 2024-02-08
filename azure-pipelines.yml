@@ -8,7 +8,7 @@ trigger: none
 
 
 steps:
-  - bash: echo "$(System.DefaultWorkingDirectory)
+  - bash: echo $(System.DefaultWorkingDirectory)
     displayName: SAPLEURA
   - task: TerraformInstaller@1
     displayName: install terraform
