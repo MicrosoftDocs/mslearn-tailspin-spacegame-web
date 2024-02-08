@@ -3,6 +3,7 @@ terraform {
     bucket = "terraform-stoque-cloudwatch-teste"
     region = "us-east-1"
     key = "teste"
+    profile = "pessoal"
   }
   required_providers {
     aws = {
@@ -15,4 +16,10 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  profile = "pessoal"
+}
+
+module "sns" {
+    source = "git::https://github.com/terraform-aws-modules/terraform-aws-sns"
+    name = "${var.environment}-cloudwatch-${var.cliente == "" ? "stoque" : var.cliente}-notifications"
 }
