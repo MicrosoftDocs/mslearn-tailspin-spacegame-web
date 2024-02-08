@@ -22,7 +22,7 @@ steps:
   - task: TerraformCLI@0
     displayName: 'terraform init'
     inputs:
-      workingDirectory: './terraform/cloudwatch'
+      workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/cloudwatch'
       provider: 'aws'
       command: init
     env:
