@@ -2,7 +2,7 @@ parameters:
 - name: myString
   displayName: Cliente
   type: string
-  default: nome do cliente
+  default:
 
 trigger: none
 
