@@ -8,8 +8,6 @@ parameters:
       - ubuntu-latest
       - macOS-latest
 
-trigger: none
-
 pool:
   vmImage: ubuntu-latest
 
