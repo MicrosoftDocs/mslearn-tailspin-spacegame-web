@@ -1,0 +1,14 @@
+trigger:
+  none
+
+parameters:
+  - name: myString
+    type: string
+    default:
+
+steps:
+  - task: TerraformCLI@0
+    displayName: 'terraform init'
+    inputs:
+    command: init
+
