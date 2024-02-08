@@ -17,12 +17,11 @@ stages:
   - stage: "Instalar e testar instalação do Terraform"
     jobs:
       - job:
-          - task: TerraformInstaller@1
-            displayName: install terraform
-            inputs:
-            terraformVersion: latest
-
-      -
+          - steps:
+              - task: TerraformInstaller@1
+                displayName: install terraform
+                inputs:
+                terraformVersion: latest
 
 
 
