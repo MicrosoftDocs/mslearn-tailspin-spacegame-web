@@ -6,10 +6,7 @@ parameters:
 
 trigger: none
 
-
-
 steps:
-  - checkout: self
   - task: TerraformInstaller@1
     displayName: install terraform
     inputs:
@@ -22,6 +19,7 @@ steps:
 
   - task: TerraformCLI@0
     displayName: 'terraform init'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/cloudwatch'
     inputs:
       provider: 'aws'
       command: init
