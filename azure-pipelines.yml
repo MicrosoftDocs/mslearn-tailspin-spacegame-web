@@ -57,8 +57,7 @@ stages:
       - job:
         displayName: "Aplicar configurações do terraform"
         steps:
-          - bash:
-            ls $(ystem.DefaultWorkingDirectory)
+          - bash: ls $(System.DefaultWorkingDirectory)
 #          - task: TerraformCLI@0
 #            condition: eq(variables['Build.Reason'], 'Manual')
 #            displayName: 'terraform apply'
