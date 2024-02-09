@@ -53,7 +53,6 @@ stages:
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
   - stage: ApplyConfiguration
-    trigger: none
     jobs:
       - job:
         displayName: "Aplicar configurações do terraform"
@@ -69,6 +68,7 @@ stages:
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
           - bash: ls $(System.DefaultWorkingDirectory)
           - task: TerraformCLI@0
+            trigger: none
             displayName: 'terraform apply'
             inputs:
              command: apply
