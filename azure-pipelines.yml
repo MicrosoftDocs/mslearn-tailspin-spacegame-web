@@ -20,9 +20,9 @@ stages:
         displayName: "Instalar e testar instalação do Terraform"
         steps:
           - task: TerraformInstaller@1
-            displayName: install terraform
+            displayName: 'install terraform'
             inputs:
-            terraformVersion: latest
+              terraformVersion: latest
 
 
 
