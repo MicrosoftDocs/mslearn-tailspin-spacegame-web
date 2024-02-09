@@ -29,6 +29,29 @@ stages:
             inputs:
               command: version
 
+  - stage: ConfigureTerraform
+    jobs:
+      - job:
+        displayName: "Executar init e plan do terraform"
+        steps:
+          - task: TerraformCLI@0
+            displayName: 'terraform init'
+            inputs:
+              provider: 'aws'
+              command: init
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+
+          - task: TerraformCLI@0
+            displayName: 'terraform plan'
+            inputs:
+              command: plan
+              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+
 
 
 #steps:
