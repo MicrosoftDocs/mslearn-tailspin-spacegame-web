@@ -53,12 +53,12 @@ stages:
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
   - stage: ApplyConfiguration
-    condition: eq(variables['Build.Reason'], 'Manual')
     jobs:
       - job:
         displayName: "Aplicar configurações do terraform"
         steps:
           - task: TerraformCLI@0
+            condition: eq(variables['Build.Reason'], 'Manual')
             displayName: 'terraform apply'
             inputs:
              command: apply
