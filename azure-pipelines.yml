@@ -32,6 +32,7 @@ stages:
   - stage: ConfigureTerraform
     jobs:
       - job:
+        pool: server
         displayName: "Executar init e plan do terraform"
         steps:
           - task: TerraformCLI@0
