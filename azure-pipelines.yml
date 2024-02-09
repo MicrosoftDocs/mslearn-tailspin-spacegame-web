@@ -14,7 +14,7 @@ trigger: none
 
 
 stages:
-  - stage: "Instalar e testar instalação do Terraform"
+  - stage: InstallTerrform
     jobs:
       - job:
         displayName: "Instalar e testar instalação do Terraform"
