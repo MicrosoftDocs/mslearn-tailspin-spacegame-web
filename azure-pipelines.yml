@@ -15,11 +15,14 @@ trigger: none
 
 stages:
   - stage: "Instalar e testar instalação do Terraform"
-    steps:
-      - task: TerraformInstaller@1
-        displayName: install terraform
-        inputs:
-        terraformVersion: latest
+    jobs:
+      - job:
+        diplayName: "Instalar e testar instalação do Terraform"
+        steps:
+          - task: TerraformInstaller@1
+            displayName: install terraform
+            inputs:
+            terraformVersion: latest
 
 
 
