@@ -54,7 +54,13 @@ stages:
 
   - stage: ApplyConfiguration
     jobs:
-      - job:
+      - job1:
+        displayName: "Aceite manual para deploy"
+        onTimeout: 'resume'
+        steps:
+          - task: ManualVAlidation@
+            onTimeout: 300
+      - job2:
         displayName: "Aplicar configurações do terraform"
         steps:
           - task: TerraformCLI@0
@@ -68,7 +74,6 @@ stages:
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
           - bash: ls $(System.DefaultWorkingDirectory)
           - task: TerraformCLI@0
-            trigger: none
             displayName: 'terraform apply'
             inputs:
              command: apply
