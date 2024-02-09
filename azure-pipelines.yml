@@ -54,13 +54,13 @@ stages:
 
   - stage: ApplyConfiguration
     jobs:
-      - job1:
+      - job: job1
         displayName: "Aceite manual para deploy"
         onTimeout: 'resume'
         steps:
           - task: ManualVAlidation@
             onTimeout: 300
-      - job2:
+      - job: job2
         displayName: "Aplicar configurações do terraform"
         steps:
           - task: TerraformCLI@0
