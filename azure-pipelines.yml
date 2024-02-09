@@ -54,15 +54,18 @@ stages:
 
   - stage: ApplyConfiguration
     jobs:
+      - job: manual_approval
+        displayName: "Manual Approval"
+        dependsOn: terraform_init
+        pool: server
+        steps:
+          - task: ManualValidation@0
+            timeoutInMinutes: 5
+            inputs:
+              instructions: "Hi, please validate"
       - job:
         displayName: "Aplicar configurações do terraform"
-        pool:
-          name: Default
         steps:
-          - task: ManualVAlidation@0
-            timeoutInMinutes: 300
-            inputs:
-              onTimeout: 'reject'
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
