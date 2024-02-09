@@ -61,7 +61,7 @@ stages:
           - task: ManualVAlidation@0
             timeoutInMinutes: 300
             inputs:
-              onTimeout: 'resume'
+              onTimeout: 'reject'
       - job: job2
         displayName: "Aplicar configurações do terraform"
         steps:
@@ -74,7 +74,6 @@ stages:
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
-          - bash: ls $(System.DefaultWorkingDirectory)
           - task: TerraformCLI@0
             displayName: 'terraform apply'
             inputs:
