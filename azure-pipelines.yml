@@ -56,7 +56,8 @@ stages:
     jobs:
       - job:
         displayName: "Aplicar configurações do terraform"
-        pool: Default
+        pool:
+          name: Default
         steps:
           - task: ManualVAlidation@0
             timeoutInMinutes: 300
