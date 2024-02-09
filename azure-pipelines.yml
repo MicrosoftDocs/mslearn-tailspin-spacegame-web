@@ -32,7 +32,6 @@ stages:
   - stage: ConfigureTerraform
     jobs:
       - job:
-        pool: server
         displayName: "Executar init e plan do terraform"
         steps:
           - task: TerraformCLI@0
@@ -53,10 +52,14 @@ stages:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
+      - job:
+        displayName: "Aplicar configurações do terraform"
+        steps:
           - task: ManualValidation@0
-            timeoutInMinutes: 5
+            timeoutInMinutes: 1440 # task times out in 1 day
             inputs:
-              instructions: "Hi, please validate"
+              instructions: 'Please validate the build configuration and resume'
+              onTimeout: 'resume'
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
