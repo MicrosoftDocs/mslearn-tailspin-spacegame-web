@@ -42,7 +42,6 @@ stages:
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
-          - bash: ls $(System.DefaultWorkingDirectory)
 
           - task: TerraformCLI@0
             displayName: 'terraform plan'
@@ -58,16 +57,25 @@ stages:
       - job:
         displayName: "Aplicar configurações do terraform"
         steps:
+          - task: TerraformCLI@0
+            displayName: 'terraform init'
+            inputs:
+              provider: 'aws'
+              command: init
+              commandOptions: upgrade
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
           - bash: ls $(System.DefaultWorkingDirectory)
-#          - task: TerraformCLI@0
-#            condition: eq(variables['Build.Reason'], 'Manual')
-#            displayName: 'terraform apply'
-#            inputs:
-#             command: apply
-#             commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}} -out=$(System.DefaultWorkingDirectory)/terraform.tfplan -detailed-exitcode'
-#            env:
-#             AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-#             AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+          - task: TerraformCLI@0
+            condition: eq(variables['Build.Reason'], 'Manual')
+            displayName: 'terraform apply'
+            inputs:
+             command: apply
+             commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}} -out=$(System.DefaultWorkingDirectory)/terraform.tfplan -detailed-exitcode'
+            env:
+             AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+             AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
 
 #steps:
