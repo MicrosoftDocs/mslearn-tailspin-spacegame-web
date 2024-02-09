@@ -56,7 +56,6 @@ stages:
     jobs:
       - job: job1
         displayName: "Aceite manual para deploy"
-        onTimeout: 'resume'
         steps:
           - task: ManualVAlidation@
             onTimeout: 300
