@@ -52,19 +52,13 @@ stages:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
-  - stage: ApplyConfiguration
-    jobs:
-      - job: manual_approval
-        displayName: "Manual Approval"
-        pool: server
+      - job:
+        displayName: "Aplicar configurações do terraform"
         steps:
           - task: ManualValidation@0
             timeoutInMinutes: 5
             inputs:
               instructions: "Hi, please validate"
-      - job:
-        displayName: "Aplicar configurações do terraform"
-        steps:
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
