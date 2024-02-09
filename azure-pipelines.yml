@@ -58,7 +58,9 @@ stages:
         displayName: "Aceite manual para deploy"
         steps:
           - task: ManualVAlidation@
-            onTimeout: 300
+            timeoutInMinutes: 300
+            inputs:
+              onTimeout: 'resume'
       - job: job2
         displayName: "Aplicar configurações do terraform"
         steps:
