@@ -52,9 +52,6 @@ stages:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
-      - job: manual
-        displayName: "Aplicar configurações do terraform"
-        steps:
           - task: ManualValidation@0
             timeoutInMinutes: 5
             inputs:
@@ -77,6 +74,11 @@ stages:
              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
+
+
+#      - job:
+#        displayName: "Aplicar configurações do terraform"
+#        steps:
 
 #steps:
 #  - bash:
