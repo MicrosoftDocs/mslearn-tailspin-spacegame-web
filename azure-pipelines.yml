@@ -60,10 +60,10 @@ stages:
         displayName: "CAPETA"
         steps:
           - task: ManualValidation@0
-            timeoutInMinutes: 1440 # task times out in 1 day
+            timeoutInMinutes: 1 # task times out in 1 day
             inputs:
               instructions: 'Please validate the build configuration and resume'
-              onTimeout: 'resume'
+              onTimeout: 'reject'
 
   - stage: ApplyTerraform
     jobs:
