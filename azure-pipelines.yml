@@ -57,8 +57,7 @@ stages:
       - job:
         displayName: "Aplicar configurações do terraform"
         steps:
-          - task: ManualVAlidation@1
-            timeoutInMinutes: 300
+          - task: ManualVAlidation@0
             inputs:
               onTimeout: 'reject'
           - task: TerraformCLI@0
