@@ -52,15 +52,23 @@ stages:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
+
+  - stage: Capeta
+    jobs:
       - job:
-        pool: Default
-        displayName: "Aplicar configurações do terraform"
+        displayName: "CAPETA"
         steps:
           - task: ManualValidation@0
             timeoutInMinutes: 1440 # task times out in 1 day
             inputs:
               instructions: 'Please validate the build configuration and resume'
               onTimeout: 'resume'
+
+  - stage: ConfigureTerraform
+    jobs:
+      - job:
+        displayName: "Aplicar configurações do terraform"
+        steps:
           - task: TerraformCLI@0
             displayName: 'terraform init'
             inputs:
@@ -73,11 +81,11 @@ stages:
           - task: TerraformCLI@0
             displayName: 'terraform apply'
             inputs:
-             command: apply
-             commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
+              command: apply
+              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
             env:
-             AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
-             AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
 
 
