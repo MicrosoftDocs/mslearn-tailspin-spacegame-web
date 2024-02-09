@@ -57,7 +57,7 @@ stages:
       - job: job1
         displayName: "Aceite manual para deploy"
         steps:
-          - task: ManualVAlidation@
+          - task: ManualVAlidation@0
             timeoutInMinutes: 300
             inputs:
               onTimeout: 'resume'
