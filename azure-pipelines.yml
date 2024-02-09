@@ -31,7 +31,7 @@ stages:
 
   - stage: ConfigureTerraform
     jobs:
-      - job: Init
+      - job:
         displayName: "Executar init e plan do terraform"
         steps:
           - task: TerraformCLI@0
@@ -52,7 +52,7 @@ stages:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
-      - job:
+      - job: manual
         displayName: "Aplicar configurações do terraform"
         steps:
           - task: ManualValidation@0
