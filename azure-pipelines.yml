@@ -53,6 +53,7 @@ stages:
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
 
       - job:
+        pool: server
         displayName: "Aplicar configurações do terraform"
         steps:
           - task: ManualValidation@0
