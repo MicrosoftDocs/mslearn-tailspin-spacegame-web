@@ -56,7 +56,7 @@ stages:
     jobs:
       - job: manual_approval
         displayName: "Manual Approval"
-        dependsOn: terraform_init
+        dependsOn: Init
         pool: server
         steps:
           - task: ManualValidation@0
