@@ -65,7 +65,7 @@ stages:
               instructions: 'Please validate the build configuration and resume'
               onTimeout: 'resume'
 
-  - stage: ConfigureTerraform
+  - stage: ApplyTerraform
     jobs:
       - job:
         displayName: "Aplicar configurações do terraform"
