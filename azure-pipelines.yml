@@ -17,7 +17,7 @@ stages:
   - stage: "Instalar e testar instalação do Terraform"
     jobs:
       - job:
-        diplayName: "Instalar e testar instalação do Terraform"
+        displayName: "Instalar e testar instalação do Terraform"
         steps:
           - task: TerraformInstaller@1
             displayName: install terraform
