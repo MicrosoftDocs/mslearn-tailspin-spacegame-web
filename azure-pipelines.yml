@@ -31,7 +31,7 @@ stages:
 
   - stage: ConfigureTerraform
     jobs:
-      - job:
+      - job: Init
         displayName: "Executar init e plan do terraform"
         steps:
           - task: TerraformCLI@0
@@ -56,6 +56,7 @@ stages:
     jobs:
       - job:
         displayName: "Aplicar configurações do terraform"
+        dependsOn: Init
         steps:
           - task: TerraformCLI@0
             condition: eq(variables['Build.Reason'], 'Manual')
