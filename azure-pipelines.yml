@@ -56,6 +56,7 @@ stages:
   - stage: Capeta
     jobs:
       - job:
+        pool: server
         displayName: "CAPETA"
         steps:
           - task: ManualValidation@0
