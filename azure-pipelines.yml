@@ -56,6 +56,7 @@ stages:
     jobs:
       - job: job1
         displayName: "Aceite manual para deploy"
+        pool: server
         steps:
           - task: ManualVAlidation@0
             timeoutInMinutes: 300
