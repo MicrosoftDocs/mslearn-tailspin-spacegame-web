@@ -1,3 +1,4 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+pool:
+  name: 'MyAgentPool'
+  demands:
+  - npm
