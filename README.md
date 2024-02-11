@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/mhtestorg/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status%2Fmhean6.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/mhtestorg/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=3&branchName=build-pipeline)
 
 # Contributing
 
