@@ -36,7 +36,7 @@ stages:
             displayName: 'terraform init'
             inputs:
               provider: 'aws'
-              command: 'init -chdir=organizarion'
+              command: init
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
@@ -72,7 +72,7 @@ stages:
             inputs:
               provider: 'aws'
               command: init
-              commandOptions: '-upgrade -chdir=organizarion'
+              commandOptions: -upgrade
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
