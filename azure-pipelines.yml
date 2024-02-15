@@ -1,3 +1,87 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+parameters:
+- name: myCliente
+  displayName: Nome da conta do Cliente
+  type: string
+  default:
+
+- name: myEmail
+  displayName: Email da conta do Cliente
+  type: string
+  default:
+
+trigger: none
+
+stages:
+  - stage: InstallTerrform
+    jobs:
+      - job:
+        displayName: "Instalar e testar instalação do Terraform"
+        steps:
+          - task: TerraformInstaller@1
+            displayName: 'install terraform'
+            inputs:
+              terraformVersion: latest
+
+          - task: TerraformCLI@0
+            displayName: 'check terraform version'
+            inputs:
+              command: version
+
+  - stage: ConfigureTerraform
+    jobs:
+      - job:
+        displayName: "Executar init e plan do terraform"
+        steps:
+          - task: TerraformCLI@0
+            displayName: 'terraform init'
+            inputs:
+              provider: 'aws'
+              command: init
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+
+          - task: TerraformCLI@0
+            displayName: 'terraform plan'
+            inputs:
+              command: plan
+              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+
+  - stage: ApprovalTimeout
+    jobs:
+      - job:
+        pool: server
+        displayName: "Approval Timeout"
+        steps:
+          - task: ManualValidation@0
+            timeoutInMinutes: 5
+            inputs:
+              instructions: 'Please validate the build configuration and resume'
+              onTimeout: 'reject'
+
+  - stage: ApplyTerraform
+    jobs:
+      - job:
+        displayName: "Aplicar configurações do terraform"
+        steps:
+          - task: TerraformCLI@0
+            displayName: 'terraform init'
+            inputs:
+              provider: 'aws'
+              command: init
+              commandOptions: -upgrade
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+          - task: TerraformCLI@0
+            displayName: 'terraform apply'
+            inputs:
+              command: apply
+              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
+            env:
+              AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
+              AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
+
