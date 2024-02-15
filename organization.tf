@@ -9,3 +9,5 @@ resource "aws_organizations_account" "account" {
   }
 }
 
+
+
