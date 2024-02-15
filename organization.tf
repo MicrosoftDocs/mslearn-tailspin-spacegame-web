@@ -8,3 +8,4 @@ resource "aws_organizations_account" "account" {
     ignore_changes = [role_name]
   }
 }
+
