@@ -45,7 +45,7 @@ stages:
             displayName: 'terraform plan'
             inputs:
               command: plan
-              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}} -chdir=organizarion'
+              commandOptions: '-chdir=organization/ -var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
@@ -80,7 +80,7 @@ stages:
             displayName: 'terraform apply'
             inputs:
               command: apply
-              commandOptions: '-var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}} -chdir=organizarion'
+              commandOptions: '-chdir=organization/ -var cliente=${{parameters.myCliente}} -var email=${{parameters.myEmail}}'
             env:
               AWS_ACCESS_KEY_ID: "$(AWS_ACCESS_KEY_ID)"
               AWS_SECRET_ACCESS_KEY: "$(AWS_SECRET_ACCESS_KEY)"
