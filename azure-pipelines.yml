@@ -8,3 +8,4 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*.csproj'
+    testRunTitle: 'dotnet test'
