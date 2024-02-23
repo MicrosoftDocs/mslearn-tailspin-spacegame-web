@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/naifdevops/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status%2FNaif5638.azure_devops_space_game?branchName=feature%2Ftest)](https://dev.azure.com/naifdevops/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=3&branchName=feature%2Ftest)
 
 # Contributing
 
