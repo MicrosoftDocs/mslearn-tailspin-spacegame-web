@@ -1,4 +1,4 @@
-pool: MyAgentPool
+pool: Azure Pipelines
 steps:
 - task: DotNetCoreCLI@2
   inputs:
