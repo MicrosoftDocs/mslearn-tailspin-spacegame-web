@@ -1,3 +1,10 @@
 pool: MyAgentPool
 steps:
-- bash: echo hello world
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'test'
+    projects: '**/*.csproj'
