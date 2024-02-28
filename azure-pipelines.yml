@@ -8,7 +8,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+<<<<<<< HEAD
 # You might have also noticed the UseDotNet@2 task, which is the first build step. Mara remembered that the build script didn't install the required build tools. Although the build agent comes with several .NET SDK versions, this task lets the pipeline author easily specify the version they need to use on the build agent.
+=======
+>>>>>>> c50707a0ed830fede34d1a965c77e98786327609
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
@@ -20,14 +23,18 @@ steps:
   inputs:
     verbose: false
 
+<<<<<<< HEAD
 
 # Remember that not all build activities map to a built-in task. For example, there's no built-in task that runs the node-Sass utility, or writes build info to a text file. To run general system commands, you use the CmdLine@2 or script task. The pipeline uses the script task because it's a common shortcut for CmdLine@2.
+=======
+>>>>>>> c50707a0ed830fede34d1a965c77e98786327609
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
+<<<<<<< HEAD
 
 In the build step that writes information about the build to a file, notice these elements:
 
@@ -40,19 +47,27 @@ These elements are built-in variables that the system provides for use in your p
 # $(Build.BuildId) is a numeric identifier for the completed build, like 115.
 # $(Build.BuildNumber) is the name of the completed build. You can configure the format, but by default, the build number includes the current date followed by the build number for that day. An example build number is "20190329.1."
 # You can also define your own variables, which you'll do soon.
+=======
+>>>>>>> c50707a0ed830fede34d1a965c77e98786327609
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+<<<<<<< HEAD
 
 # Azure Pipelines provides built-in build tasks that map to many common build activities. For example, the DotNetCoreCLI@2 task maps to the dotnet command-line utility. The pipeline uses DotNetCoreCLI@2 two times: one time to restore, or install, the project's dependencies, 
+=======
+>>>>>>> c50707a0ed830fede34d1a965c77e98786327609
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
+<<<<<<< HEAD
 # and one time to build the project.
+=======
+>>>>>>> c50707a0ed830fede34d1a965c77e98786327609
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
