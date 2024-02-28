@@ -4,16 +4,20 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+# Variables allow you to define values once and refer to those values throughout your pipeline. Azure Pipelines replaces each variable with its current value when the pipeline runs.
+# To reference these variables, use the $() syntax just as you do for built-in variables.
 variables:
   buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '6.x'
 
 steps:
 # You might have also noticed the UseDotNet@2 task, which is the first build step. Mara remembered that the build script didn't install the required build tools. Although the build agent comes with several .NET SDK versions, this task lets the pipeline author easily specify the version they need to use on the build agent.
 - task: UseDotNet@2
-  displayName: 'Use .NET SDK 6.x'
+  displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     packageType: sdk
-    version: '6.x'
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -22,7 +26,7 @@ steps:
 
 
 # Remember that not all build activities map to a built-in task. For example, there's no built-in task that runs the node-Sass utility, or writes build info to a text file. To run general system commands, you use the CmdLine@2 or script task. The pipeline uses the script task because it's a common shortcut for CmdLine@2.
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -40,7 +44,7 @@ steps:
 # You can also define your own variables, which you'll do soon.
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
-  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+  workingDirectory: $(wwwrootDir)
 
 
 # Azure Pipelines provides built-in build tasks that map to many common build activities. For example, the DotNetCoreCLI@2 task maps to the dotnet command-line utility. The pipeline uses DotNetCoreCLI@2 two times: one time to restore, or install, the project's dependencies, 
@@ -52,21 +56,21 @@ steps:
 
 # and one time to build the project.
 - task: DotNetCoreCLI@2
-  displayName: 'Build the project - Release'
+  displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration Release'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
 
 
 # The first task uses the DotNetCoreCLI@2 task to publish or package the app's build results (including its dependencies) into a folder. The zipAfterPublish argument specifies to add the built results to a .zip file.
 - task: DotNetCoreCLI@2
-  displayName: 'Publish the project - Release'
+  displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+   arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
 
