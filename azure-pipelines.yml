@@ -3,6 +3,7 @@
 #Add steps that run tests, create a nuGet package, deploy, and more:
 #https://docs.microsoft.com/azure/devops/pipelines/languates/dotnet-core
 #rerun 
+#02/29/2024
 
 trigger:
 - '*'
