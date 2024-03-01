@@ -1,5 +1,10 @@
 trigger:
-- '*'
+  branches:
+    include:
+    - '*'
+paths:
+    exclude:
+    - docs/* 
 
 pool:
   name: az400m03l03a-pool
