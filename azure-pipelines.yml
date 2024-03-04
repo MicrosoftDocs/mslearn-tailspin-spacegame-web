@@ -1,3 +1,6 @@
+pool: MyAgentPool
+steps:
+- bash: echo hello world
 # ASP.NET Core (.NET Framework)
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
@@ -32,3 +35,4 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
