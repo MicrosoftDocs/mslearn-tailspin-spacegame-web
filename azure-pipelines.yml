@@ -1,7 +1,7 @@
 trigger:
   - '*'
   
-  pool:
+  pool: 'agent-pool-tailspin'
     vmImage: 'ubuntu-20.04'
     demands:
     - npm
