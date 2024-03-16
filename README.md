@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/eadtraining2023/Game%20-%20web%20-%20Workflow/_apis/build/status%2Fmslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/eadtraining2023/Game%20-%20web%20-%20Workflow/_build/latest?definitionId=9&branchName=code-workflow)
 
 # Contributing
 
