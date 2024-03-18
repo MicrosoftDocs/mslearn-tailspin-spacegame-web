@@ -3,7 +3,7 @@ trigger:
 
 pool:
   name: 'Default' # Replace Default with the name of your agent pool if you used a different pool
-
+# Test
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
