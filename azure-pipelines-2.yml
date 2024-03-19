@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  image: Default
+  image: 'Default'
 
 variables:
   solution: '**/*.sln'
