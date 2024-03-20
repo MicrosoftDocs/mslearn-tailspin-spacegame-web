@@ -1,3 +1,5 @@
-pool: MyAgentPool
+pool: 
+  vmImage: unbuntu-latest
+
 steps:
 - bash: echo hello world
