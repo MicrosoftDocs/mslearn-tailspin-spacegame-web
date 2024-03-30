@@ -1,5 +1,4 @@
-pool: MyAgentPool
-steps:
+
 trigger:
 - main
 
