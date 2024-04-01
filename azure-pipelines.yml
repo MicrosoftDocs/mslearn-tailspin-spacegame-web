@@ -6,7 +6,7 @@
 trigger:
 - main
 pool:
-    name: MyAgentPool
+    name: Default
 
 variables:
     buildConfiguration: 'Release'
