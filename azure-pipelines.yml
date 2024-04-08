@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: ubuntu-latest
+  name: default
 
 variables:
   buildConfiguration: 'Release'
