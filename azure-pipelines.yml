@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: pna-01
 
 variables:
   solution: '**/*.sln'
