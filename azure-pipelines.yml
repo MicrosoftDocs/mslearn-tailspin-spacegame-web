@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: pna-01
+  name: Default
 
 variables:
   solution: '**/*.sln'
