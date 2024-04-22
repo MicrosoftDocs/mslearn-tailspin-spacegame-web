@@ -25,7 +25,7 @@ trigger:
   - task: gulp@1
     displayName: 'Run gulp tasks'
   
-  - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  - script: 'echo "$(SpaceGame-Web-CI.), $(115), $(20190329.1.)" > buildinfo.txt'
     displayName: 'Write build info'
     workingDirectory: Tailspin.SpaceGame.Web/wwwroot
   
