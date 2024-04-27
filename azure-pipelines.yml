@@ -1,3 +1,5 @@
 pool: Default
 steps:
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: $(buildConfiguration)
 - bash: echo hello world
