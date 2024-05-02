@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/GoG054/Space%20Game%20-%20web%20-%20Pipeline/_apis/build/status%2Ftopgog.mslearn-tailspin-spacegame-web%20(1)?branchName=main)](https://dev.azure.com/GoG054/Space%20Game%20-%20web%20-%20Pipeline/_build/latest?definitionId=9&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
