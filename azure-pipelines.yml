@@ -1,3 +1,6 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'https://github.com/Haneen-Moustafa/Spoon-Knife.git'
+    Contents: 'https://github.com/Haneen-Moustafa/Spoon-Knife/blob/main/README.md'
+    TargetFolder: 'https://github.com/Haneen-Moustafa/eShopOnWeb.git'
+    CleanTargetFolder: true
