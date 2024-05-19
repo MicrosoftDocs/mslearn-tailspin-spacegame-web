@@ -6,6 +6,5 @@
     "gulp-uglify": "3.0.0",
     "node-sass": "^7.0.1",
     "rimraf": "2.6.1"
-    
   }
 }
