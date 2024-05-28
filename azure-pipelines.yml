@@ -7,3 +7,4 @@ variables:
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
+- bash: echo hello world
