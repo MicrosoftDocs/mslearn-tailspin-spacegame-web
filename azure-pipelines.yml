@@ -17,6 +17,9 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
+- task: NuGetToolInstaller@0
+  inputs:
+    versionSpec: '5.9.1'
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
@@ -33,6 +36,7 @@ steps:
   workingDirectory: $(wwwrootDir)
 
 - task: DotNetCoreCLI@2
+
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
