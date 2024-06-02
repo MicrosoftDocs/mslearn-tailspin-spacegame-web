@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+pool: YRosslandAgentsPool
+  # vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
