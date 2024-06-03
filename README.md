@@ -1,4 +1,4 @@
-
+[![Build Status](https://dev.azure.com/evanchen0394/Practice/_apis/build/status%2FGnauk841026.python-sample-vscode-flask-tutorial?branchName=main)](https://dev.azure.com/evanchen0394/Practice/_build/latest?definitionId=22&branchName=main)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
