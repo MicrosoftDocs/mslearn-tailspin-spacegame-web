@@ -10,7 +10,7 @@ variables:
 steps:
 - task: UseDotNet@2
   inputs:
-    version: '8.x.x'
+    version: '8.0'
     packageType: 'sdk'
 
 - script: dotnet restore Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
