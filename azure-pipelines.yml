@@ -1,3 +1,20 @@
-pool: Azure Pipelines
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
 steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  inputs:
+    version: '8.x.x'
+    packageType: 'sdk'
+
+- script: dotnet restore Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
+  displayName: 'dotnet restore'
+
+- script: dotnet build Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj --configuration $(buildConfiguration)
+  displayName: 'dotnet build'
