@@ -4,7 +4,7 @@ trigger:
       - main
 
 pool:
-  name: Default
+  name: CodeSpace
 
 steps:
   - task: DotNetCoreCLI@2
