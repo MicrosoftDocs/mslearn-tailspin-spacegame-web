@@ -8,4 +8,8 @@
   <ItemGroup>
     <Folder Include="wwwroot\images\avatars\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore" Version="5.0.17" />
+  </ItemGroup>
 </Project>
