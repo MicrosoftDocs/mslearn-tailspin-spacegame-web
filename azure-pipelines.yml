@@ -1,3 +1,32 @@
-pool: MyAgentPool
+# Build e teste de projetos ASP.NET Core direcionados ao .NET Core.
+# Adicione etapas para executar testes, criar um pacote NuGet, implantar e muito mais:
+# Saiba mais em [6](https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core)
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+    version: '3.x'
+
+- script: dotnet build --configuration Release
+  displayName: 'Build da aplicação'
+
+- script: dotnet test --configuration Release --collect:"XPlat Code Coverage"
+  displayName: 'Executar testes e coletar cobertura de código'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/codecoverage/cobertura.xml'
+    reportDirectory: '$(Agent.TempDirectory)/codecoverage'
+    failIfCoverageEmpty: true
+  displayName: 'Publicar resultados de cobertura de código'
+
+# Adicione etapas para empacotar e entregar a saída do build conforme necessário.
