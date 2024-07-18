@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/2021022184621/202102218462/_apis/build/status%2Ffrnndlima.mslearn-tailspin-spacegame-web?branchName=feature%2Fhome-page-text)](https://dev.azure.com/2021022184621/202102218462/_build/latest?definitionId=1&branchName=feature%2Fhome-page-text)
 
 # Contributing
 
