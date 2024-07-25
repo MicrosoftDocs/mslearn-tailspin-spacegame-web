@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  pool: myself
+pool: myself
+
 
 variables:
   buildConfiguration: 'Release'
