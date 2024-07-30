@@ -6,4 +6,4 @@ stages:
       - script: dotnet restore
       - script: dotnet build 
       - script: dotnet test
-      - scripti: dotnet publish
+      - script: dotnet publish
