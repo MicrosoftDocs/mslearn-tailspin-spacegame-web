@@ -1,9 +1,0 @@
-stages:
-  - stage: buildstage
-    jobs:
-    - job: buildjob
-      steps: 
-      - script: dotnet restore
-      - script: dotnet build 
-      - script: dotnet test
-      - script: dotnet publish
