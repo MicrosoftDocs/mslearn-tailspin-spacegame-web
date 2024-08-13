@@ -1,4 +1,5 @@
 
+[![Build Status](https://dev.azure.com/AlexNeville0004/Space%20Game%20-%20web%20-%20Workflow/_apis/build/status%2Fmslearn-tailspin-spacegame-web?branchName=feature%2Fhome-page-text)](https://dev.azure.com/AlexNeville0004/Space%20Game%20-%20web%20-%20Workflow/_build/latest?definitionId=2&branchName=feature%2Fhome-page-text)
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
