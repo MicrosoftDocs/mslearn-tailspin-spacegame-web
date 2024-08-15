@@ -20,6 +20,9 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: dotnet restore
   inputs:
-    command: restore
+    command: 'restore'
     projects: '$(serviceLocation)/**/*.csproj'
+    feedsToUse: 'select'
     includeNuGetOrg: true
+    vstsFeed: '943df222-76ac-470a-af13-9b54ce21bf21'
+
