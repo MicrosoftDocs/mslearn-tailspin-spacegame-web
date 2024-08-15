@@ -2,7 +2,10 @@ trigger:
   - "*"
 
 pool:
-  vmImage: ubuntu-latest
+  # to use microsoft-hosted agents
+  # vmImage: ubuntu-latest
+  # to use self-hosted agents
+  name: Default
 
 variables:
   buildConfiguration: "Release"
