@@ -17,12 +17,13 @@ steps:
   inputs:
     restoreSolution: '**/*.sln'
     
+#Restore packages with the .NET Core CLI task
 - task: DotNetCoreCLI@2
-  displayName: dotnet restore
+  displayName: 'dotnet restore'
   inputs:
     command: 'restore'
-    projects: '$(serviceLocation)/**/*.csproj'
     feedsToUse: 'select'
+    feedRestore: 'projectName/feedName'
+    projects: '**/*.csproj'
     includeNuGetOrg: true
-    vstsFeed: '943df222-76ac-470a-af13-9b54ce21bf21'
 
