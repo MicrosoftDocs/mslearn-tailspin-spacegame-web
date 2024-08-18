@@ -1,3 +1,6 @@
+trigger:
+- release-pipeline
+
 pool: 
  vmImage: windows-latest
 
