@@ -2,9 +2,7 @@ trigger:
 - main
 
 pool:
-  name: 'agent'
-  demands:
-    - agent.name -equals hostagent-vm
+  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
