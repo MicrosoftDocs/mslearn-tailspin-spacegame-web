@@ -7,7 +7,7 @@ pool:
     - agent.name -equals hostagent-vm
 
 variables:
-    buildConfiguration: 'Release'
+  buildConfiguration: 'Release'
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
