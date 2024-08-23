@@ -1,0 +1,35 @@
+name: Code Coverage
+
+on:  
+  pull_request:
+    branches:     
+      - main  
+  push:   
+    branches:      
+      - main
+
+jobs:  
+  build:    
+    runs-on: ubuntu-latest    
+    steps:      
+      - name: Checkout Repository        
+        uses: actions/checkout@v2      
+      
+      - name: Setup .NET Core        
+        uses: actions/setup-dotnet@v1        
+        with:          
+          dotnet-version: "8.0.x"      
+      
+      - name: Restore Dependencies        
+        run: dotnet restore      
+      
+      - name: Build Solution        
+        run: dotnet build --configuration Release      
+      
+      - name: Run Tests        
+        run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover      
+      
+      - name: Upload Code Coverage Report        
+        uses: coverallsapp/github-action@v1        
+        with:          
+          github-token: ${{ secrets.GITHUB_TOKEN }}
