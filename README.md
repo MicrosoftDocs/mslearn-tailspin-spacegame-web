@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/jwang0582/Event%20Driven%20pubsub/_apis/build/status%2Fjwangatpls.mslearn-tailspin-spacegame-web?branchName=code-workflow)](https://dev.azure.com/jwang0582/Event%20Driven%20pubsub/_build/latest?definitionId=1&branchName=code-workflow)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
