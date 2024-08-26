@@ -3,16 +3,35 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# trigger:
+# - main
+
+# pool:
+#   # vmImage: ubuntu-latest
+#   name: selfAgentPool
+
+# variables:
+#   buildConfiguration: 'Release'
+
+# steps:
+# - script: dotnet build --configuration $(buildConfiguration)
+#   displayName: 'dotnet build $(buildConfiguration)'
+
 trigger:
 - main
 
 pool:
-  # vmImage: ubuntu-latest
   name: selfAgentPool
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x' # Specify the version of .NET Core SDK you need
+  displayName: 'Install .NET Core SDK'
+
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
