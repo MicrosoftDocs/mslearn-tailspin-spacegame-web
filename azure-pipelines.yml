@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Default
+  name: MSI_GS73
 
 variables:
   buildConfiguration: 'Release'
