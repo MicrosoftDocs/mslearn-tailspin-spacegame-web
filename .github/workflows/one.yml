@@ -1,7 +1,7 @@
 on:
-  push:
-    branches:
-      - master
+  label:
+    types: [created]
+
 jobs:
   print_hello:
     runs-on: ubuntu-latest
