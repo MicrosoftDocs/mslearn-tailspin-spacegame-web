@@ -1,0 +1,10 @@
+on:
+  [push, fork, pull_request]:
+    branches:
+      - master
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        run: echo "Helloworld"     
