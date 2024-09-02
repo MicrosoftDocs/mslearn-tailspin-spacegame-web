@@ -10,7 +10,8 @@ pool:
   name: TestAgent
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Releas'
+# should not be commited to branch
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
