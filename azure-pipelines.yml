@@ -15,3 +15,6 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- bash: |
+      echo "##[main2]Completing azure-pipeline run from main2"
+
