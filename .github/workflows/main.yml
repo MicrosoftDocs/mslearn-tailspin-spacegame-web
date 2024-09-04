@@ -1,9 +1,0 @@
-on:
-  push: 
-    branches:
-        - master
-jobs:
-  buildjob:
-    runs-on: ubuntu-24.04
-    steps:
-      - run: echo "testbuild"
