@@ -9,10 +9,11 @@ trigger:
       - main
 
 pool:
-  name: TestAgent
+  name: $(agentPool)
 
 variables:
   buildConfiguration: 'Release'
+  agentPool: 'TestAgent'
   
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
