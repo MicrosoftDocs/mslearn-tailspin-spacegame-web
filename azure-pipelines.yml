@@ -6,10 +6,7 @@
 trigger:
 - main
 
-pr:
-  branches:
-    exclude:
-      - '*'
+pr: none
 
 pool:
   name: $(agentPool)
