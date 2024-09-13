@@ -21,7 +21,7 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 COPY library-scripts/*.sh /tmp/library-scripts/
 RUN apt-get update && apt-get install -y software-properties-common \
-    && apt-add-repository "deb http://archive.ubuntu.com/ubuntu jammy universe" \
+    && apt-add-repository "deb http://deb.debian.org/debian bookworm main non-free-firmware" \
     && apt-get update
 RUN bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true"
 
