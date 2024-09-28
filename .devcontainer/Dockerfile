@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/dotnet:8.0
+FROM mcr.microsoft.com/devcontainers/dotnet:8.0-bookworm
 
 # Install NodeJS
 # [Choice] Node.js version: none, lts/*, 18, 16, 14
