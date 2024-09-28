@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/dotnet:6.0-bullseye
+FROM mcr.microsoft.com/devcontainers/dotnet:8.0
 
 # Install NodeJS
 # [Choice] Node.js version: none, lts/*, 18, 16, 14
