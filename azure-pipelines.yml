@@ -1,8 +1,8 @@
 trigger:
 - main
 
-pool: 
-  vmImage: ubuntu-latest
+pool: my-personal-compute
+
 
 variables:
   buildConfiguration: 'Release'
