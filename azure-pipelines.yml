@@ -1,3 +1,10 @@
+trigger:
+- main
+
+variables:
+BuildConfiguration:'Release'
+
+
 pool: MyAgentPool
 steps:
 - bash: echo hello world
