@@ -1,4 +1,4 @@
 pool:
-  name:default
+  name: Default
 steps:
 - bash: echo hello world
