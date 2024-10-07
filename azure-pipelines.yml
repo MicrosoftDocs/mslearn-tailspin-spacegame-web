@@ -1,7 +1,8 @@
 trigger:
 - main
 
-pool: my-personal-compute
+pool:
+  vmImage: ubuntu-latest
 
 
 variables:
