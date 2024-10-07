@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: 'windows-latest'
+pool: 'jj-dell-computer'
 
 variables:
   solution: '**/*.sln'
