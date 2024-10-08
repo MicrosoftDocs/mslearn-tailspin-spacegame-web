@@ -1,7 +1,7 @@
 trigger:
 - main
 
-pool: jj-dell-computer
+pool: dell-computer-jj
 
 variables:
   buildConfiguration: 'Release'
