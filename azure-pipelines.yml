@@ -7,5 +7,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
+    
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
