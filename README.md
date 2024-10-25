@@ -1,4 +1,6 @@
 
+[![Build Status](https://dev.azure.com/FormationOrsysOctobre2024/Space%20Game%20Alex%20-%20web/_apis/build/status%2FAlexAndriamahaleo.mslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/FormationOrsysOctobre2024/Space%20Game%20Alex%20-%20web/_build/latest?definitionId=85&branchName=main)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
