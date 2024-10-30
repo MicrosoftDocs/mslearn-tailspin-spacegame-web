@@ -2,7 +2,7 @@ trigger:
 - '*'
 
 pool:
-  name: 'Default' #replace if needed with name of your agent pool
+  name: 'Azure Pipelines' #replace if needed with name of your agent pool
 
 steps:
 - task: UseDotNet@2
