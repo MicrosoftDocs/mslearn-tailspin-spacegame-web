@@ -5,6 +5,7 @@ trigger:
   paths:
     exclude:
     - docs/*  # exclude the docs folder
+    # Test pipeline
 
 pool:
   vmImage: 'ubuntu-20.04'
