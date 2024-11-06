@@ -4,14 +4,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-- task: UseDotNet@2
+- task: UseDotNet@2 # Esta tarea es necesaria para seleccionar e instalar la versión de .NET SDK que se usará
   displayName: 'Use .NET SDK 6.x'
   inputs:
-    packageType: sdk
     version: '6.x'
 
 - task: Npm@1
@@ -25,19 +21,32 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt' # Esta tarea escribe información sobre el build en un archivo de texto
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2  # Esta tarea restaura o instala las dependencias del proyecto
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@2 
   displayName: 'Build the project - Release'
   inputs:
-    command: 'build'
+    command: 'build' # Esta tarea compila el proyecto, con el comando build
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - Release' # Esta tarea publica el proyecto, con el comando publish, basicamente lo empaqueta
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1 # Esta tarea publica los artefactos del build en Azure DevOps
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded() # Esta tarea se ejecuta solo si las tareas anteriores se ejecutaron correctamente
