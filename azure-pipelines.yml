@@ -4,16 +4,16 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-variables: # Variables de entorno que utilizo en el pipeline
+variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '6.x'
 
 steps:
-- task: UseDotNet@2 # Esta tarea es necesaria para seleccionar e instalar la versión de .NET SDK que se usará
+- task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
-    version: '$(dotnetSdkVersion)' # Versión de .NET SDK que se usará (llamo la variable definida en la sección de variables)
+    version: '$(dotnetSdkVersion)'
 
 - task: Npm@1
   displayName: 'Run npm install'
@@ -26,32 +26,24 @@ steps:
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt' # Esta tarea escribe información sobre el build en un archivo de texto
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: $(wwwrootDir)
 
-- task: DotNetCoreCLI@2  # Esta tarea restaura o instala las dependencias del proyecto
+- task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2 
-  displayName: 'Build the project - $(buildConfiguration)'
-  inputs:
-    command: 'build' # Esta tarea compila el proyecto, con el comando build
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project  - $(buildConfiguration)' # Esta tarea publica el proyecto, con el comando publish, basicamente lo empaqueta
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
-- task: PublishBuildArtifacts@1 # Esta tarea publica los artefactos del build en Azure DevOps
+- task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  condition: succeeded() # Esta tarea se ejecuta solo si las tareas anteriores se ejecutaron correctamente
+  condition: succeeded()
