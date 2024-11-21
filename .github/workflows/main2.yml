@@ -1,17 +1,12 @@
 on:
-      
-  push:    
-    branches: main
-      - main
-   
-jobs:
-  firstjob:
-    runs-on: ubuntu-latest
-    steps:    
-     - run: echo "hello world"  
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
 name: Create Release
 
-
+jobs:
   build:
     name: Create Release
     runs-on: ubuntu-latest
@@ -31,6 +26,4 @@ name: Create Release
             - First Change
             - Second Change
           draft: false
-          prerelease: false     
-
-
+          prerelease: false
