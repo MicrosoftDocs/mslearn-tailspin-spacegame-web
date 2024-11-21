@@ -1,9 +1,5 @@
 on:
-  label:
-    types:
-      - created
-  issues:  
-    types: [opened, labeled]       
+      
   push:    
     branches: main
       - main
