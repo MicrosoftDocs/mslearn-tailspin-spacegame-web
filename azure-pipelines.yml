@@ -1,3 +1,12 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+trigger:
+- main
+
+pool:
+  vmImage: ubutun-latest
+  
+variables:
+  buildConfiguration: 'Release'
+
+steps: 
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'dotnet build $(buildConfiguration)'
