@@ -1,3 +1,48 @@
-pool: MyAgentPool
-steps:
-- bash: echo hello world
+# Azure DevOps Pipeline for ASP.NET Core Application on Ubuntu
+
+trigger:
+  branches:
+    include:
+      - main  # Replace with your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+stages:
+  - stage: Build
+    displayName: "Build and Test"
+    jobs:
+      - job: Build
+        displayName: "Restore, Build, and Test"
+        steps:
+          # Install .NET SDK
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '6.x'  # Specify your .NET version
+
+          # Restore dependencies
+          - script: dotnet restore
+            displayName: 'Restore Dependencies'
+
+          # Build the project
+          - script: dotnet build --configuration $(buildConfiguration) --no-restore
+            displayName: 'Build Project'
+
+          # Run tests
+          - script: dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
+            displayName: 'Run Tests'
+
+          # Publish the project
+          - script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+            displayName: 'Publish Project'
+
+          # Publish build artifacts
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
+              publishLocation: 'Container'
