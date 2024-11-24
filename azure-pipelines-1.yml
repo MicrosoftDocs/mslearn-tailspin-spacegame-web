@@ -1,0 +1,37 @@
+# ASP.NET Core Build and Test Pipeline
+# Adjusted for macOS and self-hosted agents in the 'learn' pool.
+
+trigger:
+- main
+
+pool:
+  name: learn
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.0.428' 
+
+- script: dotnet restore $(solution)
+  displayName: 'Restore NuGet Packages'
+
+- script: dotnet build $(solution) --configuration $(buildConfiguration)
+  displayName: 'Build Solution'
+
+- script: dotnet test $(solution) --configuration $(buildConfiguration)
+  displayName: 'Run Tests'
+
+- script: dotnet publish $(solution) --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
+  displayName: 'Publish Solution'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
