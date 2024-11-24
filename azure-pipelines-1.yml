@@ -5,48 +5,45 @@ pool:
   name: 'learn'
 
 steps:
+# Step 1: Set up .NET SDK
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
     version: '6.x'
 
-- task: Npm@1
-  displayName: 'Run npm install'
-  inputs:
-    verbose: false
+# Step 2: Debug repository files
+- script: ls -R
+  displayName: 'List all files for debugging'
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
-  displayName: 'Compile Sass assets'
-
-- task: gulp@1
-  displayName: 'Run gulp tasks'
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
-
+# Step 3: Restore project dependencies
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    projects: '**/*.sln'
 
+# Step 4: Build the project in Release mode
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.csproj'
+    projects: '**/*.sln'
 
+# Step 5: Publish the project
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
-    projects: '**/*.csproj'
+    projects: '**/*.sln'
     publishWebProjects: false
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
 
+# Step 6: Publish artifacts
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  condition: succeeded()
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Release'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
