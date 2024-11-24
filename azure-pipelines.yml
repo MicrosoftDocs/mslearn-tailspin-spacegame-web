@@ -1,48 +1,49 @@
-# Azure DevOps Pipeline for ASP.NET Core Application on Ubuntu
-
 trigger:
-  branches:
-    include:
-      - main  # Replace with your branch name
+- '*'
 
 pool:
-  vmImage: 'learn'
+  name: 'learn'
 
-variables:
-  buildConfiguration: 'Release'
+steps:
+# Step 1: Set up .NET SDK
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    version: '6.x'
 
-stages:
-  - stage: Build
-    displayName: "Build and Test"
-    jobs:
-      - job: Build
-        displayName: "Restore, Build, and Test"
-        steps:
-          # Install .NET SDK
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: '6.x'  # Specify your .NET version
+# Step 2: Debug repository files
+- script: ls -R
+  displayName: 'List all files for debugging'
 
-          # Restore dependencies
-          - script: dotnet restore
-            displayName: 'Restore Dependencies'
+# Step 3: Restore project dependencies
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.sln'
 
-          # Build the project
-          - script: dotnet build --configuration $(buildConfiguration) --no-restore
-            displayName: 'Build Project'
+# Step 4: Build the project in Release mode
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.sln'
 
-          # Run tests
-          - script: dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
-            displayName: 'Run Tests'
+# Step 5: Publish the project
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - Release'
+  inputs:
+    command: 'publish'
+    projects: '**/*.sln'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
 
-          # Publish the project
-          - script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
-            displayName: 'Publish Project'
-
-          # Publish build artifacts
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-              ArtifactName: 'drop'
-              publishLocation: 'Container'
+# Step 6: Publish artifacts
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Release'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
