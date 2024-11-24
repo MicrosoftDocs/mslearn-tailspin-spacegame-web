@@ -6,7 +6,7 @@ trigger:
       - main  # Replace with your branch name
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'learn'
 
 variables:
   buildConfiguration: 'Release'
