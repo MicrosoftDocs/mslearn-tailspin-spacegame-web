@@ -2,7 +2,9 @@ trigger:
 - '*'
 
 pool:
-  name: 'learn' #replace if needed with name of your agent pool
+  name: 'learn'
+  demands:
+  - npm
 
 variables:
   buildConfiguration: 'Release'
@@ -15,15 +17,10 @@ steps:
   inputs:
     version: '$(dotnetSdkVersion)'
 
-- script: |
-    if [ ! -f "package.json" ]; then
-      echo "Error: package.json not found!"
-      exit 1
-    fi
-  displayName: 'Verify package.json exists'
-
-- script: npm install --verbose
-  displayName: 'Run npm install with verbose logging'
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
@@ -41,13 +38,29 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Debug'
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - $(buildConfiguration)'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
+    projects: '**/*.csproj'
 
-- template: templates/build.yml
-  parameters:
-    buildConfiguration: 'Release'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests - $(buildConfiguration)'
+  inputs:
+    command: 'test'
+    arguments: '--no-build --configuration $(buildConfiguration)'
+    publishTestResults: true
+    projects: '**/*.Tests.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - $(buildConfiguration)'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    zipAfterPublish: true
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
