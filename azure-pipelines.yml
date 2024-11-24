@@ -1,48 +1,43 @@
-# Azure DevOps Pipeline for ASP.NET Core Application on Ubuntu
-
 trigger:
-  branches:
-    include:
-      - main  # Replace with your branch name
+- '*'
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'learn' # Replace Default with the name of your agent pool if you used a different pool
 
 variables:
   buildConfiguration: 'Release'
 
-stages:
-  - stage: Build
-    displayName: "Build and Test"
-    jobs:
-      - job: Build
-        displayName: "Restore, Build, and Test"
-        steps:
-          # Install .NET SDK
-          - task: UseDotNet@2
-            inputs:
-              packageType: 'sdk'
-              version: '6.x'  # Specify your .NET version
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
 
-          # Restore dependencies
-          - script: dotnet restore
-            displayName: 'Restore Dependencies'
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
-          # Build the project
-          - script: dotnet build --configuration $(buildConfiguration) --no-restore
-            displayName: 'Build Project'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
 
-          # Run tests
-          - script: dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
-            displayName: 'Run Tests'
+- task: gulp@1
+  displayName: 'Run gulp tasks'
 
-          # Publish the project
-          - script: dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)
-            displayName: 'Publish Project'
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
-          # Publish build artifacts
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-              ArtifactName: 'drop'
-              publishLocation: 'Container'
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
