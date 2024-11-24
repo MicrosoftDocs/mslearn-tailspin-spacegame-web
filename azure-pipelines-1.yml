@@ -5,24 +5,40 @@ pool:
   name: 'learn'
 
 steps:
-# Step 1: Set up .NET SDK
+# Step 1: Ensure the repository is cloned
+- checkout: self
+  displayName: 'Checkout repository'
+
+# Step 2: Debug repository and working directory
+- script: pwd
+  displayName: 'Show current working directory'
+
+- script: ls -R
+  displayName: 'List all files in the repository'
+
+- script: |
+    if [ -f Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln ]; then
+      echo "Solution file found at Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln"
+    else
+      echo "Solution file not found!"
+      exit 1
+    fi
+  displayName: 'Check if solution file exists'
+
+# Step 3: Set up .NET SDK
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
     version: '6.x'
 
-# Step 2: Debug repository files
-- script: ls -R
-  displayName: 'List all files for debugging'
-
-# Step 3: Restore project dependencies
+# Step 4: Restore project dependencies
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln'
 
-# Step 4: Build the project in Release mode
+# Step 5: Build the project in Release mode
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
@@ -30,7 +46,7 @@ steps:
     arguments: '--no-restore --configuration Release'
     projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln'
 
-# Step 5: Publish the project
+# Step 6: Publish the project
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
@@ -40,7 +56,7 @@ steps:
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
 
-# Step 6: Publish artifacts
+# Step 7: Publish artifacts
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
