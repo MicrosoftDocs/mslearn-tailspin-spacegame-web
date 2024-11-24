@@ -2,56 +2,70 @@ trigger:
 - '*'
 
 pool:
-  name: 'learn' #replace if needed with name of your agent pool
+  name: 'learn' # Replace with your agent pool name
 
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '6.x'
+  dotnetSdkVersion: '6.0.428'
 
 steps:
+# Step 1: Use .NET SDK
 - task: UseDotNet@2
   displayName: 'Use .NET SDK $(dotnetSdkVersion)'
   inputs:
     version: '$(dotnetSdkVersion)'
 
+# Step 2: Debug repository and environment
+- script: pwd
+  displayName: 'Show current working directory'
+
+- script: ls -R
+  displayName: 'List all files in the repository'
+
+- script: echo $DOTNET_ROOT
+  displayName: 'Show DOTNET_ROOT environment variable'
+
+# Step 3: Run npm install
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
 
-- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+# Step 4: Compile Sass assets
+- script: |
+    npx sass $(wwwrootDir):$(wwwrootDir)
   displayName: 'Compile Sass assets'
 
-- task: gulp@1
-  displayName: 'Run gulp tasks'
-
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
-  displayName: 'Write build info'
-  workingDirectory: $(wwwrootDir)
-
+# Step 5: Restore project dependencies
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj'
 
+# Step 6: Build the project
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - $(buildConfiguration)'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj'
 
+# Step 7: Publish the project
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
-    projects: '**/*.csproj'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj'
     publishWebProjects: false
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
+# Step 8: Publish artifacts
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
-  condition: succeeded()
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
