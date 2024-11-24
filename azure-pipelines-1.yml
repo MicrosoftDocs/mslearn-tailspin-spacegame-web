@@ -20,7 +20,7 @@ steps:
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
-    projects: '**/*.sln'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln'
 
 # Step 4: Build the project in Release mode
 - task: DotNetCoreCLI@2
@@ -28,14 +28,14 @@ steps:
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
-    projects: '**/*.sln'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln'
 
 # Step 5: Publish the project
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - Release'
   inputs:
     command: 'publish'
-    projects: '**/*.sln'
+    projects: 'Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.sln'
     publishWebProjects: false
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
