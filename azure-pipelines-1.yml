@@ -19,12 +19,6 @@ steps:
   inputs:
     packageType: 'sdk'
     version: '6.0.428' # Version requis
-    
-- task: NuGetToolInstaller@1
-- script: |
-    dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org
-  displayName: 'Add NuGet source'
-
 
 - task: NuGetCommand@2
   inputs:
