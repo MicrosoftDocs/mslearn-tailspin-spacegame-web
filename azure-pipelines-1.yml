@@ -14,6 +14,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
+steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
