@@ -1,3 +1,4 @@
-name: Default
-steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.0.428' # Version requise
