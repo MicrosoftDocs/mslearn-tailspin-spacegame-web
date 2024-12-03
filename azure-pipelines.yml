@@ -52,6 +52,7 @@ steps:
   condition: succeeded()
 
 - task: TerraformInstaller@0
+  displayName: 'Installing Terraform'
   inputs:
     terraformVersion: '1.5.7'
     
