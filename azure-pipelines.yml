@@ -67,7 +67,7 @@ steps:
     #backendAzureRmTenantId: 'my-tenant-id'
     # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
     # Service connection or to override the subscription id defined in a Subscription scoped service connection
-    #backendAzureRmSubscriptionId: 'my-backend-subscription-id'
+    backendAzureRmSubscriptionId: '06f912fd-467a-4021-9dd4-5b5cd9d41551'
     backendAzureRmResourceGroupName: 'game-demo-rg'
     # azure location shortname of the backend resource group and storage account
     backendAzureRmResourceGroupLocation: 'eastus2'
