@@ -64,7 +64,7 @@ steps:
     # Service connection to authorize backend access. Supports Subscription & Management Group Scope
     #backendServiceArm: 'My Azure Service Connection'
     # Tenant id of the target backend. This can be used to override the default tenant id inherited from the service connection
-    #backendAzureRmTenantId: 'my-tenant-id'
+    backendAzureRmTenantId: '11f83eeb-d92a-4ac8-a107-9a9b3e8cbccc'
     # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
     # Service connection or to override the subscription id defined in a Subscription scoped service connection
     backendAzureRmSubscriptionId: '06f912fd-467a-4021-9dd4-5b5cd9d41551'
