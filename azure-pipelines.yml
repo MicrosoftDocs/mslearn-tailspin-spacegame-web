@@ -1,8 +1,8 @@
 trigger:
 - '*'
 
-pool:
-  vmImage: ubuntu-latest
+#pool:
+#  vmImage: ubuntu-latest
 
 steps:
 - task: UseDotNet@2
