@@ -55,7 +55,21 @@ steps:
   displayName: 'Installing Terraform'
   inputs:
     terraformVersion: '1.5.7'
-    
+
+- task: terraform@0
+  displayName: Terraform Init
+  inputs:
+    command: 'init'
+    providerAzureConnectedServiceName: 'Game Demo Example - DEV'
+    backendAzureProviderStorageAccountName: 'gamedemostgacct'
+
+- task: terraform@0
+  displayName: Terraform Plan
+  inputs:
+    command: 'plan'
+    providerAzureConnectedServiceName: 'Game Demo Example - DEV'
+    backendAzureProviderStorageAccountName: 'gamedemostgacct'
+
 #- script: |
 #    terraform --version
 #    terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
