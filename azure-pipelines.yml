@@ -2,10 +2,14 @@
 # Build and test ASP.NET Core projects targeting .NET Core
 # Add steps that run tests, create a NuGet package, deploy
 trigger:
-- main
+ branches:
+  include:
+  - test-pipeline-1
+  - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'Custom Linux Agent'
+  # vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: "Release"
