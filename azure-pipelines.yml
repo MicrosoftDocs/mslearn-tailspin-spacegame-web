@@ -56,19 +56,29 @@ steps:
   inputs:
     terraformVersion: '1.5.7'
 
-- task: terraform@0
-  displayName: Terraform Init
+- task: TerraformCLI@1
+  displayName: 'terraform init'
   inputs:
-    command: 'init'
-    providerAzureConnectedServiceName: 'Game Demo Example - DEV'
-    backendAzureProviderStorageAccountName: 'gamedemostgacct'
+    command: init
+    backendType: azurerm
+    # Service connection to authorize backend access. Supports Subscription & Management Group Scope
+    backendServiceArm: 'My Azure Service Connection'
+    # Tenant id of the target backend. This can be used to override the default tenant id inherited from the service connection
+    #backendAzureRmTenantId: 'my-tenant-id'
+    # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
+    # Service connection or to override the subscription id defined in a Subscription scoped service connection
+    #backendAzureRmSubscriptionId: 'my-backend-subscription-id'
+    backendAzureRmResourceGroupName: 'game-demo-rg'
+    # azure location shortname of the backend resource group and storage account
+    backendAzureRmResourceGroupLocation: 'eastus2'
+    backendAzureRmStorageAccountName: 'gamedemostgacct'
+    # azure storage account sku, used when creating the storage account
+    backendAzureRmStorageAccountSku: 'Standard_RAGRS'
+    # azure blob container to store the state file
+    backendAzureRmContainerName: 'my-backend-blob-container'
+    # azure blob file name
+    backendAzureRmKey: game-demo.tfstate
 
-- task: terraform@0
-  displayName: Terraform Plan
-  inputs:
-    command: 'plan'
-    providerAzureConnectedServiceName: 'Game Demo Example - DEV'
-    backendAzureProviderStorageAccountName: 'gamedemostgacct'
 
 #- script: |
 #    terraform --version
