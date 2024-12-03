@@ -62,7 +62,7 @@ steps:
     command: init
     backendType: azurerm
     # Service connection to authorize backend access. Supports Subscription & Management Group Scope
-    #backendServiceArm: 'My Azure Service Connection'
+    backendServiceArm: 'Azure Subscription - Breon'
     # Tenant id of the target backend. This can be used to override the default tenant id inherited from the service connection
     backendAzureRmTenantId: '11f83eeb-d92a-4ac8-a107-9a9b3e8cbccc'
     # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
@@ -77,7 +77,7 @@ steps:
     # azure blob container to store the state file
     backendAzureRmContainerName: 'my-backend-blob-container'
     # azure blob file name
-    backendAzureRmKey: game-demo.tfstate
+    backendAzureRmKey: tf/game-demo.tfstate
 
 
 #- script: |
