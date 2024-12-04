@@ -80,6 +80,16 @@ steps:
     backendAzureRmKey: tf/game-demo.tfstate
 
 
+- task: TerraformCLI@1
+  displayName: 'terraform plan'
+  inputs:
+    command: plan
+    environmentServiceName: 'azurerm-service-connection'
+    # name of the secure file to use. Can be standard terraform vars file or .env file.
+    #secureVarsFile: my-secure-file.env
+    # specify a variable input via pipeline variable
+    #commandOptions: '-var secret=$(mySecretPipelineVar)'
+
 #- script: |
 #    terraform --version
 #    terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
