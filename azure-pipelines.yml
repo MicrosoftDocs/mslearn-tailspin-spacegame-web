@@ -92,7 +92,7 @@ steps:
     #secureVarsFile: my-secure-file.env
     # specify a variable input via pipeline variable
     #commandOptions: '-var secret=$(mySecretPipelineVar)'
-   env:
+  env:
     ARM_CLIENT_ID: ${arm_client_id}
     ARM_CLIENT_SECRET: ${arm_client_secret}
     ARM_TENANT_ID: ${arm_tenant_id}
