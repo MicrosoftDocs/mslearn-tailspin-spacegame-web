@@ -65,6 +65,7 @@ stages :
             inputs:
               command: plan
               environmentServiceName: 'azurerm-service-connection'
+              publishPlanResults: 'current_tf_plan'
               # name of the secure file to use. Can be standard terraform vars file or .env file.
               #secureVarsFile: my-secure-file.env
               # specify a variable input via pipeline variable
