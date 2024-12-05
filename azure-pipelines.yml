@@ -109,10 +109,11 @@ stages :
               backendAzureRmKey: '${{ variables.backendAzureRmKey }}'
           - task: TerraformCLI@1
             displayName: 'terraform plan'
+            condition: and(succeeded(), eq(variables['Action'], 'Plan'))            
             inputs:
               command: plan
               environmentServiceName: 'azurerm-service-connection'
-              publishPlanResults: 'current_tf_plan_$(date:yyyyMMdd)$(rev:.r)'
+              publishPlanResults: 'current_tf_plan'
               # name of the secure file to use. Can be standard terraform vars file or .env file.
               #secureVarsFile: my-secure-file.env
               # specify a variable input via pipeline variable
