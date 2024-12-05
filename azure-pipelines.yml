@@ -12,7 +12,7 @@ parameters:
     - Destroy
 
 variables:
-  - name: artifact-name
+  - name: artifactName
     value: 'game-demo-drop'
   - name: backendServiceArm
     value: 'azurerm-service-connection'
@@ -80,6 +80,7 @@ stages :
               zipAfterPublish: true
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: drop'
+            ArtifactName: '${{ variables.artifactName }}'
             condition: succeeded()
           - task: Bash@3
             displayName: List Files Post Publish
@@ -100,7 +101,7 @@ stages :
           - task: DownloadBuildArtifacts@1
             inputs:
               buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
-              artifactName: '$(variables.artifactName)' # string. Required when downloadType == single. Artifact name. 
+              artifactName: '${{ variables.artifactName }}' # string. Required when downloadType == single. Artifact name. 
               downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
           - task: Bash@3
             displayName: List Files Post Publish
