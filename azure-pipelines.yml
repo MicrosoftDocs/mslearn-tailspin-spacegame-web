@@ -124,7 +124,7 @@ stages :
             condition: and(succeeded(), eq(variables['TERRAFORM_PLAN_HAS_CHANGES'], 'true'))
             inputs:
               command: apply
-              environmentServiceName: 'My Azure Service Connection'
+              environmentServiceName: 'azurerm-service-connection'
               commandOptions: '$(System.DefaultWorkingDirectory)/terraform.tfplan'
 
               
