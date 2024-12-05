@@ -46,7 +46,7 @@ resource "azurerm_windows_web_app" "game-demo-wa" {
     always_on = false
   }
 
-  zip_deploy_file = "./home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
+  zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
 
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1"
@@ -75,7 +75,7 @@ resource "azurerm_storage_blob" "game-demo-sb" {
   storage_account_name   = azurerm_storage_account.game-demo-sa.name
   storage_container_name = azurerm_storage_container.game-demo-sc.name
   type                   = "Block"
-  source                 = "./home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
+  source                 = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
 }
 
 # Deploy ZIP to App Service
