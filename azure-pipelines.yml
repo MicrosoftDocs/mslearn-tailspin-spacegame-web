@@ -81,6 +81,11 @@ stages :
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: drop'
             condition: succeeded()
+          - task: Bash@3
+            displayName: List Files Post Publish
+            inputs:
+              targetType: inline
+              script: 'ls *''
 
   - stage: terraform_plan_apply
     condition: ne('${{ parameters.Action }}', 'Destroy')
