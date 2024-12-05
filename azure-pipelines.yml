@@ -118,12 +118,12 @@ stages :
               #secureVarsFile: my-secure-file.env
               # specify a variable input via pipeline variable
               #commandOptions: '-var secret=$(mySecretPipelineVar)'
-            - task: TerraformCLI@1
-              displayName: 'terraform apply'
-              condition: and(succeeded(), eq(variables['Action'], 'Apply'))
-              inputs:
-                command: apply
-                environmentServiceName: 'azurerm-service-connection'
+          - task: TerraformCLI@1
+            displayName: 'terraform apply'
+            condition: and(succeeded(), eq(variables['Action'], 'Apply'))
+            inputs:
+              command: apply
+              environmentServiceName: 'azurerm-service-connection'
 #- script: |
 #    terraform --version
 #    terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
