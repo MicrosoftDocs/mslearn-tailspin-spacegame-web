@@ -12,7 +12,7 @@ parameters:
     - Destroy
 
 variables:
-  - artifact-name: game-demo-drop
+  - artifactName: game-demo-drop
   - name: backendServiceArm
     value: 'azurerm-service-connection'
   - name: backendAzureRmResourceGroupName
