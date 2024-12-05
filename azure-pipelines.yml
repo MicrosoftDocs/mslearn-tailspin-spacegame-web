@@ -92,11 +92,16 @@ stages :
     jobs:
       - job: terraform_apply
         steps:
-          - task: DownloadPipelineArtifact@1
+          #- task: DownloadPipelineArtifact@1
+          #  inputs:
+          #    source: 'current'
+          #    artifact: '$(variables.artifactName)'
+          #    path: '$(Pipeline.Workspace)/$(variables.artifactName)'
+          - task: DownloadBuildArtifacts@1
             inputs:
-              source: 'current'
-              artifact: '$(variables.artifactName)'
-              path: '$(Pipeline.Workspace)/$(variables.artifactName)'
+              buildType: 'current' # 'current' | 'specific'. Required. Download artifacts produced by. Default: current.
+              artifactName: '$(variables.artifactName)' # string. Required when downloadType == single. Artifact name. 
+              downloadPath: '$(System.ArtifactsDirectory)' # string. Required. Destination directory. Default: $(System.ArtifactsDirectory).
           - task: Bash@3
             displayName: List Files Post Publish
             inputs:
