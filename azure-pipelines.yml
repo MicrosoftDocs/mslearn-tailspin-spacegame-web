@@ -108,7 +108,7 @@ stages :
             displayName: List Files Post Publish
             inputs:
               targetType: inline
-              script: 'ls -al'
+              script: 'ls -al $(System.ArtifactsDirectory)'
           - task: TerraformInstaller@0
             displayName: 'Installing Terraform'
             inputs:
