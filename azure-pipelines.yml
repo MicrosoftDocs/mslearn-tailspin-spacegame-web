@@ -1,5 +1,35 @@
+name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r)
+
+parameters:
+ 
+  - name: Action
+    displayName: Action
+    type: string
+    default: 'Plan'
+    values:
+    - Plan
+    - Apply
+    - Destroy
+
 variables:
-- group: ARM_VARS
+  - name: backendServiceArm
+    value: 'azurerm-service-connection'
+  - name: backendAzureRmResourceGroupName
+    value: 'tfstate'
+  - name: backendAzureRmStorageAccountName
+    value: 'tfstatestgacct27555'
+  - name: backendAzureRmContainerName
+    value: 'tfstate'
+  - name: backendAzureRmKey
+    value: './game-demo.tfstate'
+  - name: backendAzureRmResourceGroupLocation
+    value: 'eastus'
+  - name: backendAzureRmStorageAccountSku
+    value: 'Standard_RAGRS'
+  - name: terraform_version
+    value: '1.5.7'
+  - name: action
+    value: ${{ parameters.Action }}
 
 trigger:
 - '*'
@@ -11,7 +41,7 @@ steps:
 - task: TerraformInstaller@0
   displayName: 'Installing Terraform'
   inputs:
-    terraformVersion: '1.5.7'
+    terraformVersion: '${{ variables.terraform_version }}'
 
 - task: TerraformCLI@1
   displayName: 'terraform init'
@@ -19,22 +49,13 @@ steps:
     command: init
     backendType: azurerm
     # Service connection to authorize backend access. Supports Subscription & Management Group Scope
-    backendServiceArm: 'azurerm-service-connection'
-    # Tenant id of the target backend. This can be used to override the default tenant id inherited from the service connection
-    #backendAzureRmTenantId: ''
-    # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
-    # Service connection or to override the subscription id defined in a Subscription scoped service connection
-    #backendAzureRmSubscriptionId: ''
-    backendAzureRmResourceGroupName: 'tfstate'
-    # azure location shortname of the backend resource group and storage account
-    backendAzureRmResourceGroupLocation: 'eastus'
-    backendAzureRmStorageAccountName: 'tfstatestgacct27555'
-    # azure storage account sku, used when creating the storage account
-    backendAzureRmStorageAccountSku: 'Standard_RAGRS'
-    # azure blob container to store the state file
-    backendAzureRmContainerName: 'tfstate'
-    # azure blob file name
-    backendAzureRmKey: ./game-demo.tfstate
+    backendServiceArm: '${{ variables.backendServiceArm }}'
+    backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName }}'    
+    backendAzureRmResourceGroupLocation: '${{ variables.backendAzureRmResourceGroupLocation }}'
+    backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName }}'
+    backendAzureRmStorageAccountSku: '${{ variables.backendAzureRmStorageAccountSku }}'
+    backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
+    backendAzureRmKey: '${{ variables.backendAzureRmKey }}'
 
 
 - task: TerraformCLI@1
