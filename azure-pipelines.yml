@@ -40,7 +40,7 @@ trigger:
 stages :
   - stage: build_and_publish_app
     jobs:
-      - job: build_app
+      - job: build_and_publish
         steps:
           - task: UseDotNet@2
             displayName: 'Use .NET SDK 6.x'
@@ -62,8 +62,6 @@ stages :
             inputs:
               command: 'restore'
               projects: '**/*.csproj'
-      - job: publish_app        
-        steps:
           - task: DotNetCoreCLI@2
             displayName: 'Build the project - Release'
             inputs:
@@ -85,7 +83,7 @@ stages :
             displayName: List Files Post Publish
             inputs:
               targetType: inline
-              script: 'ls *''
+              script: 'ls *'
 
   - stage: terraform_plan_apply
     condition: ne('${{ parameters.Action }}', 'Destroy')
