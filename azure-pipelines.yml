@@ -83,7 +83,7 @@ stages :
             displayName: List Files Post Publish
             inputs:
               targetType: inline
-              script: 'ls -ld $(Build.ArtifactStagingDirectory)/Release'
+              script: 'ls -al $(Build.ArtifactStagingDirectory)/Release'
 
   - stage: terraform_plan_apply
     condition: ne('${{ parameters.Action }}', 'Destroy')
