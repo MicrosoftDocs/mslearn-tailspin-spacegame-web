@@ -92,6 +92,16 @@ stages :
     jobs:
       - job: terraform_apply
         steps:
+          - task: DownloadPipelineArtifact@1
+            inputs:
+              source: 'current'
+              artifact: $(variables.artifactName)
+              path: '$(Pipeline.Workspace)/$(variables.artifactName)'
+          - task: Bash@3
+            displayName: List Files Post Publish
+            inputs:
+              targetType: inline
+              script: 'ls -al'
           - task: TerraformInstaller@0
             displayName: 'Installing Terraform'
             inputs:
