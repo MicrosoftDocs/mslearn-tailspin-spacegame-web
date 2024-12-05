@@ -62,14 +62,14 @@ stages :
             inputs:
               command: 'restore'
               projects: '**/*.csproj'
+      - job: publish_app        
+        steps:
           - task: DotNetCoreCLI@2
             displayName: 'Build the project - Release'
             inputs:
               command: 'build'
               arguments: '--no-restore --configuration Release'
               projects: '**/*.csproj'
-      - job: publish_app        
-        steps:
           - task: DotNetCoreCLI@2
             displayName: 'Publish the project - Release'
             inputs:
