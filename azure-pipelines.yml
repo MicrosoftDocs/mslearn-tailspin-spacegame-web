@@ -123,7 +123,7 @@ stages :
               condition: and(succeeded(), eq(variables['Action'], 'Apply'))
               inputs:
                 command: apply
-                environmentServiceName: 'My Azure Service Connection'
+                environmentServiceName: 'azurerm-service-connection'
 #- script: |
 #    terraform --version
 #    terraform init -backend-config="storage_account_name=$(storageAccountName)" -backend-config="container_name=$(containerName)" -backend-config="key=$(key)" -backend-config="access_key=$(accessKey)"
