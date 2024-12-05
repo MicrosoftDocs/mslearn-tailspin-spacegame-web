@@ -12,6 +12,8 @@ parameters:
     - Destroy
 
 variables:
+  - name: artifact-name
+    value: 'game-demo-drop'
   - name: backendServiceArm
     value: 'azurerm-service-connection'
   - name: backendAzureRmResourceGroupName
@@ -77,7 +79,7 @@ stages :
               arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
               zipAfterPublish: true
           - task: PublishBuildArtifacts@1
-            displayName: 'Publish Artifact: drop'
+            displayName: 'Publish Artifact: ${{ variables.artifact-name }}'
             condition: succeeded()
           - task: Bash@3
             displayName: List Files Post Publish
