@@ -25,16 +25,16 @@ steps:
     # Subscription id of the target backend. This can be used to specify the subscription when using Management Group scoped
     # Service connection or to override the subscription id defined in a Subscription scoped service connection
     #backendAzureRmSubscriptionId: ''
-    backendAzureRmResourceGroupName: 'game-demo-rg'
+    backendAzureRmResourceGroupName: 'tfstate'
     # azure location shortname of the backend resource group and storage account
-    backendAzureRmResourceGroupLocation: 'eastus2'
-    backendAzureRmStorageAccountName: 'gamedemostgacct'
+    backendAzureRmResourceGroupLocation: 'eastus'
+    backendAzureRmStorageAccountName: 'tfstatestgacct27555'
     # azure storage account sku, used when creating the storage account
     backendAzureRmStorageAccountSku: 'Standard_RAGRS'
     # azure blob container to store the state file
-    backendAzureRmContainerName: 'my-backend-blob-container'
+    backendAzureRmContainerName: 'tfstate'
     # azure blob file name
-    backendAzureRmKey: tf/game-demo.tfstate
+    backendAzureRmKey: ./game-demo.tfstate
 
 
 - task: TerraformCLI@1
