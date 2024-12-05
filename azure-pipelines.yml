@@ -37,36 +37,38 @@ trigger:
 #pool:
 #  vmImage: ubuntu-latest
 
-steps:
-- task: TerraformInstaller@0
-  displayName: 'Installing Terraform'
-  inputs:
-    terraformVersion: '${{ variables.terraform_version }}'
-
-- task: TerraformCLI@1
-  displayName: 'terraform init'
-  inputs:
-    command: init
-    backendType: azurerm
-    # Service connection to authorize backend access. Supports Subscription & Management Group Scope
-    backendServiceArm: '${{ variables.backendServiceArm }}'
-    backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName }}'    
-    backendAzureRmResourceGroupLocation: '${{ variables.backendAzureRmResourceGroupLocation }}'
-    backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName }}'
-    backendAzureRmStorageAccountSku: '${{ variables.backendAzureRmStorageAccountSku }}'
-    backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
-    backendAzureRmKey: '${{ variables.backendAzureRmKey }}'
-
-
-- task: TerraformCLI@1
-  displayName: 'terraform plan'
-  inputs:
-    command: plan
-    environmentServiceName: 'azurerm-service-connection'
-    # name of the secure file to use. Can be standard terraform vars file or .env file.
-    #secureVarsFile: my-secure-file.env
-    # specify a variable input via pipeline variable
-    #commandOptions: '-var secret=$(mySecretPipelineVar)'
+stages :  
+  - stage: terraform_plan_apply
+    condition: ne('${{ parameters.Action }}', 'Destroy')
+    jobs:
+      - job: terraform_apply
+        steps:
+          - task: TerraformInstaller@0
+            displayName: 'Installing Terraform'
+            inputs:
+              terraformVersion: '${{ variables.terraform_version }}'
+          - task: TerraformCLI@1
+            displayName: 'terraform init'
+            inputs:
+              command: init
+              backendType: azurerm
+              # Service connection to authorize backend access. Supports Subscription & Management Group Scope
+              backendServiceArm: '${{ variables.backendServiceArm }}'
+              backendAzureRmResourceGroupName: '${{ variables.backendAzureRmResourceGroupName }}'    
+              backendAzureRmResourceGroupLocation: '${{ variables.backendAzureRmResourceGroupLocation }}'
+              backendAzureRmStorageAccountName: '${{ variables.backendAzureRmStorageAccountName }}'
+              backendAzureRmStorageAccountSku: '${{ variables.backendAzureRmStorageAccountSku }}'
+              backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
+              backendAzureRmKey: '${{ variables.backendAzureRmKey }}'
+            - task: TerraformCLI@1
+              displayName: 'terraform plan'
+              inputs:
+                command: plan
+                environmentServiceName: 'azurerm-service-connection'
+                # name of the secure file to use. Can be standard terraform vars file or .env file.
+                #secureVarsFile: my-secure-file.env
+                # specify a variable input via pipeline variable
+                #commandOptions: '-var secret=$(mySecretPipelineVar)'
 
 #- script: |
 #    terraform --version
