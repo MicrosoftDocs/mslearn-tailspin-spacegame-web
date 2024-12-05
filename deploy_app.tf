@@ -75,7 +75,7 @@ resource "azurerm_storage_blob" "game-demo-sb" {
   storage_account_name   = azurerm_storage_account.game-demo-sa.name
   storage_container_name = azurerm_storage_container.game-demo-sc.name
   type                   = "Block"
-  source                 = "./1/a/Release/Tailspin.SpaceGame.Web.zip"
+  source                 = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
 }
 
 # Deploy ZIP to App Service
