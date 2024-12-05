@@ -60,15 +60,15 @@ stages :
               backendAzureRmStorageAccountSku: '${{ variables.backendAzureRmStorageAccountSku }}'
               backendAzureRmContainerName: '${{ variables.backendAzureRmContainerName }}'
               backendAzureRmKey: '${{ variables.backendAzureRmKey }}'
-            - task: TerraformCLI@1
-              displayName: 'terraform plan'
-              inputs:
-                command: plan
-                environmentServiceName: 'azurerm-service-connection'
-                # name of the secure file to use. Can be standard terraform vars file or .env file.
-                #secureVarsFile: my-secure-file.env
-                # specify a variable input via pipeline variable
-                #commandOptions: '-var secret=$(mySecretPipelineVar)'
+          - task: TerraformCLI@1
+            displayName: 'terraform plan'
+            inputs:
+              command: plan
+              environmentServiceName: 'azurerm-service-connection'
+              # name of the secure file to use. Can be standard terraform vars file or .env file.
+              #secureVarsFile: my-secure-file.env
+              # specify a variable input via pipeline variable
+              #commandOptions: '-var secret=$(mySecretPipelineVar)'
 
 #- script: |
 #    terraform --version
