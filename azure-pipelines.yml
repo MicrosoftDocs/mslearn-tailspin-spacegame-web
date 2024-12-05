@@ -79,7 +79,7 @@ stages :
               arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
               zipAfterPublish: true
           - task: PublishBuildArtifacts@1
-            displayName: 'Publish Artifact: $(variables.artifact-name)'
+            displayName: 'Publish Artifact: drop'
             condition: succeeded()
           - task: Bash@3
             displayName: List Files Post Publish
@@ -95,7 +95,7 @@ stages :
           - task: DownloadPipelineArtifact@1
             inputs:
               source: 'current'
-              artifact: $(variables.artifactName)
+              artifact: '$(variables.artifactName)'
               path: '$(Pipeline.Workspace)/$(variables.artifactName)'
           - task: Bash@3
             displayName: List Files Post Publish
