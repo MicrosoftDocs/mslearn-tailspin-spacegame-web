@@ -145,10 +145,10 @@ stages :
               command: apply
               environmentServiceName: 'azurerm-service-connection'
               commandOptions: '$(System.DefaultWorkingDirectory)/terraform.tfplan'
-          - task: TerraformCLI@1
-            displayName: 'terraform output'
-            inputs:
-              command: output
+          #- task: TerraformCLI@1
+          #  displayName: 'terraform output'
+          #  inputs:
+          #    command: output
               # ensure working directory targets same directory as apply step
               # if not specified $(System.DefaultWorkingDirectory) will be used
               # workingDirectory: $(my_terraform_templates_dir)
