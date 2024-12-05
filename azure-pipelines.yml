@@ -80,7 +80,8 @@ stages :
               zipAfterPublish: true
           - task: PublishBuildArtifacts@1
             displayName: 'Publish Artifact: drop'
-            ArtifactName: '${{ variables.artifactName }}'
+            inputs:
+              ArtifactName: '${{ variables.artifactName }}'
             condition: succeeded()
           - task: Bash@3
             displayName: List Files Post Publish
