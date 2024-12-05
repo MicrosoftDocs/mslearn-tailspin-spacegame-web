@@ -46,7 +46,7 @@ resource "azurerm_windows_web_app" "game-demo-wa" {
     always_on = false
   }
 
-  zip_deploy_file = "./Tailspin.SpaceGame.Web.zip"
+  zip_deploy_file = "./1/a/Release/Tailspin.SpaceGame.Web.zip"
 
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1"
