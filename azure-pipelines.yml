@@ -1,3 +1,7 @@
-pool: MyAgentPool
+
 steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    azureSubscription: 'demo-sub(96342cc2-ba1c-45b3-be36-965a53be3f6e)'
+    command: 'build'
 - bash: echo hello world
