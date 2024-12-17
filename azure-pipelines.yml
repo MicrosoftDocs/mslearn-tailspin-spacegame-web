@@ -1,7 +1,43 @@
+trigger:
+- '*'
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
+- task: UseDotNet@2
+  displayName: 'Use .NET SDK 6.x'
   inputs:
-    azureSubscription: 'demo-sub(96342cc2-ba1c-45b3-be36-965a53be3f6e)'
+    packageType: sdk
+    version: '6.x'
+
+- task: Npm@1
+  displayName: 'Run npm install'
+  inputs:
+    verbose: false
+
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compile Sass assets'
+
+- task: gulp@1
+  displayName: 'Run gulp tasks'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Write build info'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Build the project - Release'
+  inputs:
     command: 'build'
-- bash: echo hello world
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
