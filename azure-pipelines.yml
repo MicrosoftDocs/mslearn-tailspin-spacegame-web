@@ -1,5 +1,10 @@
 trigger:
-- main
+  branches:
+    include:
+      - '*'
+  paths:
+    exclude:
+      - docs/*
 
 resources:
   repositories:
