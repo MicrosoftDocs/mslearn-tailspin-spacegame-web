@@ -2,6 +2,7 @@ trigger:
     - "*"
 
 pool:
+    name: "local-mac"
     vmImage: "ubuntu-20.04"
     demands:
         - npm
