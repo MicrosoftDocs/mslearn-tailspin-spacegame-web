@@ -1,0 +1,11 @@
+trigger:
+- main
+
+pool: MyAgentPool
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+  - script: dotnet build --configuration $(buildConfiguration) 
+    displayName: 'dptnet BUILD $(buildConfiguration)'
