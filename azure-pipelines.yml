@@ -7,5 +7,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+  - task: UseDotNet@2
+    displayName: 'Use .NET SDK 6.x'
+    inputs:
+      packageType: sdk
+      version: '6.x'
+
   - script: dotnet build --configuration $(buildConfiguration) 
     displayName: 'dptnet BUILD $(buildConfiguration)'
