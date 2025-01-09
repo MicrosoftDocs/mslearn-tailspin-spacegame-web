@@ -1,5 +1,7 @@
 [![Board Status](https://dev.azure.com/SerhiiSachava/a17820a6-8c22-4d55-bef5-7e4d91a69e1b/caf09111-0339-466c-884c-8aadb032d4fd/_apis/work/boardbadge/824c1196-67b7-4878-96c5-cf92245e8f6a?columnOptions=1)](https://dev.azure.com/SerhiiSachava/a17820a6-8c22-4d55-bef5-7e4d91a69e1b/_boards/board/t/caf09111-0339-466c-884c-8aadb032d4fd/Issues/)
 
+[![Build Status](https://dev.azure.com/SerhiiSachava/az-proj-build02-web-Workflow/_apis/build/status%2Fmslearn-tailspin-spacegame-web?branchName=main)](https://dev.azure.com/SerhiiSachava/az-proj-build02-web-Workflow/_build/latest?definitionId=14&branchName=main)
+
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
