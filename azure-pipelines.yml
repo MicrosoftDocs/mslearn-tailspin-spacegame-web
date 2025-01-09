@@ -3,6 +3,7 @@ trigger:
 
 pool: MyAgentPool
 
+
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
