@@ -35,6 +35,12 @@ resource "azurerm_service_plan" "game-demo-asp" {
   sku_name            = "F1"
 }
 
+#data "archive_file" "app_package" {
+#  type        = "zip"
+#  source_dir  = "${path.module}/path/to/your/application/code"
+#  output_path = "${path.module}/app_package.zip"
+#}
+
 # App Service
 resource "azurerm_windows_web_app" "game-demo-wa" {
   name                = "game-demo-webapp"
@@ -47,6 +53,11 @@ resource "azurerm_windows_web_app" "game-demo-wa" {
   }
 
   zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
+  #zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web_${filemd5("./helloworld")}.zip"
+  #zip_deploy_file = "./Tailspin.SpaceGame.Web.1.zip"
+  lifecycle {
+    create_before_destroy = true
+  }
 
   app_settings = {
     "WEBSITE_RUN_FROM_PACKAGE" = "1"
