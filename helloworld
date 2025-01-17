@@ -1,8 +1,15 @@
+#/bin/bash
+
 # Build and Run the WebApp locally
 # dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
 
+# Publish build
+dotnet publish --no-build --configuration Release --output ~/Downloads/tmp/Release
+
 # Create zip File
-# ZIP_DIR=""
-# ZIP_FILE="Tailspin.SpaceGame.Web.zip"
-# cd $ZIP_DIR
-# zip $ZIP_FILE "./"
+ZIP_DIR="/Users/breongreen/Downloads/tmp/Release/"
+ZIP_FILE="Tailspin.SpaceGame.Web.1.zip"
+OUT_DIR="/Users/breongreen/Projects/mslearn-tailspin-spacegame-web"
+cd $ZIP_DIR
+zip -r $ZIP_FILE "./"
+cp $ZIP_FILE $OUT_DIR
