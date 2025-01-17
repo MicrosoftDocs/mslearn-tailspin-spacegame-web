@@ -335,4 +335,4 @@ ASALocalRun/
 terraform*
 .terraform*
 .tfstate
-Tailspin.SpaceGame*
+Tailspin.SpaceGame.Web*zip
