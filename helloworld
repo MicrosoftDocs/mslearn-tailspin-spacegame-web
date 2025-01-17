@@ -1,0 +1,8 @@
+# Build and Run the WebApp locally
+# dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web
+
+# Create zip File
+# ZIP_DIR=""
+# ZIP_FILE="Tailspin.SpaceGame.Web.zip"
+# cd $ZIP_DIR
+# zip $ZIP_FILE "./"
