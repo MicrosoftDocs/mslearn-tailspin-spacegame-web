@@ -28,7 +28,7 @@ steps:
     command: 'install'
     verbose: false
 
-- script: 'npx sass $(wwwrootDir) --output $(wwwrootDir)'
+- script: 'npx sass $(wwwrootDir):$(wwwrootDir)'
   displayName: 'Compile Sass assets'
 
 # - task: gulp@1
