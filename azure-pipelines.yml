@@ -10,7 +10,7 @@ pool:
 variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
-  dotnetSdkVersion: '6.x'
+  dotnetSdkVersion: '9.x'
 
 steps:
 - task: UseDotNet@2
@@ -21,6 +21,7 @@ steps:
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
+    command: 'install'
     verbose: false
 
 - script: 'npx sass $(wwwrootDir) --output $(wwwrootDir)'
