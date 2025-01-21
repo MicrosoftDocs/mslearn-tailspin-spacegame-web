@@ -1,9 +1,0 @@
-﻿{
-  "acceptTeeEula": true,
-  "agentId": 9,
-  "agentName": "Samuels-MacBook-Pro-3",
-  "poolId": 1,
-  "poolName": "Default",
-  "serverUrl": "https://dev.azure.com/SammysOrganisation/",
-  "workFolder": "_work"
-}
