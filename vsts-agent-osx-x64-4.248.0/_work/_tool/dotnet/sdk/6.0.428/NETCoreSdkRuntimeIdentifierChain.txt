@@ -1,0 +1,6 @@
+osx-arm64
+osx
+unix-arm64
+unix
+any
+base

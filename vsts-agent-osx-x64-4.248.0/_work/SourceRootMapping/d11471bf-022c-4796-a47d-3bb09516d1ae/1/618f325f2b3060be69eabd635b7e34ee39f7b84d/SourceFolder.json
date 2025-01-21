@@ -1,0 +1,26 @@
+﻿{
+  "build_artifactstagingdirectory": "1/a",
+  "agent_builddirectory": "1",
+  "collectionUrl": "https://dev.azure.com/SammysOrganisation/",
+  "definitionName": "A00467990x.mslearn-tailspin-spacegame-web",
+  "repositoryTrackingInfo": [
+    {
+      "identifier": "self",
+      "repositoryType": "GitHub",
+      "repositoryUrl": "https://github.com/A00467990x/mslearn-tailspin-spacegame-web",
+      "sourcesDirectory": "1/s/mslearn-tailspin-spacegame-web"
+    }
+  ],
+  "fileFormatVersion": 3,
+  "lastRunOn": "01/21/2025 06:28:57 -04:00",
+  "repositoryType": "GitHub",
+  "lastMaintenanceAttemptedOn": "",
+  "lastMaintenanceCompletedOn": "",
+  "build_sourcesdirectory": "1/s",
+  "common_testresultsdirectory": "1/TestResults",
+  "collectionId": "d11471bf-022c-4796-a47d-3bb09516d1ae",
+  "definitionId": "1",
+  "hashKey": "618f325f2b3060be69eabd635b7e34ee39f7b84d",
+  "repositoryUrl": "https://github.com/A00467990x/mslearn-tailspin-spacegame-web",
+  "system": "build"
+}

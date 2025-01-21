@@ -1,0 +1,96 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "dotnet-dev-certs/6.0.36-servicing.24516.4": {
+        "dependencies": {
+          "MicroBuild.Core": "0.3.0",
+          "Microsoft.DiaSymReader.Pdb2Pdb": "1.1.0-beta2-19575-01",
+          "Microsoft.Internal.Runtime.AspNetCore.Transport": "6.0.36-servicing.24514.21",
+          "Microsoft.SourceLink.AzureRepos.Git": "1.1.0-beta-21480-02",
+          "Microsoft.SourceLink.GitHub": "1.1.0-beta-21480-02"
+        },
+        "runtime": {
+          "dotnet-dev-certs.dll": {}
+        }
+      },
+      "MicroBuild.Core/0.3.0": {},
+      "Microsoft.Build.Tasks.Git/1.1.0-beta-21480-02": {},
+      "Microsoft.DiaSymReader.Pdb2Pdb/1.1.0-beta2-19575-01": {},
+      "Microsoft.Internal.Runtime.AspNetCore.Transport/6.0.36-servicing.24514.21": {},
+      "Microsoft.SourceLink.AzureRepos.Git/1.1.0-beta-21480-02": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-21480-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-21480-02"
+        }
+      },
+      "Microsoft.SourceLink.Common/1.1.0-beta-21480-02": {},
+      "Microsoft.SourceLink.GitHub/1.1.0-beta-21480-02": {
+        "dependencies": {
+          "Microsoft.Build.Tasks.Git": "1.1.0-beta-21480-02",
+          "Microsoft.SourceLink.Common": "1.1.0-beta-21480-02"
+        }
+      }
+    }
+  },
+  "libraries": {
+    "dotnet-dev-certs/6.0.36-servicing.24516.4": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MicroBuild.Core/0.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-71NxN8xP8+n08w7XuEOpbzuerL45QRodeLfrjs51qCT8LbjARyfPEcSE30YqLjFtFl3km5eH5Oaqnq2p1hQbAw==",
+      "path": "microbuild.core/0.3.0",
+      "hashPath": "microbuild.core.0.3.0.nupkg.sha512"
+    },
+    "Microsoft.Build.Tasks.Git/1.1.0-beta-21480-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YWtXoaz4XYbA6wGqWGXL6nD4b9gJ4X92mIOGc6hO8uu3E/BNU21exLweSF6EN5Q4KzgsVomxnflYtOW7rQmDtA==",
+      "path": "microsoft.build.tasks.git/1.1.0-beta-21480-02",
+      "hashPath": "microsoft.build.tasks.git.1.1.0-beta-21480-02.nupkg.sha512"
+    },
+    "Microsoft.DiaSymReader.Pdb2Pdb/1.1.0-beta2-19575-01": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kY6eTNkeWLHvfOjg97Q7tgQKrPpX+Y3fR6fS4nyfpgFLHBxHriLBR4v3e9t71it91gIMEeKUqOqrFJ7Pj48eHA==",
+      "path": "microsoft.diasymreader.pdb2pdb/1.1.0-beta2-19575-01",
+      "hashPath": "microsoft.diasymreader.pdb2pdb.1.1.0-beta2-19575-01.nupkg.sha512"
+    },
+    "Microsoft.Internal.Runtime.AspNetCore.Transport/6.0.36-servicing.24514.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z79yOgCQ0ULlpUFXnpOYYfZTnLNPPy1PbzKFJ11bjt2Q0hemQ7mFqcEvKVQ95R3UU/L1uDOx02dl0Nby5ZfH2A==",
+      "path": "microsoft.internal.runtime.aspnetcore.transport/6.0.36-servicing.24514.21",
+      "hashPath": "microsoft.internal.runtime.aspnetcore.transport.6.0.36-servicing.24514.21.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.AzureRepos.Git/1.1.0-beta-21480-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-t2hPHWC38gX/MJzGnQFZdn9TSs857hHpAF6ulGYJ8yERHzQ63Jc/UL+UGu2ArAbw0i0l+3VJcdK0dcMdhA6jVw==",
+      "path": "microsoft.sourcelink.azurerepos.git/1.1.0-beta-21480-02",
+      "hashPath": "microsoft.sourcelink.azurerepos.git.1.1.0-beta-21480-02.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.Common/1.1.0-beta-21480-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Ot3BpFwdZiecnD6kjLRM8hVzzJpKD0+OSsC67b3JI+kn2Ph56JjXsLfKXSI33JyoUD3qUVlLReBCJCEIpDZ+ww==",
+      "path": "microsoft.sourcelink.common/1.1.0-beta-21480-02",
+      "hashPath": "microsoft.sourcelink.common.1.1.0-beta-21480-02.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/1.1.0-beta-21480-02": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P5M9Y2gQZNg8eqWuE/OERDOJwQjik/E9kEO23YhY8Fn2kTd/46bJPY0bIbCb55imEnK2o2iOslE5909WQPZqpA==",
+      "path": "microsoft.sourcelink.github/1.1.0-beta-21480-02",
+      "hashPath": "microsoft.sourcelink.github.1.1.0-beta-21480-02.nupkg.sha512"
+    }
+  }
+}
