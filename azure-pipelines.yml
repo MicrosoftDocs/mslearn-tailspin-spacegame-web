@@ -19,8 +19,8 @@ steps:
     packageType: sdk
     version: '$(dotnetSdkVersion)'
 
-- task: gulp@1
-  displayName: 'Run gulp tasks'
+# - task: gulp@1
+#   displayName: 'Run gulp tasks'
 
 - task: Npm@1
   displayName: 'Run npm install'
