@@ -42,7 +42,11 @@ steps:
 
 - template: templates/build.yml
   parameters:
+<<<<<<< HEAD
     buildConfiguration: 'Release'
+=======
+    buildConfiguration: 'Release''
+>>>>>>> a1e51614a14e100711d49d631413cb7b2225f930
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
