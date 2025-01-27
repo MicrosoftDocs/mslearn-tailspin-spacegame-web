@@ -2,6 +2,7 @@ trigger:
 - '*'
 
 pool:
+  name: 'Azure Pipelines'
   vmImage: 'ubuntu-20.04'
   demands:
   - npm
