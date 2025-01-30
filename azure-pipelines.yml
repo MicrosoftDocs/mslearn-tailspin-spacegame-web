@@ -1,30 +1,25 @@
 trigger:
-- main  # Puedes cambiar a la rama que necesites
+- main  # O la rama que uses
 
 pool:
-  vmImage: 'ubuntu-latest'  # Usa 'windows-latest' si prefieres Windows
+  vmImage: 'ubuntu-latest'  # Agente hospedado de Ubuntu
 
 steps:
-# Instalación del SDK de .NET
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
-    version: '6.x'  # Cambia la versión si es necesario
+    version: '6.x'  # La versión de .NET Core que necesitas
     installationPath: $(Agent.ToolsDirectory)/dotnet
 
-# Compilación del proyecto en modo Release
 - script: dotnet build --configuration Release
   displayName: 'Compilar proyecto'
 
-# Ejecución de las pruebas del proyecto
 - script: dotnet test --configuration Release
   displayName: 'Ejecutar pruebas'
 
-# Publicación de los artefactos (build output)
 - script: dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
   displayName: 'Publicar artefacto'
 
-# Publicación de los artefactos generados para ser usados en otros pipelines
 - task: PublishBuildArtifacts@1
   inputs:
     pathToPublish: '$(Build.ArtifactStagingDirectory)'
