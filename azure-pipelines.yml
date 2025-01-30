@@ -1,3 +1,26 @@
-pool: MyAgentPool
+trigger:
+- main  # O la rama que uses
+
+pool:
+  vmImage: 'ubuntu-latest'  # Puede cambiarse a windows-latest si es necesario
+
 steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- script: dotnet build --configuration Release
+  displayName: 'Compilar proyecto'
+
+- script: dotnet test --configuration Release
+  displayName: 'Ejecutar pruebas'
+
+- script: dotnet publish -c Release -o $(Build.ArtifactStagingDirectory)
+  displayName: 'Publicar artefacto'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'drop'
