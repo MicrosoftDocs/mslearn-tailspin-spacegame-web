@@ -43,9 +43,15 @@ steps:
 - script: 'npx sass Tailspin.SpaceGame.Web/wwwroot --no-source-map --style=compressed'
   displayName: 'Compile Sass assets'
 
-# ✅ Ejecutar tareas con Gulp
-- task: gulp@1
+
+# ✅ Instalar Gulp CLI globalmente antes de usar Gulp
+- script: 'npm install --global gulp-cli'
+  displayName: 'Install Gulp CLI globally'
+
+# ✅ Ejecutar tareas de Gulp usando el binario local del proyecto
+- script: 'npx gulp'
   displayName: 'Run gulp tasks'
+
 
 # ✅ Escribir información de la compilación
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
