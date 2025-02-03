@@ -34,9 +34,10 @@ steps:
 
 # Eliminar node_modules y package-lock.json antes de instalar dependencias
 - script: |
-    if (Test-Path "node_modules") { Remove-Item -Recurse -Force "node_modules" }
-    if (Test-Path "package-lock.json") { Remove-Item -Force "package-lock.json" }
+    if exist "node_modules" rmdir /s /q "node_modules"
+    if exist "package-lock.json" del /f /q "package-lock.json"
   displayName: 'Remove old dependencies'
+
 
 
 # Instalar dependencias usando --legacy-peer-deps para evitar errores
