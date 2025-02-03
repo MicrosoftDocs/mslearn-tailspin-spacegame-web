@@ -1,5 +1,5 @@
 trigger:
-- '*'  
+- '*'
 
 pool:
   name: 'RetoAzure'  # Nombre del pool donde está MyAgent
@@ -17,12 +17,7 @@ steps:
   inputs:
     verbose: false
 
-- script: |
-    npm install --legacy-peer-deps
-  displayName: 'Install NPM dependencies'
-
-- script: |
-    & "C:\Users\diegoguillen\Documents\Proyecto DevOps\incubator-devlake\node_modules\.bin\node-sass" Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
