@@ -6,18 +6,35 @@ pool:
   demands:
     - agent.name -equals MyAgent
 
+variables:
+  buildConfiguration: 'Release'
+
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
+    packageType: sdk
     version: '6.x'
+
+- script: 'npm cache clean --force'
+  displayName: 'Clean NPM cache'
+
+- script: 'rmdir /s /q node_modules'
+  displayName: 'Delete node_modules directory'
+
+- script: |
+    echo "Installing Node.js 16.x..."
+    npm install -g n
+    n 16
+  displayName: 'Install Node.js 16.x'
 
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
     verbose: false
+    arguments: '--no-optional --legacy-peer-deps'
 
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: './node_modules/.bin/sass Tailspin.SpaceGame.Web/wwwroot --no-source-map --style=compressed'
   displayName: 'Compile Sass assets'
 
 - task: gulp@1
@@ -39,16 +56,3 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - Release'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
-    zipAfterPublish: true
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: drop'
-  condition: succeeded()
