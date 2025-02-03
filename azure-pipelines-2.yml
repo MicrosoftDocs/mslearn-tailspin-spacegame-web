@@ -1,73 +1,52 @@
 trigger:
-  - '*'
+- '*'
 
 pool:
-  name: 'RetoAzure'  # Nombre del pool donde está MyAgent
-  demands:
-    - agent.name -equals MyAgent
-
-variables:
-  buildConfiguration: 'Release'
+  vmImage: ubuntu-latest
 
 steps:
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
-    packageType: sdk
     version: '6.x'
 
-# Usa Node.js 18.x
-- task: UseNode@1
-  displayName: 'Use Node.js 18.x'
-  inputs:
-    version: '18.x'
-
-# Configurar Python 3.11 para evitar errores con node-gyp
-- script: |
-    setx PYTHON "C:\Users\diegoguillen\AppData\Local\Programs\Python\Python311\python.exe"
-    setx PYTHONPATH "C:\Users\diegoguillen\AppData\Local\Programs\Python\Python311"
-  displayName: 'Set Python Environment Variables'
-
-# Limpiar caché de npm
-- script: 'npm cache clean --force'
-  displayName: 'Clear npm cache'
-
-# Eliminar node_modules y package-lock.json antes de instalar dependencias
-- script: |
-    if exist "node_modules" rmdir /s /q "node_modules"
-    if exist "package-lock.json" del /f /q "package-lock.json"
-  displayName: 'Remove old dependencies'
-
-
-
-# Instalar dependencias usando --legacy-peer-deps para evitar errores
-- script: 'npm install --legacy-peer-deps'
+- task: Npm@1
   displayName: 'Run npm install'
+  inputs:
+    verbose: false
 
-# Compilar archivos Sass con npx para mayor compatibilidad
-- script: 'npx node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
-# Ejecutar tareas de Gulp
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
-# Escribir información de compilación en un archivo
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
-# Restaurar dependencias del proyecto .NET
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
-# Compilar el proyecto en modo Release
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish the project - Release'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
