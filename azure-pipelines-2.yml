@@ -56,3 +56,6 @@ steps:
     command: 'build'
     arguments: '--no-restore --configuration Release'
     projects: '**/*.csproj'
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk'
