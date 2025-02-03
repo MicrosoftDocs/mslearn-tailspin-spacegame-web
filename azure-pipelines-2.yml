@@ -2,7 +2,9 @@ trigger:
 - '*'
 
 pool:
-  vmImage: ubuntu-latest
+  name: 'RetoAzure'  # Nombre del pool donde está MyAgent
+  demands:
+    - agent.name -equals MyAgent
 
 steps:
 - task: UseDotNet@2
