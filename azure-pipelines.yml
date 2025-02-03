@@ -19,7 +19,8 @@ steps:
 - script: 'npm cache clean --force'
   displayName: 'Clean NPM cache'
 
-- script: 'rmdir /s /q node_modules'
+- script: 
+    if exist node_modules rmdir /s /q node_modules
   displayName: 'Delete node_modules directory'
 
 - script: |
