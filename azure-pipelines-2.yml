@@ -19,6 +19,9 @@ steps:
 - script: 'npm cache clean --force'
   displayName: 'Clean NPM cache'
 
+- script: 'rmdir /s /q node_modules'
+  displayName: 'Delete node_modules directory'
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
