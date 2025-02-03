@@ -1,5 +1,5 @@
 trigger:
-- '*'
+  - '*'
 
 pool:
   name: 'RetoAzure'  # Nombre del pool donde está MyAgent
@@ -16,27 +16,43 @@ steps:
     packageType: sdk
     version: '6.x'
 
-- task: Npm@1
-  displayName: 'Run npm install'
+# Usa Node.js 18.x en lugar de la versión incompatible
+- task: UseNode@1
+  displayName: 'Use Node.js 18.x'
   inputs:
-    arguments: '--no-optional'
+    version: '18.x'
 
+# Limpiar caché de npm
+- script: 'npm cache clean --force'
+  displayName: 'Clear npm cache'
+
+# Eliminar node_modules y package-lock.json antes de instalar dependencias
+- script: |
+    rm -rf node_modules package-lock.json
+    npm install --legacy-peer-deps
+  displayName: 'Run npm install'
+
+# Compilar archivos Sass
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
+# Ejecutar tareas de Gulp
 - task: gulp@1
   displayName: 'Run gulp tasks'
 
+# Escribir información de compilación en un archivo
 - script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+# Restaurar dependencias del proyecto .NET
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
+# Compilar el proyecto en modo Release
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
