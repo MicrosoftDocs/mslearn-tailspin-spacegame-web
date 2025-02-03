@@ -16,6 +16,9 @@ steps:
     packageType: sdk
     version: '6.x'
 
+- script: 'npm cache clean --force'
+  displayName: 'Clean NPM cache'
+
 - task: Npm@1
   displayName: 'Run npm install'
   inputs:
