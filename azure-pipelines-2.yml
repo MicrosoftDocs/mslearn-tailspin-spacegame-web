@@ -16,11 +16,17 @@ steps:
     packageType: sdk
     version: '6.x'
 
-# Usa Node.js 18.x en lugar de la versión incompatible
+# Usa Node.js 18.x
 - task: UseNode@1
   displayName: 'Use Node.js 18.x'
   inputs:
     version: '18.x'
+
+# Configurar Python 3.11 para evitar errores con node-gyp
+- script: |
+    setx PYTHON "C:\Users\diegoguillen\AppData\Local\Programs\Python\Python311\python.exe"
+    setx PYTHONPATH "C:\Users\diegoguillen\AppData\Local\Programs\Python\Python311"
+  displayName: 'Set Python Environment Variables'
 
 # Limpiar caché de npm
 - script: 'npm cache clean --force'
@@ -28,12 +34,17 @@ steps:
 
 # Eliminar node_modules y package-lock.json antes de instalar dependencias
 - script: |
-    rm -rf node_modules package-lock.json
-    npm install --legacy-peer-deps
+    if (Test-Path "node_modules") { Remove-Item -Recurse -Force "node_modules" }
+    if (Test-Path "package-lock.json") { Remove-Item -Force "package-lock.json" }
+  displayName: 'Remove old dependencies'
+
+
+# Instalar dependencias usando --legacy-peer-deps para evitar errores
+- script: 'npm install --legacy-peer-deps'
   displayName: 'Run npm install'
 
-# Compilar archivos Sass
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+# Compilar archivos Sass con npx para mayor compatibilidad
+- script: 'npx node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
 # Ejecutar tareas de Gulp
