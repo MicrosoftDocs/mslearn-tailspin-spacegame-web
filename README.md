@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/fredrikjohnsen/Tailspin%20Toys/_apis/build/status%2FFrederikJ.Tailspin-Toys?branchName=main)](https://dev.azure.com/fredrikjohnsen/Tailspin%20Toys/_build/latest?definitionId=6&branchName=main)
 
 # Contributing
 
