@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Tailspin.SpaceGame.Web/bin/Debug/net5.0/Tailspin.SpaceGame.Web.dll",
+            "program": "${workspaceFolder}/Tailspin.SpaceGame.Web/bin/Debug/net6.0/Tailspin.SpaceGame.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Tailspin.SpaceGame.Web",
             "stopAtEntry": false,
