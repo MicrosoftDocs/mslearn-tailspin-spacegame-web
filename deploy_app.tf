@@ -52,9 +52,9 @@ resource "azurerm_windows_web_app" "game-demo-wa" {
     always_on = false
   }
 
-  zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
+  #zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web.zip"
   #zip_deploy_file = "/home/vsts/work/1/a/game-demo-drop/Release/Tailspin.SpaceGame.Web_${filemd5("./helloworld")}.zip"
-  #zip_deploy_file = "./Tailspin.SpaceGame.Web.1.zip"
+  zip_deploy_file = "./Tailspin.SpaceGame.Web.1.zip"
   lifecycle {
     create_before_destroy = true
   }
