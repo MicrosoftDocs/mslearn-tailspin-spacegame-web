@@ -10,6 +10,8 @@ parameters:
     - Apply
     - Destroy
 
+
+
 variables:
   - name: artifactName
     value: 'game-demo-drop'
