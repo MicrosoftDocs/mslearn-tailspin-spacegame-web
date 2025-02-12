@@ -13,6 +13,8 @@ parameters:
 
 
 
+
+
 variables:
   - name: artifactName
     value: 'game-demo-drop'
