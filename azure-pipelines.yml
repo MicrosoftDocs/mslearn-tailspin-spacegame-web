@@ -45,6 +45,8 @@ trigger:
 #pool:
 #  vmImage: ubuntu-latest
 
+
+
 stages :
   - stage: build_and_publish_app
     jobs:
