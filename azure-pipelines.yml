@@ -1,4 +1,4 @@
-name: $(Build.DefinitionName)_$(date:yyyyMMdd)$(rev:.r)
+name: $(SourceBranchName)_$(date:yyyyMMdd)$(rev:.r)
 
 trigger: none # No automatic build trigger, add - '*' for auto trigger
 
@@ -9,7 +9,7 @@ pool:
 
 steps:
   - script: |
-      build_name="$(Build.DefinitionName)_$(date +%Y%m%d)$(Build.BuildId)"
+      build_name="$(SourceBranchName)_$(date +%Y%m%d)$(Build.BuildId)"
       zip_name="${build_name}.zip"
       mkdir -p temp
       cd temp
