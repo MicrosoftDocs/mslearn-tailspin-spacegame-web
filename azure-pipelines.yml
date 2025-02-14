@@ -10,7 +10,7 @@ steps:
   - script: |
       mkdir -p temp
       cd temp
-      touch output.zip
+      touch tempfile
       zip -r output.zip .
     displayName: 'Zip Temp Directory'
 
