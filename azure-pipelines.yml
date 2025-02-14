@@ -9,14 +9,17 @@ pool:
 
 steps:
   - script: |
+      build_name="$(BuildDefinitionName)_$(date +%Y%m%d)$(Build.BuildId)"
+      zip_name="${build_name}.zip"
       mkdir -p temp
       cd temp
       touch tempfile
-      zip -r output.zip .
-    displayName: 'Zip Temp Directory'
+      zip -r $zip_name .
+      echo "##vso[task.setvariable variable=ZIP_NAME]$zip_name"
+    displayName: 'Zip Temp Directory with Timestamp and Revision '
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathToPublish: './temp/output.zip'
+      pathToPublish: './temp/$(ZIP_NAME)'
       artifactName: 'ZippedArtifact'
     displayName: 'Publish Artifact'
