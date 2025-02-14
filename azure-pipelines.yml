@@ -8,11 +8,14 @@ pool:
 
 steps:
   - script: |
+      mkdir -P temp
+      cd temp
       zip -r output.zip .
-    displayName: 'Zip Current Directory'
+    displayName: 'Zip Temp Directory'
 
   - task: PublishBuildArtifacts@1
     inputs:
-      pathToPublish: 'output.zip'
+      pathToPublish: './temp/output.zip'
       artifactName: 'ZippedArtifact'
     displayName: 'Publish Artifact'
+    
