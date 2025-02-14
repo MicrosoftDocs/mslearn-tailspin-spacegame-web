@@ -6,6 +6,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
   - script: |
       mkdir -p temp
