@@ -1,6 +1,7 @@
 name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r)
 
-trigger: none
+trigger: none # No automatic build trigger, add - '*' for auto trigger
+
 
 pool:
   vmImage: 'ubuntu-latest'
