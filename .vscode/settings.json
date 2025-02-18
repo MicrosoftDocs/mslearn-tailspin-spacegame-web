@@ -1,0 +1,5 @@
+{
+    "appService.preDeployTask": "publish-release",
+    "appService.deploySubpath": "Tailspin.SpaceGame.Web\\bin\\Release\\net6.0\\publish",
+    "appService.defaultWebAppToDeploy": "/subscriptions/a7221375-7cc3-4ae4-bc47-4cc168835dd3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/mynewwebapp42263"
+}
