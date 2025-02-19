@@ -10,7 +10,7 @@ variables:
   dotnetSdkVersion: '6.x'
 jobs:
 - job: MyJob
-  displayName: My First Job
+  displayName: build and publish artifacts
   continueOnError: true
   workspace:
     clean: outputs
