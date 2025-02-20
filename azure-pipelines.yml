@@ -1,3 +1,18 @@
-pool: MyAgentPool
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
 steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '6.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- script: dotnet build --configuration Release
+  displayName: 'Build Project'
+
+- script: dotnet test --configuration Release
+  displayName: 'Run Tests'
