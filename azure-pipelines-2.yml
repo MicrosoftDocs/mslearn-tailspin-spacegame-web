@@ -8,7 +8,7 @@ trigger:
 
 pool:
   name: MyLocalAgentPool
-  demands: Agent.Name --eq MyLocalAgent
+  demands: Agent.Name -equals MyLocalAgent
 
 variables:
   solution: '**/*.sln'
