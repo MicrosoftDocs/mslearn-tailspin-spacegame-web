@@ -55,15 +55,6 @@ steps:
   parameters:
     buildConfiguration: 'Release'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publish the project - $(buildConfiguration)'
-  inputs:
-    command: publish
-    projects: $(projects)
-    publishWebProjects: false
-    arguments: '--no-build --configuration $(buildConfiguration) --output  $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
-
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifact: drop'
   condition: succeeded()
