@@ -47,12 +47,13 @@ steps:
     command: restore
     projects: $(projects)
 
-- task: DotNetCoreCLI@2
-  displayName: 'Build project - $(buildConfiguration)'
-  inputs:
-    command: build
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: $(projects)
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Release'
 
 - task: DotNetCoreCLI@2
   displayName: 'Publish the project - $(buildConfiguration)'
