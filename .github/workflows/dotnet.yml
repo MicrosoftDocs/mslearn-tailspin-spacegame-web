@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "build-pipeline" ]
   pull_request:
     branches: [ "main" ]
 
@@ -20,6 +20,14 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+    - name: Setup node
+      uses: actions/setup-node@v4
+    - name: Install npm packages
+      run: npm install
+    - name: Compile Sass assets
+      run: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+    - name: Write build info
+      run: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
