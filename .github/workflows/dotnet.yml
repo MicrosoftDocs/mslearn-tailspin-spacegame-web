@@ -24,19 +24,29 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '16'
+
     - name: Install npm packages
       run: npm ci
+
     - name: Compile Sass assets
       run: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+    
+    - name: Run gulp tasks
+      run: gulp
+  
     - name: Write build info
       run: 'echo "$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER" > buildinfo.txt'
-    - name: test build variable
-      run: 'echo "$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER"'
+
     - name: Restore dependencies
       run: dotnet restore
     - name: Build the project - Release
       run: dotnet build --no-restore --configuration Release
+
     - name: Publish the project - Release
       run: dotnet publish --no-build --configuration Release --output staging/Release
-    - name: test directories
-      run: ls
+      
+    - name: publish artifact
+      uses: actions/upload-artifact@v4
+      with:
+        path: staging/Release
+        retention-days: 15
