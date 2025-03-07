@@ -22,6 +22,8 @@ jobs:
         dotnet-version: 8.0.x
     - name: Setup node
       uses: actions/setup-node@v4
+      with:
+        node-version: '16'
     - name: Install npm packages
       run: npm ci
     - name: Compile Sass assets
