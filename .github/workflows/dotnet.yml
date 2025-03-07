@@ -29,8 +29,14 @@ jobs:
     - name: Compile Sass assets
       run: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
     - name: Write build info
-      run: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+      run: 'echo "$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER" > buildinfo.txt'
+    - name: test build variable
+      run: 'echo ""$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER"'
     - name: Restore dependencies
       run: dotnet restore
-    - name: Build
+    - name: Build the project - Release
       run: dotnet build --no-restore --configuration Release
+    - name: Publish the project - Release
+      run: dotnet publish --no-build --configuration Release --output staging/Release
+    - name: test directories
+      run: ls
