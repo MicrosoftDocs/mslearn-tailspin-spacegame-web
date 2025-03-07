@@ -31,7 +31,7 @@ jobs:
     - name: Write build info
       run: 'echo "$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER" > buildinfo.txt'
     - name: test build variable
-      run: 'echo ""$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER"'
+      run: 'echo "$GITHUB_ACTION, $GITHUB_RUN_ID, $GITHUB_RUN_NUMBER"'
     - name: Restore dependencies
       run: dotnet restore
     - name: Build the project - Release
