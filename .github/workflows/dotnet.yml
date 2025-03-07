@@ -23,7 +23,7 @@ jobs:
     - name: Setup node
       uses: actions/setup-node@v4
     - name: Install npm packages
-      run: npm install
+      run: npm ci
     - name: Compile Sass assets
       run: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
     - name: Write build info
