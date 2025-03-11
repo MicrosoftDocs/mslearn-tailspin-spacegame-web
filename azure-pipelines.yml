@@ -3,7 +3,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-lastest
+  hungdangdevopsvmagent
 
 variables:
   buildConfiguration: 'Release'
