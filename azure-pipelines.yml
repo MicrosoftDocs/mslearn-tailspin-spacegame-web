@@ -1,6 +1,10 @@
 trigger:
 - '*'
-
+pr:
+  branches:
+    include:
+      - main
+      - code-workflow
 pool:
   vmImage: 'ubuntu-20.04'
   demands:
