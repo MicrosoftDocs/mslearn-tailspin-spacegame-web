@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  my-personal-computer
 
 variables:
   buildConfiguration: 'Release'
