@@ -2,16 +2,7 @@ trigger:
 - '*'
 
 pool:
-<<<<<<< HEAD
-  Azure Pipelines
-
-
-
-variables:
-  buildConfiguration: 'Release'
-=======
   vmImage: ubuntu-latest
->>>>>>> 921df0b (Add publish tasks)
 
 steps:
 - task: UseDotNet@2
