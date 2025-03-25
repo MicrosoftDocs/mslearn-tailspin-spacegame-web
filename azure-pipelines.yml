@@ -6,43 +6,45 @@
 #13/10/2023 1037
 
 trigger:
-- main
+- '*'
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: 
+  vmImage: ubuntu-latest
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
-  - script: dotnet build --configuration $(buildConfiguration)
-    displayName: 'dotnet build $(buildConfiguration)'
+- task: UseDotNet@2
+  displayName: 'Use SDK de .Net 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
 
+- task: Npm@1
+  displayName: 'Ejecuta instalador NPM'
+  inputs:
+    verbose: false
 
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compilación Sass'
 
+- task: gulp@1
+  displayName: 'Ejecutar tarea de gupl.'
 
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Escriba información de compilación.'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurando dependencias.'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-# variables:
-#   solution: '**/*.sln'
-#   buildPlatform: 'Any CPU'
-#   buildConfiguration: 'Release'
-
-# steps:
-# - task: NuGetToolInstaller@1
-
-# - task: NuGetCommand@2
-#   inputs:
-#     restoreSolution: '$(solution)'
-
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: 'Compilar el proyecto - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
