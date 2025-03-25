@@ -7,6 +7,7 @@
 
 trigger:
 - '*'
+- '*'
 
 pool: 
   vmImage: ubuntu-latest
@@ -15,34 +16,49 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-  - script: dotnet build --configuration $(buildConfiguration)
-    displayName: 'dotnet build $(buildConfiguration)'
+- task: UseDotNet@2
+  displayName: 'Usando SDK .NET 6.x'
+  inputs:
+    packageType: sdk
+    version: '6.x'
 
+- task: Npm@1
+  displayName: 'Ejecuta instalación de npm'
+  inputs:
+    verbose: false
 
+- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+  displayName: 'Compilar recursos Sass'
 
+- task: gulp@1
+  displayName: 'Ejecutar tarea de gupl'
 
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Mostrar información de compilación'
+  workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurar dependencias del proyecto'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
 
-# variables:
-#   solution: '**/*.sln'
-#   buildPlatform: 'Any CPU'
-#   buildConfiguration: 'Release'
+- task: DotNetCoreCLI@2
+  displayName: 'Compilar el proyecto - Release'
+  inputs:
+    command: 'build'
+    arguments: '--no-restore --configuration Release'
+    projects: '**/*.csproj'
 
-# steps:
-# - task: NuGetToolInstaller@1
+- task: DotNetCoreCLI@2
+  displayName: 'Publicar proyecto - Realease'
+  inputs:
+    command: 'publish'
+    projects: '**/*.csproj'
+    publishWebProjects: false
+    arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
+    zipAfterPublish: true
 
-# - task: NuGetCommand@2
-#   inputs:
-#     restoreSolution: '$(solution)'
-
-# - task: VSBuild@1
-#   inputs:
-#     solution: '$(solution)'
-#     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
-
-# - task: VSTest@2
-#   inputs:
-#     platform: '$(buildPlatform)'
-#     configuration: '$(buildConfiguration)'
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar artifac: drop'
+  condition: succeeded()
