@@ -50,7 +50,7 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Publicar proyecto - Realease'
+  displayName: 'Publicar el proyecto compilado'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
@@ -58,6 +58,6 @@ steps:
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
 
-# - task: PublishBuildArtifacts@1
-#   displayName: 'Publicar artifac: drop'
-#   condition: succeeded()
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar artefacto: drop.'
+  condition: succeded()
