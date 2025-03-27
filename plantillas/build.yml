@@ -4,10 +4,10 @@ parameters:
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Usando SDK .NET $(dotnetSdkVersion)'
+  displayName: 'Usando SDK .NET $(parameters.dotnetSdkVer)'
   inputs:
     packageType: sdk
-    version: '$(dotnetSdkVer)'
+    version: '${{parameters.dotnetSdkVer}}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Compilar el proyecto - ${{ parameters.buildConfig}}'
