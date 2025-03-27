@@ -1,3 +1,59 @@
-pool: MyAgentPool
+# Norbert Brunner
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+#13/10/2023 1037
+
+trigger:
+- '*'
+
+pool: 
+  vmImage: ubuntu-latest
+
+variables:
+  buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  dotnetSdkVersion: '8.x'
+
 steps:
-- bash: echo hello world
+- task: UseDotNet@2
+  displayName: 'Usando SDK .NET $(dotnetSdkVersion)'
+  inputs:
+    packageType: sdk
+    version: '$(dotnetSdkVersion)'
+
+- task: Npm@1
+  displayName: 'Ejecuta instalación de npm'
+  inputs:
+    verbose: false
+
+- script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
+  displayName: 'Compilar recursos Sass'
+
+- task: gulp@1
+  displayName: 'Ejecutar tarea de gupl'
+
+- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+  displayName: 'Mostrar información de compilación'
+  workingDirectory: $(wwwrootDir)
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restaurar dependencias del proyecto'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- template: plantillas/build.yml
+  parameters:
+    buildConfig: 'Debug'
+    dotnetSdkVer: '$(dotnetSdkVersion)'
+
+- template: plantillas/build.yml
+  parameters:
+    buildConfig: 'Release'
+    dotnetSdkVer: '$(dotnetSdkVersion)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publicar artefacto: drop.'
+  condition: succeeded()
