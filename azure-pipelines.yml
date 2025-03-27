@@ -5,7 +5,12 @@
 
 name: workflow-pipeline
 trigger:
-  - "*"
+  branches:
+    include:
+      - "*"
+  paths:
+    exclude:
+      - .vscode/settings.json
 
 pool:
   vmImage: "ubuntu-20.04"
