@@ -7,7 +7,9 @@ trigger:
   - "*"
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: "ubuntu-20.04"
+  demands:
+    - npm
 
 variables:
   buildConfiguration: "Release"
@@ -42,13 +44,21 @@ steps:
       command: "restore"
       projects: "**/*.csproj"
 
-  - template: templates/build.yml
-    parameters:
-      buildConfiguration: "Debug"
+  - task: DotNetCoreCLI@2
+    displayName: "Build the project - $(buildConfiguration)"
+    inputs:
+      command: "build"
+      arguments: "--no-restore --configuration $(buildConfiguration)"
+      projects: "**/*.csproj"
 
-  - template: templates/build.yml
-    parameters:
-      buildConfiguration: "Release"
+  - task: DotNetCoreCLI@2
+    displayName: "Publish the project - $(buildConfiguration)"
+    inputs:
+      command: "publish"
+      projects: "**/*.csproj"
+      PublishWebProjects: false
+      arguments: "--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)"
+      zipAfterPublish: true
 
   - task: PublishBuildArtifacts@1
     displayName: "Publish artifact: drop"
