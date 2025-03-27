@@ -44,21 +44,13 @@ steps:
     command: 'restore'
     projects: '**/*.csproj'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Compilar el proyecto - $(buildConfiguration)'
-  inputs:
-    command: 'build'
-    arguments: '--no-restore --configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+- template: plantillas/build.yml
+  parameters:
+    buildConfig: 'Debug'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Publicar el proyecto compilado'
-  inputs:
-    command: 'publish'
-    projects: '**/*.csproj'
-    publishWebProjects: false
-    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
-    zipAfterPublish: true
+- template: plantillas/build.yml
+  parameters:
+    buildConfig: 'Release'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publicar artefacto: drop.'
