@@ -1,13 +1,13 @@
 parameters:
   buildConfig: 'Release'
-  dotnetSdkVer: '6.x'
+  dotnetSdkVer: '8.x'
 
 steps:
 - task: UseDotNet@2
-  displayName: 'Usando SDK .NET $(parameters.dotnetSdkVer)'
+  displayName: 'Usando SDK .NET ${{ parameters.dotnetSdkVer }}'
   inputs:
     packageType: sdk
-    version: '${{parameters.dotnetSdkVer}}'
+    version: '${{ parameters.dotnetSdkVer }}'
 
 - task: DotNetCoreCLI@2
   displayName: 'Compilar el proyecto - ${{ parameters.buildConfig}}'
@@ -17,10 +17,10 @@ steps:
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Publicar proyecto - ${{ parameters.buildConfig}}'
+  displayName: 'Publicar proyecto - ${{ parameters.buildConfig }}'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
     publishWebProjects: false
-    arguments: '--no-build --configuration %{{ parameters.buildConfig }} --output $(Build.ArtifactStagingDirectory)/${{parameters.buildConfig}}'
+    arguments: '--no-build --configuration ${{ parameters.buildConfig }} --output $(Build.ArtifactStagingDirectory)/${{ parameters.buildConfig }}'
     zipAfterPublish: true
