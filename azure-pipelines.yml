@@ -47,10 +47,12 @@ steps:
 - template: plantillas/build.yml
   parameters:
     buildConfig: 'Debug'
+    dotnetSdkVer: '$(dotnetSdkVersion)'
 
 - template: plantillas/build.yml
   parameters:
     buildConfig: 'Release'
+    dotnetSdkVer: '$(dotnetSdkVersion)'
 
 - task: PublishBuildArtifacts@1
   displayName: 'Publicar artefacto: drop.'
