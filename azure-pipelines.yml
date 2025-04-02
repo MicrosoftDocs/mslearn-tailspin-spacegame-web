@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: 'Default'
+  vmImage: 'ubuntu-20.04'
 
 variables:
   solution: '**/*.sln'
