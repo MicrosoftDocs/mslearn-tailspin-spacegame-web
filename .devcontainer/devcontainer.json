@@ -1,0 +1,43 @@
+{
+    "name": "AzurePipelines",
+    "dockerFile": "Dockerfile",
+
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-vscode.azurecli",
+                "ms-vscode.powershell",
+                "hashicorp.terraform",
+                "esbenp.prettier-vscode",
+                "tfsec.tfsec"
+            ]
+        }
+    },
+
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+
+    // Use 'postStartCommand' to run commands each time the container is successfully started..
+    "postStartCommand": "/home/vscode/azure-pipelines/start.sh",
+
+    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode",
+    // Amend Azure Pipelines agent version and arch type with 'ARCH' and 'AGENT_VERSION'. https://github.com/microsoft/azure-pipelines-agent/releases.
+    "build": {
+        "args": {
+            "UPGRADE_PACKAGES": "true",
+            "ARCH": "x64",
+            "AGENT_VERSION": "2.206.1"
+        }
+    },
+    "features": {
+        "terraform": "latest",
+        "azure-cli": "latest",
+        "git-lfs": "latest",
+        "github-cli": "latest",
+        "powershell": "latest"
+    }
+}
