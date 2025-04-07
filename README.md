@@ -1,3 +1,4 @@
+[![Build Status](https://dev.azure.com/sttopalov/Project%201/_apis/build/status%2FStiliyanTopalov.mslearn-tailspin-spacegame-web?branchName=build-pipeline)](https://dev.azure.com/sttopalov/Project%201/_build/latest?definitionId=4&branchName=build-pipeline)
 
 # Contributing
 
