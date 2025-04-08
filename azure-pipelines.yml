@@ -2,42 +2,60 @@ trigger:
 - '*'
 
 pool:
-  name: 'Default' # Replace Default with the name of your agent pool if you used a different pool
+  name: 'Default' # Your self-hosted agent pool name
 
 variables:
   buildConfiguration: 'Release'
 
 steps:
+# Ensure Node.js and npm are installed (for self-hosted Linux agents)
+- script: |
+    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+    sudo apt-get install -y nodejs
+    node -v
+    npm -v
+  displayName: 'Install Node.js and npm'
+
+# Use .NET SDK
 - task: UseDotNet@2
   displayName: 'Use .NET SDK 6.x'
   inputs:
     packageType: sdk
     version: '6.x'
 
+# Install npm dependencies with verbose logging
 - task: Npm@1
-  displayName: 'Run npm install'
+  displayName: 'Run npm ci'
   inputs:
-    verbose: false
+    command: 'custom'
+    customCommand: 'ci'
+    verbose: true
 
+# Compile SASS
 - script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
 
-- task: gulp@1
+# Run gulp tasks
+- task: Gulp@1
   displayName: 'Run gulp tasks'
 
-- script: 'echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt'
+# Write build info to a file
+- script: |
+    echo "$(Build.DefinitionName), $(Build.BuildId), $(Build.BuildNumber)" > buildinfo.txt
   displayName: 'Write build info'
   workingDirectory: Tailspin.SpaceGame.Web/wwwroot
 
+# Restore .NET project dependencies
 - task: DotNetCoreCLI@2
   displayName: 'Restore project dependencies'
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
 
+# Build the .NET project
 - task: DotNetCoreCLI@2
   displayName: 'Build the project - Release'
   inputs:
     command: 'build'
-    arguments: '--no-restore --configuration Release'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
     projects: '**/*.csproj'
