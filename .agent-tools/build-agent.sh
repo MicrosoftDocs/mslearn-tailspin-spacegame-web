@@ -2,7 +2,6 @@
 set -e
 
 # Use a newer agent version that satisfies the requirement (greater than 2.163.1)
-# The version in your Dockerfile is 2.206.1, so let's use that
 if [ -z "$AZP_AGENT_VERSION" ]; then
   AZP_AGENT_VERSION=2.206.1
 fi
@@ -25,8 +24,19 @@ if [ -n "$AZP_WORK" ]; then
 fi
 
 # Create the Downloads directory under the user's home directory
-if [ -n "$HOME/Downloads" ]; then
-  mkdir -p "$HOME/Downloads"
+mkdir -p "$HOME/Downloads"
+
+# Install Node.js and npm if not already installed
+if ! command -v node &> /dev/null || ! command -v npm &> /dev/null; then
+  echo "Installing Node.js and npm..."
+  apt-get update
+  apt-get install -y curl
+  curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+  apt-get install -y nodejs
+  
+  # Verify installation
+  node --version
+  npm --version
 fi
 
 # Download the agent package
@@ -67,6 +77,22 @@ if [ -f ./bin/installdependencies.sh ]; then
   echo "Running installdependencies.sh..."
   ./bin/installdependencies.sh || echo "Warning: Some dependencies might not have been installed correctly."
 fi
+
+# Create a .capabilities file to explicitly define capabilities
+echo "Creating capabilities file..."
+mkdir -p .agent/.capabilities
+cat > .agent/.capabilities/capabilities.json << EOF
+{
+  "Node": {
+    "location": "$(which node)",
+    "version": "$(node --version)"
+  },
+  "npm": {
+    "location": "$(which npm)",
+    "version": "$(npm --version)"
+  }
+}
+EOF
 
 # Configure the agent as the sudo (non-root) user
 echo "Configuring agent..."
