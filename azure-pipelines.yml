@@ -32,8 +32,9 @@ steps:
     verbose: true
 
 # Compile SASS
-- script: './node_modules/.bin/node-sass Tailspin.SpaceGame.Web/wwwroot --output Tailspin.SpaceGame.Web/wwwroot'
+- script: './node_modules/.bin/sass Tailspin.SpaceGame.Web/wwwroot:Tailspin.SpaceGame.Web/wwwroot'
   displayName: 'Compile Sass assets'
+
 
 # Run gulp tasks
 - task: Gulp@1
