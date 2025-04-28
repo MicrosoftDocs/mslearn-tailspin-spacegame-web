@@ -1,0 +1,3 @@
+pool: MyAgentPool
+steps:
+- bash: echo hello world
